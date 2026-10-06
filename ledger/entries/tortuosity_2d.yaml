@@ -1,0 +1,53 @@
+id: tortuosity_2d
+name: 2D solid-phase tortuosity factor (through-plane vs in-plane) and its anisotropy
+aliases:
+- effective diffusivity
+- macmullin number
+- tortuosity factor
+family: transport
+detectors:
+- BSE
+status: v1_only
+owner: adarsh
+v1_implemented_in: features/tortuosity_2d
+v1_columns:
+- tortuosity_2d_solid_tau_y
+- tortuosity_2d_solid_tau_x
+- tortuosity_2d_solid_anisotropy
+description: >-
+  Steady-state diffusion (sparse Laplace solve, scipy) through the solid phase of the harmonised features/_common
+  mask, top->bottom and left->right, on square tiles pooled to 100 nm; tau = solid fraction / (D_eff/D)
+  (TauFactor definition), median over tiles. The pore phase (~10 %) never spans a tile in 2D (it connects
+  in 3D), so 2D ionic tortuosity is infinite and is not reported. Vertical = through the coating (current
+  collector at the bottom, per the crop note in features/_common/config.yaml).
+battery_relevance: >-
+  Through-thickness ionic tortuosity governs rate capability; anisotropy shows flake alignment from calendering.
+findings: >-
+  tortuosity_2d_solid_tau_x: sep 0.55, q 0.13, ws_p 0.28, session_r2 0.84, sep_loo 0.46 -> no difference
+  (Batch_1 1.29, Batch_2 1.39, Batch_3 1.43); tortuosity_2d_solid_tau_y: sep 0.43, q 0.28, ws_p 0.86,
+  session_r2 0.58, sep_loo 0.34 -> no difference (Batch_1 1.89, Batch_2 2.28, Batch_3 2.28); tortuosity_2d_solid_anisotropy:
+  sep 0.12, q 0.91, ws_p 0.96, session_r2 0.50, sep_loo 0.07 -> no difference (Batch_1 1.53, Batch_2 1.6,
+  Batch_3 1.55) [rank_features.py with within-session test, 2026-10-03, 31 spots, 12 columns]
+refs:
+- doi: 10.1002/aenm.201301278
+  title: Tortuosity Anisotropy in Lithium‐Ion Battery Electrodes
+  authors: Ebner, Chung, Garcı́a et al.
+  year: 2013
+  venue: Advanced Energy Materials
+  verified: true
+  note: tortuosity anisotropy in Li-ion electrodes caused by particle alignment
+- doi: 10.1016/j.softx.2016.09.002
+  title: >-
+    TauFactor: An open-source application for calculating tortuosity factors from tomographic data
+  authors: Cooper, Bertei, Shearing et al.
+  year: 2016
+  venue: SoftwareX
+  verified: true
+  note: TauFactor, the standard tortuosity solver for electrode images
+- doi: 10.1080/09506608.2016.1249995
+  title: 'Tortuosity in electrochemical devices: a review of calculation approaches'
+  authors: Tjaden, Brett, Shearing
+  year: 2016
+  venue: International Materials Reviews
+  verified: true
+  note: review of tortuosity calculation approaches in electrochemical devices

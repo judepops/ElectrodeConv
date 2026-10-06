@@ -1,0 +1,37 @@
+id: particle_size
+name: Particle size distribution (d10 / d50 / d90)
+aliases:
+- equivalent circle diameter
+- grain size
+- psd particles
+family: morphology
+detectors:
+- BSE
+status: v1_only
+v1_implemented_in: features/_retired/particle_size
+v1_columns:
+- particle_size_d10_um
+- particle_size_d50_um
+- particle_size_d90_um
+description: >-
+  Equivalent-circle diameters of solid particles split by distance-transform watershed; reports d10, d50,
+  d90.
+battery_relevance: >-
+  d10/d50/d90 are what powder suppliers quote. Particle size controls solid-state diffusion length (rate
+  capability) and surface area (SEI growth, first-cycle loss).
+findings: >-
+  particle_size_d10_um: sep 0.39, q 0.34, ws_p 0.4, session_r2 0.39, sep_loo 0.26 -> no difference (Batch_1
+  1.96, Batch_2 1.9, Batch_3 1.96); particle_size_d50_um: sep 0.71, q 0.1, ws_p 0.13, session_r2 0.32,
+  sep_loo 0.56 -> no difference (Batch_1 3.74, Batch_2 3.59, Batch_3 3.61); particle_size_d90_um: sep
+  0.41, q 0.21, ws_p 0.057, session_r2 0.38, sep_loo 0.35 -> no difference (Batch_1 7.2, Batch_2 7.17,
+  Batch_3 7) [rank_features.py with within-session test, 2026-10-03, 31 spots, 12 columns] Retired 2026-10-03
+  to features/_retired/particle_size (no longer computed): no replacement yet (it measured pore spacing,
+  not graphite particle size; see flake_morphology); independent audit numbers in its README.
+refs:
+- doi: 10.1109/34.87344
+  title: 'Watersheds in digital spaces: an efficient algorithm based on immersion simulations'
+  authors: Vincent, Soille
+  year: 1991
+  venue: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  verified: true
+  note: watershed segmentation (Vincent and Soille)

@@ -1,0 +1,58 @@
+id: cc_interface
+name: Horizontal pores at the current-collector interface (delamination / adhesion indicator)
+aliases:
+- delamination gaps
+- interfacial horizontal voids
+family: depth_profile
+detectors:
+- BSE
+status: implemented
+owner: adarsh
+implemented_in: qc/spot_features/cc_interface.py
+columns:
+- cc_interface_horiz_share_bottom_frac
+- cc_interface_horiz_share_far_frac
+- cc_interface_horiz_share_delta_frac
+- cc_interface_horiz_len_bottom_um
+- cc_interface_horiz_len_far_um
+v1_implemented_in: null
+v1_columns: null
+description: >-
+  In the bottom 5 um of the full-height BSE void mask (current-collector side), share of pore area in
+  elongated near-horizontal pores (moment aspect > 3, major axis within 20 deg of horizontal) and the
+  longest such pore; the same 20-30 um up as a within-spot reference.
+battery_relevance: >-
+  Coating/current-collector debonding shows as long horizontal gaps parallel to the foil in cross-section;
+  poor adhesion raises contact resistance and lets the coating delaminate on cycling or calendering.
+findings: >-
+  [qc/spot_features/cc_interface.py, 2026-10-04, LOSSLARP_MASKS=harmonise (run before seg3 became the default), 31 spots, 5 columns] Bottom 5 um horizontal-pore share B1/B2/B3
+  0.159 / 0.173 / 0.268 (B3 vs rest AUC 0.68, p 0.091; within +++ p 0.12); longest horizontal pore at the bottom
+  4.6 / 5.4 / 7.7 um (AUC 0.68, p 0.092; within +++ p 0.047); the 20-30 um reference does not differ (share AUC
+  0.54, length 0.43) and bottom-minus-far share -0.095 / -0.064 / -0.002 (AUC 0.61, p 0.30). B1 vs B2 AUC 0.57-0.61,
+  p >= 0.51. Nothing survives 5-column correction (best within p 0.047 x 5 = 0.24): a weak trend, not a separation.
+  If anything Batch_3 (the baseline) has MORE long horizontal pores at the bottom, the opposite of B1/B2 being
+  delaminated; B1/B2 are denser near the bottom (as depth_porosity_b0), so fewer pores of any shape. Verdict deltas
+  -0.1 to -0.7 Batch_3 SDs, EQUIV/INCONCL. Test xrv9xvzb far-band length +2.9 SD (24 um), others within range.
+  Single spots are noisy: one or two large pores set each band. Caveat: the Cu foil is in frame only in epqdaau9,
+  so the bottom 5 um is near, not at, the interface. GXL (concept cc_delamination): capacity 3/3 and lifespan 3/3
+  read papers say delamination lowers them; rule added (lifespan, low confidence).
+refs:
+- doi: 10.1038/srep30945
+  title: >-
+    Mussel-inspired Polydopamine-treated Copper Foil as a Current Collector for High-performance Silicon Anodes
+  authors: Cho, Gong, Song et al.
+  year: 2016
+  venue: Scientific Reports
+  verified: true
+  note: >-
+    ion-milled cross-section FE-SEM: clear detachment of the Si composite from bare Cu after 50 cycles, none on
+    crosslinked PD-Cu; adhesion 245 vs 353 N/m tracks cycle life (paperclip, full text)
+- doi: 10.1002/advs.202410114
+  title: Achieving High Stability and Capacity in Micron-Sized Conversion-Type Iron Fluoride Li-Metal Batteries
+  authors: Choi, Yoon, Kang et al.
+  year: 2024
+  venue: Advanced Science
+  verified: true
+  note: >-
+    SEM after 5 cycles shows delamination between current collector and electrode layer, blamed for the
+    overpotential rise and capacity fade; carbon-coated Al prevents it (paperclip, full text)

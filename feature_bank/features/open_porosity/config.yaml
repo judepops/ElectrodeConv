@@ -1,0 +1,10 @@
+# Tuning numbers for open_porosity. Read in feature.py with CFG = load_config(__file__).
+# The decision mask itself (h.void) is tuned in features/_common/config.yaml (segmentation.void_*), not here:
+# every feature must see the same void. The numbers below only concern this folder's extra columns.
+
+ci_z: 1.96                 # porosity_open_ci95_frac = ci_z x single-image standard error (95 % normal interval)
+
+fixed_threshold: 0.6       # porosity_fixed060_frac: blurred anchored BSE below this many graphite units is void.
+                           # 0.6 is the research report's "black class < 0.6-0.65 g" and the screen's porosity_I060.
+                           # Same cleanup as h.void: specks and solid islands below _common segmentation.min_void_px
+                           # (16 px = 0.01 um2) are removed / filled, so the two recipes differ only in the threshold.

@@ -1,0 +1,3 @@
+# si_fraction tuning. The bright / solid masks themselves come from features/_common/config.yaml (frozen recipe).
+ci_z: 1.96               # bright_frac_ci95 = ci_z x single-image standard error (two-point correlation, ImageRep idea)
+min_object_ecd_um: 1.0   # bright_n_per_1000um2 counts objects at least this equivalent-circle diameter (1257 px)

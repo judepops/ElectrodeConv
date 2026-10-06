@@ -1,0 +1,122 @@
+id: minkowski_functionals
+name: Minkowski functionals of the pore phase (area, interface length, Euler characteristic)
+aliases:
+- connectivity
+- euler number
+- interface density
+- perimeter density
+- pore number density
+- specific surface area
+family: morphology
+detectors:
+- BSE
+status: implemented
+owner: luca
+implemented_in: cnn/tile_features.py
+columns:
+- interface_density_per_um
+- pore_n_per_1000um2
+v1_implemented_in: features/minkowski_functionals
+v1_columns:
+- interface_density_per_um
+- interface_density_resid_z
+- pore_n_per_1000um2
+description: >-
+  On the shared harmonised void mask: interface density L_A = (pi/4)(P_Lx + P_Ly) from boundary crossings
+  per um along rows and columns (S_V = 4/pi L_A for isotropic structure); its residual on porosity from
+  a Batch_3-only linear fit, in B3 residual SDs (trained, leave-one-out for baseline spots, models/minkowski_functionals.npz);
+  resolvable pores (8-connected void objects >= 64 px = 0.04 um2) and the Euler density (those pores minus
+  enclosed 4-connected solid islands >= 64 px), per 1000 um2.
+battery_relevance: >-
+  Interface length is a 2D proxy for the macro part of the electrode/electrolyte surface where the SEI
+  forms (first-cycle loss / ICE scales with accessible surface; BET also counts nanoscale surface the
+  image cannot see). At equal porosity, more interface and more pores mean a finer, more divided pore
+  network. In 2D the pores are isolated, so the Euler number is about the pore count and says nothing
+  about 3D percolation.
+findings: >-
+  Final run: L_A B1 0.453 / B2 0.497 / B3 0.532 1/um, sep 0.87, q 0.023 (session-blind; session R2 0.72,
+  %GRR upper 86 %), within-session p 0.057 (B1 -2.11, B2 -1.42 B3-SD; B1 meets B3 directly in one 2080
+  pair only), perturbation 0.60 (gamma 0.8). B1's two 2316 spots are the lowest L_A of 31 and outside
+  the within-session test (n_eff = 1 session); without them B1 is -1.2 B3-SD. resid_z sep 0.48, q 0.20,
+  within p 0.18, pert 0.38; pore_n (= euler, r 0.99) sep 0.38, q 0.41, within p 0.41, pert 0.66. Battery:
+  incoming lots read lower L_A, about half from lower porosity; if real a trade-off (less SEI surface,
+  higher ICE, vs longer diffusion, poorer rate); a pore-count change would be neither, only a sign the
+  process changed; not established. Tier 2: B1 6/7 and B2 7/7 pass on both columns; certificate P(|delta|
+  > margin) for L_A 0.60 (B1), 0.13 (B2); not a reason for either INVESTIGATE. [rank_features.py + robustness.py
+  + verdicts, integrated run]
+refs:
+- doi: 10.1007/3-540-45043-2_6
+  title: >-
+    Additivity, Convexity, and Beyond: Applications of Minkowski Functionals in Statistical Physics
+  authors: Mecke
+  venue: Lecture Notes in Physics
+  verified: true
+  note: Hadwiger completeness of the Minkowski functionals (year not in the Crossref record)
+- doi: 10.1007/978-1-4615-1233-2
+  title: Practical Stereology
+  authors: Russ, DeHoff
+  year: 2000
+  venue: Springer (book)
+  verified: true
+  note: stereological relations P_L, L_A, S_V (L_A = pi/2 P_L, S_V = 2 P_L)
+- doi: 10.1007/bf03397456
+  title: Measurement of Internal Boundaries in Three-Dimensional Structures By Random Sectioning
+  authors: Smith, Guttman
+  year: 1953
+  venue: JOM
+  verified: true
+  note: S_V = 2 P_L stereology (with L_A = (pi/2) P_L gives S_V = (4/pi) L_A)
+- doi: 10.1007/s11242-018-1201-4
+  title: >-
+    Porous Media Characterization Using Minkowski Functionals: Theories, Applications and Future Directions
+  authors: Armstrong, McClure, Robins et al.
+  year: 2018
+  venue: Transport in Porous Media
+  verified: true
+  note: review of Minkowski functionals for porous media characterisation
+- doi: 10.1016/j.cageo.2010.03.007
+  title: Quantification of soil structure based on Minkowski functions
+  authors: Vogel, Weller, Schlüter
+  year: 2010
+  venue: Computers & Geosciences
+  verified: true
+  note: Minkowski functions (incl. Euler number) as a function of pore size / opening
+- doi: 10.1016/s0378-7753(01)00595-x
+  title: >-
+    Relation between surface properties, pore structure and first-cycle charge loss of graphite as negative
+    electrode in lithium-ion batteries
+  authors: Joho, Rykart, Blome et al.
+  year: 2001
+  venue: Journal of Power Sources
+  verified: true
+  note: which part of the surface (and pore structure) drives first-cycle loss
+- doi: 10.1109/t-c.1971.223289
+  title: Local Properties of Binary Images in Two Dimensions
+  authors: Gray
+  year: 1971
+  venue: IEEE Transactions on Computers
+  verified: true
+  note: digital Euler number and connectivity duality (8- vs 4-connectivity)
+- doi: 10.1111/j.1365-2818.1986.tb04282.x
+  title: Estimation of surface area from vertical sections
+  authors: Baddeley, Gundersen, Cruz-Orive
+  year: 1986
+  venue: Journal of Microscopy
+  verified: true
+  note: unbiased S_V for anisotropic material needs vertical sections with cycloid test lines
+- doi: 10.1149/1.1838281
+  title: >-
+    Graphites for Lithium-Ion Cells: The Correlation of the First-Cycle Charge Loss with the Brunauer-Emmett-Teller
+    Surface Area
+  authors: Winter, Novák, Monnier
+  year: 1998
+  venue: Journal of The Electrochemical Society
+  verified: true
+  note: first-cycle charge loss scales with graphite surface area (SEI)
+- doi: 10.5566/ias.v26.p83-92
+  title: Computation of Minkowski measures on 2D and 3D binary images
+  authors: Legland, Kiêu, Devaux
+  year: 2007
+  venue: Image Analysis & Stereology
+  verified: true
+  note: perimeter from directional intercept counts (Crofton) and Euler number on binary images

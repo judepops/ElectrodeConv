@@ -1,0 +1,10 @@
+# Tuning numbers for flake_orientation. Pixel numbers are at the WORKING resolution: the harmonised BSE crop
+# downsampled `downsample` times (2 -> 50 nm/px). Recipe from the orientation screen (st_*_bnd features).
+downsample: 2              # area-mean 2x2 blocks: 25 -> 50 nm/px (the structure tensor does not need 25 nm)
+gradient_sigma_px: 1.5     # derivative-of-Gaussian scale (75 nm): the scale of an edge
+integration_sigma_px: 8    # window over which gradients are averaged (400 nm): the scale of a local layer direction
+edge_margin_px: 16         # ignore a 0.8 um frame: the Gaussian filters see the crop border there
+boundary_width_px: 1       # boundary band = dilation != erosion of the void mask with a (2r+1) square, r = this
+bright_exclusion_px: 4     # drop boundary pixels within this distance (0.2 um) of the Si-like bright phase:
+                           # SiOx shards are isotropic and would read as "disorder" (composition leaking in)
+min_boundary_px: 2000      # fewer graphite/void boundary pixels than this -> nan (a normal spot has ~0.7-2e5)

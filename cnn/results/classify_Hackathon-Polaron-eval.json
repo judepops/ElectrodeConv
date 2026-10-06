@@ -1,0 +1,76 @@
+{
+ "model": "V1 (v_k7_con02) + V2 (v2, v2s1, v2s2, v2_noseg) side by side",
+ "spots": [
+  {
+   "sample_id": "0eryguqq",
+   "call": "Batch_3",
+   "p": [
+    0.0,
+    0.001,
+    0.999
+   ],
+   "stable": 1.0
+  },
+  {
+   "sample_id": "4hq27w4c",
+   "call": "Batch_1",
+   "p": [
+    0.992,
+    0.004,
+    0.004
+   ],
+   "stable": 1.0
+  },
+  {
+   "sample_id": "fhwrjtet",
+   "call": "Batch_3",
+   "p": [
+    0.003,
+    0.075,
+    0.922
+   ],
+   "stable": 1.0
+  },
+  {
+   "sample_id": "fspqbkxl",
+   "call": "Batch_2",
+   "p": [
+    0.001,
+    0.986,
+    0.013
+   ],
+   "stable": 1.0
+  },
+  {
+   "sample_id": "soo2ax3r",
+   "call": "Batch_1",
+   "p": [
+    0.731,
+    0.245,
+    0.024
+   ],
+   "stable": 0.9705882352941176
+  },
+  {
+   "sample_id": "y59rxmxl",
+   "call": "Batch_1",
+   "p": [
+    0.711,
+    0.25,
+    0.039
+   ],
+   "stable": 0.9705882352941176
+  }
+ ],
+ "per_batch_assignment": {
+  "per_batch": 2,
+  "assignment": {
+   "0eryguqq": "Batch_3",
+   "4hq27w4c": "Batch_1",
+   "fhwrjtet": "Batch_3",
+   "fspqbkxl": "Batch_2",
+   "soo2ax3r": "Batch_1",
+   "y59rxmxl": "Batch_2"
+  }
+ }
+}

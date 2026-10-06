@@ -1,0 +1,51 @@
+id: flake_morphology
+name: Graphite flake size and shape after splitting on Inlens ridges (decomposes watershed d50)
+aliases:
+- flake aspect ratio
+- flake thickness
+- watershed d50 decomposition
+family: morphology
+detectors:
+- BSE
+- Inlens
+status: v1_only
+owner: adarsh
+v1_implemented_in: features/flake_morphology
+v1_columns:
+- flake_d50_um
+- flake_d50_aw_um
+- flake_thick_d50_um
+- flake_aspect_median
+- flake_n_per_1000um2
+- flake_orient_order
+- flake_tilt_deg
+description: >-
+  Research report rank 14. First decompose particle_size_d50_um (the only feature with a within-session
+  batch signal): recompute it on the harmonised mask, without crack/speckle pores, without the bright
+  phase, and with Inlens ridges as flake boundaries, to see which part carries the signal. Then per-flake
+  regionprops: thickness (minor axis), aspect ratio, area-weighted size.
+battery_relevance: >-
+  Graphite flake size and aspect set packing and through-plane tortuosity (rate capability); they change
+  with the graphite source or milling.
+findings: >-
+  Decomposition of particle_size_d50_um (31 spots): Batch_1's larger d50 comes from the bright phase merging
+  into fragments (graphite-only d50 3.27/3.42/3.26 um B1/B2/B3); Inlens ridges as flake boundaries are
+  session-dominated (session R2 0.95); cropping to the _common window removes the old signal (sep 0.71
+  -> 0.19). New columns: overall no difference (q > 0.3), but consistent INSIDE the split source images:
+  flake_d50_aw_um ws_p 0.016, flake_aspect_median ws_p 0.073 (B1 < B3 < B2 in all 7 within-image contrasts).
+  Leads only: ~85 features tested, smallest attainable p 1/192.
+refs:
+- doi: 10.1002/aenm.201301278
+  title: Tortuosity Anisotropy in Lithium‐Ion Battery Electrodes
+  authors: Ebner, Chung, Garcı́a et al.
+  year: 2013
+  venue: Advanced Energy Materials
+  verified: true
+- doi: 10.1111/j.1551-2916.2008.02736.x
+  title: >-
+    Contradicting Geometrical Concepts in Pore Size Analysis Attained with Electron Microscopy and Mercury
+    Intrusion
+  authors: Münch, Holzer
+  year: 2008
+  venue: Journal of the American Ceramic Society
+  verified: true

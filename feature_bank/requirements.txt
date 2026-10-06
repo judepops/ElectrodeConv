@@ -1,0 +1,22 @@
+numpy
+pillow
+pandas
+pyyaml
+scikit-image
+scikit-learn
+matplotlib
+scipy
+# feature bank (bank/, cloud/modal_bank.py, tests/). kymatio and its older scipy live in cloud/requirements-gpu.txt.
+torch
+torchvision
+timm>=1.0.20
+huggingface_hub
+modal
+pyarrow
+imagecodecs
+porespy==3.1.1
+cripser==0.0.36
+gudhi==3.13.0
+mahotas==1.4.19
+taufactor==1.2.1
+pytest

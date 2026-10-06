@@ -1,0 +1,2 @@
+# 2D solid-phase tortuosity. Masks come from features/_common (harmonised, noise-matched).
+scale: 4      # average-pool 4x4 px (100 nm) before solving: same tau as scale 2 within ~5 %, 6x faster

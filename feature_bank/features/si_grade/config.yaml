@@ -1,0 +1,7 @@
+# si_grade tuning (diagnostic columns). The bright mask itself comes from features/_common/config.yaml.
+core_erosion_px: 6           # core = bright pixels >= 6 px (150 nm) from the particle edge; BSE edge blur is 4-5 px
+min_core_px: 100             # a particle needs >= 100 core pixels (0.06 um2) to get a core level
+max_hole_px: 6400            # holes up to 4 um2 inside a particle are filled (counted as particle interior)
+rim_px: 6                    # internal-dark test ignores the outer 6 px of the filled particle (edge blur ramp)
+dark_fraction_of_core: 0.85  # an interior pixel is "dark" below 0.85 x its particle's core level (blurred BSE)
+texture_lag_px: 4            # bright_core_cv uses pixel pairs 4 px (100 nm) apart: noise is uncorrelated there

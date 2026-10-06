@@ -1,0 +1,8 @@
+# Tuning numbers for two_point_correlation (S2 correlation lengths along x and y, integral ranges).
+# Masks come from features/_common: void (open pore), solid (= not void), bright (Si-like phase, adaptive recipe).
+
+max_lag_um: 20          # S2 is computed for lags 0..20 um along each axis (crop is ~33 um tall, ~175 um wide);
+                        # a phase whose normalised S2 never falls to 1/e inside this range gives nan
+min_phase_frac: 0.002   # a phase covering less (or more than 1 - this) of the crop -> nan (S2 is undefined)
+# Integral ranges come from features._common.harmonise.fraction_se (block 4 px, window |dy|<=4 um, |dx|<=12 um,
+# set in features/_common/config.yaml -> representativity).

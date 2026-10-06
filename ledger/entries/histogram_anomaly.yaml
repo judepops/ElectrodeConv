@@ -1,0 +1,24 @@
+id: histogram_anomaly
+name: BSE histogram anomaly score vs baseline
+aliases:
+- grey level histogram z score
+- intensity histogram distance
+family: learned
+detectors:
+- BSE
+status: v1_only
+v1_implemented_in: features/_retired/histogram_anomaly
+v1_columns:
+- histogram_anomaly_z
+description: >-
+  Mean absolute z-score of a spot's BSE histogram against the baseline spots' histograms (leave-one-out
+  for baseline spots).
+battery_relevance: >-
+  Catches changes no named feature was written for; says that something changed, not what. Sensitive to
+  acquisition (black level), so check it against imaging settings.
+findings: >-
+  histogram_anomaly_z: sep 0.76, q 0.046, ws_p 0.89, session_r2 0.94, sep_loo 0.59 -> session-confounded
+  (Batch_1 1.66, Batch_2 1.02, Batch_3 0.856) [rank_features.py with within-session test, 2026-10-03,
+  31 spots, 12 columns] Retired 2026-10-03 to features/_retired/histogram_anomaly (no longer computed):
+  no material replacement (it tracked acquisition, session R2 0.94); independent audit numbers in its
+  README.

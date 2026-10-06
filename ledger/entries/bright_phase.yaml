@@ -1,0 +1,30 @@
+id: bright_phase
+name: Bright (heavy) second-phase area fraction
+aliases:
+- additive fraction
+- heavy phase fraction
+family: composition
+detectors:
+- BSE
+status: v1_only
+v1_implemented_in: features/_retired/bright_phase
+v1_columns:
+- bright_phase_frac
+description: >-
+  Fraction of the BSE image above the upper multi-Otsu threshold, i.e. the high-atomic-number phase.
+battery_relevance: >-
+  The bright phase is part of the recipe (an additive or a second active material). Its amount changing
+  means the formulation changed.
+findings: >-
+  bright_phase_frac: sep 0.64, q 0.12, ws_p 0.65, session_r2 0.95, sep_loo 0.44 -> no difference (Batch_1
+  0.104, Batch_2 0.0667, Batch_3 0.0704) [rank_features.py with within-session test, 2026-10-03, 31 spots,
+  12 columns] Retired 2026-10-03 to features/_retired/bright_phase (no longer computed): superseded by
+  si_fraction (bright_solid_frac); independent audit numbers in its README.
+refs:
+- doi: 10.1109/tsmc.1979.4310076
+  title: A Threshold Selection Method from Gray-Level Histograms
+  authors: Otsu
+  year: 1979
+  venue: IEEE Transactions on Systems Man and Cybernetics
+  verified: true
+  note: Otsu thresholding

@@ -1,0 +1,30 @@
+id: glcm_texture
+name: Grey-level co-occurrence (Haralick) texture
+aliases:
+- co-occurrence contrast
+- energy
+- haralick features
+- homogeneity
+family: texture
+detectors:
+- BSE
+- Inlens
+- SE
+status: rejected
+description: >-
+  GLCM contrast, homogeneity, energy and correlation at several pixel distances and angles, per detector.
+battery_relevance: >-
+  Picks up fine-scale structure (carbon-binder texture, surface roughness) that the segmentation ignores.
+findings: >-
+  Texture family: no segmentation-free descriptor separates batch from acquisition. glcm_ir_h1_con session
+  R2 0.94 (acquisition_dominated); glcm on BSE ranks (glcmc_br_hv16_con) eta2 0.007 (weak). Keep only
+  as an acquisition monitor. Source: notes/feature_screen.md (Luca's empirical screen, 31 spots, within-mixed-session
+  permutation test, 2026-10-03)
+refs:
+- doi: 10.1109/tsmc.1973.4309314
+  title: Textural Features for Image Classification
+  authors: Haralick, Shanmugam, Dinstein
+  year: 1973
+  venue: IEEE Transactions on Systems Man and Cybernetics
+  verified: true
+  note: Haralick textural features

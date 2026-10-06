@@ -1,0 +1,85 @@
+id: thin_solid
+name: Thin-solid fraction (ligaments, flake tips and slivers thinner than 0.3-0.8 um)
+aliases:
+- flake tip fraction
+- sliver fraction
+- solid ligament thickness lower tail
+family: morphology
+detectors:
+- BSE
+status: implemented
+owner: adarsh
+implemented_in: qc/depth_profile.py
+columns:
+- thin_solid_frac
+v1_implemented_in: features/thin_solid
+v1_columns:
+- thin_solid_frac
+description: >-
+  Share of the harmonised solid phase lying in ligaments thinner than 0.3 / 0.5 / 0.8 um (distance to
+  pore, max-filtered over 9 px to the ligament half-thickness). Hand-crafted translation of the sparse-autoencoder
+  latents on DINOv2-L BSE patch tokens that separate Batch_3 from the rest (analysis/interp/): latent
+  715 fires on thin slivers and acute flake tips at pore boundaries.
+battery_relevance: >-
+  Thin ligaments are fine fragments and exposed graphite edges: more edge-plane surface in contact with
+  electrolyte means more SEI formation and first-cycle (irreversible) capacity loss, and fragmented, weakly
+  connected particles.
+findings: >-
+  31 spots: B1 / B2 / B3 = 0.0685 / 0.0741 / 0.0795 at 0.5 um (monotonic at 0.3 and 0.8 um too). sep 0.73-0.77,
+  q 0.011 for all three, within-split-image ws_p 0.021 (0.3 um) / 0.083 / 0.078 -> separates; session_r2
+  0.64-0.68. Spearman +0.6 with the area share of SAE latents 715, 1340 and 1248 (each AUC ~0.99 for Batch_3
+  vs rest, family-wise p < 0.001). Crack/lamella ridge filters did not capture latent 1340 (session-dominated).
+  [rank_features.py, 2026-10-03] V2 (qc/depth_profile.py, Luca's recipe, 31 spots): B1/B2/B3 0.0891 /
+  0.0904 / 0.0885, B3 vs rest AUC 0.48 (p 0.87): the across-spot separation is gone on this recipe; within
+  sessions +++ (p 0.04-0.06); B1 vs B2 AUC 0.51. GXL evidence (concept thin_ligaments): charging speed
+  4 of 5 papers 'more'; first-charge loss mixed 3/2.
+refs:
+- doi: 10.1021/acsami.0c11190
+  title: >-
+    Operando Electrochemical Atomic Force Microscopy of Solid–Electrolyte Interphase Formation on Graphite
+    Anodes: The Evolution of SEI Morphology and Mechanical Properties
+  authors: Zhang, Smith, Jervis et al.
+  year: 2020
+  venue: ACS Applied Materials & Interfaces
+  verified: true
+  note: higher edge/basal ratio forms excess SEI (gxl-evidence)
+- doi: 10.1038/s41467-017-00973-y
+  title: >-
+    Fast-charging high-energy lithium-ion batteries via implantation of amorphous silicon nanolayer in
+    edge-plane activated graphite anodes
+  authors: Kim, Chae, Ma et al.
+  year: 2017
+  venue: Nature Communications
+  verified: true
+  note: exposed graphite edge sites improve Li mass-transfer kinetics (gxl-evidence)
+- doi: 10.1039/c9sc03569a
+  title: >-
+    Probing the reversibility and kinetics of Li + during SEI formation and (de)intercalation on edge
+    plane graphite using ion-sensitive scanning electrochemical microscopy
+  authors: Gossage, Hui, Zeng et al.
+  year: 2019
+  venue: Chemical Science
+  verified: true
+  note: SEI formation and Li+ kinetics on edge-plane graphite (paperclip)
+- doi: 10.1046/j.1365-2818.1997.1340694.x
+  title: A new method for the model‐independent assessment of thickness in three‐dimensional images
+  authors: Hildebrand, Ruegsegger
+  year: 1997
+  venue: Journal of Microscopy
+  verified: true
+  note: local thickness method this approximates
+- doi: 10.3390/ma6041310
+  title: Lithium Ion Battery Anode Aging Mechanisms
+  authors: Agubra, Fergus
+  year: 2013
+  venue: Materials
+  verified: true
+  note: 'review of anode aging: SEI growth on exposed graphite surface (paperclip)'
+- doi: 10.3390/nano11071813
+  title: >-
+    Identifying the Association between Surface Heterogeneity and Electrochemical Properties in Graphite
+  authors: Kim, Yun, Sheem et al.
+  year: 2021
+  venue: Nanomaterials
+  verified: true
+  note: graphite surface heterogeneity vs electrochemical properties (amass)

@@ -1,0 +1,15 @@
+# Tuning numbers for chord_length (mean chord length of the solid and pore phases along x and y).
+# Masks come from features/_common (frozen harmonised segmentation: void = open pore, solid = not void).
+
+# How the mean chord length is estimated from the cropped image (both are unbiased for the true mean):
+#   vv_nl            phase length on the lines / half the number of phase boundaries crossed inside the lines
+#                    (L = V_V / N_L with N_L = P_L / 2, the stereological mean intercept length). Uses every pixel;
+#                    chords cut by the border count with the part that is visible. Solid and pore share one N_L, so
+#                    solid / pore chord = (1 - phi) / phi exactly. Default: as unbiased as minus-sampling and more
+#                    precise through the thickness, where 27 % of solid chords touch the 33 um-tall crop (split-half
+#                    r 0.70 vs 0.52 for solid_chord_y_um).
+#   minus_sampling   keep only chords that touch neither end of their line, each weighted by 1 / (n - L - 1)
+#                    (Miles-Lantuejoul), so long chords that are more often cut by the border are not under-counted.
+estimator: vv_nl
+
+min_chords: 200        # fewer complete chords than this along an axis -> nan (a typical spot has ~34,000 per axis)

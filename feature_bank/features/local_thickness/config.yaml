@@ -1,0 +1,5 @@
+# Local thickness (opening granulometry by Euclidean discs) on the shared harmonised void mask (features/_common).
+# The pore / solid split itself is tuned in features/_common/config.yaml, not here.
+solid_downsample: 2   # open the solid on 2x2 blocks (solid only if all 4 pixels are, so 1-px gaps survive): 1.1 s instead
+                      # of 5.3 s per spot. Against full resolution on all 31 spots: |change| <= 0.030 um (0.09 B3-SD),
+                      # r = 0.999. 1 = full resolution. Pores are always opened at full resolution.

@@ -1,0 +1,34 @@
+id: sae_patch_latents
+name: >-
+  Sparse-autoencoder latents of DINOv2-L BSE patch tokens (interpretability of the Batch_3 direction)
+aliases:
+- dictionary learning on vit patch tokens
+- sae latents
+family: learned
+detectors:
+- BSE
+status: in_progress
+owner: adarsh
+description: >-
+  analysis/interp/: top-k SAE (2048 latents, k 32) on 238k DINOv2-L/14-reg patch tokens of the raw BSE
+  at 50 nm/px; per-crop area share of each latent; latents ranked by Batch_3-vs-rest AUC with a family-wise
+  permutation p; top-patch montages to name them; exact patch heatmaps of the label-free cluster direction.
+battery_relevance: >-
+  Turns the unsupervised Batch_3 grouping into nameable microstructural patterns, which then become hand-crafted
+  features (features/thin_solid).
+findings: >-
+  DINOv2-L on BSE 50 nm/px clusters 15/17 Batch_3 crops together without labels (ARI 0.45-0.50). Patch
+  heatmaps: Batch_3-like on finely fragmented, cracked flake regions, Batch_1/2-like on large intact flakes;
+  phase fractions explain only 8-15% of patch-score variance. SAE (76% variance explained): latents 1248,
+  1340, 1932, 715, 304, 66 have AUC ~0.99 for Batch_3 vs rest, family-wise p < 0.001 over 2048 latents,
+  same sign in all 3 split images. 715 = thin slivers / flake tips (-> features/thin_solid), 1340 = fine
+  lamellar edges inside flakes, 1248 = smooth flake interior near a pore; 1595 tracks the raw black level
+  (rho 0.81), 304 / 1932 the BSE noise level: acquisition, excluded. No latent splits Batch_1 / Batch_2
+  beyond chance (best family-wise p 0.51).
+refs:
+- doi: 10.48550/arxiv.2304.07193
+  title: 'DINOv2: Learning Robust Visual Features without Supervision'
+  authors: Oquab, Darcet, Moutakanni et al.
+  year: 2023
+  venue: arXiv (Cornell University)
+  verified: true

@@ -1,0 +1,56 @@
+id: drying_cracks
+name: Through-coating drying cracks (long near-vertical voids)
+aliases:
+- mud cracks
+- shrinkage cracks
+- vertical channel voids
+family: morphology
+detectors:
+- BSE
+- SE
+status: idea
+owner: null
+implemented_in: null
+columns: []
+v1_implemented_in: null
+v1_columns: null
+description: >-
+  In the full-height BSE void mask, connected voids that are long (> 5 um), thin (local-thickness median
+  < 0.5 um) and near-vertical (major axis within 25 deg of the coating normal); report their count per
+  100 um of width, the share of coating height they span, and the longest. SE confirms they are open gaps,
+  not shadow. Differs from graphite_cracks (inside particles) and cc_interface (horizontal, at the foil):
+  these run between particles across the coating.
+battery_relevance: >-
+  Thick or fast-dried anodes crack when capillary stress exceeds the film's critical cracking thickness
+  (Kumberg 2019); cracks cut electronic paths, weaken adhesion and become delamination/lithium-plating
+  sites.
+findings: >-
+  GXL evidence (concept drying_cracks, 4 Oct 2026): 0 of 25 full-text PMC/arXiv papers per outcome addressed
+  cracks -> capacity / charge speed / lifespan / first-charge loss / swelling / uniformity, so no counted
+  direction. The on-topic papers (mud cracking in thick electrodes, crack patterns, drying-temperature
+  delamination) are abstract-only (Wiley / JES / Drying Technol.); read them via OpenAlex/hpr before trusting
+  a direction. Not yet checked whether through-coating cracks appear at all in our crop heights.
+refs:
+- doi: 10.1002/batt.202400260
+  title: The Effect of Mud Cracking on the Performance of Thick Li‐Ion Electrodes
+  authors: Dawson, Morrison, Iacoviello et al.
+  year: 2024
+  venue: Batteries & Supercaps
+  verified: true
+  note: 'gxl-evidence abstract-only: mud cracking vs performance of thick Li-ion electrodes'
+- doi: 10.1002/ente.201900722
+  title: >-
+    Drying of Lithium‐Ion Battery Anodes for Use in High‐Energy Cells: Influence of Electrode Thickness
+    on Drying Time, Adhesion, and Crack Formation
+  authors: Kumberg, Müller, Diehm et al.
+  year: 2019
+  venue: Energy Technology
+  verified: true
+  note: 'crossref: anode drying, thickness vs crack formation and adhesion'
+- doi: 10.3390/batteries8090107
+  title: Li-ion Electrode Microstructure Evolution during Drying and Calendering
+  authors: Nikpour, Liu, Minson et al.
+  year: 2022
+  venue: Batteries
+  verified: true
+  note: 'crossref: review of microstructure changes during drying and calendering'

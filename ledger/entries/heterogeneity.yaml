@@ -1,0 +1,144 @@
+id: heterogeneity
+name: Spatial heterogeneity of pore and Si-phase fractions (tile CV, excess over ImageRep)
+aliases:
+- excess heterogeneity
+- spatial heterogeneity
+- tile cv
+family: spatial_statistics
+detectors:
+- BSE
+status: implemented
+owner: luca
+implemented_in: cnn/tile_features.py
+columns:
+- porosity_block_cv
+- si_block_cv
+v1_implemented_in: features/heterogeneity
+v1_columns:
+- porosity_tile_cv
+- bright_tile_cv
+- bright_excess_het_ratio
+description: >-
+  Within-image spread of the void and bright (Si-like) fractions over 512-px (12.8 um) tiles of the shared
+  harmonised masks, tiles placed every 64 px (averaged over grid offsets): the tile CV, and the excess
+  ratio = observed tile variance / phi(1-phi) A_IR / A_tile, the variance a statistically homogeneous
+  medium with the same two-point correlation would give (A_IR from features/_common fraction_se, window
+  |dy|<=4, |dx|<=12 um). Differs from si_fraction / open_porosity (the fractions and their CIs) and from
+  two_point_correlation (lengths): this is Polaron's 'spatial heterogeneity' KPI, normalised so that a
+  sparse, coarse phase is not called patchy.
+battery_relevance: >-
+  Si-rich or pore-poor patches are local swelling, current-density and Li-plating hot-spots (model studies
+  on SiO/graphite); uneven tiles point at mixing/dispersion, binder migration or uneven calendering. Counter-evidence:
+  active-material clustering alone had minimal impact on fast charge in 14 graphite tomograms (Parmananda
+  2022), and in Si-graphite the least evenly dispersed binder cycled best (Armstrong 2022). Low-moderate
+  confidence; a process indicator first.
+findings: >-
+  Final run (rank_features + robustness, 31 spots): bright_excess_het_ratio B1 0.645 | B2 0.583 | B3 0.821,
+  sep 0.88 (LOO 0.82), q 0.023, within-session p 0.031 (B1 -1.54, B2 -1.19 B3-SD; B1 has one direct contrast
+  vs B3), perturbation 0.04 - a hint that the incoming Si phase is more evenly dispersed than baseline,
+  NOT established: p 0.19 without one B2 spot (rxax5ozo), BH q ~0.42 over the 59 non-acquisition within-session
+  tests, ~16 variants, ICC 0.06, and p 0.068 after adjusting for the Si aspect ratio (which also shifts).
+  Not the 2316 spots (z -0.8/-0.7). Reading: neither good nor bad; if real, a sign the supplier's process
+  changed (mixing/dispersion or Si powder shape). Not in the verdict. porosity_excess_het_ratio: no difference
+  (sep 0.26, q 0.80, within p 0.13 carried by rxax5ozo; 0.75 without it; perturbation 0.09). Tile CVs
+  (Tier 2; both lots pass, B1 porosity CV 6/7 with 5n1q8atc outside): sep 0.66/0.79, q 0.077 across spots
+  but within-session p 0.27/0.40 (not established; effect sizes similar to raw), perturbation 0.17/0.17;
+  about half of B1's raw shift is the two 2316 spots (n_eff = 1 session; coarser pores / 2.5-3x Si, CV
+  tracks size and fraction). The earlier bright_tile_cv perturbation 1.05 is gone after the upstream bright-mode
+  fix. Battery reading: no sign of Si agglomeration or pore patchiness (the directions with an expected
+  risk) in either incoming lot. [integrated pipeline run, 2026-10-03; LOO/BH/covariate checks by the review]
+refs:
+- doi: 10.1002/advs.202400729
+  title: >-
+    Carbon Binder Domain Inhomogeneity in Silicon-Monoxide/Graphite Composite Anode by 2D Multiphysics
+    Modeling
+  authors: Gao, Xu
+  year: 2024
+  venue: Advanced Science
+  verified: true
+  note: CBD inhomogeneity in SiO/graphite vs Li plating and mechanics (model; Amass literature)
+- doi: 10.1002/advs.202414149
+  title: Prediction of Microstructural Representativity From A Single Image
+  authors: Dahari, Docherty, Kench et al.
+  year: 2025
+  venue: Advanced Science
+  verified: true
+  note: >-
+    ImageRep - variance of a phase fraction from the two-point correlation; basis of the excess ratio
+- doi: 10.1002/advs.77918
+  title: >-
+    Depth-to-Areal Staging Heterogeneity Preceding Lithium Plating in Graphite Anodes Revealed by Operando
+    Imaging
+  authors: Choi, Kim, Muralidharan et al.
+  year: 2026
+  venue: Advanced Science
+  verified: true
+  note: >-
+    lower porosity and faster charge -> in-plane lithiation non-uniformity; plating starts where lithiation
+    runs ahead (Amass; Crossref-checked)
+- doi: 10.1002/smsc.202300291
+  title: Impedance Inhomogeneity in SiO/Gr Composite Anode
+  authors: Gao, Xu
+  year: 2024
+  venue: Small Science
+  verified: true
+  note: SiO distribution uniformity changes polarisation and capacity (model; Amass literature)
+- doi: 10.1016/j.jcis.2022.06.006
+  title: >-
+    Effects of the mixing sequence on the graphite dispersion and resistance of lithium-ion battery anodes
+  authors: Kitamura, Tanaka, Mori
+  year: 2022
+  venue: Journal of Colloid and Interface Science
+  verified: true
+  note: >-
+    binder mixing sequence -> dispersion; agglomerated slurry -> higher anode volume resistivity (Amass;
+    Crossref-checked)
+- doi: 10.1016/j.jpowsour.2021.230671
+  title: Role of silicon-graphite homogeneity as promoted by low molecular weight dispersants
+  authors: Armstrong, Hays, Ruther et al.
+  year: 2022
+  venue: Journal of Power Sources
+  verified: true
+  note: >-
+    counterpoint - poorest binder dispersion cycled best in Si-graphite (OSTI 1840193 abstract; Crossref-checked)
+- doi: 10.1016/s0020-7683(03)00143-4
+  title: >-
+    Determination of the size of the representative volume element for random composites: statistical
+    and numerical approach
+  authors: Kanit, Forest, Galliet et al.
+  year: 2003
+  venue: International Journal of Solids and Structures
+  verified: true
+  note: variance of the volume fraction vs window size, RVE (Crossref-resolved 2026-10-03)
+- doi: 10.1021/acsami.0c15144
+  title: Mechanistic Analysis of Microstructural Attributes to Lithium Plating in Fast Charging
+  authors: Kabra, Parmananda, Fear et al.
+  year: 2020
+  venue: ACS Applied Materials & Interfaces
+  verified: true
+  note: microstructural heterogeneity across length scales and Li plating (Amass literature)
+- doi: 10.1021/acsami.1c25214
+  title: >-
+    Probing the Role of Multi-scale Heterogeneity in Graphite Electrodes for Extreme Fast Charging
+  authors: Parmananda, Norris, Roberts et al.
+  year: 2022
+  venue: ACS Applied Materials & Interfaces
+  verified: true
+  note: >-
+    counterpoint - active-material clustering alone has minimal impact on fast charge (Amass literature)
+- doi: 10.1021/cr500207g
+  title: Alloy Negative Electrodes for Li-Ion Batteries
+  authors: Obrovac, Chevrier
+  year: 2014
+  venue: Chemical Reviews
+  verified: true
+  note: >-
+    Si/SiOx volume expansion on lithiation; why Si-rich patches concentrate swelling (Crossref-checked
+    2026-10-03)
+- doi: 10.1111/j.1365-2818.1991.tb03099.x
+  title: Ergodicity and integral range
+  authors: Lantuéjoul
+  year: 1991
+  venue: Journal of Microscopy
+  verified: true
+  note: integral range -> variance of an area fraction at a given window size

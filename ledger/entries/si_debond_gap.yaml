@@ -1,0 +1,48 @@
+id: si_debond_gap
+name: Si debonding gaps (thin void shells around Si particles)
+aliases:
+- crescent voids around si
+- si-binder detachment
+family: morphology
+detectors:
+- BSE
+- SE
+status: implemented
+owner: adarsh
+implemented_in: qc/spot_features/si_shards.py
+columns:
+- si_shards_debond_median_frac
+- si_shards_debonded_particle_frac
+v1_implemented_in: null
+v1_columns: null
+description: >-
+  For each Si particle (ECD >= 0.3 um), the share of its outline where a void ring 1-4 px (25-100 nm)
+  wide sits between the Si and the neighbouring solid; report the spot median and the share of Si particles
+  > 50% debonded, and the slope vs particle radius. Differs from si_graphite_contact (what phase touches
+  Si): this is the width of a thin gap that is easy to miss as a contact.
+battery_relevance: >-
+  Muller 2018 measured Si-to-carbon-binder gap distance growing with Si particle size and cycling, and
+  linked detachment to capacity fade; an as-made gap means Si already starts electrically isolated.
+findings: >-
+  V2 (qc/spot_features/si_shards.py): 0 in every spot, also with a BSE grey-level gap test (the void mask
+  fills holes < 16 px): 1-4 px gaps are not resolved at 25 nm/px after the noise top-up. Not measurable
+  here; needs higher magnification.
+refs:
+- doi: 10.1038/s41467-018-04477-1
+  title: >-
+    Quantification and modeling of mechanical degradation in lithium-ion batteries based on nanoscale
+    imaging
+  authors: Müller, Pietsch, Brandt et al.
+  year: 2018
+  venue: Nature Communications
+  verified: true
+  note: 'paperclip PMC6002379: Si-to-CBD gap distance grows with Si radius and cycling'
+- doi: 10.1038/s41467-021-22662-7
+  title: >-
+    Interplay between electrochemical reactions and mechanical responses in silicon–graphite anodes and
+    its impact on degradation
+  authors: Moon, Lee, Jung et al.
+  year: 2021
+  venue: Nature Communications
+  verified: true
+  note: 'paperclip PMC8113583: Si-graphite anode degradation, cryo cross-section SEM'

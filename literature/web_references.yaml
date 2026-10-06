@@ -1,0 +1,75 @@
+# Papers from an ordinary web search (4 Oct 2026) for the questions the full-text reader left unsettled, mostly
+# from the paywalled electrochemistry journals it cannot open.
+#
+# These were NOT read in full. `says` is what the search result's summary or abstract states, and `reading` is our
+# judgement of whether that supports the slider rule. They are shown next to the evidence and are NOT added to the
+# paper counts or to the batch outlook. Read the paper before citing it.
+
+- pair: particle_alignment|charge_speed
+  title: Magnetically aligned graphite electrodes for high-rate performance Li-ion batteries
+  authors: Billaud et al.
+  venue: Nature Energy 1, 16097 (2016)
+  url: https://www.nature.com/articles/nenergy201697
+  says: >-
+    Aligning graphite flakes out of plane (along the transport direction) lowers tortuosity and gives up to three
+    times the specific charge at 1C in a thick electrode.
+  reading: supports the rule (flakes lying in plane slow charging)
+
+- pair: surface_area|first_charge_loss
+  title: "Graphites for Lithium-Ion Cells: The Correlation of the First-Cycle Charge Loss with the Brunauer-Emmett-Teller Surface Area"
+  authors: Winter, Novák and Monnier
+  venue: Journal of The Electrochemical Society 145, 428 (1998)
+  url: https://iopscience.iop.org/article/10.1149/1.1838281
+  says: >-
+    The irreversible charge loss of the first cycle rises with BET specific surface area, close to linearly within a
+    graphite type, and depends strongly on the graphite type.
+  reading: supports the rule (more surface, more first-charge loss)
+
+- pair: surface_area|first_charge_loss
+  title: Relation between surface properties, pore structure and first-cycle charge loss of graphite as negative electrode in lithium-ion batteries
+  authors: Joho et al.
+  venue: Journal of Power Sources (2001)
+  url: https://sciencedirect.com/science/article/abs/pii/S037877530100595X
+  says: >-
+    First-cycle charge loss of TIMREX graphites is a linear function of BET surface area and of double-layer
+    capacitance; the share of prismatic to basal surface also matters.
+  reading: supports the rule (more surface, more first-charge loss)
+
+- pair: graphite_particle_size|first_charge_loss
+  title: Effect of Graphite Particle Size on Irreversible Capacity Loss
+  authors: Zaghib, Nadeau and Kinoshita
+  venue: Journal of The Electrochemical Society 147, 2110 (2000)
+  url: https://iopscience.iop.org/article/10.1149/1.1393493
+  says: >-
+    Irreversible capacity loss was measured on natural graphite from 2 to 40 µm and tied to the active surface sites
+    of the particles. The search summary does not state the direction.
+  reading: relevant, direction not confirmed from the summary
+
+- pair: porosity|charge_speed
+  title: Insights into Influencing Electrode Calendering on the Battery Performance
+  authors: Abdollahifar et al.
+  venue: Advanced Energy Materials (2023)
+  url: https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aenm.202300973
+  says: >-
+    Calendering lowers porosity and makes the electrode more tortuous, but the C-rate performance of a graphite
+    negative electrode is not influenced to a great extent by calendering; moderate calendering improves capacity
+    and cyclability.
+  reading: does not settle it (for graphite the effect of porosity on rate is reported as small)
+
+- pair: porosity|charge_speed
+  title: Enhancing rate capability of graphite anodes for lithium-ion batteries by pore-structuring
+  authors: not recorded
+  venue: Applied Surface Science Advances (2021)
+  url: https://www.sciencedirect.com/science/article/pii/S2666523921001148
+  says: Graphite electrodes with engineered pore structure show better rate capability than unstructured ones.
+  reading: supports the rule in part (added pore channels help; not a plain porosity change)
+
+- pair: si_agglomeration|swelling
+  title: Degradation Pathways of Silicon-Based Anodes in Lithium-Ion Batteries
+  authors: Choi et al.
+  venue: Advanced Energy Materials
+  url: https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202506750
+  says: >-
+    Aggregated silicon domains undergo intensified local volume expansion, lose electrical contact and block
+    lithium transport.
+  reading: supports the rule (larger agglomerates, more local swelling)

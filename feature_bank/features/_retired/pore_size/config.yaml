@@ -1,0 +1,1 @@
+min_pore_px: 20      # dark regions smaller than this are noise, not pores (20 px = 0.0125 um2)

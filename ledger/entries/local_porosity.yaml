@@ -1,0 +1,59 @@
+id: local_porosity
+name: 'Local porosity distribution: dense, pore-starved patches'
+aliases:
+- dense patches
+- porosity heterogeneity tail
+- sub-volume porosity
+family: spatial_statistics
+detectors:
+- BSE
+status: implemented
+owner: luca
+v1_implemented_in: features/local_porosity
+v1_columns:
+- local_porosity_q25_frac
+- local_porosity_dense_window_frac
+description: >-
+  Distribution of porosity over small windows of the harmonised void mask: the 25th percentile over 5
+  um tiles and the share of 2.5 um windows whose porosity is below a quarter of the spot's own porosity.
+  Differs from open_porosity (the mean) and heterogeneity (the tile CV and the excess-over-random ratio)
+  by reporting the dense tail directly.
+battery_relevance: >-
+  Active material in pore-starved patches is reached only through long solid paths: higher local ionic
+  resistance, lagging lithiation and Li plating at fast charge; uneven calendering or mixing produces
+  such patches.
+findings: >-
+  2026-10-03, audit protocol on all 31 spots (Modal; independent split halves, 3 noise seeds, 8 raw perturbations).
+  local_porosity_q25_frac B1 0.023 / B2 0.028 / B3 0.037 (B3 SD 0.010): within-session p 0.031, incoming-vs-B3
+  p 0.042, within-session shifts B1 -1.4 / B2 -1.6 SD, split-half r 0.47/0.61, seed spread 0.02 SD, worst
+  perturbation 0.37 SD (gamma 0.8), session R2 0.78, LOSO AUC B1 0.80 / B2 0.67. local_porosity_dense_window_frac
+  B1 0.471 / B2 0.444 / B3 0.419: within p 0.078, incoming p 0.042, +1.8/+1.9 SD, split 0.51/0.64, perturbation
+  0.70. Same axis as solid_chord_x_um and interface_density_per_um (|rho| 0.85-0.89), not redundant above
+  0.9. Lead only: three mixed sessions are one strip split across batch folders (notes/seam_examples),
+  many columns were screened, and both columns fail the B3 %GRR/ndc gate. V2 port (qc/spot_features/local_porosity.py,
+  Luca's recipe, 31 spots): q25 0.0345 / 0.0405 / 0.0441, B3 vs rest AUC 0.67 p 0.11, within +++ p 0.14;
+  dense_window 0.419 / 0.403 / 0.398, within --- p 0.10; B1 vs B2 p 0.52. Same ordering as the first repo,
+  weaker on this recipe.
+refs:
+- doi: 10.1016/j.jpowsour.2013.04.156
+  note: 'Cooper 2014: sub-volume microstructural heterogeneity changes local transport/performance'
+  verified: false
+- doi: 10.1149/2.079112jes
+  note: 'Kehrwald 2011: local tortuosity inhomogeneities in composite electrodes'
+  verified: false
+- doi: 10.1002/ente.201900026
+  note: 'Guenther 2019: calendering-induced electrode defects'
+  verified: false
+- doi: 10.1038/s41467-020-15811-x
+  note: 'Lu 2020: heterogeneity -> non-uniform lithiation at high rate'
+  verified: false
+- doi: 10.1149/05026.0059ecst
+  note: 'Haselrieder 2013: calendering sets the pore structure'
+  verified: false
+- doi: 10.1002/advs.202414149
+  note: 'Dahari 2025: single-image representativity (Polaron/Imperial)'
+  verified: false
+implemented_in: qc/spot_features/local_porosity.py
+columns:
+- local_porosity_q25_frac
+- local_porosity_dense_window_frac

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>losslarp demo</title>
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <section class="slide title" id="title">
+    <h1 id="title-h1"></h1>
+    <p class="lede" id="title-lede"></p>
+    <div class="strip" id="title-strip"></div>
+    <p class="team" id="title-team"></p>
+  </section>
+
+  <section class="slide" id="lanes">
+    <div class="head"><h2>The data: 13 imaging lanes<small id="lanes-sub"></small></h2></div>
+    <div class="body"><div class="lanes" id="lanes-rows"></div></div>
+    <div class="foot" id="lanes-chips"></div>
+  </section>
+
+  <section class="slide" id="prep">
+    <div class="head"><h2>Preprocessing<small>same crop, BSE in graphite units, noise matched, Inlens and SE rank-normalised, then tiles</small></h2></div>
+    <div class="body">
+      <div class="frames" id="prep-frames"></div>
+      <div class="panels" id="prep-panels"></div>
+    </div>
+    <div class="foot"><div class="steps" id="prep-steps"></div><span style="flex:1"></span><span id="prep-chips"></span></div>
+  </section>
+
+  <section class="slide" id="v1">
+    <div class="head"><h2>V1 loss (no labels)<small>BSE and Inlens of the same tile should give the same embedding</small></h2></div>
+    <div class="body">
+      <div class="scan">
+        <div class="ins" id="v1-ins"></div>
+        <div class="fmwrap"><div class="cwrap"><canvas id="v1-fm"></canvas><span class="tag bl" id="v1-fm-lab">feature map</span></div></div>
+      </div>
+      <div class="loss">
+        <div class="b" data-b="1" id="v1-z"></div>
+        <div class="mxwrap b" data-b="2"><canvas id="v1-mx"></canvas></div>
+      </div>
+    </div>
+    <div class="foot" id="v1-chips"></div>
+  </section>
+
+  <section class="slide" id="v2">
+    <div class="head"><h2>V2 loss (batch labels)<small>same batch pulled together, other batches pushed apart, tiles of the same spot ignored</small></h2></div>
+    <div class="body">
+      <div class="scan">
+        <div class="stack" id="v2-stack"></div>
+        <div class="b" data-b="1" id="v2-z"></div>
+      </div>
+      <div class="loss">
+        <div class="key b" data-b="2" id="v2-key"></div>
+        <div class="mxwrap b" data-b="2"><canvas id="v2-mx"></canvas></div>
+      </div>
+    </div>
+    <div class="foot" id="v2-chips"></div>
+  </section>
+
+  <section class="slide" id="fuse">
+    <div class="head"><h2>Combining V1 and V2<small>two models trained apart, joined at the decision</small></h2></div>
+    <div class="body"><div class="fflow" id="fuse-flow"></div></div>
+    <div class="foot" id="fuse-chips"></div>
+  </section>
+
+  <section class="slide" id="perf">
+    <div class="head"><h2>Held-out accuracy<small id="perf-sub"></small></h2></div>
+    <div class="body">
+      <div class="bars" id="perf-bars"></div>
+      <div class="perf-right">
+        <div class="b" data-b="1" id="perf-cm-wrap"><div class="cm-pair" id="perf-cm"></div></div>
+        <div class="b" data-b="2" id="perf-test-wrap"><div class="tcards" id="perf-test"></div></div>
+        <div class="b" data-b="3" id="perf-eval-wrap"><div class="tcards two" id="perf-eval"></div></div>
+      </div>
+    </div>
+    <div class="foot" id="perf-chips"></div>
+  </section>
+
+  <section class="slide" id="seeds">
+    <div class="head"><h2>Seed ensemble<small id="seed-sub">V2 retrained with different random seeds gives different scores, so we average several V2 runs and report that</small></h2></div>
+    <div class="body"><div class="bars" id="seed-bars"></div></div>
+    <div class="foot" id="seed-chips"></div>
+  </section>
+
+  <section class="slide" id="harness">
+    <div class="head"><h2>Feature research<small>ideas from papers, built as plug-in features, each tested on the 31 training spots</small></h2></div>
+    <div class="body"><div class="flow" id="hz-flow"></div></div>
+    <div class="foot" id="hz-chips"></div>
+  </section>
+
+  <section class="slide" id="feat">
+    <div class="head"><h2>Best hand-built features<small>Batch_3 vs the rest, AUC per spot, 90 % intervals, grey = interval crosses chance</small></h2></div>
+    <div class="body"><div class="bars" id="feat-bars"></div></div>
+    <div class="foot" id="feat-chips"></div>
+  </section>
+
+  <section class="slide" id="outc">
+    <div class="head"><h2>From features to battery outcomes<small id="outc-sub"></small></h2></div>
+    <div class="body"><div id="outc-body"></div></div>
+    <div class="foot" id="outc-chips"></div>
+  </section>
+
+  <div class="progress"><i id="progress"></i></div>
+  <span class="counter" id="counter"></span>
+</div>
+
+<script src="../dashboard/site/pipeline.js"></script>
+<script src="../dashboard/site/harness.js"></script>
+<script src="../dashboard/site/lanes.js"></script>
+<script src="../dashboard/site/pca.js"></script>
+<script src="results.js"></script>
+<script src="confusion.js"></script>
+<script src="config.js"></script>
+<script src="demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{
+ "name": "v_k7_con02",
+ "arch": "k7",
+ "epochs": 30,
+ "batch": 24,
+ "crop": 320,
+ "lr": 0.0003,
+ "w_seg": 1.0,
+ "w_con": 0.2,
+ "temperature": 0.1,
+ "holdout": "sample_id",
+ "fold": 0,
+ "n_folds": 5,
+ "smoke": false,
+ "preload": true,
+ "workers": 0,
+ "device": "cuda",
+ "seed": 0,
+ "minutes": 0,
+ "n_train_tiles": 624,
+ "n_val_tiles": 182,
+ "train_spots": [
+  "3806gxp0",
+  "4ih2ggld",
+  "5n1q8atc",
+  "71vgq3fw",
+  "9luzk4jm",
+  "avn74qx1",
+  "b3esycq1",
+  "cfe5vt7s",
+  "epqdaau9",
+  "ffwubibz",
+  "fzrt2k6r",
+  "hawkfj64",
+  "hzumfsms",
+  "i9jiqjwl",
+  "iv6g2oq0",
+  "kbdh4tri",
+  "mgxahqnk",
+  "pl8uabbv",
+  "r17byphk",
+  "tuy3zymq",
+  "utfgcjfa",
+  "x77cy643",
+  "x7u69zsw",
+  "xgj4xftb"
+ ],
+ "val_spots": [
+  "0grcilhi",
+  "f1vzngrs",
+  "ptg8lmto",
+  "rxax5ozo",
+  "ufdvpb81",
+  "uhdslk0o",
+  "vc2whyaq"
+ ],
+ "class_weights": [
+  2.8585846424102783,
+  0.4050184190273285,
+  5.0
+ ],
+ "params_M": 18.322441,
+ "arch_resolved": {
+  "k": 7,
+  "stem": null,
+  "dil": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "widths": [
+   32,
+   64,
+   128,
+   256,
+   256
+  ]
+ }
+}

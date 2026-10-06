@@ -1,0 +1,17 @@
+# si_particles tuning. Masks come from features/_common (bright = h.bright, void = h.void); its config sets
+# the segmentation, including the 160 px (0.1 um2) minimum particle size. Pixel = 25 nm.
+
+shape_min_px: 800        # 0.5 um2 (ECD 0.8 um): solidity, aspect and orientation only on particles at least this big;
+                         # smaller outlines are a few pixels across and their shape is set by pixelation and noise
+orient_min_aspect: 1.3   # orientation only from particles with aspect ratio above this: a near-round particle has no
+                         # defined long axis, and its noisy angle would dilute the order parameter towards 0
+orient_weighting: number # number: each elongated particle votes once (x Miles weight); area: votes x particle area.
+                         # Area weighting leaves ~14 effective particles per spot (sampling SE 0.17 > B3 spread 0.14)
+agglom_dilate_px: 20     # 0.5 um: each particle is grown by this before relabelling, so particles whose outlines are
+                         # closer than 2 x 20 px = 1 um count as one agglomerate
+agglom_edge_correction: false   # false: agglomerates touching the crop edge count at their visible size (a lower
+                         # bound). true: Miles-Lantuejoul as for particles, which collapses when the agglomerate
+                         # network spans the window (4ih2ggld: 87 % of the bright area is in edge-touching groups)
+contact_radius_px: 6     # 150 nm: an outline pixel "faces a pore" if a void pixel lies within this distance. 3 px is
+                         # unusable: the BSE edge spread puts the void threshold 4-5 px from the bright-mask edge
+quadrat_px: 400          # 10 um quadrats for the patchiness CV (3 x 17 grid on the 1336-row harmonised crop)

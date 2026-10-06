@@ -1,0 +1,16 @@
+{
+ "seconds": 8.2,
+ "finished": "2026-10-03T22:55:18",
+ "workers": 4,
+ "argv": [
+  "--out",
+  "processed/bank/harness_quick",
+  "--quick",
+  "--workers",
+  "4"
+ ],
+ "numpy": "2.5.3",
+ "scipy": "1.18.1",
+ "sklearn": "1.9.1",
+ "python": "3.12.14"
+}

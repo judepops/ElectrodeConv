@@ -1,0 +1,124 @@
+id: two_point_correlation
+name: Two-point correlation function S2(r) of void, solid and bright phase, direction-resolved
+aliases:
+- autocorrelation
+- correlation length
+- s2
+- two point probability function
+family: spatial_statistics
+detectors:
+- BSE
+status: v1_only
+owner: luca
+v1_implemented_in: features/two_point_correlation
+v1_columns:
+- s2_void_corrlen_x_um
+- s2_void_corrlen_y_um
+- s2_void_integral_range_um2
+- s2_bright_corrlen_x_um
+- s2_bright_corrlen_y_um
+- s2_bright_integral_range_um2
+description: >-
+  S2 of the shared harmonised void, solid (= not void) and bright masks along rows (x) and columns (y):
+  zero-padded FFT autocorrelation per line, normalised by overlap counts. Correlation length = lag where
+  (S2 - phi^2)/(phi - phi^2) falls to 1/e. Integral ranges from features._common fraction_se (ImageRep
+  idea). s2_solid equals s2_void by the two-phase identity (kept for the schema).
+battery_relevance: >-
+  Pore size scale and calendering anisotropy without particle segmentation (pore flattening raises through-plane
+  tortuosity); bright-phase correlation length tracks Si particle size / clustering (swelling hot-spots);
+  the integral range sets the single-image error bar of porosity and Si fraction.
+findings: >-
+  Final run (rank_features.py + robustness.py --perturb, 31 spots): no detectable batch difference in
+  any S2 column (not proven equivalence; only 3 B1 and 5 B2 sites sit in mixed sessions). sep 0.05-0.35,
+  q >= 0.62; within-session p 0.37-0.88 except bright x 0.052 / y 0.13 (B1 below the other lot in all
+  3 shared sessions, -0.9 / -1.5 SD; does not survive 8 columns, split-half ~0; if real, finer not clustered
+  Si); perturbation ratio <= 0.23 (void), <= 0.14 (bright; the builder's 0.81 is superseded). B1's raw
+  void-length excess (+0.3 / +0.4 SD) is session 2316 only (4ih2ggld z +2.5 / +3.2; n_eff = 1, invisible
+  to the within-session test); without it B1 is -0.1 / -0.3 SD, and within shared sessions -0.8 / -0.9
+  SD. Battery reading: no sign of a calendering, wetting or Si-dispersion change (pore x/y 1.54 / 1.63
+  / 1.53, within-session p 0.56). Not in the v1 tiers. The void lengths track Tier-2 pore_lt_d50_um (rho
+  0.89-0.92), so in v2 they belong as its identity companion, not an extra vote. s2_solid_corrlen_y_um,
+  the identity companion of Tier-1 solid_chord_y_um, is the pore scale (r -0.07 with the chord), so that
+  check is uninformative and could confirm for the wrong reason (high at 2316 because the pores are larger).
+refs:
+- doi: 10.1002/advs.202414149
+  title: Prediction of Microstructural Representativity From A Single Image
+  authors: Dahari, Docherty, Kench et al.
+  year: 2025
+  venue: Advanced Science
+  verified: true
+  note: 'ImageRep: single-image representativity from two-point statistics (Polaron/Imperial)'
+- doi: 10.1002/aenm.201301278
+  title: Tortuosity Anisotropy in Lithium-Ion Battery Electrodes
+  authors: Ebner, Chung, García et al.
+  year: 2013
+  venue: Advanced Energy Materials
+  verified: true
+  note: 'why direction-resolved: calendering anisotropy and through-plane tortuosity'
+- doi: 10.1007/978-1-4757-6355-3
+  title: Random Heterogeneous Materials
+  authors: Torquato
+  year: 2002
+  venue: Interdisciplinary Applied Mathematics (Springer)
+  verified: true
+  note: two-point correlation function, S2'(0) = -L_A/pi in 2D
+- doi: 10.1021/cr500207g
+  title: Alloy Negative Electrodes for Li-Ion Batteries
+  authors: Obrovac, Chevrier
+  year: 2014
+  venue: Chemical Reviews
+  verified: true
+  note: Si-phase swelling, particle size vs fracture and SEI (bright-phase direction calls)
+- doi: 10.1063/1.1722830
+  title: Scattering by an Inhomogeneous Solid. II. The Correlation Function and Its Application
+  authors: Debye, Anderson, Brumberger
+  year: 1957
+  venue: Journal of Applied Physics
+  verified: true
+  note: slope of the correlation function at 0 and specific surface
+- doi: 10.1103/physrev.17.273
+  title: The Dynamics of Capillary Flow
+  authors: Washburn
+  year: 1921
+  venue: Physical Review
+  verified: true
+  note: >-
+    capillary penetration length^2 proportional to pore radius x time (narrow pores wet slower); Crossref
+    search
+- doi: 10.1103/physreve.85.051140
+  title: >-
+    Microstructural degeneracy associated with a two-point correlation function and its information content
+  authors: Gommes, Jiao, Torquato
+  year: 2012
+  venue: Physical Review E
+  verified: true
+  note: S2 does not determine the microstructure uniquely
+- doi: 10.1103/physreve.97.023304
+  title: Effect of the image resolution on the statistical descriptors of heterogeneous media
+  authors: Ledesma-Alonso, Barbosa, Ortegón
+  year: 2018
+  venue: Physical Review E
+  verified: true
+  note: resolution / blur dependence of S2-based descriptors
+- doi: 10.1111/j.1365-2818.1991.tb03099.x
+  title: Ergodicity and integral range
+  authors: Lantuéjoul
+  year: 1991
+  venue: Journal of Microscopy
+  verified: true
+  note: integral range and the variance of a phase fraction
+- doi: 10.1146/annurev.matsci.32.110101.155324
+  title: Statistical Description of Microstructures
+  authors: Torquato
+  year: 2002
+  venue: Annual Review of Materials Research
+  verified: true
+  note: statistical description of microstructures (Torquato)
+- doi: 10.3389/fenrg.2014.00056
+  title: Effect of Calendering on Electrode Wettability in Lithium-Ion Batteries
+  authors: Sheng, Fell, Son et al.
+  year: 2014
+  venue: Frontiers in Energy Research
+  verified: true
+  note: >-
+    graphite anode; wetting rate rises with light and falls ~3x with heavy calendering; set by pore structure

@@ -1,0 +1,11 @@
+# local_porosity tuning. The void mask comes from features/_common (h.void: anchored, noise-matched BSE, Otsu void
+# threshold), so every spot is measured on the same 1336-row crop. Pixel = 25 nm.
+
+tile_px: 200              # 5 um tiles (non-overlapping) for the local-porosity quantile; ~200 tiles per crop.
+                          # 2.5 um tiles hold 0-2 pores each (too noisy); 10 um tiles leave ~50 tiles (coarse quantile)
+quantile: 0.25            # porosity_local_q25_frac = this quantile of the tile porosities ("the densest quarter")
+window_px: 100            # 2.5 um windows for the dense-patch share: about the size of one flake thickness, so a
+                          # window below the dense limit is solid with at most a sliver of pore
+window_stride_px: 50      # half-overlapping windows
+dense_rel: 0.25           # a window is "dense" when its porosity is below this fraction of the spot's own porosity;
+                          # relative to the spot so that a uniformly denser electrode is not counted as patchy

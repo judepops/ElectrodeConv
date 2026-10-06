@@ -1,0 +1,5 @@
+# "at scale" = after taking every scale-th pixel
+scale: 2                   # work on every 2nd pixel, 5x faster, diameters within ~2 %
+min_distance_px: 20        # min gap between particle centres, at scale (20 = 40 px = 1 um)
+min_centre_depth_px: 2.5   # a centre must be this far from any pore, at scale
+min_particle_px: 50        # smaller segments are debris, at scale (0.125 um2)

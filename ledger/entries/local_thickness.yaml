@@ -1,0 +1,128 @@
+id: local_thickness
+name: Pore and particle size by local thickness (largest inscribed circle)
+aliases:
+- continuous pore size distribution
+- maximal inscribed sphere
+- opening granulometry
+- thickness map
+family: morphology
+detectors:
+- BSE
+status: v1_only
+owner: luca
+v1_implemented_in: features/local_thickness
+v1_columns:
+- pore_lt_d50_um
+- pore_lt_d90_um
+- solid_lt_d50_um
+description: >-
+  Area-weighted local thickness (diameter of the largest Euclidean disc that fits in the phase and covers
+  the pixel) of the shared harmonised void mask and of the solid (= not void), from an opening granulometry
+  by Euclidean discs (scipy EDT). d50 / d90 = diameter where 50 % / 10 % of the phase area is at least
+  that thick. Exact at integer-radius resolution via bisection and per-pore crops; solid on a 2x downsampled
+  mask (|change| <= 0.03 um vs full resolution). No object splitting, so merged pores do not matter.
+battery_relevance: >-
+  Pore width sets wetting speed (narrower pores let electrolyte through less easily and fill more slowly);
+  ionic resistance is set mainly by porosity and tortuosity, and narrow bottlenecks (constrictivity) add
+  to it, which a 2D median width shows only indirectly; solid thickness is the size of the particle/flake
+  stacks between pores (solid diffusion length, packing). A shift points at calendering or the graphite/Si
+  powder. Replaces the noise-driven connected-component pore_size_*.
+findings: >-
+  Final run: pore_lt_d50/d90 sep 0.11/0.18, q 0.97/0.91, within-session p 0.56/0.55 (B1 -0.85/-0.53, B2
+  -0.40/-0.38 SD), perturbation 0.27/0.21: no detectable change in B1 or B2, but low power (pooled within-session
+  d50 CI -0.22 to +0.11 um); B1's raw d50 mean is lifted by session 2316 (n_eff 1; 0.74 um without it);
+  d50 Tier 2, 7/7 in range, P(|delta|>margin) 0.06/0.02. solid_lt_d50 B1 4.88 / B2 4.85 vs B3 4.62 um,
+  within-session +1.20/+1.52 SD, p 0.068 (B1 has one same-session pair with B3), but sep 0.44, q 0.26,
+  perturbation 0.63 (fails 0.5 gate): weak lead, not in verdict, not from 2316. Battery: no detectable
+  pore-width change, so no expected wetting change (narrower pores at equal porosity would slow wetting;
+  a rate penalty is not established); a coarser solid, if real, is neither good nor bad, only a sign the
+  process changed.
+refs:
+- doi: 10.1002/aenm.201301278
+  title: Tortuosity Anisotropy in Lithium-Ion Battery Electrodes
+  authors: Ebner, Chung, García et al.
+  year: 2014
+  venue: Advanced Energy Materials
+  verified: true
+  note: >-
+    platelet alignment makes through-plane tortuosity exceed in-plane (vol 4, 2014; Crossref issued date
+    2013, online first)
+- doi: 10.1007/s10853-012-6968-z
+  title: >-
+    The influence of constrictivity on the effective transport properties of porous layers in electrolysis
+    and fuel cells
+  authors: Holzer, Wiedenmann, Münch et al.
+  year: 2013
+  venue: Journal of Materials Science
+  verified: true
+  note: >-
+    bottlenecks (constrictivity) change effective transport beyond porosity and tortuosity (vol 48, pp
+    2934-2952; Crossref issued date 2012, online first; no abstract on Crossref, cited for its title claim)
+- doi: 10.1007/s40820-025-01929-4
+  title: >-
+    Regularly Arranged Micropore Architecture Enables Efficient Lithium-Ion Transport in SiOx/Artificial
+    Graphite Composite Electrode
+  authors: Lim, Kang, Bak et al.
+  year: 2025
+  venue: Nano-Micro Letters
+  verified: true
+  note: >-
+    pore structure of SiOx/graphite anodes controls Li-ion transport and rate (from literature.load_papers)
+- doi: 10.1046/j.1365-2818.1997.1340694.x
+  title: A new method for the model‐independent assessment of thickness in three‐dimensional images
+  authors: Hildebrand, Ruegsegger
+  year: 1997
+  venue: Journal of Microscopy
+  verified: true
+  note: Hildebrand and Ruegsegger local thickness method
+- doi: 10.1109/cvprw59228.2023.00456
+  title: Fast Local Thickness
+  authors: Dahl, Dahl
+  year: 2023
+  venue: 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops
+  verified: true
+  note: fast approximate local thickness; we compute the exact Euclidean opening instead
+- doi: 10.1111/j.1551-2916.2008.02736.x
+  title: >-
+    Contradicting Geometrical Concepts in Pore Size Analysis Attained with Electron Microscopy and Mercury
+    Intrusion
+  authors: Münch, Holzer
+  year: 2008
+  venue: Journal of the American Ceramic Society
+  verified: true
+  note: >-
+    continuous pore size distribution from images vs MIP throat sizes (different geometric quantities)
+- doi: 10.1149/1.1838281
+  title: >-
+    Graphites for Lithium-Ion Cells: The Correlation of the First-Cycle Charge Loss with the Brunauer-Emmett-Teller
+    Surface Area
+  authors: Winter, Novák, Monnier
+  year: 1998
+  venue: Journal of The Electrochemical Society
+  verified: true
+  note: >-
+    first-cycle charge loss rises with graphite surface area (JES 145:428; checked on Crossref 2026-10-03)
+- doi: 10.21105/joss.01296
+  title: 'PoreSpy: A Python Toolkit for Quantitative Analysis of Porous Media Images'
+  authors: Gostick, Khan, Tranter et al.
+  year: 2019
+  venue: Journal of Open Source Software
+  verified: true
+  note: reference implementation of local thickness / porosimetry by sphere insertion
+- doi: 10.3389/fenrg.2014.00056
+  title: Effect of Calendering on Electrode Wettability in Lithium-Ion Batteries
+  authors: Sheng, Fell, Son et al.
+  year: 2014
+  venue: Frontiers in Energy Research
+  verified: true
+  note: calendering changes pore structure and electrolyte wetting
+- doi: 10.3390/ma16216896
+  title: >-
+    Optimization of Pore Characteristics of Graphite-Based Anode for Li-Ion Batteries by Control of the
+    Particle Size Distribution
+  authors: Choi, Lee, Kim et al.
+  year: 2023
+  venue: Materials
+  verified: true
+  note: >-
+    graphite particle size distribution sets pore characteristics, ICE and rate (from literature.load_papers)

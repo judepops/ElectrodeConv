@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>losslarp pipeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topbar" aria-label="Pipeline map">
+  <a class="brand" href="#top">losslarp<span>V2</span></a>
+  <ol class="pipemap" id="pipemap"></ol>
+  <span class="pipe-now" id="pipe-now"></span>
+  <div class="progress"><i id="progress"></i></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-text">
+    <p class="kicker">Battery-electrode SEM · Polaron Track 4</p>
+    <h1>Raw microscope image<br>to a material embedding</h1>
+  </div>
+  <ol class="overview" id="overview" aria-label="Pipeline stages"></ol>
+  <p class="hint"><span class="cue" aria-hidden="true">↓</span> Scroll or press <kbd>→</kbd> / <kbd>←</kbd>. Click any stage above to jump to it.</p>
+</header>
+
+<!-- 00 ─ where the data comes from: the 13 lanes ------------------------------------------------------------ -->
+<section class="scrolly" id="lanes">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">00</span>
+        <div><h2>Where the data comes from: 13 lanes</h2>
+          <p>the batches are not separate deliveries; they are variation inside the same long lines of material</p></div>
+      </div>
+
+      <div class="stage lanes-stage" id="lanes-stage" data-step="0">
+        <div class="lanes-canvas" id="lanes-canvas"></div>
+        <!-- the seam examples -->
+        <div class="layer lanes-seams" data-show="1" id="lanes-seams"></div>
+        <!-- the open question -->
+        <div class="layer lanes-ask" data-show="4">
+          <div class="ask-card">
+            <div class="ask-spot"><span>?</span>a new spot</div>
+            <h4>Which lane did it come from?</h4>
+            <p>We don't know. Batches vary inside a lane, so the answer has to come from the material, not from the lane.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="card" id="lanes-card">
+      <div class="card-main"></div>
+      <div class="extra"><div class="key">
+        <span><i class="sw" style="background:var(--c1)"></i>Batch_1 &nbsp; <i class="sw" style="background:var(--c2)"></i>Batch_2 &nbsp; <i class="sw" style="background:var(--c3)"></i>Batch_3</span>
+        <span><b style="color:#c8102e">◆</b> two neighbouring spots, two different batch folders</span>
+        <span><b>▌</b> edge of a source image (the file carries a green line there)</span>
+        <span>dashed box: same lane, the spots do not touch, their order is unknown</span>
+        <span>a spot is one imaged place (what Polaron calls a crop); pictures are BSE, stretched per lane for display only</span></div></div>
+      <div class="card-foot"></div>
+    </aside>
+  </div>
+</section>
+
+<!-- 01 ─ preprocessing ------------------------------------------------------------------------------------- -->
+<section class="scrolly" id="prep">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <div><h2>Make every image fair</h2>
+          <p>so a difference between two spots means different material, not a different microscope session</p></div>
+      </div>
+
+      <div class="stage" id="prep-stage" data-step="0">
+        <!-- raw frames + crop -->
+        <div class="layer" data-show="0 1">
+          <div class="frames" id="frames"></div>
+        </div>
+        <!-- anchor -->
+        <div class="layer" data-show="2">
+          <div class="win"><img id="anchor-raw" alt=""><img id="anchor-done" class="over" alt="">
+            <span class="tag" id="tag-anchor"></span></div>
+          <figure class="chart"><svg id="anchor-svg" viewBox="0 0 1000 250" preserveAspectRatio="none"></svg>
+            <figcaption id="anchor-legend" class="legend"></figcaption></figure>
+        </div>
+        <!-- noise -->
+        <div class="layer" data-show="3">
+          <div class="pair">
+            <figure class="win"><img id="noise-before" class="pix" alt=""><span class="tag">BEFORE · as recorded</span>
+              <figcaption id="noise-before-cap"></figcaption></figure>
+            <figure class="win"><img id="noise-after" class="pix" alt=""><span class="tag">AFTER · noise topped up</span>
+              <figcaption id="noise-after-cap"></figcaption></figure>
+          </div>
+        </div>
+        <!-- rank -->
+        <div class="layer" data-show="4">
+          <div class="rank-row"><div class="win"><img id="rank-inl-raw" alt=""><img id="rank-inl" class="over" alt="">
+              <span class="tag" id="tag-inl"></span></div>
+            <div class="hist-cell"><svg class="minihist" id="rank-inl-hist" viewBox="0 0 200 80" preserveAspectRatio="none"></svg><small>Inlens grey-level histogram</small></div></div>
+          <div class="rank-row"><div class="win"><img id="rank-se-raw" alt=""><img id="rank-se" class="over" alt="">
+              <span class="tag" id="tag-se"></span></div>
+            <div class="hist-cell"><svg class="minihist" id="rank-se-hist" viewBox="0 0 200 80" preserveAspectRatio="none"></svg><small>SE grey-level histogram</small></div></div>
+        </div>
+        <!-- segment + tile -->
+        <div class="layer" data-show="5 6">
+          <div class="win" id="seg-win"><img id="seg-bse" alt=""><img id="seg-overlay" class="over" alt="">
+            <svg id="grid-svg" class="over" preserveAspectRatio="none"></svg><span class="tag" id="tag-seg"></span></div>
+          <div class="seg-legend" id="seg-legend"></div>
+          <div class="planes" id="planes"></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="card" id="prep-card"><div class="card-main"></div><div class="card-foot"></div></aside>
+  </div>
+</section>
+
+<!-- 02 ─ the kernel ----------------------------------------------------------------------------------------- -->
+<section class="scrolly" id="kernel">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <div><h2 id="kernel-h2">One tile, three detectors in, one kernel</h2>
+          <p id="kernel-sub">one learned kernel reads the BSE, Inlens and SE planes of the same tile at once</p></div>
+      </div>
+
+      <div class="kernel-grid">
+        <div class="det" data-det="bse">
+          <h3><i class="sw bse"></i>BSE <small>backscattered electrons: composition</small></h3>
+          <div class="scan">
+            <div class="cwrap"><canvas class="in"></canvas><span class="tag tag-in"></span></div>
+            <span class="arrow">→</span>
+            <div class="cwrap"><canvas class="fm"></canvas><span class="tag tag-fm"></span></div>
+          </div>
+          <div class="math"></div>
+          <div class="stages"></div>
+          <div class="zwrap"><span class="zlab"></span><canvas class="zbar"></canvas></div>
+        </div>
+        <div class="det" data-det="inlens">
+          <h3><i class="sw inlens"></i>Inlens <small>secondary electrons: surface &amp; edges</small></h3>
+          <div class="scan">
+            <div class="cwrap"><canvas class="in"></canvas><span class="tag tag-in"></span></div>
+            <span class="arrow">→</span>
+            <div class="cwrap"><canvas class="fm"></canvas><span class="tag tag-fm"></span></div>
+          </div>
+          <div class="math"></div>
+          <div class="stages"></div>
+          <div class="zwrap"><span class="zlab"></span><canvas class="zbar"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="card" id="kernel-card"><div class="card-main"></div><div class="card-foot"></div></aside>
+  </div>
+</section>
+
+<!-- 03a ─ contrastive loss: match1 ------------------------------------------------------------------------ -->
+<section class="scrolly" id="match1">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">03a</span>
+        <div><h2 class="match-h2">V1: do the two detectors agree?</h2>
+          <p class="match-sub">label-free: the loss wants each BSE tile to be most similar to the Inlens image of the <em>same</em> tile; it never sees a batch</p></div>
+      </div>
+
+      <div class="matrix-wrap">
+        <div class="mx-head">
+          <p class="mx-cap">cosine similarity · rows: <b>BSE</b> z · columns: <b>Inlens</b> z · diagonal = same tile</p>
+          <div class="toggle" role="group" aria-label="Model weights">
+            <button type="button" data-net="untrained">Before training</button>
+            <button type="button" data-net="trained" aria-pressed="true">After training</button>
+          </div>
+        </div>
+        <canvas class="matrix"></canvas>
+        <p class="note match-note"></p>
+      </div>
+    </div>
+
+    <aside class="card" id="match1-card">
+      <div class="card-main"></div>
+      <div class="extra">
+        <dl class="stats match-stats"></dl>
+        <div class="scale"><canvas></canvas><div class="scale-labels"></div></div>
+        <div class="key match-key" data-step="0"></div>
+      </div>
+      <div class="card-foot"></div>
+    </aside>
+  </div>
+</section>
+
+<!-- 03b ─ contrastive loss: match ------------------------------------------------------------------------ -->
+<section class="scrolly" id="match">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">03b</span>
+        <div><h2 class="match-h2">V2: same batch together, other batches apart</h2>
+          <p class="match-sub">batch-supervised: the loss wants each tile's z to be most similar to tiles of the same batch from other spots; it never says what a batch looks like</p></div>
+      </div>
+
+      <div class="matrix-wrap">
+        <div class="mx-head">
+          <p class="mx-cap">cosine similarity of <b>z</b></p>
+          <div class="toggle" role="group" aria-label="Model weights">
+            <button type="button" data-net="untrained">Before training</button>
+            <button type="button" data-net="trained" aria-pressed="true">After training</button>
+          </div>
+        </div>
+        <canvas class="matrix"></canvas>
+        <p class="note match-note"></p>
+      </div>
+    </div>
+
+    <aside class="card" id="match-card">
+      <div class="card-main"></div>
+      <div class="extra">
+        <dl class="stats match-stats"></dl>
+        <div class="scale"><canvas></canvas><div class="scale-labels"></div></div>
+        <div class="key match-key" data-step="0"></div>
+      </div>
+      <div class="card-foot"></div>
+    </aside>
+  </div>
+</section>
+
+<!-- 04 ─ batch test ----------------------------------------------------------------------------------------- -->
+<section class="scrolly" id="batch">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <div><h2>Can it tell the batches apart? V1, V2 and the baselines</h2>
+          <p>each spot's tile embeddings are averaged and a classifier is scored on spots it never saw; V2's encoder learns from the labels, so it is retrained once per held-out group and every spot is called by an encoder that never saw it</p></div>
+      </div>
+      <div class="stage res-stage" id="batch-stage" data-step="0">
+        <div class="layer" data-show="0"><div class="bars" id="batch-models"></div>
+          <p class="note">balanced accuracy, leave one session out · black tick = chance (0.33) · red tick = imaging cues alone (the bar) · whisker = 90 % interval from resampling the 13 imaging sessions · the highlighted row is V2 (nested: 13 retrained encoders, no permutation p) · the null row is what shuffled labels score (mean and 95th percentile) · recall per batch with 95 % Wilson intervals</p></div>
+        <div class="layer" data-show="1"><div id="batch-conf"></div><dl class="stats" id="batch-conf-stats"></dl></div>
+        <div class="layer" data-show="2"><div class="tcards" id="batch-test"></div></div>
+      </div>
+    </div>
+    <aside class="card" id="batch-card"><div class="card-main"></div><div class="card-foot"></div></aside>
+  </div>
+</section>
+
+<!-- 05 ─ verdict -------------------------------------------------------------------------------------------- -->
+<section class="scrolly" id="verdict">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <div><h2>Accept, investigate or reject against Batch_3</h2>
+          <p>every material feature of a lot is placed against the baseline's normal variation; a frozen rule reads the result</p></div>
+      </div>
+      <div class="stage res-stage" id="verdict-stage" data-step="0">
+        <div class="layer" data-show="0"><div class="lots2" id="verdict-kpis"></div>
+          <p class="note">dot = lot mean minus baseline mean in baseline SD · line = 90 % interval (session-aware) · shaded = ±1.5 SD, the margin</p></div>
+        <div class="layer" data-show="1"><div class="lots2" id="verdict-decide"></div></div>
+        <div class="layer" data-show="2"><div class="lots3" id="verdict-test"></div>
+          <p class="note">one site each: the rule returns INSUFFICIENT DATA, the features are still placed against the baseline</p></div>
+      </div>
+    </div>
+    <aside class="card" id="verdict-card"><div class="card-main"></div><div class="card-foot"></div></aside>
+  </div>
+</section>
+
+<!-- 06 ─ battery sliders ------------------------------------------------------------------------------------ -->
+<section class="scrolly" id="sliders">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">06</span>
+        <div><h2>What the science expects for the battery</h2>
+          <p>six properties, each a cited, weighted combination of the measured feature shifts; nothing here is a prediction of cycle life</p></div>
+      </div>
+      <div class="stage res-stage" id="sliders-stage" data-step="0">
+        <div class="layer" data-show="0 1 2"><div class="slider-wrap">
+          <div class="slider-lots" id="slider-lots"></div>
+          <div class="bars" id="slider-rows"></div>
+          <div id="slider-contrib"></div></div></div>
+      </div>
+    </div>
+    <aside class="card" id="sliders-card">
+      <div class="card-main"></div>
+      <div class="extra"><div class="key">
+        <span><i class="dot" style="background:color-mix(in srgb, var(--accent) 40%, transparent)"></i>Batch_3 spots, interquartile range</span>
+        <span><i class="dot" style="background:var(--c1)"></i>Batch_1 median and IQR &nbsp; <i class="dot" style="background:var(--c2)"></i>Batch_2</span>
+        <span><i class="dot" style="background:var(--accent)"></i>model score and 90 % interval for the selected lot</span></div></div>
+      <div class="card-foot"></div>
+    </aside>
+  </div>
+</section>
+
+<!-- 07 ─ why ------------------------------------------------------------------------------------------------ -->
+<section class="scrolly" id="why">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">07</span>
+        <div><h2>Why the network said that</h2>
+          <p>the call of one spot taken apart: named features, where in the image, which spots it resembles, what happens when a material is removed, and what the difference between two batches is made of</p></div>
+      </div>
+      <div class="stage res-stage" id="why-stage" data-step="0">
+        <div class="why-top" id="why-top"><label>spot <select id="why-spot"></select></label><span id="why-head"></span></div>
+        <div class="layer" data-show="0"><div id="why-decomp"></div></div>
+        <div class="layer" data-show="1"><div id="why-heat"></div></div>
+        <div class="layer" data-show="2"><div id="why-nb"></div></div>
+        <div class="layer" data-show="3"><div id="why-abl"></div></div>
+        <div class="layer" data-show="4"><div id="why-diff" class="diffs"></div></div>
+      </div>
+    </div>
+    <aside class="card" id="why-card"><div class="card-main"></div><div class="extra"><dl class="stats" id="why-stats"></dl></div><div class="card-foot"></div></aside>
+  </div>
+</section>
+
+<!-- 07b ─ embedding map ------------------------------------------------------------------------------------- -->
+<section class="scrolly" id="pca">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">07b</span>
+        <div><h2>Where the batches sit in the embedding</h2>
+          <p>every spot's embedding squeezed to two axes (PCA); one dot per spot, faint dots are its tiles, diamonds are the test spots</p></div>
+      </div>
+      <div class="stage res-stage" id="pca-stage" data-step="0">
+        <div class="layer on" data-show="0"><div class="lit-wrap"><div class="slider-lots" id="pca-views"></div><div id="pca-plot"></div><div id="pca-note"></div></div></div>
+      </div>
+    </div>
+    <aside class="card" id="pca-card"><div class="card-main"></div>
+      <div class="extra"><div class="key">
+        <span><i class="dot" style="background:var(--c1)"></i>Batch_1 &nbsp; <i class="dot" style="background:var(--c2)"></i>Batch_2 &nbsp; <i class="dot" style="background:var(--c3)"></i>Batch_3</span>
+        <span>◆ test spot &nbsp; · faint dots: the tiles of each spot</span></div></div>
+      <div class="card-foot"></div></aside>
+  </div>
+</section>
+
+<!-- 08 ─ papers ---------------------------------------------------------------------------------------------- -->
+<section class="scrolly" id="papers">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">08</span>
+        <div><h2>Production literature</h2>
+          <p>what the papers say each feature does to a battery, and which batch that favours; each direction is a count of papers whose quoted sentence was found in the paper</p></div>
+      </div>
+      <div class="stage res-stage" id="papers-stage" data-step="0">
+        <div class="layer" data-show="0"><div class="lit-wrap"><div class="slider-lots" id="lit-card-tabs"></div><div id="lit-card"></div></div></div>
+        <div class="layer" data-show="1"><div class="lit-wrap"><div class="slider-lots" id="lit-view"></div><div id="lit-matrix"></div><div id="lit-cell"></div></div></div>
+        <div class="layer" data-show="2"><div class="lit-wrap"><div id="lit-overall"></div><div class="slider-lots" id="lit-lots"></div><div id="lit-outcomes"></div><div id="lit-drivers"></div></div></div>
+        <div class="layer" data-show="3"><div class="lit-wrap"><div id="lit-trust"></div></div></div>
+      </div>
+    </div>
+    <aside class="card" id="papers-card">
+      <div class="card-main"></div>
+      <div class="extra"><div class="key">
+        <span><b class="lit-up">▲</b> papers say a higher feature means more of the outcome &nbsp; <b class="lit-down">▼</b> less</span>
+        <span><b class="lit-opt">◆</b> an optimum &nbsp; <b class="lit-mix">≈</b> papers disagree &nbsp; <b class="lit-none">·</b> fewer than two papers</span>
+        <span>the number in a cell is how many papers answered</span>
+        <span><b class="lit-src gxl">GXL · read</b> counted &nbsp; <b class="lit-src gxla">GXL · abstract only</b> <b class="lit-src web">web search</b> shown, not counted</span></div></div>
+      <div class="card-foot"></div>
+    </aside>
+  </div>
+</section>
+
+<!-- 09 ─ the research harness ------------------------------------------------------------------------------- -->
+<section class="scrolly" id="harness">
+  <div class="sticky">
+    <div class="visual">
+      <div class="sec-head">
+        <span class="sec-num">09</span>
+        <div><h2>The research harness</h2>
+          <p>how an idea becomes a tested, cited feature: coding agents run one loop, papers → ledger → plug-in feature → the same honest tests → what GXL's reader says it does to a battery → back into the ledger, negative results included</p></div>
+      </div>
+      <div class="stage res-stage" id="harness-stage" data-step="0">
+        <div class="layer" data-show="0"><div class="hz-wrap"><div id="hz-loop"></div></div></div>
+        <div class="layer" data-show="1"><div class="hz-wrap"><div id="hz-sources"></div></div></div>
+        <div class="layer" data-show="2"><div class="hz-wrap"><div id="hz-ledger"></div></div></div>
+        <div class="layer" data-show="3"><div class="hz-wrap"><div id="hz-chain"></div></div></div>
+        <div class="layer" data-show="4"><div class="hz-wrap"><div id="hz-tests"></div></div></div>
+        <div class="layer" data-show="5"><div class="hz-wrap"><div id="hz-agents"></div></div></div>
+      </div>
+    </div>
+    <aside class="card" id="harness-card">
+      <div class="card-main"></div>
+      <div class="extra"><dl class="stats" id="harness-stats"></dl></div>
+      <div class="card-foot"></div>
+    </aside>
+  </div>
+</section>
+
+<footer class="next" id="next">
+  <p class="kicker">End of the pipeline</p>
+  <h2>Every number on this page comes from a file the code wrote</h2>
+  <p>preprocessing/ → cnn/tile_features → cnn/supcon (train · score) → cnn/difference · cnn/baselines · cnn/predict · cnn/explain · qc/verdict · qc/impacts · literature/evidence · literature/batch_outlook · ledger/site_data (section 09).
+    Rebuild with <code>python3.11 dashboard/build.py --run supcon/v2/full</code>.</p>
+  <p class="built" id="built"></p>
+</footer>
+
+<script src="pipeline.js"></script>
+<script src="pca.js"></script>
+<script src="literature.js"></script>
+<script src="harness.js"></script>
+<script src="lanes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

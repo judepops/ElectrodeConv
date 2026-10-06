@@ -1,0 +1,13 @@
+# Shared graphite-particle label map (features/_particles). Built on the harmonised spot (features/_common), so the
+# crop, anchoring and noise matching are the same as every other harmonised feature. Pixel = 25 nm before downsampling.
+
+downsample: 2                 # work at 50 nm/px: particles are 2-40 um, boundaries 1-3 px wide at this scale
+smooth_sigma_px: 0.7          # light smoothing of the downsampled BSE before the valley filter
+graphite_range: [0.75, 1.35]  # graphite-like grey band (graphite units); darker = pore-back/void, brighter = Si / rims
+ridge_sigmas_px: [1, 2]       # Sato ridge filter scales (50-100 nm): Inlens bright rims and BSE dark gaps
+ridge_norm_pct: [50, 99]      # each ridge map is scaled so its median over graphite = 0 and its 99th percentile = 1
+boundary_threshold: 0.35      # combined boundary strength above this = particle boundary
+core_min_dist_px: 6           # watershed markers: interior pixels at least 0.3 um from any boundary
+min_particle_um2: 4.0         # smaller labels are fragments (CBD sponge, pore-back, debris), not graphite particles
+max_texture: 0.12             # labels whose interior local std (graphite units, 1 px) exceeds this are textured
+                              # (CBD / pore-back), not polished graphite

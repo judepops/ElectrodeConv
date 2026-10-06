@@ -1,0 +1,48 @@
+id: si_fragmentation
+name: Si particle fragmentation (shard clusters from fractured Si)
+aliases:
+- pulverised si
+- si fracture
+family: composition
+detectors:
+- BSE
+status: implemented
+owner: adarsh
+implemented_in: qc/spot_features/si_shards.py
+columns:
+- si_shards_fractured_area_frac
+- si_shards_parents_per_1000um2
+v1_implemented_in: null
+v1_columns: null
+description: >-
+  Group bright (Si) objects whose gaps are < 3 px (75 nm) with a morphological closing; a group of >=
+  3 shards whose convex hull is compact (solidity > 0.8) is one fractured parent particle. Report fraction
+  of Si area in fractured groups and shards per parent. Differs from si_particles (agglomeration = touching
+  distinct particles): here the pieces fit back together, with a thin straight gap.
+battery_relevance: >-
+  Calendering pressure cracks Si / SiOx particles and collapses their porous architecture (Adv. Mater.
+  2020); fresh fracture surfaces grow SEI, lose contact and lower first-cycle efficiency and capacity
+  retention.
+findings: >-
+  V2 (qc/spot_features/si_shards.py, harmonise masks, 31 spots): fractured parents are rare (non-zero
+  in 2 of 7 B1, 2 of 7 B2 spots); fractured Si area 0.0146 / 0.0031 / 0.0058, B1 vs B2 AUC 0.46 (p 0.65),
+  B3 vs rest AUC 0.42 (p 0.34): no difference.
+refs:
+- doi: 10.1002/adma.202003286
+  title: >-
+    Calendering‐Compatible Macroporous Architecture for Silicon–Graphite Composite toward High‐Energy
+    Lithium‐Ion Batteries
+  authors: Son, Kim, Lee et al.
+  year: 2020
+  venue: Advanced Materials
+  verified: true
+  note: 'amass: calendering collapses porous Si in Si-graphite composites'
+- doi: 10.1021/am507376f
+  title: >-
+    High Capacity and High Density Functional Conductive Polymer and SiO Anode for High-Energy Lithium-Ion
+    Batteries
+  authors: Zhao, Yuca, Zheng et al.
+  year: 2014
+  venue: ACS Applied Materials & Interfaces
+  verified: true
+  note: 'amass: SiO anodes calendered to various porosities'

@@ -1,0 +1,436 @@
+{
+ "built": "2026-10-04 10:31 UTC",
+ "reference": "V1",
+ "n_spots": 31,
+ "n_sessions": 13,
+ "chance": 0.3333333333333333,
+ "seed_noise": null,
+ "evaluation": "806 fixed tiles + 78 test tiles, harmonise planes; last.pt",
+ "versions": [
+  {
+   "id": "V1",
+   "label": "V1: fixed tiles, k7, material map + light contrastive",
+   "change": "the model the page used so far (seed 0)",
+   "setup": {
+    "arch": "k7",
+    "epochs": 30,
+    "batch": 24,
+    "crop": 320,
+    "w_seg": 1.0,
+    "w_con": 0.2,
+    "seed": 0,
+    "source": "tiles",
+    "aug": "base",
+    "masks": "harmonise"
+   },
+   "run": "cnn/processed/v_k7_con02",
+   "lr_losess": 0.57703081232493,
+   "lr_loso": 0.6358543417366946,
+   "lr_mixed": 0.6888888888888888,
+   "lr_joins": 0.75,
+   "perm_p": 0.009950248756218905,
+   "ci90": {
+    "bacc": 0.57703081232493,
+    "lo": 0.40370370370370373,
+    "hi": 0.7611683006535946,
+    "se": 0.10679945512383353,
+    "level": 0.9,
+    "draws": 2000,
+    "unit": "session"
+   },
+   "recall": [
+    {
+     "batch": 1,
+     "recall": 0.7142857142857143,
+     "n": 7,
+     "k": 5,
+     "lo": 0.35892909014821267,
+     "hi": 0.9177828342909844
+    },
+    {
+     "batch": 2,
+     "recall": 0.42857142857142855,
+     "n": 7,
+     "k": 3,
+     "lo": 0.15821692226262685,
+     "hi": 0.7495457695909742
+    },
+    {
+     "batch": 3,
+     "recall": 0.5882352941176471,
+     "n": 17,
+     "k": 10,
+     "lo": 0.36005074385515545,
+     "hi": 0.7838921396086862
+    }
+   ],
+   "leak": {
+    "nn_same_session_rate": 0.06451612903225806,
+    "nn_chance": 0.05806451612903226,
+    "nn_perm_p": 0.7652347652347652,
+    "loo_session_bacc_multi": 0.022727272727272728,
+    "n_multi_sessions": 11,
+    "loo_chance": 0.09090909090909091
+   },
+   "b3_vs_rest": 0.615546218487395,
+   "b1_vs_b2": 0.5714285714285714,
+   "test": [
+    {
+     "sample_id": "3e122cbj",
+     "call": 3,
+     "p": [
+      0.004346188555144069,
+      0.4032575218570453,
+      0.5923962895878107
+     ]
+    },
+    {
+     "sample_id": "fn0mhxef",
+     "call": 2,
+     "p": [
+      0.07947036283855771,
+      0.6472904080590123,
+      0.2732392291024301
+     ]
+    },
+    {
+     "sample_id": "xrv9xvzb",
+     "call": 3,
+     "p": [
+      0.000265701001976696,
+      0.4500703270722188,
+      0.5496639719258045
+     ]
+    }
+   ],
+   "val": {
+    "val_miou": 0.8962299999999999,
+    "val_retrieval": 1.0,
+    "epochs_done": 30,
+    "s_per_epoch": 30.566666666666666,
+    "train_loss": 0.0497
+   },
+   "epoch": 19
+  },
+  {
+   "id": "V1e",
+   "label": "V1 at the end of its schedule",
+   "change": "same run as V1, but the last checkpoint (epoch 30) instead of the one picked by validation mIoU (epoch 19): the checkpoint rule every later version uses",
+   "setup": {
+    "arch": "k7",
+    "epochs": 30,
+    "batch": 24,
+    "crop": 320,
+    "w_seg": 1.0,
+    "w_con": 0.2,
+    "seed": 0,
+    "source": "tiles",
+    "aug": "base",
+    "masks": "harmonise"
+   },
+   "run": "cnn/processed/versions/V1",
+   "lr_losess": 0.557422969187675,
+   "lr_loso": 0.6358543417366946,
+   "lr_mixed": 0.6222222222222222,
+   "lr_joins": 0.75,
+   "perm_p": 0.01990049751243781,
+   "ci90": {
+    "bacc": 0.557422969187675,
+    "lo": 0.3710987985444507,
+    "hi": 0.7592592592592592,
+    "se": 0.11914037586630145,
+    "level": 0.9,
+    "draws": 2000,
+    "unit": "session"
+   },
+   "recall": [
+    {
+     "batch": 1,
+     "recall": 0.7142857142857143,
+     "n": 7,
+     "k": 5,
+     "lo": 0.35892909014821267,
+     "hi": 0.9177828342909844
+    },
+    {
+     "batch": 2,
+     "recall": 0.42857142857142855,
+     "n": 7,
+     "k": 3,
+     "lo": 0.15821692226262685,
+     "hi": 0.7495457695909742
+    },
+    {
+     "batch": 3,
+     "recall": 0.5294117647058824,
+     "n": 17,
+     "k": 9,
+     "lo": 0.30962897311549487,
+     "hi": 0.738351988039119
+    }
+   ],
+   "leak": {
+    "nn_same_session_rate": 0.0967741935483871,
+    "nn_chance": 0.05806451612903226,
+    "nn_perm_p": 0.6053946053946054,
+    "loo_session_bacc_multi": 0.07575757575757575,
+    "n_multi_sessions": 11,
+    "loo_chance": 0.09090909090909091
+   },
+   "b3_vs_rest": 0.5861344537815126,
+   "b1_vs_b2": 0.5714285714285714,
+   "test": [
+    {
+     "sample_id": "3e122cbj",
+     "call": 3,
+     "p": [
+      0.004612793036649038,
+      0.21916384100056913,
+      0.7762233659627819
+     ]
+    },
+    {
+     "sample_id": "fn0mhxef",
+     "call": 2,
+     "p": [
+      0.011585333548244486,
+      0.595964563558196,
+      0.39245010289355947
+     ]
+    },
+    {
+     "sample_id": "xrv9xvzb",
+     "call": 3,
+     "p": [
+      0.00025999647449257644,
+      0.28935358831426194,
+      0.7103864152112456
+     ]
+    }
+   ],
+   "val": {
+    "val_miou": 0.8962299999999999,
+    "val_retrieval": 1.0,
+    "epochs_done": 30,
+    "s_per_epoch": 30.566666666666666,
+    "train_loss": 0.0497
+   },
+   "epoch": 30,
+   "delta_vs_v1": {
+    "delta": -0.019607843137255054,
+    "lo": -0.07407407407407407,
+    "hi": 0.04166666666666663,
+    "p_gt0": 0.1865,
+    "level": 0.9
+   },
+   "moved": {
+    "gained": [
+     {
+      "sample_id": "71vgq3fw",
+      "batch": 3,
+      "session": 2060,
+      "mixed": false
+     },
+     {
+      "sample_id": "hzumfsms",
+      "batch": 3,
+      "session": 2088,
+      "mixed": false
+     }
+    ],
+    "lost": [
+     {
+      "sample_id": "hawkfj64",
+      "batch": 3,
+      "session": 1904,
+      "mixed": false
+     },
+     {
+      "sample_id": "tuy3zymq",
+      "batch": 3,
+      "session": 2060,
+      "mixed": false
+     },
+     {
+      "sample_id": "utfgcjfa",
+      "batch": 3,
+      "session": 2068,
+      "mixed": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "V1.4a",
+   "label": "V1.4a: no material classification (contrastive only)",
+   "change": "the material-map decoder and its loss are removed; the encoder learns from the cross-detector contrastive task alone (Jude's idea)",
+   "setup": {
+    "arch": "k7",
+    "epochs": 30,
+    "batch": 24,
+    "crop": 320,
+    "w_seg": 0.0,
+    "w_con": 0.2,
+    "seed": 0,
+    "source": "tiles",
+    "aug": "base",
+    "masks": "harmonise"
+   },
+   "run": "cnn/processed/versions/V1.4a",
+   "lr_losess": 0.5294117647058824,
+   "lr_loso": 0.5294117647058824,
+   "lr_mixed": 0.5555555555555555,
+   "lr_joins": 0.5,
+   "perm_p": 0.024875621890547265,
+   "ci90": {
+    "bacc": 0.5294117647058824,
+    "lo": 0.3926382876382876,
+    "hi": 0.6739475500345066,
+    "se": 0.08604038692682818,
+    "level": 0.9,
+    "draws": 2000,
+    "unit": "session"
+   },
+   "recall": [
+    {
+     "batch": 1,
+     "recall": 0.5714285714285714,
+     "n": 7,
+     "k": 4,
+     "lo": 0.2504542304090258,
+     "hi": 0.8417830777373732
+    },
+    {
+     "batch": 2,
+     "recall": 0.42857142857142855,
+     "n": 7,
+     "k": 3,
+     "lo": 0.15821692226262685,
+     "hi": 0.7495457695909742
+    },
+    {
+     "batch": 3,
+     "recall": 0.5882352941176471,
+     "n": 17,
+     "k": 10,
+     "lo": 0.36005074385515545,
+     "hi": 0.7838921396086862
+    }
+   ],
+   "leak": {
+    "nn_same_session_rate": 0.0967741935483871,
+    "nn_chance": 0.05806451612903226,
+    "nn_perm_p": 0.5444555444555444,
+    "loo_session_bacc_multi": 0.06818181818181818,
+    "n_multi_sessions": 11,
+    "loo_chance": 0.09090909090909091
+   },
+   "b3_vs_rest": 0.5798319327731092,
+   "b1_vs_b2": 0.5,
+   "test": [
+    {
+     "sample_id": "3e122cbj",
+     "call": 3,
+     "p": [
+      7.652879735861372e-05,
+      0.3850849378461755,
+      0.6148385333564659
+     ]
+    },
+    {
+     "sample_id": "fn0mhxef",
+     "call": 2,
+     "p": [
+      0.002432379315119175,
+      0.90760507726075,
+      0.08996254342413068
+     ]
+    },
+    {
+     "sample_id": "xrv9xvzb",
+     "call": 3,
+     "p": [
+      0.0003011329238849349,
+      0.013668240966630416,
+      0.9860306261094847
+     ]
+    }
+   ],
+   "val": {
+    "val_miou": 0.0,
+    "val_retrieval": 0.99928,
+    "epochs_done": 30,
+    "s_per_epoch": 17.466666666666665,
+    "train_loss": 0.0033
+   },
+   "epoch": 30,
+   "delta_vs_v1": {
+    "delta": -0.04761904761904767,
+    "lo": -0.23856987239340186,
+    "hi": 0.13016594516594523,
+    "p_gt0": 0.3155,
+    "level": 0.9
+   },
+   "moved": {
+    "gained": [
+     {
+      "sample_id": "rxax5ozo",
+      "batch": 2,
+      "session": 2068,
+      "mixed": true
+     },
+     {
+      "sample_id": "0grcilhi",
+      "batch": 3,
+      "session": 1904,
+      "mixed": false
+     },
+     {
+      "sample_id": "71vgq3fw",
+      "batch": 3,
+      "session": 2060,
+      "mixed": false
+     },
+     {
+      "sample_id": "vc2whyaq",
+      "batch": 3,
+      "session": 2068,
+      "mixed": true
+     }
+    ],
+    "lost": [
+     {
+      "sample_id": "4ih2ggld",
+      "batch": 1,
+      "session": 2316,
+      "mixed": false
+     },
+     {
+      "sample_id": "r17byphk",
+      "batch": 2,
+      "session": 2080,
+      "mixed": true
+     },
+     {
+      "sample_id": "cfe5vt7s",
+      "batch": 3,
+      "session": 2080,
+      "mixed": true
+     },
+     {
+      "sample_id": "hawkfj64",
+      "batch": 3,
+      "session": 1904,
+      "mixed": false
+     },
+     {
+      "sample_id": "pl8uabbv",
+      "batch": 3,
+      "session": 2272,
+      "mixed": true
+     }
+    ]
+   }
+  }
+ ]
+}

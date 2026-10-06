@@ -1,0 +1,2176 @@
+{
+ "what": "label-free structure of each feature space; diagnostics only, never a model input",
+ "pert": "P0",
+ "config": {
+  "k": 3,
+  "n_perm": 1000,
+  "seed": 0,
+  "min_crops": 20,
+  "linkage": "ward",
+  "balance_blocks": true,
+  "standardise": "z-score over the crops of the space",
+  "affinity": "RBF, bandwidth = median distance",
+  "tiles": "mean over tiles",
+  "nulls": {
+   "image": "the three folder names permuted at random inside each source image (respects the 13 groups)",
+   "crop": "folder labels shuffled over the crops (ignores the groups)",
+   "source": "source images shuffled over the crops"
+  },
+  "max_groups": {
+   "ari_folder": [
+    "ari_folder_spectral",
+    "ari_folder_agglo"
+   ],
+   "fixed_point": [
+    "fixed_point"
+   ],
+   "ari_source": [
+    "ari_source_spectral",
+    "ari_source_agglo"
+   ],
+   "ari_source_k13": [
+    "ari_source_agglo_k13"
+   ]
+  }
+ },
+ "crops": {
+  "n": 31,
+  "ids": [
+   "4ih2ggld",
+   "5n1q8atc",
+   "f1vzngrs",
+   "ffwubibz",
+   "fzrt2k6r",
+   "iv6g2oq0",
+   "uhdslk0o",
+   "3806gxp0",
+   "avn74qx1",
+   "b3esycq1",
+   "epqdaau9",
+   "i9jiqjwl",
+   "r17byphk",
+   "rxax5ozo",
+   "0grcilhi",
+   "71vgq3fw",
+   "9luzk4jm",
+   "cfe5vt7s",
+   "hawkfj64",
+   "hzumfsms",
+   "kbdh4tri",
+   "mgxahqnk",
+   "pl8uabbv",
+   "ptg8lmto",
+   "tuy3zymq",
+   "ufdvpb81",
+   "utfgcjfa",
+   "vc2whyaq",
+   "x77cy643",
+   "x7u69zsw",
+   "xgj4xftb"
+  ],
+  "folders": {
+   "Batch_1": 7,
+   "Batch_2": 7,
+   "Batch_3": 17
+  },
+  "n_source_images": 13
+ },
+ "loading": {
+  "loader": "bank.assemble.load_bank",
+  "notes": [],
+  "crops_done": {
+   "emb_convnextb": 2,
+   "emb_dinov2l": 2,
+   "emb_dinov3l": 2,
+   "emb_micronet": 2,
+   "fbank": 2,
+   "glcm_lbp": 2,
+   "imgqc": 2,
+   "legacy_acq": 31,
+   "legacy_dinov2s": 31,
+   "orient": 2,
+   "phase": 2,
+   "psd": 2,
+   "registry": 2,
+   "scat": 2,
+   "xdet": 2
+  }
+ },
+ "n_spaces": 6,
+ "spaces": [
+  {
+   "space": "legacy_acq|BSE|raw|25|-",
+   "level": "space",
+   "family": "legacy_acq",
+   "detector": "BSE",
+   "view": "raw",
+   "scale_nm": "25",
+   "layer": "-",
+   "tag": "imaging",
+   "tags": {
+    "imaging": 4
+   },
+   "n_scalars": 4,
+   "n_arrays": 0,
+   "n_crops": 31,
+   "n_dims": 4,
+   "ari_folder_spectral": 0.006478,
+   "ari_folder_agglo": 0.006478,
+   "ari_source_spectral": 0.144296,
+   "ari_source_agglo": 0.144296,
+   "ari_source_agglo_k13": 0.764079,
+   "fixed_point": 0.774194,
+   "fixed_point_converged": 0.677419,
+   "fixed_point_of_spectral": 1.0,
+   "fixed_point_of_agglo": 1.0,
+   "sizes_spectral": [
+    16,
+    11,
+    4
+   ],
+   "sizes_agglo": [
+    11,
+    4,
+    16
+   ],
+   "clusters_spectral": "0010000110110102000020112010121",
+   "clusters_agglo": "2202222002002021222212001202010",
+   "folders_by_cluster_spectral": [
+    [
+     6,
+     2,
+     8
+    ],
+    [
+     1,
+     5,
+     5
+    ],
+    [
+     0,
+     0,
+     4
+    ]
+   ],
+   "folders_by_cluster_agglo": [
+    [
+     1,
+     5,
+     5
+    ],
+    [
+     0,
+     0,
+     4
+    ],
+    [
+     6,
+     2,
+     8
+    ]
+   ],
+   "crops_missing": 0,
+   "ari_folder_spectral__image_mean": 0.041613,
+   "ari_folder_spectral__image_sd": 0.064449,
+   "ari_folder_spectral__image_z": -0.545157,
+   "ari_folder_spectral__image_p": 0.668332,
+   "ari_folder_spectral__image_p_max": 0.997003,
+   "ari_folder_spectral__image_p_max_z": 0.997003,
+   "ari_folder_agglo__image_mean": 0.041613,
+   "ari_folder_agglo__image_sd": 0.064449,
+   "ari_folder_agglo__image_z": -0.545157,
+   "ari_folder_agglo__image_p": 0.668332,
+   "ari_folder_agglo__image_p_max": 0.997003,
+   "ari_folder_agglo__image_p_max_z": 0.997003,
+   "ari_folder_spectral__crop_mean": -0.001379,
+   "ari_folder_spectral__crop_sd": 0.051488,
+   "ari_folder_spectral__crop_z": 0.152608,
+   "ari_folder_spectral__crop_p": 0.416583,
+   "ari_folder_spectral__crop_p_max": 0.911089,
+   "ari_folder_spectral__crop_p_max_z": 0.911089,
+   "ari_folder_agglo__crop_mean": -0.001379,
+   "ari_folder_agglo__crop_sd": 0.051488,
+   "ari_folder_agglo__crop_z": 0.152608,
+   "ari_folder_agglo__crop_p": 0.416583,
+   "ari_folder_agglo__crop_p_max": 0.911089,
+   "ari_folder_agglo__crop_p_max_z": 0.911089,
+   "fixed_point__image_mean": 0.574129,
+   "fixed_point__image_sd": 0.080187,
+   "fixed_point__image_z": 2.494973,
+   "fixed_point__image_p": 0.007992,
+   "fixed_point__image_p_max": 0.815185,
+   "fixed_point__image_p_max_z": 0.030969,
+   "fixed_point__crop_mean": 0.483645,
+   "fixed_point__crop_sd": 0.082652,
+   "fixed_point__crop_z": 3.515316,
+   "fixed_point__crop_p": 0.000999,
+   "fixed_point__crop_p_max": 0.385614,
+   "fixed_point__crop_p_max_z": 0.001998,
+   "ari_source_spectral__source_mean": -0.000232,
+   "ari_source_spectral__source_sd": 0.0261,
+   "ari_source_spectral__source_z": 5.537586,
+   "ari_source_spectral__source_p": 0.000999,
+   "ari_source_spectral__source_p_max": 0.000999,
+   "ari_source_spectral__source_p_max_z": 0.000999,
+   "ari_source_agglo__source_mean": -0.000232,
+   "ari_source_agglo__source_sd": 0.0261,
+   "ari_source_agglo__source_z": 5.537586,
+   "ari_source_agglo__source_p": 0.000999,
+   "ari_source_agglo__source_p_max": 0.000999,
+   "ari_source_agglo__source_p_max_z": 0.000999,
+   "ari_source_agglo_k13__source_mean": 0.000836,
+   "ari_source_agglo_k13__source_sd": 0.046292,
+   "ari_source_agglo_k13__source_z": 16.487466,
+   "ari_source_agglo_k13__source_p": 0.000999,
+   "ari_source_agglo_k13__source_p_max": 0.000999,
+   "ari_source_agglo_k13__source_p_max_z": 0.000999,
+   "fixed_point_excess_image": 0.200065,
+   "fixed_point_excess_crop": 0.290548
+  },
+  {
+   "space": "legacy_acq|Inlens|raw|25|-",
+   "level": "space",
+   "family": "legacy_acq",
+   "detector": "Inlens",
+   "view": "raw",
+   "scale_nm": "25",
+   "layer": "-",
+   "tag": "imaging",
+   "tags": {
+    "imaging": 1
+   },
+   "n_scalars": 1,
+   "n_arrays": 0,
+   "n_crops": 31,
+   "n_dims": 1,
+   "ari_folder_spectral": 0.155334,
+   "ari_folder_agglo": 0.119104,
+   "ari_source_spectral": 0.141335,
+   "ari_source_agglo": 0.13918,
+   "ari_source_agglo_k13": 0.117647,
+   "fixed_point": 0.516129,
+   "fixed_point_converged": 0.354839,
+   "fixed_point_of_spectral": 1.0,
+   "fixed_point_of_agglo": 1.0,
+   "sizes_spectral": [
+    14,
+    13,
+    4
+   ],
+   "sizes_agglo": [
+    14,
+    3,
+    14
+   ],
+   "clusters_spectral": "1111111002120001000010221000011",
+   "clusters_agglo": "2222222002210002000020112000022",
+   "folders_by_cluster_spectral": [
+    [
+     0,
+     4,
+     10
+    ],
+    [
+     7,
+     1,
+     5
+    ],
+    [
+     0,
+     2,
+     2
+    ]
+   ],
+   "folders_by_cluster_agglo": [
+    [
+     0,
+     4,
+     10
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     7,
+     2,
+     5
+    ]
+   ],
+   "crops_missing": 0,
+   "ari_folder_spectral__image_mean": 0.055226,
+   "ari_folder_spectral__image_sd": 0.086812,
+   "ari_folder_spectral__image_z": 1.153155,
+   "ari_folder_spectral__image_p": 0.124875,
+   "ari_folder_spectral__image_p_max": 0.497502,
+   "ari_folder_spectral__image_p_max_z": 0.54046,
+   "ari_folder_agglo__image_mean": 0.050368,
+   "ari_folder_agglo__image_sd": 0.085017,
+   "ari_folder_agglo__image_z": 0.808501,
+   "ari_folder_agglo__image_p": 0.18981,
+   "ari_folder_agglo__image_p_max": 0.671329,
+   "ari_folder_agglo__image_p_max_z": 0.682318,
+   "ari_folder_spectral__crop_mean": -0.001646,
+   "ari_folder_spectral__crop_sd": 0.048294,
+   "ari_folder_spectral__crop_z": 3.250505,
+   "ari_folder_spectral__crop_p": 0.007992,
+   "ari_folder_spectral__crop_p_max": 0.081918,
+   "ari_folder_spectral__crop_p_max_z": 0.065934,
+   "ari_folder_agglo__crop_mean": -0.000734,
+   "ari_folder_agglo__crop_sd": 0.048426,
+   "ari_folder_agglo__crop_z": 2.474683,
+   "ari_folder_agglo__crop_p": 0.028971,
+   "ari_folder_agglo__crop_p_max": 0.148851,
+   "ari_folder_agglo__crop_p_max_z": 0.151848,
+   "fixed_point__image_mean": 0.438968,
+   "fixed_point__image_sd": 0.100655,
+   "fixed_point__image_z": 0.76659,
+   "fixed_point__image_p": 0.276723,
+   "fixed_point__image_p_max": 1.0,
+   "fixed_point__image_p_max_z": 0.678322,
+   "fixed_point__crop_mean": 0.396806,
+   "fixed_point__crop_sd": 0.097846,
+   "fixed_point__crop_z": 1.219498,
+   "fixed_point__crop_p": 0.148851,
+   "fixed_point__crop_p_max": 1.0,
+   "fixed_point__crop_p_max_z": 0.430569,
+   "ari_source_spectral__source_mean": -0.0003,
+   "ari_source_spectral__source_sd": 0.026315,
+   "ari_source_spectral__source_z": 5.382348,
+   "ari_source_spectral__source_p": 0.000999,
+   "ari_source_spectral__source_p_max": 0.000999,
+   "ari_source_spectral__source_p_max_z": 0.000999,
+   "ari_source_agglo__source_mean": -0.000346,
+   "ari_source_agglo__source_sd": 0.025252,
+   "ari_source_agglo__source_z": 5.525308,
+   "ari_source_agglo__source_p": 0.000999,
+   "ari_source_agglo__source_p_max": 0.000999,
+   "ari_source_agglo__source_p_max_z": 0.000999,
+   "ari_source_agglo_k13__source_mean": 0.000735,
+   "ari_source_agglo_k13__source_sd": 0.04472,
+   "ari_source_agglo_k13__source_z": 2.614297,
+   "ari_source_agglo_k13__source_p": 0.027972,
+   "ari_source_agglo_k13__source_p_max": 0.100899,
+   "ari_source_agglo_k13__source_p_max_z": 0.081918,
+   "fixed_point_excess_image": 0.077161,
+   "fixed_point_excess_crop": 0.119323
+  },
+  {
+   "space": "legacy_acq|*|*|*|*",
+   "level": "family",
+   "family": "legacy_acq",
+   "detector": "*",
+   "view": "*",
+   "scale_nm": "*",
+   "layer": "*",
+   "tag": "imaging",
+   "tags": {
+    "imaging": 5
+   },
+   "n_scalars": 5,
+   "n_arrays": 0,
+   "n_crops": 31,
+   "n_dims": 5,
+   "ari_folder_spectral": 0.027493,
+   "ari_folder_agglo": 0.006478,
+   "ari_source_spectral": 0.141335,
+   "ari_source_agglo": 0.144296,
+   "ari_source_agglo_k13": 0.779915,
+   "fixed_point": 0.774194,
+   "fixed_point_converged": 0.709677,
+   "fixed_point_of_spectral": 0.967742,
+   "fixed_point_of_agglo": 1.0,
+   "sizes_spectral": [
+    5,
+    16,
+    10
+   ],
+   "sizes_agglo": [
+    11,
+    4,
+    16
+   ],
+   "clusters_spectral": "1121111221221210111101200121202",
+   "clusters_agglo": "2202222002002021222212001202010",
+   "folders_by_cluster_spectral": [
+    [
+     0,
+     0,
+     5
+    ],
+    [
+     6,
+     2,
+     8
+    ],
+    [
+     1,
+     5,
+     4
+    ]
+   ],
+   "folders_by_cluster_agglo": [
+    [
+     1,
+     5,
+     5
+    ],
+    [
+     0,
+     0,
+     4
+    ],
+    [
+     6,
+     2,
+     8
+    ]
+   ],
+   "crops_missing": 0,
+   "ari_folder_spectral__image_mean": 0.036357,
+   "ari_folder_spectral__image_sd": 0.061708,
+   "ari_folder_spectral__image_z": -0.143655,
+   "ari_folder_spectral__image_p": 0.511489,
+   "ari_folder_spectral__image_p_max": 0.99001,
+   "ari_folder_spectral__image_p_max_z": 0.973027,
+   "ari_folder_agglo__image_mean": 0.041613,
+   "ari_folder_agglo__image_sd": 0.064449,
+   "ari_folder_agglo__image_z": -0.545157,
+   "ari_folder_agglo__image_p": 0.668332,
+   "ari_folder_agglo__image_p_max": 0.997003,
+   "ari_folder_agglo__image_p_max_z": 0.997003,
+   "ari_folder_spectral__crop_mean": -0.002084,
+   "ari_folder_spectral__crop_sd": 0.051301,
+   "ari_folder_spectral__crop_z": 0.57654,
+   "ari_folder_spectral__crop_p": 0.266733,
+   "ari_folder_spectral__crop_p_max": 0.757243,
+   "ari_folder_spectral__crop_p_max_z": 0.757243,
+   "ari_folder_agglo__crop_mean": -0.001379,
+   "ari_folder_agglo__crop_sd": 0.051488,
+   "ari_folder_agglo__crop_z": 0.152608,
+   "ari_folder_agglo__crop_p": 0.416583,
+   "ari_folder_agglo__crop_p_max": 0.911089,
+   "ari_folder_agglo__crop_p_max_z": 0.911089,
+   "fixed_point__image_mean": 0.59571,
+   "fixed_point__image_sd": 0.08038,
+   "fixed_point__image_z": 2.220511,
+   "fixed_point__image_p": 0.022977,
+   "fixed_point__image_p_max": 0.815185,
+   "fixed_point__image_p_max_z": 0.065934,
+   "fixed_point__crop_mean": 0.508161,
+   "fixed_point__crop_sd": 0.078102,
+   "fixed_point__crop_z": 3.406226,
+   "fixed_point__crop_p": 0.000999,
+   "fixed_point__crop_p_max": 0.385614,
+   "fixed_point__crop_p_max_z": 0.001998,
+   "ari_source_spectral__source_mean": -0.000245,
+   "ari_source_spectral__source_sd": 0.026861,
+   "ari_source_spectral__source_z": 5.270867,
+   "ari_source_spectral__source_p": 0.000999,
+   "ari_source_spectral__source_p_max": 0.000999,
+   "ari_source_spectral__source_p_max_z": 0.000999,
+   "ari_source_agglo__source_mean": -0.000232,
+   "ari_source_agglo__source_sd": 0.0261,
+   "ari_source_agglo__source_z": 5.537586,
+   "ari_source_agglo__source_p": 0.000999,
+   "ari_source_agglo__source_p_max": 0.000999,
+   "ari_source_agglo__source_p_max_z": 0.000999,
+   "ari_source_agglo_k13__source_mean": -0.001108,
+   "ari_source_agglo_k13__source_sd": 0.045196,
+   "ari_source_agglo_k13__source_z": 17.280851,
+   "ari_source_agglo_k13__source_p": 0.000999,
+   "ari_source_agglo_k13__source_p_max": 0.000999,
+   "ari_source_agglo_k13__source_p_max_z": 0.000999,
+   "fixed_point_excess_image": 0.178484,
+   "fixed_point_excess_crop": 0.266032
+  },
+  {
+   "space": "legacy_dinov2s|BSE|harmonised|25|final",
+   "level": "space",
+   "family": "legacy_dinov2s",
+   "detector": "BSE",
+   "view": "harmonised",
+   "scale_nm": "25",
+   "layer": "final",
+   "tag": "mixed",
+   "tags": {
+    "mixed": 1
+   },
+   "n_scalars": 0,
+   "n_arrays": 1,
+   "n_crops": 31,
+   "n_dims": 768,
+   "ari_folder_spectral": 0.234479,
+   "ari_folder_agglo": -0.008211,
+   "ari_source_spectral": 0.206033,
+   "ari_source_agglo": 0.079714,
+   "ari_source_agglo_k13": 0.411765,
+   "fixed_point": 0.806452,
+   "fixed_point_converged": 0.774194,
+   "fixed_point_of_spectral": 1.0,
+   "fixed_point_of_agglo": 0.967742,
+   "sizes_spectral": [
+    8,
+    12,
+    11
+   ],
+   "sizes_agglo": [
+    10,
+    20,
+    1
+   ],
+   "clusters_spectral": "0002100220002121222212111211111",
+   "clusters_agglo": "1120111111110101000010111010111",
+   "folders_by_cluster_spectral": [
+    [
+     5,
+     3,
+     0
+    ],
+    [
+     1,
+     1,
+     10
+    ],
+    [
+     1,
+     3,
+     7
+    ]
+   ],
+   "folders_by_cluster_agglo": [
+    [
+     1,
+     1,
+     8
+    ],
+    [
+     5,
+     6,
+     9
+    ],
+    [
+     1,
+     0,
+     0
+    ]
+   ],
+   "crops_missing": 0,
+   "ari_folder_spectral__image_mean": 0.065838,
+   "ari_folder_spectral__image_sd": 0.083788,
+   "ari_folder_spectral__image_z": 2.012712,
+   "ari_folder_spectral__image_p": 0.046953,
+   "ari_folder_spectral__image_p_max": 0.197802,
+   "ari_folder_spectral__image_p_max_z": 0.261738,
+   "ari_folder_agglo__image_mean": 0.032451,
+   "ari_folder_agglo__image_sd": 0.070766,
+   "ari_folder_agglo__image_z": -0.574608,
+   "ari_folder_agglo__image_p": 0.678322,
+   "ari_folder_agglo__image_p_max": 0.999001,
+   "ari_folder_agglo__image_p_max_z": 0.997003,
+   "ari_folder_spectral__crop_mean": -3.3e-05,
+   "ari_folder_spectral__crop_sd": 0.042226,
+   "ari_folder_spectral__crop_z": 5.553722,
+   "ari_folder_spectral__crop_p": 0.001998,
+   "ari_folder_spectral__crop_p_max": 0.015984,
+   "ari_folder_spectral__crop_p_max_z": 0.006993,
+   "ari_folder_agglo__crop_mean": -0.000523,
+   "ari_folder_agglo__crop_sd": 0.057506,
+   "ari_folder_agglo__crop_z": -0.133694,
+   "ari_folder_agglo__crop_p": 0.524476,
+   "ari_folder_agglo__crop_p_max": 0.963037,
+   "ari_folder_agglo__crop_p_max_z": 0.956044,
+   "fixed_point__image_mean": 0.781742,
+   "fixed_point__image_sd": 0.059457,
+   "fixed_point__image_z": 0.41559,
+   "fixed_point__image_p": 0.442557,
+   "fixed_point__image_p_max": 0.614386,
+   "fixed_point__image_p_max_z": 0.878122,
+   "fixed_point__crop_mean": 0.715774,
+   "fixed_point__crop_sd": 0.063388,
+   "fixed_point__crop_z": 1.430524,
+   "fixed_point__crop_p": 0.122877,
+   "fixed_point__crop_p_max": 0.198801,
+   "fixed_point__crop_p_max_z": 0.364635,
+   "ari_source_spectral__source_mean": 0.00192,
+   "ari_source_spectral__source_sd": 0.030061,
+   "ari_source_spectral__source_z": 6.789965,
+   "ari_source_spectral__source_p": 0.000999,
+   "ari_source_spectral__source_p_max": 0.000999,
+   "ari_source_spectral__source_p_max_z": 0.000999,
+   "ari_source_agglo__source_mean": -0.000589,
+   "ari_source_agglo__source_sd": 0.020309,
+   "ari_source_agglo__source_z": 3.954145,
+   "ari_source_agglo__source_p": 0.001998,
+   "ari_source_agglo__source_p_max": 0.043956,
+   "ari_source_agglo__source_p_max_z": 0.004995,
+   "ari_source_agglo_k13__source_mean": 0.000515,
+   "ari_source_agglo_k13__source_sd": 0.045168,
+   "ari_source_agglo_k13__source_z": 9.104835,
+   "ari_source_agglo_k13__source_p": 0.000999,
+   "ari_source_agglo_k13__source_p_max": 0.000999,
+   "ari_source_agglo_k13__source_p_max_z": 0.000999,
+   "fixed_point_excess_image": 0.02471,
+   "fixed_point_excess_crop": 0.090677
+  },
+  {
+   "space": "legacy_dinov2s|Inlens|harmonised|25|final",
+   "level": "space",
+   "family": "legacy_dinov2s",
+   "detector": "Inlens",
+   "view": "harmonised",
+   "scale_nm": "25",
+   "layer": "final",
+   "tag": "mixed",
+   "tags": {
+    "mixed": 1
+   },
+   "n_scalars": 0,
+   "n_arrays": 1,
+   "n_crops": 31,
+   "n_dims": 768,
+   "ari_folder_spectral": 0.174184,
+   "ari_folder_agglo": 0.174184,
+   "ari_source_spectral": 0.195122,
+   "ari_source_agglo": 0.195122,
+   "ari_source_agglo_k13": 0.570223,
+   "fixed_point": 0.645161,
+   "fixed_point_converged": 0.645161,
+   "fixed_point_of_spectral": 1.0,
+   "fixed_point_of_agglo": 1.0,
+   "sizes_spectral": [
+    8,
+    9,
+    14
+   ],
+   "sizes_agglo": [
+    9,
+    8,
+    14
+   ],
+   "clusters_spectral": "2222222002220011201211211200011",
+   "clusters_agglo": "2222222112221100210200200211100",
+   "folders_by_cluster_spectral": [
+    [
+     0,
+     4,
+     4
+    ],
+    [
+     0,
+     0,
+     9
+    ],
+    [
+     7,
+     3,
+     4
+    ]
+   ],
+   "folders_by_cluster_agglo": [
+    [
+     0,
+     0,
+     9
+    ],
+    [
+     0,
+     4,
+     4
+    ],
+    [
+     7,
+     3,
+     4
+    ]
+   ],
+   "crops_missing": 0,
+   "ari_folder_spectral__image_mean": 0.062769,
+   "ari_folder_spectral__image_sd": 0.079484,
+   "ari_folder_spectral__image_z": 1.401714,
+   "ari_folder_spectral__image_p": 0.098901,
+   "ari_folder_spectral__image_p_max": 0.397602,
+   "ari_folder_spectral__image_p_max_z": 0.453546,
+   "ari_folder_agglo__image_mean": 0.062769,
+   "ari_folder_agglo__image_sd": 0.079484,
+   "ari_folder_agglo__image_z": 1.401714,
+   "ari_folder_agglo__image_p": 0.098901,
+   "ari_folder_agglo__image_p_max": 0.397602,
+   "ari_folder_agglo__image_p_max_z": 0.453546,
+   "ari_folder_spectral__crop_mean": -0.000675,
+   "ari_folder_spectral__crop_sd": 0.047142,
+   "ari_folder_spectral__crop_z": 3.709211,
+   "ari_folder_spectral__crop_p": 0.007992,
+   "ari_folder_spectral__crop_p_max": 0.044955,
+   "ari_folder_spectral__crop_p_max_z": 0.03996,
+   "ari_folder_agglo__crop_mean": -0.000675,
+   "ari_folder_agglo__crop_sd": 0.047142,
+   "ari_folder_agglo__crop_z": 3.709211,
+   "ari_folder_agglo__crop_p": 0.007992,
+   "ari_folder_agglo__crop_p_max": 0.044955,
+   "ari_folder_agglo__crop_p_max_z": 0.03996,
+   "fixed_point__image_mean": 0.699806,
+   "fixed_point__image_sd": 0.071292,
+   "fixed_point__image_z": -0.766495,
+   "fixed_point__image_p": 0.849151,
+   "fixed_point__image_p_max": 1.0,
+   "fixed_point__image_p_max_z": 0.999001,
+   "fixed_point__crop_mean": 0.637226,
+   "fixed_point__crop_sd": 0.068941,
+   "fixed_point__crop_z": 0.115106,
+   "fixed_point__crop_p": 0.561439,
+   "fixed_point__crop_p_max": 0.981019,
+   "fixed_point__crop_p_max_z": 0.936064,
+   "ari_source_spectral__source_mean": 0.000195,
+   "ari_source_spectral__source_sd": 0.028349,
+   "ari_source_spectral__source_z": 6.876035,
+   "ari_source_spectral__source_p": 0.000999,
+   "ari_source_spectral__source_p_max": 0.000999,
+   "ari_source_spectral__source_p_max_z": 0.000999,
+   "ari_source_agglo__source_mean": 0.000195,
+   "ari_source_agglo__source_sd": 0.028349,
+   "ari_source_agglo__source_z": 6.876035,
+   "ari_source_agglo__source_p": 0.000999,
+   "ari_source_agglo__source_p_max": 0.000999,
+   "ari_source_agglo__source_p_max_z": 0.000999,
+   "ari_source_agglo_k13__source_mean": 0.000787,
+   "ari_source_agglo_k13__source_sd": 0.046118,
+   "ari_source_agglo_k13__source_z": 12.347346,
+   "ari_source_agglo_k13__source_p": 0.000999,
+   "ari_source_agglo_k13__source_p_max": 0.000999,
+   "ari_source_agglo_k13__source_p_max_z": 0.000999,
+   "fixed_point_excess_image": -0.054645,
+   "fixed_point_excess_crop": 0.007935
+  },
+  {
+   "space": "legacy_dinov2s|*|*|*|*",
+   "level": "family",
+   "family": "legacy_dinov2s",
+   "detector": "*",
+   "view": "*",
+   "scale_nm": "*",
+   "layer": "*",
+   "tag": "mixed",
+   "tags": {
+    "mixed": 2
+   },
+   "n_scalars": 0,
+   "n_arrays": 2,
+   "n_crops": 31,
+   "n_dims": 1536,
+   "ari_folder_spectral": 0.078336,
+   "ari_folder_agglo": 0.296308,
+   "ari_source_spectral": 0.169202,
+   "ari_source_agglo": 0.204164,
+   "ari_source_agglo_k13": 0.582005,
+   "fixed_point": 0.774194,
+   "fixed_point_converged": 0.580645,
+   "fixed_point_of_spectral": 1.0,
+   "fixed_point_of_agglo": 1.0,
+   "sizes_spectral": [
+    9,
+    6,
+    16
+   ],
+   "sizes_agglo": [
+    9,
+    9,
+    13
+   ],
+   "clusters_spectral": "2222222222220021002012211000011",
+   "clusters_agglo": "2222222222221100110100200111100",
+   "folders_by_cluster_spectral": [
+    [
+     0,
+     2,
+     7
+    ],
+    [
+     0,
+     0,
+     6
+    ],
+    [
+     7,
+     5,
+     4
+    ]
+   ],
+   "folders_by_cluster_agglo": [
+    [
+     0,
+     0,
+     9
+    ],
+    [
+     0,
+     2,
+     7
+    ],
+    [
+     7,
+     5,
+     1
+    ]
+   ],
+   "crops_missing": 0,
+   "ari_folder_spectral__image_mean": 0.061116,
+   "ari_folder_spectral__image_sd": 0.077876,
+   "ari_folder_spectral__image_z": 0.221128,
+   "ari_folder_spectral__image_p": 0.35964,
+   "ari_folder_spectral__image_p_max": 0.869131,
+   "ari_folder_spectral__image_p_max_z": 0.893107,
+   "ari_folder_agglo__image_mean": 0.062878,
+   "ari_folder_agglo__image_sd": 0.083024,
+   "ari_folder_agglo__image_z": 2.811598,
+   "ari_folder_agglo__image_p": 0.016983,
+   "ari_folder_agglo__image_p_max": 0.076923,
+   "ari_folder_agglo__image_p_max_z": 0.0999,
+   "ari_folder_spectral__crop_mean": 0.000348,
+   "ari_folder_spectral__crop_sd": 0.050888,
+   "ari_folder_spectral__crop_z": 1.532564,
+   "ari_folder_spectral__crop_p": 0.091908,
+   "ari_folder_spectral__crop_p_max": 0.336663,
+   "ari_folder_spectral__crop_p_max_z": 0.373626,
+   "ari_folder_agglo__crop_mean": 0.000607,
+   "ari_folder_agglo__crop_sd": 0.043787,
+   "ari_folder_agglo__crop_z": 6.753124,
+   "ari_folder_agglo__crop_p": 0.000999,
+   "ari_folder_agglo__crop_p_max": 0.004995,
+   "ari_folder_agglo__crop_p_max_z": 0.002997,
+   "fixed_point__image_mean": 0.780839,
+   "fixed_point__image_sd": 0.053412,
+   "fixed_point__image_z": -0.124414,
+   "fixed_point__image_p": 0.663337,
+   "fixed_point__image_p_max": 0.815185,
+   "fixed_point__image_p_max_z": 0.961039,
+   "fixed_point__crop_mean": 0.714226,
+   "fixed_point__crop_sd": 0.062076,
+   "fixed_point__crop_z": 0.966041,
+   "fixed_point__crop_p": 0.231768,
+   "fixed_point__crop_p_max": 0.385614,
+   "fixed_point__crop_p_max_z": 0.542458,
+   "ari_source_spectral__source_mean": 0.001021,
+   "ari_source_spectral__source_sd": 0.026156,
+   "ari_source_spectral__source_z": 6.429954,
+   "ari_source_spectral__source_p": 0.000999,
+   "ari_source_spectral__source_p_max": 0.000999,
+   "ari_source_spectral__source_p_max_z": 0.000999,
+   "ari_source_agglo__source_mean": 0.001257,
+   "ari_source_agglo__source_sd": 0.029269,
+   "ari_source_agglo__source_z": 6.932554,
+   "ari_source_agglo__source_p": 0.000999,
+   "ari_source_agglo__source_p_max": 0.000999,
+   "ari_source_agglo__source_p_max_z": 0.000999,
+   "ari_source_agglo_k13__source_mean": -0.000451,
+   "ari_source_agglo_k13__source_sd": 0.046047,
+   "ari_source_agglo_k13__source_z": 12.649138,
+   "ari_source_agglo_k13__source_p": 0.000999,
+   "ari_source_agglo_k13__source_p_max": 0.000999,
+   "ari_source_agglo_k13__source_p_max_z": 0.000999,
+   "fixed_point_excess_image": -0.006645,
+   "fixed_point_excess_crop": 0.059968
+  }
+ ],
+ "null": {
+  "ari_folder__image": {
+   "statistics": [
+    "ari_folder_spectral",
+    "ari_folder_agglo"
+   ],
+   "max_q50": 0.15311,
+   "max_q95": 0.319793,
+   "max_q99": 0.39618,
+   "max_z_q95": 3.352613
+  },
+  "ari_folder__crop": {
+   "statistics": [
+    "ari_folder_spectral",
+    "ari_folder_agglo"
+   ],
+   "max_q50": 0.062208,
+   "max_q95": 0.17198,
+   "max_q99": 0.260599,
+   "max_z_q95": 3.511271
+  },
+  "fixed_point__image": {
+   "statistics": [
+    "fixed_point"
+   ],
+   "max_q50": 0.806452,
+   "max_q95": 0.870968,
+   "max_q99": 0.935484,
+   "max_z_q95": 2.291385
+  },
+  "fixed_point__crop": {
+   "statistics": [
+    "fixed_point"
+   ],
+   "max_q50": 0.741935,
+   "max_q95": 0.83871,
+   "max_q99": 0.870968,
+   "max_z_q95": 2.167148
+  },
+  "ari_source__source": {
+   "statistics": [
+    "ari_source_spectral",
+    "ari_source_agglo"
+   ],
+   "max_q50": 0.032726,
+   "max_q95": 0.078836,
+   "max_q99": 0.097561,
+   "max_z_q95": 2.872315
+  },
+  "ari_source_k13__source": {
+   "statistics": [
+    "ari_source_agglo_k13"
+   ],
+   "max_q50": 0.044118,
+   "max_q95": 0.126011,
+   "max_q99": 0.164011,
+   "max_z_q95": 2.746368
+  }
+ },
+ "marginal_means": {
+  "family": [
+   {
+    "family": "legacy_acq",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.080906,
+    "ari_folder_agglo": 0.062791,
+    "ari_source_spectral": 0.142815,
+    "ari_source_agglo": 0.141738,
+    "ari_source_agglo_k13": 0.440863,
+    "fixed_point": 0.645161,
+    "fixed_point_excess_image": 0.138613
+   },
+   {
+    "family": "legacy_dinov2s",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.204331,
+    "ari_folder_agglo": 0.082987,
+    "ari_source_spectral": 0.200577,
+    "ari_source_agglo": 0.137418,
+    "ari_source_agglo_k13": 0.490994,
+    "fixed_point": 0.725807,
+    "fixed_point_excess_image": -0.014967
+   }
+  ],
+  "detector": [
+   {
+    "detector": "BSE",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.120479,
+    "ari_folder_agglo": -0.000866,
+    "ari_source_spectral": 0.175165,
+    "ari_source_agglo": 0.112005,
+    "ari_source_agglo_k13": 0.587922,
+    "fixed_point": 0.790323,
+    "fixed_point_excess_image": 0.112388
+   },
+   {
+    "detector": "Inlens",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.164759,
+    "ari_folder_agglo": 0.146644,
+    "ari_source_spectral": 0.168229,
+    "ari_source_agglo": 0.167151,
+    "ari_source_agglo_k13": 0.343935,
+    "fixed_point": 0.580645,
+    "fixed_point_excess_image": 0.011258
+   }
+  ],
+  "view": [
+   {
+    "view": "harmonised",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.204331,
+    "ari_folder_agglo": 0.082987,
+    "ari_source_spectral": 0.200577,
+    "ari_source_agglo": 0.137418,
+    "ari_source_agglo_k13": 0.490994,
+    "fixed_point": 0.725807,
+    "fixed_point_excess_image": -0.014967
+   },
+   {
+    "view": "raw",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.080906,
+    "ari_folder_agglo": 0.062791,
+    "ari_source_spectral": 0.142815,
+    "ari_source_agglo": 0.141738,
+    "ari_source_agglo_k13": 0.440863,
+    "fixed_point": 0.645161,
+    "fixed_point_excess_image": 0.138613
+   }
+  ],
+  "scale_nm": [
+   {
+    "scale_nm": "25",
+    "n_spaces": 4,
+    "ari_folder_spectral": 0.142619,
+    "ari_folder_agglo": 0.072889,
+    "ari_source_spectral": 0.171697,
+    "ari_source_agglo": 0.139578,
+    "ari_source_agglo_k13": 0.465928,
+    "fixed_point": 0.685484,
+    "fixed_point_excess_image": 0.061823
+   }
+  ],
+  "layer": [
+   {
+    "layer": "-",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.080906,
+    "ari_folder_agglo": 0.062791,
+    "ari_source_spectral": 0.142815,
+    "ari_source_agglo": 0.141738,
+    "ari_source_agglo_k13": 0.440863,
+    "fixed_point": 0.645161,
+    "fixed_point_excess_image": 0.138613
+   },
+   {
+    "layer": "final",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.204331,
+    "ari_folder_agglo": 0.082987,
+    "ari_source_spectral": 0.200577,
+    "ari_source_agglo": 0.137418,
+    "ari_source_agglo_k13": 0.490994,
+    "fixed_point": 0.725807,
+    "fixed_point_excess_image": -0.014967
+   }
+  ],
+  "tag": [
+   {
+    "tag": "imaging",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.080906,
+    "ari_folder_agglo": 0.062791,
+    "ari_source_spectral": 0.142815,
+    "ari_source_agglo": 0.141738,
+    "ari_source_agglo_k13": 0.440863,
+    "fixed_point": 0.645161,
+    "fixed_point_excess_image": 0.138613
+   },
+   {
+    "tag": "mixed",
+    "n_spaces": 2,
+    "ari_folder_spectral": 0.204331,
+    "ari_folder_agglo": 0.082987,
+    "ari_source_spectral": 0.200577,
+    "ari_source_agglo": 0.137418,
+    "ari_source_agglo_k13": 0.490994,
+    "fixed_point": 0.725807,
+    "fixed_point_excess_image": -0.014967
+   }
+  ]
+ },
+ "skipped": [
+  {
+   "space": "emb_convnextb|BSE|anchored|25|convnextB.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSE|anchored|25|convnextB.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSE|anchored|25|convnextB.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSE|anchored|25|convnextB.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSE|anchored|100|convnextB.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSE|anchored|100|convnextB.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSE|anchored|100|convnextB.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSE|anchored|100|convnextB.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSExInlens|anchored|25|convnextB.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSExInlens|anchored|25|convnextB.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSExInlens|anchored|25|convnextB.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSExInlens|anchored|25|convnextB.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSExInlens|anchored|100|convnextB.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSExInlens|anchored|100|convnextB.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSExInlens|anchored|100|convnextB.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|BSExInlens|anchored|100|convnextB.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|Inlens|anchored|25|convnextB.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|Inlens|anchored|25|convnextB.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|Inlens|anchored|25|convnextB.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|Inlens|anchored|25|convnextB.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|Inlens|anchored|100|convnextB.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|Inlens|anchored|100|convnextB.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|Inlens|anchored|100|convnextB.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|Inlens|anchored|100|convnextB.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_convnextb|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSE|anchored|25|dinov2L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSE|anchored|25|dinov2L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSE|anchored|25|dinov2L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSE|anchored|25|dinov2L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSE|anchored|100|dinov2L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSE|anchored|100|dinov2L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSE|anchored|100|dinov2L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSE|anchored|100|dinov2L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSExInlens|anchored|25|dinov2L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSExInlens|anchored|25|dinov2L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSExInlens|anchored|25|dinov2L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSExInlens|anchored|25|dinov2L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSExInlens|anchored|100|dinov2L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSExInlens|anchored|100|dinov2L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSExInlens|anchored|100|dinov2L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|BSExInlens|anchored|100|dinov2L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|Inlens|anchored|25|dinov2L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|Inlens|anchored|25|dinov2L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|Inlens|anchored|25|dinov2L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|Inlens|anchored|25|dinov2L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|Inlens|anchored|100|dinov2L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|Inlens|anchored|100|dinov2L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|Inlens|anchored|100|dinov2L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|Inlens|anchored|100|dinov2L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov2l|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSE|anchored|25|dinov3L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSE|anchored|25|dinov3L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSE|anchored|25|dinov3L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSE|anchored|25|dinov3L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSE|anchored|50|dinov3L.b11",
+   "reason": "nothing readable stored for it (saved token grids are not read)"
+  },
+  {
+   "space": "emb_dinov3l|BSE|anchored|100|dinov3L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSE|anchored|100|dinov3L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSE|anchored|100|dinov3L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSE|anchored|100|dinov3L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSExInlens|anchored|25|dinov3L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSExInlens|anchored|25|dinov3L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSExInlens|anchored|25|dinov3L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSExInlens|anchored|25|dinov3L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSExInlens|anchored|100|dinov3L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSExInlens|anchored|100|dinov3L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSExInlens|anchored|100|dinov3L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|BSExInlens|anchored|100|dinov3L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|Inlens|anchored|25|dinov3L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|Inlens|anchored|25|dinov3L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|Inlens|anchored|25|dinov3L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|Inlens|anchored|25|dinov3L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|Inlens|anchored|50|dinov3L.b11",
+   "reason": "nothing readable stored for it (saved token grids are not read)"
+  },
+  {
+   "space": "emb_dinov3l|Inlens|anchored|100|dinov3L.b11",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|Inlens|anchored|100|dinov3L.b17",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|Inlens|anchored|100|dinov3L.b23",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|Inlens|anchored|100|dinov3L.b5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_dinov3l|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSE|anchored|25|micronetR50.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSE|anchored|25|micronetR50.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSE|anchored|25|micronetR50.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSE|anchored|25|micronetR50.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSE|anchored|100|micronetR50.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSE|anchored|100|micronetR50.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSE|anchored|100|micronetR50.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSE|anchored|100|micronetR50.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSExInlens|anchored|25|micronetR50.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSExInlens|anchored|25|micronetR50.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSExInlens|anchored|25|micronetR50.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSExInlens|anchored|25|micronetR50.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSExInlens|anchored|100|micronetR50.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSExInlens|anchored|100|micronetR50.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSExInlens|anchored|100|micronetR50.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|BSExInlens|anchored|100|micronetR50.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|Inlens|anchored|25|micronetR50.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|Inlens|anchored|25|micronetR50.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|Inlens|anchored|25|micronetR50.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|Inlens|anchored|25|micronetR50.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|Inlens|anchored|100|micronetR50.st1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|Inlens|anchored|100|micronetR50.st2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|Inlens|anchored|100|micronetR50.st3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|Inlens|anchored|100|micronetR50.st4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "emb_micronet|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "fbank|BSE|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "fbank|Inlens|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "fbank|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "glcm_lbp|BSE|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "glcm_lbp|BSE|harmonised|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "glcm_lbp|BSE|harmonised|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "glcm_lbp|Inlens|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "glcm_lbp|Inlens|harmonised|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "glcm_lbp|Inlens|harmonised|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "glcm_lbp|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|BSE|anchored|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|BSE|anchored|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|BSE|raw|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|BSE|raw|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|BSE|raw|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|Inlens|anchored|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|Inlens|raw|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|Inlens|raw|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|Inlens|raw|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|SE|anchored|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|SE|raw|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|SE|raw|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|SE|raw|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "imgqc|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "orient|BSE|phase|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "orient|BSE|smoothed|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "orient|BSE|smoothed|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "orient|Inlens|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "orient|Inlens|harmonised|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "orient|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "phase|BSE|phase|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "phase|BSE|smoothed|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "phase|BSE|smoothed|200|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "phase|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "psd|BSE|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "psd|Inlens|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "psd|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "registry|BSE|anchored|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "registry|BSE|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "registry|BSE|harmonised|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "registry|BSE|phase|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "registry|BSE|phase|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "registry|BSE|phase|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "registry|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o1.j0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o1.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o2.j0.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o2.j0.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o2.j0.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o2.j1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o2.j1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J4.o2.j2.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o1.j0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o1.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o1.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j0.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j0.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j0.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j0.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j1.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j2.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j2.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|anchored|25|scat.J5.o2.j3.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o1.j0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o1.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o2.j0.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o2.j0.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o2.j0.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o2.j1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o2.j1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J4.o2.j2.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o1.j0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o1.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o1.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j0.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j0.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j0.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j0.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j1.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j2.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j2.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|BSE|harmonised|25|scat.J5.o2.j3.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o1.j0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o1.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o2.j0.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o2.j0.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o2.j0.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o2.j1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o2.j1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J4.o2.j2.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o1.j0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o1.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o1.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j0.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j0.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j0.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j0.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j1.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j2.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j2.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|anchored|25|scat.J5.o2.j3.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o1.j0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o1.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o2.j0.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o2.j0.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o2.j0.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o2.j1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o2.j1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J4.o2.j2.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o1.j0",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o1.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o1.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j0.j1",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j0.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j0.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j0.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j1.j2",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j1.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j1.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j2.j3",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j2.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|Inlens|harmonised|25|scat.J5.o2.j3.j4",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "scat|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSE|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSE|phase|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSExInlens|anchored|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSExInlens|anchored|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSExInlens|anchored|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSExInlens|anchored|200|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSExInlens|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSExInlens|harmonised|50|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSExInlens|harmonised|100|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|BSExInlens|harmonised|200|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|Inlens|anchored|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|Inlens|harmonised|25|-",
+   "reason": "2 crops done and finite, 20 needed"
+  },
+  {
+   "space": "xdet|*|*|*|*",
+   "reason": "2 crops done and finite, 20 needed"
+  }
+ ]
+}

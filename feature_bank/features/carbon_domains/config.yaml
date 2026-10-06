@@ -1,0 +1,38 @@
+# Tuning numbers for carbon_domains. Pixel numbers are at the WORKING resolution: the harmonised crop downsampled
+# `downsample` times (2 -> 50 nm/px). Grey levels are in graphite units (black 0, graphite 1; features/_common).
+downsample: 2               # area-mean 2x2 blocks: 25 -> 50 nm/px (domains are microns across)
+
+# graphite interior and its smoothed grey-level map
+edge_margin_px: 6           # graphite pixels closer than 0.3 um to void or the bright phase are left out:
+                            # edge halos, the BSE-bright carbon-binder skin and Si-phase blur live there
+level_sigma_px: 10          # normalised-convolution smoothing of the graphite-only BSE (0.5 um): averages out
+                            # noise, polishing striations and nanoscale CBD, keeps micron-size domains
+drift_column_blocks: 16     # slow-scan brightness drift (top-to-bottom; a safeguard: inside the crop it is <= 0.5 %
+                            # on all 31 spots today, so it changes nothing yet): the median
+drift_row_bands: 6          # over 16 column blocks of the slope of 6 row-band medians; domains sit in a few
+                            # blocks only, so the median slope is the drift, not the domains
+min_graphite_frac: 0.05     # less graphite interior than this share of the crop -> nan
+
+# two grey levels: 2-component Gaussian mixture on the graphite levels AT AND BELOW the main graphite peak
+mode_bin: 0.005             # histogram bin for the main graphite level (mode of the level map)
+band_below: 0.25            # fit window: [mode - band_below, mode + band_above]. The window stops just above the
+band_above: 0.05            # main peak because the long BSE-BRIGHT tail (carbon-binder sponge, debris) is not a
+                            # graphite grade; a window up to 1.25 makes the mixture fit that tail instead
+gmm_max_values: 20000       # pixels fed to the mixture (fixed stride subsample, deterministic)
+gmm_seed: 0
+min_contrast: 0.06          # the darker component must sit >= 6 % below the main one ... (domain spots: 8.2-17 %;
+                            # a split of one broad graphite peak: <= 4.3 %; small tail components 5.7 % (epqdaau9)
+                            # and 6.9 % (b3esycq1, passes, stopped by min_patch_um2); gamma 0.8 squeezes 8 % to ~6.6 %)
+min_weight: 0.02            # ... and hold >= 2 % of the window, otherwise there is no second level (frac = 0)
+
+# dark-domain patches
+open_radius_px: 3           # binary opening (0.15 um) cuts thin bridges between patches
+min_patch_um2: 25           # a dark patch must be at least 25 um2 (a 5.6 um disc; after the 0.3 um edge margin,
+                            # a particle of about 6 um)
+
+# blend vs channelling test: do the dark/main interfaces sit on particle boundaries?
+ridge_sigma_px: 1.5         # Inlens ridge filter scale (75 nm): bright thin lines = particle boundaries, cracks
+ridge_percentile: 90        # a ridge pixel is in the top 10 % of ridge strength within the solid
+boundary_tolerance_px: 10   # an interface pixel within 0.5 um (the smoothing scale) of a void/bright edge or an
+                            # Inlens ridge counts as lying on a particle boundary
+min_interface_px: 200       # fewer dark/main interface pixels than this -> boundary share nan

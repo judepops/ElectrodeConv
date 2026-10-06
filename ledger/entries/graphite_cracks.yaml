@@ -1,0 +1,45 @@
+id: graphite_cracks
+name: Crack density inside graphite particles (layer-parallel vs transverse)
+aliases:
+- fracture density
+- intra-particle cracks
+family: morphology
+detectors:
+- BSE
+- Inlens
+status: rejected
+owner: luca
+description: >-
+  Skeleton length of thin dark fissures inside graphite particles per graphite area, split by angle to
+  the particle long axis.
+battery_relevance: >-
+  Cracks expose fresh edge-rich surface that grows SEI (first-cycle loss, lithium inventory) and can cut
+  electronic paths; calendering damage and graphite type move it.
+findings: >-
+  2026-10-03, rejected (KEEP/REJECT rule c: perturbation ratio > 1 for every column). Built and screened
+  on all 31 spots: Sato black-ridge measure (sigmas 1, 1.5 px) on the harmonised BSE, absolute hysteresis
+  0.09/0.18 g, inside the closed valid-particle union of features/_particles eroded 5 px; components kept
+  if skeleton >= 0.5 um, elongation >= 3, reaching >= 350 nm into the particle, not within 10 deg of vertical
+  (curtaining), touching the particle edge at most once and with one particle label on both sides. Pure-noise
+  detection limit was good (0 false cracks on 3 synthetic sigma-0.235 g images, ~5800 um2 each). But graphite_crack_per_um
+  (B1 0.018 +- 0.006, B2 0.017 +- 0.006, B3 0.016 +- 0.007 um/um2) had session R2 0.88, perturbation ratio
+  1.98 (worst gamma 1.25), acquisition leak rho 0.73, split-half r 0.77/0.57, within-session p 0.31, LOSO
+  AUC 0.37/0.22; crack_parallel_frac split r 0.35/-0.23, perturbation 3.36 (blur 1); cracked_particle_frac
+  session R2 0.78, perturbation 2.22 (blur 1), split r 0.55/0.55, within p 0.70. Crack faces are 2-5 px
+  wide, so their contrast against the matched noise floor moves with each session's gamma and sharpness:
+  the count measures acquisition, not the powder. Visual check (cfe5vt7s B3, ffwubibz B1): kept objects
+  are thin dark lines inside graphite, partly real partial fissures, partly edge notches; the clearest
+  cracks run edge to edge or along a cut of the particle labeller and cannot be told from tight particle-particle
+  junctions in 2D, so they were excluded. No batch signal either. Revisit only with a resolution-normalised
+  detector (e.g. per-session PSF deconvolution) or 3D FIB-SEM.
+refs:
+- doi: 10.1016/j.jpowsour.2017.08.045
+  note: >-
+    Lin et al. 2017, J. Power Sources - FIB-SEM of crack formation in graphite particles of cycled commercial
+    cells (mechanism and imaging approach)
+  verified: false
+- doi: 10.1016/j.joule.2020.10.010
+  note: >-
+    Lu et al. 2020, Joule - microstructural evolution of electrodes during calendering, incl. particle
+    cracking
+  verified: false

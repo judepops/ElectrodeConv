@@ -1,0 +1,2 @@
+# No tuning of its own: uses the segmentation in features/porosity/config.yaml.
+# Add keys here if needed and read them with CFG["key"] in feature.py.

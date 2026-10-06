@@ -1,0 +1,127 @@
+id: si_fraction
+name: Si-phase (bright) area fraction of solid, harmonised, with single-image CI
+aliases:
+- bright solid fraction
+- si phase fraction
+- siox fraction of solid
+family: composition
+detectors:
+- BSE
+status: implemented
+owner: luca
+implemented_in: cnn/tile_features.py
+columns:
+- si_solid_frac
+- si_n_per_1000um2
+v1_implemented_in: features/si_fraction
+v1_columns:
+- bright_solid_frac
+- bright_frac_ci95
+- bright_fixed_solid_frac
+- bright_n_per_1000um2
+description: >-
+  Bright (Si-based, likely SiOx) area / solid area on the shared harmonised BSE crop (adaptive midpoint
+  between graphite and the image's own bright mode), plus bright/total area, its 95% single-image CI from
+  the two-point correlation (ImageRep idea), the fixed-threshold (1.45 g) sensitivity recipe, and Miles-Lantuejoul
+  edge-corrected counts of objects >= 1 um ECD. Replaces the multi-Otsu bright_phase_frac as the Tier-1
+  Si-dose KPI.
+battery_relevance: >-
+  Si-phase dose sets anode capacity (N/P balance), first-cycle efficiency (SiOx irreversible silicate
+  formation), swelling and Si-specific fade: higher = more capacity now, lower ICE, more expansion, faster
+  fade; lower = capacity shortfall.
+findings: >-
+  Integrated run (rank_features.py, robustness.py): bright_solid_frac B1 0.100 | B2 0.055 | B3 0.066+-0.011;
+  sep 0.79, q 0.077 (all-spot permutation, carried by the two session-2316 spots 0.16/0.20 = +8.7/+12.5
+  SD; sep 0.53 without them); within-session exact p 0.24 (B1 -1.66, B2 -1.50 B3-SD, noise-level), and
+  this test cannot see 2316 (B1-only session, n_eff 1 session: material vs session not separable); B2's
+  raw -1.05 SD is partly the B2-only session 2048 (-0.66 SD without it) and is not confirmed within sessions;
+  session R2 0.90 (chance 0.40), ICC 0.00; perturbation ratio 0.14 (fixed-threshold companion 1.83, direction
+  check only). Battery: more Si phase = more anode capacity but lower ICE, more swelling and faster fade
+  (trade-off; bad against a fixed cell design, where the extra capacity is mostly unused and the extra
+  Li loss is not); less = capacity shortfall with slightly better ICE (trade-off, out of spec); best =
+  match baseline. Number density at fixed fraction = neither (process-change sign). Verdict (Tier 1):
+  B1 INVESTIGATE (Si-phase anomaly: CI [-0.011, +0.078] INCONCL, lot spread 5.4x baseline from the same
+  two spots, only session-matched contrast points the other way; EDS first); B2 delta -0.012 (-1.05 SD),
+  P(beyond margin) 0.24 is what alone keeps it from CONDITIONAL ACCEPT. [final pipeline, 2026-10-03; verifier
+  pass]
+refs:
+- doi: 10.1002/advs.202414149
+  title: Prediction of Microstructural Representativity From A Single Image
+  authors: Dahari, Docherty, Kench et al.
+  year: 2025
+  venue: Advanced Science
+  verified: true
+  note: ImageRep single-image representativity error bar behind bright_frac_ci95
+- doi: 10.1007/978-1-4615-1233-2
+  title: Practical Stereology
+  authors: Russ, Dehoff
+  year: 2000
+  venue: Springer
+  verified: true
+  note: Delesse area fraction = volume fraction; minus-sampling edge correction
+- doi: 10.1016/j.jpowsour.2020.227711
+  title: >-
+    Optimization of Graphite–SiO blend electrodes for lithium-ion batteries: Stable cycling enabled by
+    single-wall carbon nanotubes
+  authors: Kirner, Qin, Zhang et al.
+  year: 2020
+  venue: Journal of Power Sources
+  verified: true
+  note: graphite-SiO blend ratio vs performance (the material class here)
+- doi: 10.1021/acsaem.2c02047
+  title: >-
+    Lithium-Ion Battery Degradation: Measuring Rapid Loss of Active Silicon in Silicon-Graphite Composite
+    Electrodes
+  authors: Kirkaldy, Samieian, Offer et al.
+  year: 2022
+  venue: ACS Applied Energy Materials
+  verified: true
+  note: Si fraction fades faster than graphite (more Si = faster early fade)
+- doi: 10.1021/cr500207g
+  title: Alloy Negative Electrodes for Li-Ion Batteries
+  authors: Obrovac, Chevrier
+  year: 2014
+  venue: Chemical Reviews
+  verified: true
+  note: Si/SiOx capacity and volume expansion; why Si dose matters
+- doi: 10.1038/s41467-021-22662-7
+  title: >-
+    Interplay between electrochemical reactions and mechanical responses in silicon-graphite anodes and
+    its impact on degradation
+  authors: Moon, Lee, Jung et al.
+  year: 2021
+  venue: Nature Communications
+  verified: true
+  note: >-
+    Si expansion degrades graphite; Si particle size is a lever on Si-graphite degradation (number-density
+    row)
+- doi: 10.1039/c8cs00441b
+  title: 'Silicon oxides: a promising family of anode materials for lithium-ion batteries'
+  authors: Liu, Yu, Zhao et al.
+  year: 2019
+  venue: Chemical Society Reviews
+  verified: true
+  note: SiOx capacity, irreversible silicate formation (ICE), expansion
+- doi: 10.1111/j.1365-2818.1978.tb00104.x
+  title: The Sampling, By Quadrats, of Planar Aggregates
+  authors: Miles
+  year: 1978
+  venue: Journal of Microscopy
+  verified: true
+  note: edge-corrected particle counting in a bounded window (bright_n_per_1000um2)
+- doi: 10.1111/j.1365-2818.1991.tb03099.x
+  title: Ergodicity and integral range
+  authors: Lantuéjoul
+  year: 1991
+  venue: Journal of Microscopy
+  verified: true
+  note: integral range -> variance of an area fraction from one image
+- doi: 10.1149/1945-7111/ac4545
+  title: >-
+    The Role of Silicon in Silicon-Graphite Composite Electrodes Regarding Specific Capacity, Cycle Stability,
+    and Expansion
+  authors: Moyassari, Roth, Kücher et al.
+  year: 2022
+  venue: Journal of The Electrochemical Society
+  verified: true
+  note: Si content vs capacity, cycle stability and expansion

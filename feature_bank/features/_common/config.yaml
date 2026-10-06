@@ -1,0 +1,41 @@
+# Shared harmonisation + segmentation recipe for every feature built on features/_common.
+# FROZEN before the new batch arrives: change a number here only with a commit message saying why, and re-run
+# run_features.py for every batch. All grey levels below are in graphite units: 0 = black level, 1 = graphite.
+
+crop:                     # every spot is measured on the same area, away from frame artefacts
+  top_px: 250             # rows 0-249 carry a top-of-frame artefact (porosity 0.02 lower in every session)
+  bottom_px: 25           # also drops the Cu current-collector band at the bottom of Batch_2/epqdaau9
+  side_px: 8              # the last raw columns are dark / differ between the RGB channels
+  height_px: 1336         # then the central 1336 rows: the shortest image (1612 px) still fits, so area is equal
+
+anchor:
+  blur_sigma_px: 2        # anchors are found on a blurred copy (raw histograms are noisy and comb-quantised)
+  black_percentile: 0.5   # black level = 0.5th percentile of the blurred crop (about 0 when clipped, about 22 in session 2060)
+  graphite_window_pct: [15, 92]   # graphite mode searched between these pixel percentiles
+  bin_width: 0.25         # histogram bin (raw grey levels) for the mode, then smoothed and parabola-refined
+  smooth_bins: 4
+
+noise:                    # noise matching: every image is topped up with Gaussian noise to the same level
+  bse_target_sigma: 0.235      # graphite units; just above the noisiest known image (about 0.23)
+  inlens_target_sigma: 0.105   # rank units; above the noisiest known Inlens (0.1003, Batch_2/i9jiqjwl)
+
+segmentation:
+  blur_sigma_px: 2        # 50 nm, chosen on perturbation robustness only
+  void_otsu_range: [0.0, 1.2]   # void threshold = Otsu of the blurred image restricted to this range (pore vs graphite)
+  void_threshold_clamp: [0.5, 0.75]
+  min_void_px: 16         # pore specks below this are noise; solid islands below this are filled
+  bright_blur_sigma_px: 1.5
+  bright_mode_range: [1.25, 3.4]    # where the bright (Si-phase) mode is searched
+  bright_mode_clamp: [1.5, 3.2]     # a peak outside this is ignored (known sessions: 1.67-2.34; gamma 1.25 moves it to ~2.6)
+  bright_mode_default: 2.1          # Batch_3 median: last resort when an image has no bright peak and no bright cores
+  bright_min_peak_frac: 0.002       # a bright peak must hold this share of all pixels within +-0.05 of it
+  bright_fixed_k: 1.45              # sensitivity recipe: fixed threshold in graphite units
+  bright_core_margin: 0.1           # an object must exceed its threshold by this somewhere (rejects noise blobs)
+  min_bright_px: 160                # 0.1 um2
+  fill_bright_holes_px: 400         # 0.25 um2
+  dim_range: [1.15, 1.45]           # the intermediate grey band between graphite and Si phase
+  min_dim_px: 800                   # 0.5 um2
+
+representativity:         # single-image standard error of a phase fraction from its two-point correlation
+  block_px: 4             # average the mask in 4x4 blocks (0.1 um) before the FFT
+  window_um: [4, 12]      # sum the autocovariance over |dy| <= 4 um, |dx| <= 12 um -> integral range

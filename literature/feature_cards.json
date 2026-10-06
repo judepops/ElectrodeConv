@@ -1,0 +1,751 @@
+{
+ "masks": "seg3",
+ "tile_um": 12.8,
+ "quantiles": [
+  0.05,
+  0.5,
+  0.95
+ ],
+ "cards": [
+  {
+   "concept": "si_fraction",
+   "feature": "si_solid_frac",
+   "label": "Silicon share of the solid",
+   "tint": "si",
+   "tiles": [
+    {
+     "img": "img/lit_si_fraction_0.jpg",
+     "value": 0.0,
+     "text": "0 % silicon",
+     "batch": "Batch_2",
+     "sample_id": "3806gxp0"
+    },
+    {
+     "img": "img/lit_si_fraction_1.jpg",
+     "value": 0.0378444265304338,
+     "text": "4 % silicon",
+     "batch": "Batch_3",
+     "sample_id": "hzumfsms"
+    },
+    {
+     "img": "img/lit_si_fraction_2.jpg",
+     "value": 0.2268512986639405,
+     "text": "23 % silicon",
+     "batch": "Batch_3",
+     "sample_id": "9luzk4jm"
+    }
+   ],
+   "batches": {
+    "Batch_1": {
+     "mean": 0.07929037537834584,
+     "text": "8 % silicon",
+     "pos": 0.3496901663008312,
+     "n": 7
+    },
+    "Batch_2": {
+     "mean": 0.05158753970327927,
+     "text": "5 % silicon",
+     "pos": 0.227513809233612,
+     "n": 7
+    },
+    "Batch_3": {
+     "mean": 0.06708535424596532,
+     "text": "7 % silicon",
+     "pos": 0.2958630044401133,
+     "n": 17
+    }
+   },
+   "effects": [
+    {
+     "outcome": "capacity",
+     "label": "energy storage",
+     "more": true,
+     "n": 10,
+     "counts": [
+      7,
+      0,
+      3,
+      0
+     ]
+    },
+    {
+     "outcome": "lifespan",
+     "label": "lifespan",
+     "more": false,
+     "n": 9,
+     "counts": [
+      0,
+      6,
+      3,
+      0
+     ]
+    },
+    {
+     "outcome": "first_charge_loss",
+     "label": "first-charge loss",
+     "more": true,
+     "n": 6,
+     "counts": [
+      5,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "swelling",
+     "label": "swelling",
+     "more": true,
+     "n": 8,
+     "counts": [
+      8,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "lean": "a trade-off: more energy storage; but less lifespan, more first-charge loss, more swelling"
+  },
+  {
+   "concept": "si_particle_size",
+   "feature": "si_d50_um",
+   "label": "Silicon particle size",
+   "tint": "si",
+   "tiles": [
+    {
+     "img": "img/lit_si_particle_size_0.jpg",
+     "value": 0.5512870796183166,
+     "text": "0.6 µm typical particle",
+     "batch": "Batch_2",
+     "sample_id": "3806gxp0"
+    },
+    {
+     "img": "img/lit_si_particle_size_1.jpg",
+     "value": 1.7751840242334398,
+     "text": "1.8 µm typical particle",
+     "batch": "Batch_3",
+     "sample_id": "utfgcjfa"
+    },
+    {
+     "img": "img/lit_si_particle_size_2.jpg",
+     "value": 3.998253934851969,
+     "text": "4.0 µm typical particle",
+     "batch": "Batch_3",
+     "sample_id": "utfgcjfa"
+    }
+   ],
+   "batches": {
+    "Batch_1": {
+     "mean": 2.122700948198515,
+     "text": "2.1 µm typical particle",
+     "pos": 0.45530892132730144,
+     "n": 7
+    },
+    "Batch_2": {
+     "mean": 1.8756615831565955,
+     "text": "1.9 µm typical particle",
+     "pos": 0.383535095015016,
+     "n": 7
+    },
+    "Batch_3": {
+     "mean": 1.9634342605883817,
+     "text": "2.0 µm typical particle",
+     "pos": 0.40903621668396245,
+     "n": 17
+    }
+   },
+   "effects": [
+    {
+     "outcome": "capacity",
+     "label": "energy storage",
+     "more": false,
+     "n": 6,
+     "counts": [
+      0,
+      5,
+      1,
+      0
+     ]
+    },
+    {
+     "outcome": "lifespan",
+     "label": "lifespan",
+     "more": false,
+     "n": 9,
+     "counts": [
+      0,
+      8,
+      0,
+      1
+     ]
+    },
+    {
+     "outcome": "first_charge_loss",
+     "label": "first-charge loss",
+     "more": false,
+     "n": 3,
+     "counts": [
+      0,
+      3,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "swelling",
+     "label": "swelling",
+     "more": true,
+     "n": 6,
+     "counts": [
+      5,
+      1,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "uniformity",
+     "label": "uniformity",
+     "more": false,
+     "n": 2,
+     "counts": [
+      0,
+      2,
+      0,
+      0
+     ]
+    }
+   ],
+   "lean": "a trade-off: less first-charge loss; but less energy storage, less lifespan, more swelling, less uniformity"
+  },
+  {
+   "concept": "si_agglomeration",
+   "feature": "si_agglom_d50_um",
+   "label": "Silicon clumping",
+   "tint": "si",
+   "tiles": [
+    {
+     "img": "img/lit_si_agglomeration_0.jpg",
+     "value": 0.8025316150961183,
+     "text": "0.8 µm typical clump",
+     "batch": "Batch_2",
+     "sample_id": "r17byphk"
+    },
+    {
+     "img": "img/lit_si_agglomeration_1.jpg",
+     "value": 2.1408611450850397,
+     "text": "2.1 µm typical clump",
+     "batch": "Batch_1",
+     "sample_id": "fzrt2k6r"
+    },
+    {
+     "img": "img/lit_si_agglomeration_2.jpg",
+     "value": 4.530747051522594,
+     "text": "4.5 µm typical clump",
+     "batch": "Batch_3",
+     "sample_id": "x77cy643"
+    }
+   ],
+   "batches": {
+    "Batch_1": {
+     "mean": 2.560130034849009,
+     "text": "2.6 µm typical clump",
+     "pos": 0.47173350125272756,
+     "n": 7
+    },
+    "Batch_2": {
+     "mean": 2.242547114627256,
+     "text": "2.2 µm typical clump",
+     "pos": 0.38634794097262815,
+     "n": 7
+    },
+    "Batch_3": {
+     "mean": 2.318169348813326,
+     "text": "2.3 µm typical clump",
+     "pos": 0.4066797863725691,
+     "n": 17
+    }
+   },
+   "effects": [
+    {
+     "outcome": "capacity",
+     "label": "energy storage",
+     "more": false,
+     "n": 2,
+     "counts": [
+      0,
+      2,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "lifespan",
+     "label": "lifespan",
+     "more": false,
+     "n": 3,
+     "counts": [
+      0,
+      3,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "uniformity",
+     "label": "uniformity",
+     "more": false,
+     "n": 2,
+     "counts": [
+      0,
+      2,
+      0,
+      0
+     ]
+    }
+   ],
+   "lean": "mostly bad for the cell: less energy storage, less lifespan, less uniformity"
+  },
+  {
+   "concept": "porosity",
+   "feature": "porosity_frac",
+   "label": "Pore fraction",
+   "tint": "pore",
+   "tiles": [
+    {
+     "img": "img/lit_porosity_0.jpg",
+     "value": 0.0674057006835937,
+     "text": "7 % pore",
+     "batch": "Batch_3",
+     "sample_id": "hzumfsms"
+    },
+    {
+     "img": "img/lit_porosity_1.jpg",
+     "value": 0.1554183959960937,
+     "text": "16 % pore",
+     "batch": "Batch_1",
+     "sample_id": "4ih2ggld"
+    },
+    {
+     "img": "img/lit_porosity_2.jpg",
+     "value": 0.27545166015625,
+     "text": "28 % pore",
+     "batch": "Batch_3",
+     "sample_id": "9luzk4jm"
+    }
+   ],
+   "batches": {
+    "Batch_1": {
+     "mean": 0.13715385604690716,
+     "text": "14 % pore",
+     "pos": 0.33541421849228586,
+     "n": 7
+    },
+    "Batch_2": {
+     "mean": 0.1534391969114869,
+     "text": "15 % pore",
+     "pos": 0.41381402007538304,
+     "n": 7
+    },
+    "Batch_3": {
+     "mean": 0.17232976887560536,
+     "text": "17 % pore",
+     "pos": 0.5047557514209814,
+     "n": 17
+    }
+   },
+   "effects": [
+    {
+     "outcome": "capacity",
+     "label": "energy storage",
+     "more": false,
+     "n": 9,
+     "counts": [
+      1,
+      8,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "lifespan",
+     "label": "lifespan",
+     "more": false,
+     "n": 6,
+     "counts": [
+      2,
+      4,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "swelling",
+     "label": "swelling",
+     "more": false,
+     "n": 2,
+     "counts": [
+      0,
+      2,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "uniformity",
+     "label": "uniformity",
+     "more": false,
+     "n": 3,
+     "counts": [
+      1,
+      2,
+      0,
+      0
+     ]
+    }
+   ],
+   "lean": "a trade-off: less swelling; but less energy storage, less lifespan, less uniformity"
+  },
+  {
+   "concept": "pore_size",
+   "feature": "pore_n_per_1000um2",
+   "label": "Pore count (many small vs few large)",
+   "tint": "pore",
+   "tiles": [
+    {
+     "img": "img/lit_pore_size_0.jpg",
+     "value": 85.44921874999999,
+     "text": "85 pores per 1000 µm²",
+     "batch": "Batch_1",
+     "sample_id": "4ih2ggld"
+    },
+    {
+     "img": "img/lit_pore_size_1.jpg",
+     "value": 170.89843749999997,
+     "text": "171 pores per 1000 µm²",
+     "batch": "Batch_3",
+     "sample_id": "tuy3zymq"
+    },
+    {
+     "img": "img/lit_pore_size_2.jpg",
+     "value": 274.65820312499994,
+     "text": "275 pores per 1000 µm²",
+     "batch": "Batch_3",
+     "sample_id": "ufdvpb81"
+    }
+   ],
+   "batches": {
+    "Batch_1": {
+     "mean": 196.18443080357136,
+     "text": "196 pores per 1000 µm²",
+     "pos": 0.5900116144018582,
+     "n": 7
+    },
+    "Batch_2": {
+     "mean": 175.35869891826923,
+     "text": "175 pores per 1000 µm²",
+     "pos": 0.4790494058786744,
+     "n": 7
+    },
+    "Batch_3": {
+     "mean": 164.97443704044116,
+     "text": "165 pores per 1000 µm²",
+     "pos": 0.42372070779531334,
+     "n": 17
+    }
+   },
+   "effects": [
+    {
+     "outcome": "lifespan",
+     "label": "lifespan",
+     "more": true,
+     "n": 3,
+     "counts": [
+      0,
+      3,
+      0,
+      0
+     ]
+    }
+   ],
+   "lean": "mostly good for the cell: more lifespan"
+  },
+  {
+   "concept": "heterogeneity",
+   "feature": "porosity_block_cv",
+   "label": "Unevenness of the pores",
+   "tint": "pore",
+   "tiles": [
+    {
+     "img": "img/lit_heterogeneity_0.jpg",
+     "value": 0.6223774707248536,
+     "text": "unevenness 0.62",
+     "batch": "Batch_2",
+     "sample_id": "r17byphk"
+    },
+    {
+     "img": "img/lit_heterogeneity_1.jpg",
+     "value": 0.9315130942013212,
+     "text": "unevenness 0.93",
+     "batch": "Batch_3",
+     "sample_id": "hawkfj64"
+    },
+    {
+     "img": "img/lit_heterogeneity_2.jpg",
+     "value": 1.4248742589689514,
+     "text": "unevenness 1.42",
+     "batch": "Batch_2",
+     "sample_id": "i9jiqjwl"
+    }
+   ],
+   "batches": {
+    "Batch_1": {
+     "mean": 1.0496343064532208,
+     "text": "unevenness 1.05",
+     "pos": 0.5331593857639246,
+     "n": 7
+    },
+    "Batch_2": {
+     "mean": 0.9842063391775258,
+     "text": "unevenness 0.98",
+     "pos": 0.45150789797005064,
+     "n": 7
+    },
+    "Batch_3": {
+     "mean": 0.9328031352049271,
+     "text": "unevenness 0.93",
+     "pos": 0.38735875416356413,
+     "n": 17
+    }
+   },
+   "effects": [
+    {
+     "outcome": "charge_speed",
+     "label": "charging speed",
+     "more": false,
+     "n": 3,
+     "counts": [
+      0,
+      3,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "lifespan",
+     "label": "lifespan",
+     "more": false,
+     "n": 2,
+     "counts": [
+      0,
+      2,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "swelling",
+     "label": "swelling",
+     "more": true,
+     "n": 2,
+     "counts": [
+      2,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "uniformity",
+     "label": "uniformity",
+     "more": false,
+     "n": 8,
+     "counts": [
+      2,
+      5,
+      1,
+      0
+     ]
+    }
+   ],
+   "lean": "mostly bad for the cell: less charging speed, less lifespan, more swelling, less uniformity"
+  },
+  {
+   "concept": "surface_area",
+   "feature": "interface_density_per_um",
+   "label": "Pore-wall length (surface area)",
+   "tint": "pore",
+   "tiles": [
+    {
+     "img": "img/lit_surface_area_0.jpg",
+     "value": 0.3488159179687499,
+     "text": "0.35 µm of pore wall per µm²",
+     "batch": "Batch_3",
+     "sample_id": "utfgcjfa"
+    },
+    {
+     "img": "img/lit_surface_area_1.jpg",
+     "value": 0.5950927734374999,
+     "text": "0.60 µm of pore wall per µm²",
+     "batch": "Batch_3",
+     "sample_id": "pl8uabbv"
+    },
+    {
+     "img": "img/lit_surface_area_2.jpg",
+     "value": 0.8172607421874999,
+     "text": "0.82 µm of pore wall per µm²",
+     "batch": "Batch_3",
+     "sample_id": "mgxahqnk"
+    }
+   ],
+   "batches": {
+    "Batch_1": {
+     "mean": 0.5536584539727849,
+     "text": "0.55 µm of pore wall per µm²",
+     "pos": 0.4365065417611109,
+     "n": 7
+    },
+    "Batch_2": {
+     "mean": 0.5636823046338426,
+     "text": "0.56 µm of pore wall per µm²",
+     "pos": 0.45794658996356125,
+     "n": 7
+    },
+    "Batch_3": {
+     "mean": 0.611132108248197,
+     "text": "0.61 µm of pore wall per µm²",
+     "pos": 0.5594371359710785,
+     "n": 17
+    }
+   },
+   "effects": [
+    {
+     "outcome": "capacity",
+     "label": "energy storage",
+     "more": true,
+     "n": 8,
+     "counts": [
+      6,
+      2,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "charge_speed",
+     "label": "charging speed",
+     "more": true,
+     "n": 9,
+     "counts": [
+      7,
+      1,
+      1,
+      0
+     ]
+    },
+    {
+     "outcome": "lifespan",
+     "label": "lifespan",
+     "more": false,
+     "n": 4,
+     "counts": [
+      0,
+      4,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "uniformity",
+     "label": "uniformity",
+     "more": true,
+     "n": 2,
+     "counts": [
+      2,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "lean": "a trade-off: more energy storage, more charging speed, more uniformity; but less lifespan"
+  },
+  {
+   "concept": "graphite_particle_size",
+   "feature": "solid_chord_y_um",
+   "label": "Solid thickness (graphite particle size)",
+   "tint": "pore",
+   "tiles": [
+    {
+     "img": "img/lit_graphite_particle_size_0.jpg",
+     "value": 2.117305976806423,
+     "text": "2.1 µm typical solid thickness",
+     "batch": "Batch_3",
+     "sample_id": "vc2whyaq"
+    },
+    {
+     "img": "img/lit_graphite_particle_size_1.jpg",
+     "value": 3.0257966011683486,
+     "text": "3.0 µm typical solid thickness",
+     "batch": "Batch_1",
+     "sample_id": "5n1q8atc"
+    },
+    {
+     "img": "img/lit_graphite_particle_size_2.jpg",
+     "value": 4.865971039182283,
+     "text": "4.9 µm typical solid thickness",
+     "batch": "Batch_3",
+     "sample_id": "ptg8lmto"
+    }
+   ],
+   "batches": {
+    "Batch_1": {
+     "mean": 3.4197416893346744,
+     "text": "3.4 µm typical solid thickness",
+     "pos": 0.47374037151723375,
+     "n": 7
+    },
+    "Batch_2": {
+     "mean": 3.3350661934990002,
+     "text": "3.3 µm typical solid thickness",
+     "pos": 0.44287979721790427,
+     "n": 7
+    },
+    "Batch_3": {
+     "mean": 3.048460916897028,
+     "text": "3.0 µm typical solid thickness",
+     "pos": 0.33842450769329663,
+     "n": 17
+    }
+   },
+   "effects": [
+    {
+     "outcome": "capacity",
+     "label": "energy storage",
+     "more": false,
+     "n": 7,
+     "counts": [
+      2,
+      5,
+      0,
+      0
+     ]
+    },
+    {
+     "outcome": "charge_speed",
+     "label": "charging speed",
+     "more": false,
+     "n": 6,
+     "counts": [
+      0,
+      4,
+      1,
+      1
+     ]
+    }
+   ],
+   "lean": "mostly bad for the cell: less energy storage, less charging speed"
+  }
+ ]
+}

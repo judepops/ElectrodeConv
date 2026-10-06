@@ -1,0 +1,6 @@
+# Graphite fragment size/shape on the harmonised BSE masks (features/_common). "at scale" = after every scale-th pixel.
+scale: 2                   # 50 nm per pixel; same as particle_size
+min_pore_um2: 0.05         # pores smaller than this (cracks, speckle) are filled so they don't split flakes
+min_distance_px: 20        # min gap between fragment centres, at scale (1 um), as particle_size
+min_centre_depth_px: 2.5   # a centre must be this far from any pore or bright phase, at scale
+min_particle_px: 50        # smaller fragments are debris, at scale (0.125 um2)

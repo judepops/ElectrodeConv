@@ -1,0 +1,132 @@
+# What evidence.py searches for. One literature question per (concept, outcome) pair.
+#
+# concepts   a measured property of the microstructure. `features` are the columns of qc/processed/features_table.csv
+#            that measure it; add a column here when a new feature is built and re-run evidence.py.
+# outcomes   the battery properties of qc/impact_rules.yaml (same ids).
+# phrase     how the question to the paper reader names it.  search = words added to the paper search.
+# inverse    features that go DOWN when the concept goes up (e.g. more pores per area = smaller pores), so their
+#            shift is flipped before it is multiplied by the papers' direction.
+# outlook    false = listed in EVIDENCE.md but left out of the batch outlook (the question has no clear "higher").
+#
+# Polaron confirmed on 3 Oct 2026 that the bright particles are silicon and the dark ones graphite. The questions
+# say "silicon or silicon oxide" so that the reader also accepts SiOx papers; those are a looser match.
+
+concepts:
+  - id: porosity
+    features: [porosity_frac]
+    phrase: the porosity (pore volume fraction) of the electrode
+    search: electrode porosity calendering
+
+  - id: si_fraction
+    features: [si_solid_frac]
+    phrase: the silicon or silicon-oxide content (fraction) of a silicon-graphite composite anode
+    search: silicon content fraction silicon-graphite composite anode
+
+  - id: si_particle_size
+    features: [si_d50_um, si_d90_um]
+    phrase: the particle size of the silicon or silicon-oxide particles
+    search: silicon particle size silicon oxide anode
+
+  - id: si_dispersion
+    features: [si_n_per_1000um2, si_block_cv]
+    inverse: [si_block_cv]            # a higher block CV is a LESS even dispersion
+    phrase: how finely and evenly the silicon particles are dispersed in the electrode (more, evenly spread particles)
+    search: silicon particle dispersion distribution homogeneity silicon-graphite electrode
+
+  - id: si_agglomeration
+    features: [si_agglom_d50_um]
+    phrase: the agglomeration (clustering) of silicon particles into larger clumps
+    search: silicon particle agglomeration clustering composite anode
+
+  - id: si_particle_shape
+    features: [si_aspect_aw]
+    outlook: false                    # "shape" has no agreed higher / lower, so the reader's directions are not comparable
+    phrase: the aspect ratio or shape (elongated versus rounded) of the silicon particles
+    search: silicon particle shape morphology aspect ratio anode
+
+  - id: surface_area
+    features: [interface_density_per_um]
+    phrase: the electrode-electrolyte interfacial area (specific surface area of the active material exposed to the pores)
+    search: specific surface area active material electrolyte interface graphite anode
+
+  - id: pore_size
+    features: [pore_n_per_1000um2]
+    inverse: [pore_n_per_1000um2]     # more pores per area at the same porosity = smaller pores
+    phrase: the pore size (many small pores versus fewer large pores at the same porosity)
+    search: pore size distribution electrode small pores
+
+  - id: graphite_particle_size
+    features: [solid_chord_x_um, solid_chord_y_um]
+    phrase: the particle size of the graphite active material
+    search: graphite particle size anode
+
+  - id: particle_alignment
+    features: [solid_chord_hv_ratio]
+    phrase: the alignment of flake-shaped graphite particles parallel to the current collector (in-plane orientation, anisotropy)
+    search: graphite flake orientation alignment anisotropy tortuosity electrode
+
+  - id: heterogeneity
+    features: [porosity_block_cv]
+    phrase: the spatial heterogeneity (unevenness) of the electrode microstructure
+    search: electrode microstructure heterogeneity inhomogeneity local porosity variation
+
+  - id: thin_ligaments              # qc/depth_profile.py; from a DINOv2 sparse-autoencoder latent (ledger: thin_solid)
+    features: [thin_solid_frac]
+    phrase: the share of the active material in thin fragments, slivers and exposed particle edges (more fine fragments and graphite edge planes versus intact particles)
+    search: graphite edge plane exposed edges fine fragments particle fracture anode SEI
+
+  - id: current_collector_porosity  # qc/depth_profile.py, bottom 11.2 um (ledger: binder_depth_profile)
+    features: [depth_porosity_b0_frac]
+    phrase: the porosity of the electrode layer next to the current collector (a through-thickness porosity gradient that is denser at the current collector than at the separator side)
+    search: through-thickness porosity gradient current collector graded electrode drying binder migration
+
+  - id: si_current_collector_enrichment  # qc/spot_features/si_depth.py (ledger: si_depth)
+    features: [si_depth_rel_slope_per_10um]
+    phrase: a through-thickness silicon gradient with more silicon (or silicon oxide) near the current collector than near the separator side, e.g. from particle sedimentation during drying or a graded/bilayer silicon-graphite anode
+    search: silicon gradient through-thickness current collector bilayer graded silicon-graphite anode sedimentation drying
+
+  - id: cc_delamination  # qc/spot_features/cc_interface.py (ledger: cc_interface)
+    features: [cc_interface_horiz_share_bottom_frac, cc_interface_horiz_share_delta_frac, cc_interface_horiz_len_bottom_um]
+    phrase: delamination or poor adhesion between the electrode coating and the current collector (gaps or detachment at the coating/current-collector interface seen in cross-section)
+    search: electrode delamination current collector adhesion strength detachment cross-section SEM
+
+  # ---- the depth and local features the embedding's batch axes lean on (cnn/results/interpret_*.md), added 4 Oct ----
+  - id: binder_depletion_at_collector   # qc/spot_features/inlens_depth.py (ledger: binder_depth_profile)
+    features: [inlens_depth_dark_slope_per_10um, inlens_depth_dark_b0_frac]
+    phrase: binder and carbon-black depletion near the current collector (binder migration towards the electrode surface during drying, a steeper through-thickness binder gradient)
+    search: binder migration drying carbon black gradient through thickness current collector depletion adhesion
+
+  - id: dense_regions                   # qc/spot_features/local_porosity.py (ledger: local_porosity)
+    features: [local_porosity_dense_window_frac]
+    phrase: the share of locally dense, pore-starved regions in the electrode (local areas with almost no porosity while the average porosity is unchanged)
+    search: local porosity variation dense regions pore-starved electrode microstructure inhomogeneous calendering
+
+  - id: interface_depth_gradient        # qc/depth_profile.py (ledger: binder_depth_profile)
+    features: [depth_interface_slope_per_10um]
+    phrase: a finer pore structure with more solid-pore interface near the current collector than near the separator side (a through-thickness gradient in pore size or surface area)
+    search: graded electrode pore size gradient through thickness smaller pores current collector separator side
+
+  - id: si_size_at_collector            # qc/spot_features/si_depth.py (ledger: si_depth)
+    features: [si_depth_d50_slope_per_10um, si_depth_b0_d50_um]
+    phrase: coarser silicon particles or silicon agglomerates concentrated near the current collector (a silicon particle-size gradient through the electrode thickness, from sedimentation during drying)
+    search: silicon particle size gradient electrode thickness sedimentation drying current collector silicon-graphite
+
+outcomes:
+  - id: capacity
+    phrase: the capacity or energy density of the electrode or cell
+    search: capacity energy density
+  - id: charge_speed
+    phrase: the charging speed (rate capability, fast charging, resistance to lithium plating)
+    search: rate capability fast charging lithium plating
+  - id: lifespan
+    phrase: the cycle life (capacity retention over cycling)
+    search: cycle life capacity retention degradation
+  - id: first_charge_loss
+    phrase: the first-cycle irreversible capacity loss (lower initial coulombic efficiency means MORE loss)
+    search: first cycle irreversible capacity loss initial coulombic efficiency SEI
+  - id: swelling
+    phrase: the swelling (volume expansion, thickness change) of the electrode
+    search: electrode swelling volume expansion thickness change
+  - id: uniformity
+    phrase: the uniformity of current, lithiation or reaction across the electrode
+    search: reaction uniformity current distribution inhomogeneous lithiation

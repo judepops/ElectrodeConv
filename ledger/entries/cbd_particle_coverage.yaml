@@ -1,0 +1,43 @@
+id: cbd_particle_coverage
+name: CBD coverage of graphite particle perimeter
+aliases:
+- binder coverage
+- binder wetting of active particles
+- particle-cbd contact fraction
+family: composition
+detectors:
+- BSE
+- Inlens
+status: rejected
+description: >-
+  Fraction of each graphite particle's boundary (from the BSE particle mask) whose 2-3 px outer ring is
+  CBD in Inlens rather than pore; report median and IQR across particles plus the fraction of particles
+  with <20% coverage (electronically isolated candidates). Unlike carbon_binder_domain (bulk area fraction)
+  this is measured per particle interface, and normalised by perimeter so it is independent of image height
+  and black level.
+battery_relevance: >-
+  Particle-CBD contact is the electronic pathway into each graphite grain and the interface where CBD
+  detaches under cycling strain (Mirsalehian 2023); poorly covered particles become inactive (capacity
+  loss), heavily covered ones have CBD blocking Li+ access to the graphite surface (rate, plating).
+findings: >-
+  CBD family: none survives the within-session test; all session-dominated (session R2 0.73-0.97) or unreliable.
+  cbd_coverage: session R2 0.90, acquisition_dominated; cbd_cov_siox: unreliable (split-half r 0.41).
+  Inlens grey level changes contrast mechanism between sessions, so it can't define CBD. Source: notes/feature_screen.md
+  (Luca's empirical screen, 31 spots, within-mixed-session permutation test, 2026-10-03)
+refs:
+- doi: 10.1002/advs.202400729
+  title: >-
+    Carbon Binder Domain Inhomogeneity in Silicon‐Monoxide/Graphite Composite Anode by 2D Multiphysics
+    Modeling
+  authors: Gao, Xu
+  year: 2024
+  venue: Advanced Science
+  verified: true
+- doi: 10.3390/en16217391
+  title: >-
+    3D Heterogeneous Model for Electrodes in Lithium-Ion Batteries to Study Interfacial Detachment of
+    Active Material Particles and Carbon-Binder Domain
+  authors: Mirsalehian, Vossoughi, Kaiser et al.
+  year: 2023
+  venue: Energies
+  verified: true

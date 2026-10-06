@@ -1,0 +1,42 @@
+id: cbd_patchiness
+name: Lateral CBD patchiness (tile-wise variation and cluster sizes)
+aliases:
+- binder agglomeration
+- carbon black clustering
+- cbd inhomogeneity
+family: spatial_statistics
+detectors:
+- BSE
+- Inlens
+status: rejected
+description: >-
+  From the CBD mask: coefficient of variation of CBD area fraction over non-overlapping 2 um tiles (80x80
+  px, so it does not depend on image height), plus the equivalent-diameter distribution (d50, d90) of
+  connected CBD clusters. High CV / large clusters = agglomerated carbon black and binder; low CV = well-dispersed.
+  Differs from binder_depth_profile (vertical gradient) by measuring in-plane heterogeneity.
+battery_relevance: >-
+  CBD inhomogeneity changes local electronic and ionic transport and the local current density in graphite/SiO
+  anodes (Gao & Xu 2024 model: capacity, Li plating, rate); agglomerates mean some regions are carbon-starved
+  while others have CBD-clogged pores. Reflects slurry mixing/dispersion quality, a likely between-batch
+  process variable.
+findings: >-
+  CBD family: none survives the within-session test; all session-dominated (session R2 0.73-0.97) or unreliable.
+  cbd_patch_median/p90: session R2 0.85-0.93; cbd_quadrat_cv: ANOVA p 0.039 but permutation p 0.44, split-half
+  0.56. Inlens grey level changes contrast mechanism between sessions, so it can't define CBD. Source:
+  notes/feature_screen.md (Luca's empirical screen, 31 spots, within-mixed-session permutation test, 2026-10-03)
+refs:
+- doi: 10.1002/advs.202400729
+  title: >-
+    Carbon Binder Domain Inhomogeneity in Silicon‐Monoxide/Graphite Composite Anode by 2D Multiphysics
+    Modeling
+  authors: Gao, Xu
+  year: 2024
+  venue: Advanced Science
+  verified: true
+- doi: 10.2139/ssrn.5160216
+  title: >-
+    Analysis of Carbon-Binder Domain Morphology and Correlation to Effective Ion Transport Properties
+  authors: Prasad, Prifling, Neumann et al.
+  year: 2025
+  venue: SSRN Electronic Journal
+  verified: true

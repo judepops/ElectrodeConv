@@ -1,0 +1,27 @@
+id: gabor_texture
+name: Gabor filter-bank energy by scale and orientation
+aliases:
+- gabor energy
+- oriented filter bank
+family: texture
+detectors:
+- BSE
+- Inlens
+status: idea
+description: >-
+  Mean energy of Gabor filter responses at several wavelengths and orientations; gives a scale spectrum
+  and an orientation anisotropy.
+battery_relevance: >-
+  Scale-resolved texture shows at what length scale batches differ; orientation energy tracks flake alignment.
+findings: >-
+  Not screened, but the related texture family (LBP, GLCM, S2 lengths) was acquisition-dominated: low
+  prior; would need noise- and blur-equalised input (features/_common). Source: notes/feature_screen.md
+  (Luca's empirical screen, 31 spots, within-mixed-session permutation test, 2026-10-03)
+refs:
+- doi: 10.1016/0031-3203(91)90143-s
+  title: Unsupervised texture segmentation using Gabor filters
+  authors: Jain, Farrokhnia
+  year: 1991
+  venue: Pattern Recognition
+  verified: true
+  note: texture segmentation with Gabor filters

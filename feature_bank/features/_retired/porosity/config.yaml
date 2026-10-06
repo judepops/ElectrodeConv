@@ -1,0 +1,4 @@
+# Shared BSE segmentation (pore / graphite / bright phase). bright_phase, pore_size and particle_size use it too.
+blur_sigma_px: 2     # blur before thresholding, removes pixel noise (2 px = 50 nm, much smaller than a pore)
+subsample: 4         # find thresholds on every 4th pixel (faster, same result)
+classes: 3           # multi-Otsu classes: pore, graphite, bright phase

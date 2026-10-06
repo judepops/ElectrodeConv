@@ -1,0 +1,51 @@
+# Acquisition gate and negative controls (features/acquisition). NOT material KPIs: never use an acq_ column
+# as a classifier input or rank it as a batch-separating feature. Grey levels are raw 8-bit unless stated;
+# "graphite units" = the anchored BSE of features/_common (0 = black level, 1 = graphite).
+
+graphite_interior:        # where acq_cnr and acq_focus are measured: flat graphite, away from edges and pores
+  range: [0.85, 1.15]     # blurred anchored BSE (h.bse_blur) inside this window counts as graphite
+  erode_px: 4             # then erode with a 9x9 square (4 px each side) so no particle edge is included
+
+focus:                    # Laplacian variance on graphite interiors minus the white-noise part (screen recipe)
+  bin_px: 2               # mean-bin 2x2 first (50 nm pixels): the 1-px Laplacian is almost pure noise
+  laplacian_noise_gain: 20  # 4-neighbour Laplacian of white noise of variance v has variance 20 v
+
+curtain:                  # vertical-stripe (FIB curtaining) energy in the 2D power spectrum of the SE crop
+  tile_px: 256            # Welch estimate: Hann-windowed 256x256 tiles, power spectra averaged
+  band_ky_bins: 2         # the stripe line: |ky| <= 2 bins (2/256 cyc/px), i.e. structures longer than ~128 px
+  flank_ky_bins: [4, 10]  # the reference: the same kx, 4-10 bins away (just outside the Hann main lobe). A wider
+                          # flank (to 16) is attenuated more by blur than the line: blur sigma 1 px then moved the
+                          # raw-SE index by 1.1 B3-SD instead of 0.64. At low kx the flank sits at a larger |k| than
+                          # the line, so a steep isotropic spectrum reads above 1 (blurred white noise, sigma 2 px: 1.17)
+  kx_range: [0.05, 0.15]  # cyc/px; stripe periods 7-20 px (0.17-0.5 um), where the 2316 curtains put their power
+
+saturation:
+  bse_black_code: 0       # raw BSE code that means "clipped at black"
+  inlens_white_code: 255  # raw Inlens code that means "saturated"
+
+# Gate 1 of the verdict (notes/research_report.md section 6.5). Frozen 2026-10-03 from the 31 known spots and
+# the perturbation run in README.md ("Evidence on our data"); bounds rounded outward. Only these columns gate.
+#   envelope: [min, max] over the 31 known spots (13 sessions)        inside          -> G-A proceed
+#   tested:   [min, max] over the known spots AND their 24 perturbed  outside envelope,
+#             copies (black +25, gamma 0.8 / 1.25, contrast x0.85,    inside tested   -> G-B proceed, flag
+#             noise sigma 4, blur sigma 1 on 4 baseline spots)                           "extrapolated acquisition"
+#                                                                     outside tested  -> G-C NOT COMPARABLE
+# Exceptions:
+# - Black level and Inlens saturation start at 0 (fully clipped / none saturated is normal).
+# - The noise upper "tested" bound is the harmonisation target (features/_common/config.yaml noise.bse_target_sigma):
+#   any image below it is topped up to the same noise, above it acq_bse_noise_above_target = 1 and it is not equalised.
+# - Curtain index envelope: the 29 spots outside session 2316 (max 1.164). 2316 (4ih2ggld, 5n1q8atc, 1.64-1.68,
+#   z +9 against Batch_3) is the one session with curtains visible by eye: inside the envelope it would let
+#   2316-like curtaining pass as G-A. Revised in review, 2026-10-03.
+# - Upper "tested" bound of curtain index and Inlens saturation: no perturbed copy exceeded the known maximum, so the
+#   [min, max] rule left no G-B room above the envelope (a clean spot just above the known max would be G-C). Instead:
+#   envelope max + the largest upward shift any perturbation produced + 2 full-crop sampling SDs (SD of the
+#   left-right split-half difference / 2), rounded up. Revised in review, 2026-10-03.
+#     curtain:           1.164 + 0.023 (blur 1, cfe5vt7s) + 2 x 0.056 = 1.30; 2316 stays G-C, as in analysis/verdict.py
+#     Inlens saturation: 0.0655 + 0.025 (black +25, 0grcilhi) + 2 x 0.004 = 0.10
+gate:
+  acq_bse_black_level:    {envelope: [0.0, 24.4],     tested: [0.0, 48.0]}
+  acq_bse_noise_sigma:    {envelope: [0.128, 0.214],  tested: [0.006, 0.235]}
+  acq_inlens_sat255_frac: {envelope: [0.0, 0.0655],   tested: [0.0, 0.10]}
+  acq_curtain_index:      {envelope: [0.888, 1.165],  tested: [0.861, 1.30]}
+  acq_focus:              {envelope: [0.0156, 0.0807], tested: [0.0107, 0.120]}

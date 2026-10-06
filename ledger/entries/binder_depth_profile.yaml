@@ -1,0 +1,124 @@
+id: binder_depth_profile
+name: Depth profiles (porosity, carbon-binder, bright phase vs coating depth)
+aliases:
+- binder migration
+- through thickness gradient
+- vertical profile
+family: depth_profile
+detectors:
+- BSE
+- Inlens
+status: implemented
+owner: adarsh
+implemented_in: qc/depth_profile.py
+columns:
+- depth_porosity_b0_frac
+- depth_interface_b0_per_um
+- depth_interface_b1_per_um
+- depth_interface_slope_per_10um
+v1_implemented_in: features/depth_profile
+v1_columns:
+- depth_profile
+description: >-
+  Each segmentation fraction averaged per image row and plotted against depth through the coating; report
+  the top-vs-bottom gradient. Needs Polaron to confirm which edge is the current-collector side.
+battery_relevance: >-
+  Fast drying makes binder migrate to the top surface, leaving the current-collector interface binder-poor
+  - weak adhesion and delamination during cycling. Exactly the "fine now, worse later" defect.
+findings: >-
+  analysis/interp/depth_profile.py (bands of 11.2 um counted up from the bottom edge, which features/_common/config.yaml
+  identifies as the Cu current-collector side; top 250 rows excluded): Batch_1 and Batch_2 crops get DENSER
+  towards the bottom (bottom band porosity 0.075 / 0.088 / 0.110, interface 0.38 / 0.42 / 0.47 /um, thin-solid
+  0.063 / 0.069 / 0.077 for B1 / B2 / B3) and converge with Batch_3 higher up; Batch_3 is flat with depth.
+  Ranked (31 spots): label-free DINOv2-L Batch_3 score in the bottom band sep 1.80, q 0.0015, within-split-image
+  ws_p 0.026 (separates; the strongest single column so far); interface_per_um 11-22 um above the bottom
+  sep 0.74, q 0.032, ws_p 0.037 (separates); interface and thin-solid slopes towards the bottom separate
+  (ws_p 0.07); bottom-band hand-crafted values have sep 0.9-0.95 but ws_p 0.11-0.15. Caveat: only one
+  image (epqdaau9) shows the Cu band, so 'bottom = current collector' is assumed for the rest; 15 depth
+  columns were ranked. Built as features/depth_profile (8 columns, full-height harmonised recipe, masks
+  cached in processed/harmonised_full/): interface_b1 sep 0.74 q 0.028 ws_p 0.037, thin_solid_b1 sep 0.67
+  q 0.028 ws_p 0.057, interface slope sep 0.62 q 0.032 ws_p 0.073 -> separates; interface_b0 / thin_solid_b0
+  sep 0.95 / 0.91 (q 0.006) but ws_p 0.11 / 0.15; porosity slope unstable. V2 (qc/depth_profile.py, Luca's
+  recipe, rows 250..H-25, 31 spots): bottom-band interface 0.439 / 0.483 / 0.512 (B3 vs rest AUC 0.81,
+  p 0.003; within +++ p 0.25), slope -0.048 / -0.029 / -0.006 (AUC 0.82, p 0.003; within p 0.50), bottom
+  porosity 0.085 / 0.101 / 0.119 (AUC 0.77, p 0.01), interface 11-22 um up within p 0.04: separates across
+  spots, session-confounded inside sessions; B1 vs B2 p >= 0.27. Batch_1 slope -3.6 Batch_3 SDs in the
+  verdict. Test spots: xrv9xvzb flat (+0.007, Batch_3-like), 3e122cbj -0.021, fn0mhxef -0.056. GXL evidence
+  (concept current_collector_porosity): charging speed 3 of 3 papers 'more' (agrees with the slider rule).
+  Inlens extension (qc/spot_features/inlens_depth.py, columns inlens_depth_dark_b0_frac,
+  inlens_depth_dark_slope_per_10um, inlens_depth_pore_slope_per_10um; kept out of `columns` because the ledger
+  allows one implemented_in module): share of the BSE solid below the spot's own 25th Inlens percentile, per
+  11.2 um band from the bottom, full height. Bottom band 0.63 / 0.46 / 0.31 for B1 / B2 / B3 (B3 vs rest AUC
+  0.15, p 0.0007; within p 0.91), slope towards the bottom +0.155 / +0.054 / +0.014 per 10 um (AUC 0.30,
+  p 0.06; within p 0.58); B1 vs B2 p >= 0.20; 4 columns tried. SESSION-CONFOUNDED / no within-session
+  difference: values are bimodal by session (sessions 2148, 2156, 2316, 2088 high for every batch, incl. 3
+  Batch_3 spots at 0.60), Inlens has a top-to-bottom brightness drift (4ih2ggld raw 116 -> 62 grey, pores
+  darken too), and the solid slope tracks the pore-pixel control slope (Spearman 0.64, p 1e-4); the
+  slope residual on the pore control has B3 vs rest p 0.23, within p 0.17. Visually the dark Inlens phase
+  inside the solid is polished graphite faces, not carbon-binder (CBD is bright, fluffy Inlens texture), so
+  even a real signal would read as less CBD near the bottom. Not linked to GXL evidence or impact rules:
+  a shading-driven column would only add noise to the outlook. Test: 3e122cbj 0.82 / +0.158, xrv9xvzb 0.59 /
+  +0.101, fn0mhxef 0.41 / +0.036 (all on high-shading sessions or close to them).
+refs:
+- doi: 10.1002/advs.202400729
+  title: >-
+    Carbon Binder Domain Inhomogeneity in Silicon‐Monoxide/Graphite Composite Anode by 2D Multiphysics
+    Modeling
+  authors: Gao, Xu
+  year: 2024
+  venue: Advanced Science
+  verified: true
+  note: >-
+    anode (SiO/graphite) model - less CBD near the surface than near the current collector improves capacity,
+    rate and Li plating but raises mechanical-failure risk
+- doi: 10.1002/advs.202524109
+  title: >-
+    Microstructure‐Resolved Modeling to Predicting and Regulating Lithium Plating‐Stripping Dynamics on
+    Graphite Electrodes
+  authors: Huang, Li, Liu et al.
+  year: 2026
+  venue: Advanced Science
+  verified: true
+  note: 'graded electrodes: rate performance and plating resistance (gxl-evidence)'
+- doi: 10.1016/j.jpowsour.2016.04.018
+  title: >-
+    Investigation of film solidification and binder migration during drying of Li-Ion battery anodes
+  authors: Jaiser, Müller, Baunach et al.
+  year: 2016
+  venue: Journal of Power Sources
+  verified: true
+  note: film solidification and binder migration during drying of Li-ion anodes
+- doi: 10.1021/acs.nanolett.2c00385
+  title: Gradient Architecture Design in Scalable Porous Battery Electrodes
+  authors: Zhang, Hui, King et al.
+  year: 2022
+  venue: Nano Letters
+  verified: true
+  note: through-thickness porosity/tortuosity gradients change ion transport (amass)
+- doi: 10.1021/acsnano.1c02942
+  title: 3D Detection of Lithiation and Lithium Plating in Graphite Anodes during Fast Charging
+  authors: Ho, Parkinson, Finegan et al.
+  year: 2021
+  venue: ACS Nano
+  verified: true
+  note: >-
+    lithiation and plating are non-uniform through graphite electrode depth at fast charge (amass)
+- doi: 10.1126/sciadv.abm6624
+  title: Extremely fast-charging lithium ion battery enabled by dual-gradient structure design
+  authors: Lu, Lu, Zhu et al.
+  year: 2022
+  venue: Science Advances
+  verified: true
+  note: gradient porosity (higher at top than bottom) simulation, rate (gxl-evidence)
+- doi: 10.3390/nano12030317
+  title: Aqueous Manufacturing of Defect-Free Thick Multi-Layer NMC811 Electrodes
+  authors: Neidhart, Fröhlich, Eshraghi et al.
+  year: 2022
+  venue: Nanomaterials
+  verified: true
+  note: review of porosity gradients near the current collector (gxl-evidence)
+- doi: 10.48550/arxiv.2506.17048
+  verified: false
+  note: >-
+    binder migration and particle sedimentation during drying, solvent leaves away from the current collector
+    (paperclip)

@@ -1,0 +1,43 @@
+id: pore_size
+name: Pore size distribution (connected-component areas)
+aliases:
+- pore area distribution
+- psd
+family: morphology
+detectors:
+- BSE
+status: v1_only
+v1_implemented_in: features/_retired/pore_size
+v1_columns:
+- pore_size_median_um2
+- pore_size_p90_um2
+- pore_size_count_per_1000um2
+description: Median and 90th-percentile area of connected pore regions, and pore count per area.
+battery_relevance: >-
+  The same porosity can come from many small pores (good dispersion) or a few large ones (cracks, poor
+  mixing); large pores lower energy density and small ones limit rate capability.
+findings: >-
+  pore_size_median_um2: sep 0.85, q 0.043, ws_p 0.51, session_r2 0.92, sep_loo 0.71 -> session-confounded
+  (Batch_1 0.0545, Batch_2 0.063, Batch_3 0.067); pore_size_p90_um2: sep 0.79, q 0.043, ws_p 0.31, session_r2
+  0.87, sep_loo 0.64 -> session-confounded (Batch_1 0.821, Batch_2 1.08, Batch_3 1.16); pore_size_count_per_1000um2:
+  sep 0.51, q 0.2, ws_p 0.46, session_r2 0.81, sep_loo 0.29 -> no difference (Batch_1 165, Batch_2 147,
+  Batch_3 149) [rank_features.py with within-session test, 2026-10-03, 31 spots, 12 columns] Retired 2026-10-03
+  to features/_retired/pore_size (no longer computed): superseded by local_thickness (pore_lt_d50_um)
+  and two_point_correlation (s2_void_corrlen_x_um); independent audit numbers in its README.
+refs:
+- doi: 10.1146/annurev.matsci.32.110101.155324
+  title: Statistical Description of Microstructures
+  authors: Torquato
+  year: 2002
+  venue: Annual Review of Materials Research
+  verified: true
+  note: pore size functions as microstructure descriptors
+- doi: 10.1186/s40543-023-00407-z
+  title: >-
+    Deep learning image segmentation for the reliable porosity measurement of high-capacity Ni-based oxide
+    cathode secondary particles
+  authors: Lee, Jung, Kim et al.
+  year: 2023
+  venue: Journal of Analytical Science & Technology
+  verified: true
+  note: pore segmentation and porosity statistics from battery-material SEM

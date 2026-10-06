@@ -1,0 +1,37 @@
+{
+ "model": "V1 V2 combined (j_comb12)",
+ "spots": [
+  {
+   "sample_id": "3e122cbj",
+   "call": "Batch_2",
+   "p": [
+    0.059,
+    0.768,
+    0.173
+   ]
+  },
+  {
+   "sample_id": "fn0mhxef",
+   "call": "Batch_2",
+   "p": [
+    0.014,
+    0.986,
+    0.0
+   ]
+  },
+  {
+   "sample_id": "xrv9xvzb",
+   "call": "Batch_3",
+   "p": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ ],
+ "per_batch_assignment": {
+  "3e122cbj": "Batch_1",
+  "fn0mhxef": "Batch_2",
+  "xrv9xvzb": "Batch_3"
+ }
+}

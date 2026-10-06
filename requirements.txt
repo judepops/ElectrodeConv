@@ -1,0 +1,9 @@
+numpy
+scipy
+pandas
+pillow
+torch
+torchvision
+scikit-learn
+scikit-image          # segmentation/ (seg3 masks)
+pyyaml

@@ -1,0 +1,28 @@
+id: lbp_texture
+name: Local binary pattern texture histogram
+aliases:
+- lbp
+- uniform patterns
+family: texture
+detectors:
+- Inlens
+- SE
+status: rejected
+description: Rotation-invariant uniform LBP histogram (and its entropy) at a few radii.
+battery_relevance: >-
+  Grey-scale invariant, so robust to brightness/contrast differences between acquisitions; describes the
+  surface texture of the binder network.
+findings: >-
+  Texture family: no segmentation-free descriptor separates batch from acquisition. Inlens LBP R4: session
+  R2 0.92 (acquisition_dominated) although it orders B1>B2>B3 in all 6 within-session contrasts - a lead
+  only with more sessions. Keep as an acquisition monitor. Source: notes/feature_screen.md (Luca's empirical
+  screen, 31 spots, within-mixed-session permutation test, 2026-10-03)
+refs:
+- doi: 10.1109/tpami.2002.1017623
+  title: >-
+    Multiresolution gray-scale and rotation invariant texture classification with local binary patterns
+  authors: Ojala, Pietikäinen, Mäenpää
+  year: 2002
+  venue: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  verified: true
+  note: multiresolution grey-scale and rotation invariant LBP

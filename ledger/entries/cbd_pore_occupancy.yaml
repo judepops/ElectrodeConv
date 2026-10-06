@@ -1,0 +1,39 @@
+id: cbd_pore_occupancy
+name: Fraction of inter-particle pore space filled by CBD
+aliases:
+- cbd pore filling
+- pore clogging by binder
+family: transport
+detectors:
+- BSE
+- Inlens
+status: rejected
+description: >-
+  CBD area / (CBD area + open pore area) in the non-graphite region (graphite from BSE, CBD vs open pore
+  from Inlens/SE fine texture). A ratio of two phases so it cancels overall porosity and image size. Optionally
+  report how much of the CBD sits in narrow necks (local thickness < 0.5 um) versus coating particle surfaces.
+battery_relevance: >-
+  CBD in pores is itself nanoporous and partly blocks electrolyte paths, so it raises the ionic tortuosity
+  factor (Pinilla 2024 calibrates tortuosity against CBD porosity; Prasad 2025 links CBD morphology to
+  effective ion transport). Higher occupancy at equal porosity means worse rate capability and more Li
+  plating risk at fast charge.
+findings: >-
+  CBD family: none survives the within-session test; all session-dominated (session R2 0.73-0.97) or unreliable.
+  cbd_pore_contact: unreliable (session R2 0.78, perturbation 2.0 SD, split-half 0.58). Inlens grey level
+  changes contrast mechanism between sessions, so it can't define CBD. Source: notes/feature_screen.md
+  (Luca's empirical screen, 31 spots, within-mixed-session permutation test, 2026-10-03)
+refs:
+- doi: 10.2139/ssrn.5160216
+  title: >-
+    Analysis of Carbon-Binder Domain Morphology and Correlation to Effective Ion Transport Properties
+  authors: Prasad, Prifling, Neumann et al.
+  year: 2025
+  venue: SSRN Electronic Journal
+  verified: true
+- doi: 10.26434/chemrxiv-2024-xh80q
+  title: >-
+    Carbon-Binder-Domain porosity extraction through lithium-ion battery electrode impedance data
+  authors: Pinilla, Zanotto, Dominguez et al.
+  year: 2024
+  venue: ChemRxiv
+  verified: true

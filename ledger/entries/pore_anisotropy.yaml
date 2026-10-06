@@ -1,0 +1,43 @@
+id: pore_anisotropy
+name: Pore shape anisotropy (aspect ratio and in-plane flattening of pores)
+aliases:
+- pore flattening
+- pore orientation
+family: orientation
+detectors:
+- BSE
+status: idea
+owner: null
+implemented_in: null
+columns: []
+v1_implemented_in: null
+v1_columns: null
+description: >-
+  Per void component >= 20 px in the BSE void mask: second-moment aspect ratio and orientation; report
+  the area-weighted median aspect and the share of pore area whose major axis lies within 20 deg of the
+  coating plane, plus a mean-intercept-length ratio (horizontal / vertical chords of the pore phase).
+  Differs from flake_orientation (solid flakes) and tortuosity_2d (a transport simulation): this is the
+  pore shape itself.
+battery_relevance: >-
+  Calendering squashes pores flat in-plane, raising through-plane tortuosity (anisotropic tortuosity,
+  MethodsX 2021) and so the ionic resistance that limits fast charge and promotes plating.
+findings: null
+refs:
+- doi: 10.1016/j.mex.2021.101425
+  title: >-
+    Enabling the electrochemical simulation of Li-ion battery electrodes with anisotropic tortuosity in
+    COMSOL MultiphysicsⓇ
+  authors: Goel, Thornton
+  year: 2021
+  venue: MethodsX
+  verified: true
+  note: 'amass: anisotropic tortuosity from calendering and platelet graphite'
+- doi: 10.1016/j.powtec.2022.117828
+  title: >-
+    Investigation on mechanical and microstructural evolution of lithium-ion battery electrode during
+    the calendering process
+  authors: Zhang, Huang, Sun
+  year: 2022
+  venue: Powder Technology
+  verified: true
+  note: 'crossref: DEM of calendering, microstructure and mechanical evolution'

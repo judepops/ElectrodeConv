@@ -1,0 +1,26 @@
+id: dino_embedding_probe
+name: Frozen DINOv2 tile embeddings + probe/residual against named features
+aliases:
+- foundation model features
+- self-supervised embedding
+- vision transformer embedding
+family: learned
+detectors:
+- BSE
+- Inlens
+status: in_progress
+owner: luca
+description: >-
+  Embed tiles with a frozen DINOv2; probe which named features the embedding predicts, then find embedding
+  directions that separate batches but no named feature explains, and inspect extreme tiles to name a
+  new feature.
+battery_relevance: >-
+  Finds batch differences nobody wrote a feature for, then turns them into named, interpretable features.
+refs:
+- doi: 10.48550/arxiv.2304.07193
+  title: 'DINOv2: Learning Robust Visual Features without Supervision'
+  authors: Oquab, Darcet, Moutakanni et al.
+  year: 2023
+  venue: arXiv (Cornell University)
+  verified: true
+  note: DINOv2 self-supervised visual features

@@ -1,0 +1,6 @@
+# Minkowski functionals of the shared harmonised void mask (features/_common). The pore / solid split and its
+# cleanup (pore specks < 16 px dropped, solid pin-holes < 16 px filled) are tuned in features/_common/config.yaml.
+# Retrain after changing anything that moves L_A or porosity:  python features/run_features.py --train
+min_object_px: 64        # 0.04 um2: pores and solid islands smaller than this are not counted. With 16 px the count
+                         # follows noise and blur (screen: split-half r 0.44, blur ratio 0.72 vs 0.58 / 0.62 at 64 px)
+min_baseline_spots: 5    # interface_density_resid_z needs at least this many baseline spots for the B3 line fit

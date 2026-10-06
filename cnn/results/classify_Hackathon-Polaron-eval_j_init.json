@@ -1,0 +1,67 @@
+{
+ "model": "V1 V2 combined (j_init)",
+ "spots": [
+  {
+   "sample_id": "0eryguqq",
+   "call": "Batch_3",
+   "p": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "sample_id": "4hq27w4c",
+   "call": "Batch_1",
+   "p": [
+    0.997,
+    0.001,
+    0.003
+   ]
+  },
+  {
+   "sample_id": "fhwrjtet",
+   "call": "Batch_3",
+   "p": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "sample_id": "fspqbkxl",
+   "call": "Batch_2",
+   "p": [
+    0.001,
+    0.999,
+    0.001
+   ]
+  },
+  {
+   "sample_id": "soo2ax3r",
+   "call": "Batch_1",
+   "p": [
+    0.934,
+    0.017,
+    0.049
+   ]
+  },
+  {
+   "sample_id": "y59rxmxl",
+   "call": "Batch_1",
+   "p": [
+    0.473,
+    0.246,
+    0.281
+   ]
+  }
+ ],
+ "per_batch_assignment": {
+  "0eryguqq": "Batch_3",
+  "4hq27w4c": "Batch_1",
+  "fhwrjtet": "Batch_3",
+  "fspqbkxl": "Batch_2",
+  "soo2ax3r": "Batch_1",
+  "y59rxmxl": "Batch_2"
+ }
+}

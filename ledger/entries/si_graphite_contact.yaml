@@ -1,0 +1,49 @@
+id: si_graphite_contact
+name: 'Si-phase neighbourhood: share of Si outline touching graphite vs pore vs other'
+aliases:
+- si isolation
+- si placement
+family: composition
+detectors:
+- BSE
+- Inlens
+status: rejected
+owner: luca
+description: >-
+  For each Si-like bright particle, which phase lies just outside its outline (graphite particle, void,
+  textured carbon-binder/other), plus Si-to-graphite distance.
+battery_relevance: >-
+  Swelling Si/SiOx wired only through binder or facing pores loses electrical contact and becomes isolated
+  (capacity fade); a composite vs blend change moves it.
+findings: >-
+  Rejected 2026-10-03 (audit run, 31 spots, 8 raw perturbations on 4 B3 spots). Shell 6-12 px outside
+  each bright particle >= 0.25 um2, classified void / valid graphite label (features/_particles, x2 upsampled)
+  / other solid. All three columns fail the robustness rule: perturbation ratio (max shift / B3 SD) 2.19
+  for si_contact_graphite_frac, 1.66 for si_contact_other_frac, 6.52 for si_isolated_frac (worst: gamma
+  1.25; gamma 0.8 1.81 / 1.30 / 0.82), session R2 0.875 / 0.881 / 0.429, split-half r 0.49/0.51, 0.65/0.65,
+  0.03/0.01. No batch signal either: within-session p 0.78 / 0.073 / 0.042 (isolated driven by one 2148
+  pair, +5.9 B3-SD), incoming-vs-B3 p 0.42 / 0.083 / 1.0, LOSO AUC B1 0.60 / 0.49 / 0.45, B2 0.77 / 0.50
+  / 0.69. Means B1/B2/B3: graphite 0.68/0.70/0.64, other 0.19/0.18/0.22, isolated 0.044/0.009/0.026. The
+  graphite/other split is a grey-level decision inside the BSE edge-transition zone (particles graphite_range
+  0.75-1.35), so gamma moves it; size-only label validity gave identical values (texture never excludes
+  a label near Si). A 20->50 % isolation threshold did not help (split r 0.18, perturbation 2.5). Visual
+  check (cfe5vt7s B3, ffwubibz B1): most Si particles carry a 0.1-0.3 um graphite-grey rim (carbon coat
+  / SiOx shell) that merges into the adjacent graphite label, so the 6-12 px shell reads "graphite" even
+  on sides that face a pore -> graphite contact is over-called. The proposed si_graphite_dist_um is degenerate:
+  98-99 % of Si particles lie within 1 px of a valid graphite label (median 0 px). Consistency check:
+  shell void share vs si_particles.bright_contact_pore_frac Spearman 0.89, perturbation 0.35; pore contact
+  is already covered there. A fix would need a rim-aware neighbour definition (e.g. Inlens/BSE ridge between
+  rim and neighbour) and a gamma-robust graphite vs carbon-binder classifier.
+refs:
+- doi: 10.1016/j.jpowsour.2020.229311
+  note: >-
+    Kang & Cho 2021, imaging of electric failure in Si-alloy/graphite blended anodes (Si contact loss)
+  verified: false
+- doi: 10.1038/s41467-018-04477-1
+  note: >-
+    Mueller et al. 2018, nanoscale-imaging quantification of mechanical degradation (contact loss, cracking)
+  verified: false
+- doi: 10.1149/1945-7111/ac4545
+  note: >-
+    Moyassari et al. 2022, role of Si in Si-graphite composite electrodes (capacity, cycle stability)
+  verified: false

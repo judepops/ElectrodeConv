@@ -1,0 +1,336 @@
+# Battery-impact rules for the "what the science expects" sliders (read by qc/impacts.py).
+#
+# A literature rule table, carried over from the old repo's dashboard and renamed to this repo's feature columns.
+# Each battery property is a weighted, cited combination of measured microstructure changes. Nothing here was tuned
+# on Batch_1 / Batch_2 differences, and no language model is involved: impacts.py turns these rules plus the
+# measured deltas (qc/verdict.py) into numbers.
+#
+# Sign convention: a property score is positive when there is MORE of the property: more capacity, faster
+# charging, longer lifespan, MORE first-charge loss, MORE swelling, MORE uniform. A rule's `sign` is +1 if a higher
+# feature value means more of the property, -1 if it means less.
+#
+# weight = confidence weight x trust weight.
+#   confidence: how well the literature supports the feature -> property link.
+#   trust: how much the feature reflects the material rather than the microscope session (from the old repo's
+#   perturbation and session audit; this repo has no perturbation table yet, so the levels are fixed here).
+#
+# Score (impacts.py): each feature's change in "margin units" (delta / margin, margin = 1.5 x the baseline's site
+# SD), drawn from a scaled Student-t (centre delta, scale se, df), clipped to +-3, weighted and averaged:
+#   score = sum(weight x sign x x) / sum(weight).  +1 = the drivers moved one normal-variation band towards more.
+# Reported: mean score, 90 % interval, P(score > +0.5), P(score < -0.5), a label, and the per-feature contributions.
+#
+# Independence: features are drawn independently although several move together (porosity, interface density
+# and solid chords; Si size and agglomerate size). Intervals are somewhat too narrow when correlated features agree.
+#
+# Caveat on the two block-CV features (within-tile unevenness of porosity / Si): a coefficient of variation tracks
+# the phase fraction (less phase -> higher CV), so they carry confidence "low" and trust "low" everywhere.
+
+version: 2
+
+weights:
+  confidence: {strong: 1.0, moderate: 0.6, low: 0.3}
+  trust: {high: 1.0, medium: 0.75, low: 0.45, unknown: 0.6}
+
+trust:
+  si_solid_frac: high              # perturbation ratio 0.16 in the old audit: the only KPI that could REJECT
+  porosity_frac: medium            # moves 0.86 SD under a black-level shift of -20 grey levels
+  si_d90_um: medium
+  si_d50_um: medium
+  si_agglom_d50_um: medium         # split-half r 0.72
+  interface_density_per_um: low    # perturbation ratio 1.28 under black -20
+  solid_chord_y_um: medium
+  solid_chord_x_um: medium
+  solid_chord_hv_ratio: medium
+  porosity_block_cv: low
+  si_block_cv: low
+  thin_solid_frac: low             # old repo: session R2 0.65, but holds inside the split images (ws_p 0.02-0.08)
+  depth_porosity_b0_frac: low      # bottom band: largest effect, most session-confounded (ws_p 0.11-0.24)
+  cc_interface_horiz_len_bottom_um: low  # one pore sets it; CC not in frame in 30 of 31 spots (proxy only)
+
+composite:
+  clip_margin_units: 3.0
+  band: 0.5
+  ci: 0.90
+
+labels:
+  likely: 0.8
+  similar: 0.6
+  possibly: 0.5
+  direction: 0.9
+  direction_min_meaningful: 0.2
+
+excluded_prefixes: [acq_]
+
+spread:
+  margin_ratio: 2.0          # a lot whose sites scatter 2x the baseline's counts as one normal-variation band
+
+properties:
+
+  - id: capacity
+    label: Energy storage
+    question: How much charge can the anode hold?
+    higher_label: More
+    lower_label: Less
+    blurb: >-
+      The cell is designed around a fixed amount of anode capacity, so a change in either direction moves it away
+      from what the design expects.
+    rules:
+      - feature: si_solid_frac
+        sign: 1
+        confidence: strong
+        mechanism: >-
+          A larger share of the silicon-like phase stores more lithium per gram, because silicon oxide holds about
+          four times as much as graphite. This holds only if the bright phase is silicon-based (needs EDS).
+        citation: "Moyassari et al. 2022; Obrovac & Chevrier 2014"
+      - feature: porosity_frac
+        sign: -1
+        confidence: moderate
+        mechanism: >-
+          More pore space leaves less active material in each cubic centimetre of electrode, which lowers the
+          energy stored per volume.
+        citation: "Mass balance (research report, open porosity row)"
+    estimates:
+      - kind: si_capacity
+        label: Change in anode capacity per gram
+        unit: mAh/g
+        feature: si_solid_frac
+        c_si_phase: [1300, 1500]
+        c_graphite: 360
+        assumption: >-
+          If the bright phase is SiOx (its identity needs EDS). Area share of the solid is read as weight share
+          (SiOx and graphite both about 2.2 g/cm3). SiOx 1,300-1,500 mAh/g, graphite 360 mAh/g.
+
+  - id: charge_speed
+    label: Charging speed
+    question: How quickly can lithium move through the electrode?
+    higher_label: Faster
+    lower_label: Slower
+    blurb: >-
+      Fast charging needs lithium ions to move easily through the liquid in the pores and into the particles;
+      when they cannot, the cell charges slower and risks lithium plating.
+    rules:
+      - feature: porosity_frac
+        sign: 1
+        confidence: strong
+        mechanism: >-
+          Ions travel through the liquid in the pores. More pore space gives shorter, wider paths: effective
+          transport scales as porosity to the power 1.5-3 (Bruggeman).
+        citation: "Ebner et al. 2014; Landesfeind et al. 2016; Colclasure et al. 2019"
+      - feature: solid_chord_y_um
+        sign: -1
+        confidence: moderate
+        mechanism: >-
+          Thicker graphite pieces through the electrode depth mean lithium has to diffuse further inside each
+          particle, which slows charging.
+        citation: "Ebner et al. 2014"
+      - feature: solid_chord_hv_ratio
+        sign: -1
+        confidence: strong
+        mechanism: >-
+          Flakes that lie flatter make ions zig-zag further through the electrode thickness, which slows fast
+          charging. Expected to stay stable between batches.
+        citation: "Ebner et al. 2014; Billaud et al. 2016"
+      - feature: depth_porosity_b0_frac
+        sign: 1
+        confidence: moderate
+        mechanism: >-
+          Ions reach the bottom of the coating last. A denser layer next to the current collector (less pore space
+          in the bottom 11 um) is the transport bottleneck at fast charge, and lithium plates unevenly through the
+          depth. Assumes the bottom edge of the image is the current-collector side.
+        citation: "Zhang et al. 2022 (Nano Lett., doi:10.1021/acs.nanolett.2c00385); Ho et al. 2021 (ACS Nano, doi:10.1021/acsnano.1c02942)"
+      - feature: thin_solid_frac
+        sign: 1
+        confidence: moderate
+        mechanism: >-
+          Thin fragments and exposed flake edges give lithium more entry points: it enters graphite through edge
+          planes, not basal planes, so more edge sites speed up charging (4 of 5 papers read by GXL agree).
+        citation: "Kim et al. 2021 (Nanomaterials, doi:10.3390/nano11071813); Cheng et al. 2017 (Nat. Commun., doi:10.1038/s41467-017-00973-y)"
+    estimates:
+      - kind: bruggeman_resistance
+        label: Change in ion transport resistance in the pores
+        unit: "%"
+        feature: porosity_frac
+        alpha: [1.5, 3.0]
+        assumption: >-
+          The 2D pore share is treated as if it carried over to the 3D electrode, with resistance scaling as
+          porosity to the power -1.5 to -3 (Bruggeman). An upper-bound illustration.
+
+  - id: lifespan
+    label: Lifespan
+    question: How well will the electrode keep its capacity over many charges?
+    higher_label: Longer
+    lower_label: Shorter
+    blurb: >-
+      Silicon swells and cracks, and fresh surfaces keep consuming lithium, so the microstructure sets how fast
+      capacity fades over the life of the cell.
+    rules:
+      - feature: si_solid_frac
+        sign: -1
+        confidence: strong
+        mechanism: >-
+          The silicon-like phase loses capacity faster than graphite, so more of it means faster early fade.
+          This holds only if the bright phase is silicon-based.
+        citation: "Kirkaldy et al. 2022; Moyassari et al. 2022"
+      - feature: si_d90_um
+        sign: -1
+        confidence: moderate
+        mechanism: >-
+          Larger silicon-like particles build more stress when they take up lithium, so they crack and lose
+          electrical contact more often.
+        citation: "Obrovac & Chevrier 2014; Liu et al. 2012; Kirner et al. (Argonne)"
+      - feature: si_agglom_d50_um
+        sign: -1
+        confidence: low
+        mechanism: >-
+          Silicon-like particles clustered together swell locally and can crack the electrode around them.
+        citation: "Obrovac & Chevrier 2014; Kirner et al. (Argonne)"
+      - feature: interface_density_per_um
+        sign: -1
+        confidence: low
+        mechanism: >-
+          More surface in contact with electrolyte gives the surface film (SEI) more room to grow, which slowly
+          consumes lithium.
+        citation: "Winter, Novak & Monnier 1998; Joho et al. 2001"
+      - feature: si_block_cv
+        sign: -1
+        confidence: low
+        mechanism: >-
+          Silicon-rich patches carry more current and swell more than their surroundings (hypothesis from model
+          studies). Caveat: this unevenness index also rises when there is simply less Si-like phase.
+        citation: "Dahari et al. 2025; Polaron Quality and Qualification page"
+      - feature: porosity_block_cv
+        sign: -1
+        confidence: low
+        mechanism: >-
+          Dense, pore-poor patches limit transport locally and are where lithium plates first (hypothesis).
+          Caveat: this unevenness index also rises when there is simply less pore space.
+        citation: "Dahari et al. 2025; Polaron Quality and Qualification page"
+      - feature: cc_interface_horiz_len_bottom_um
+        sign: -1
+        confidence: low
+        mechanism: >-
+          Long gaps parallel to the foil at the bottom of the coating are what a debonding coating looks like in
+          cross-section; detached coating loses electrical contact and capacity fades faster. Low confidence: the
+          Cu foil is in frame in only one image, so the bottom 5 um is a proxy for the interface.
+        citation: "Cho et al. 2016 (Sci. Rep., doi:10.1038/srep30945); Choi et al. 2024 (Adv. Sci., doi:10.1002/advs.202410114)"
+
+  - id: first_charge_loss
+    label: First-charge loss
+    question: How much lithium is used up for good on the very first charge?
+    higher_label: More loss
+    lower_label: Less loss
+    blurb: >-
+      On the first charge some lithium is trapped in a surface film and in side reactions, and that lithium is
+      never available to the cell again.
+    rules:
+      - feature: interface_density_per_um
+        sign: 1
+        confidence: moderate
+        mechanism: >-
+          More electrode surface in contact with electrolyte grows more surface film (SEI) on the first charge,
+          which traps lithium. The image sees only the coarser part of that surface.
+        citation: "Winter, Novak & Monnier 1998; Joho et al. 2001"
+      - feature: si_solid_frac
+        sign: 1
+        confidence: strong
+        mechanism: >-
+          Silicon oxide partly turns into lithium silicates and lithium oxide on the first charge, which locks
+          lithium away for good. This holds only if the bright phase is silicon oxide.
+        citation: "Liu et al. 2019; Obrovac & Chevrier 2014"
+      - feature: solid_chord_y_um
+        sign: -1
+        confidence: moderate
+        mechanism: >-
+          Finer graphite pieces expose more surface, so more surface film forms and more lithium is lost.
+        citation: "Winter, Novak & Monnier 1998; Ebner et al. 2014"
+      - feature: si_d90_um
+        sign: -1
+        confidence: moderate
+        mechanism: >-
+          Finer silicon-like particles have more surface for the surface film, which lowers first-cycle efficiency.
+        citation: "Obrovac & Chevrier 2014; Kirner et al. (Argonne)"
+      - feature: thin_solid_frac
+        sign: 1
+        confidence: low
+        mechanism: >-
+          Solid in ligaments thinner than 0.5 um is fine fragments and exposed flake edges. Graphite edge planes
+          form SEI faster than basal planes, so more of them traps more lithium on the first charge. The papers
+          GXL read are split (3 more loss, 2 less), so low confidence.
+        citation: "Gossage et al. 2019 (Chem. Sci., doi:10.1039/c9sc03569a); Agubra & Fergus 2013 (Materials, doi:10.3390/ma6041310)"
+    estimates:
+      - kind: relative_change
+        label: Change in electrode surface per volume
+        unit: "%"
+        feature: interface_density_per_um
+        assumption: >-
+          Macro surface only (pore walls coarser than about 50 nm, seen in 2D). First-cycle loss scales with the
+          accessible surface (Winter 1998), so this gives the direction and rough size, not the loss itself.
+
+  - id: swelling
+    label: Swelling
+    question: How much will the electrode expand when it is charged?
+    higher_label: More
+    lower_label: Less
+    blurb: >-
+      The electrode grows when it takes up lithium; more growth strains the cell and can crack the coating.
+    rules:
+      - feature: si_solid_frac
+        sign: 1
+        confidence: strong
+        mechanism: >-
+          Silicon oxide expands by up to about 160 % when it takes up lithium, far more than graphite, so more of
+          it means a thicker electrode on charge. This holds only if the bright phase is silicon-based.
+        citation: "Moyassari et al. 2022; Obrovac & Chevrier 2014"
+      - feature: si_agglom_d50_um
+        sign: 1
+        confidence: low
+        mechanism: >-
+          Clustered silicon-like particles swell together and create local hot-spots of expansion.
+        citation: "Obrovac & Chevrier 2014; Kirner et al. (Argonne)"
+
+  - id: uniformity
+    label: Consistency
+    question: How even is the electrode from place to place?
+    higher_label: More even
+    lower_label: Less even
+    blurb: >-
+      An uneven electrode has spots that work harder than the rest, which tend to age and swell first.
+    rules:
+      - feature: porosity_block_cv
+        sign: -1
+        confidence: low
+        mechanism: >-
+          Pore-rich and pore-poor patches inside each tile point to uneven calendering or mixing. Caveat: this
+          index also rises when there is simply less pore space.
+        citation: "Dahari et al. 2025; Polaron Quality and Qualification page"
+      - feature: si_block_cv
+        sign: -1
+        confidence: low
+        mechanism: >-
+          Silicon-like phase clustered inside each tile points to uneven mixing. Caveat: this index also rises
+          when there is simply less Si-like phase.
+        citation: "Dahari et al. 2025; Polaron Quality and Qualification page"
+      - feature: porosity_frac
+        kind: spread
+        sign: -1
+        confidence: moderate
+        mechanism: >-
+          Site-to-site spread of the pore space compared with the baseline: a larger spread means some parts of
+          the lot are packed differently from others.
+        citation: "Research report, heterogeneity check on the Tier-1 KPIs"
+      - feature: si_solid_frac
+        kind: spread
+        sign: -1
+        confidence: moderate
+        mechanism: >-
+          Site-to-site spread of the silicon-like phase share compared with the baseline: a larger spread means
+          the silicon dose is not the same everywhere.
+        citation: "Research report, heterogeneity check on the Tier-1 KPIs"
+      - feature: solid_chord_y_um
+        kind: spread
+        sign: -1
+        confidence: moderate
+        mechanism: >-
+          Site-to-site spread of the graphite thickness compared with the baseline: a larger spread means the
+          graphite is not the same everywhere.
+        citation: "Research report, heterogeneity check on the Tier-1 KPIs"

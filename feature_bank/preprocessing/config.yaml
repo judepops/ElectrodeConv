@@ -1,0 +1,15 @@
+# Shared settings. Change here, commit, everyone re-runs: python preprocessing/process_data.py
+
+baseline_batch: Batch_3     # the approved material, everything is compared against it
+pixel_size_um: 0.025        # 25 nm per pixel (from the TIF metadata), same for every image
+
+tiles:                      # these name the output folder: processed/tiles/512px_stride512_scale1.0/
+  size: 512                 # square tile side in pixels (512 px = 12.8 um)
+  stride: 512               # step between tiles; smaller than size = overlapping tiles = more training data
+  scale: 1.0                # shrink the image before tiling (0.5 = a tile covers twice the area)
+
+split:                      # train / val / test by spot, never by tile, done per batch
+  train: 0.7
+  val: 0.15
+  test: 0.15
+  seed: 0                   # same seed = same split for everyone

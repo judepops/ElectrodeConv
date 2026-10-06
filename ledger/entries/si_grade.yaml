@@ -1,0 +1,122 @@
+id: si_grade
+name: >-
+  Si-phase grade diagnostics: BSE core contrast, dim population, internal dark share, core texture
+aliases:
+- bright contrast ratio
+- porous si-c composite test
+- si grade
+family: composition
+detectors:
+- BSE
+status: v1_only
+owner: luca
+v1_implemented_in: features/si_grade
+v1_columns:
+- bright_contrast_ratio
+- bright_dim_frac
+- bright_internal_dark_frac
+description: >-
+  Diagnostic (Tier 3) columns on the shared h.bright particles: median anchored BSE of 150 nm-eroded cores
+  (graphite units), dim-grey band area fraction (h.dim), share of hole-filled particle interior darker
+  than 0.85 x the particle's core level, and noise-free within-core CV from the covariance of pixel pairs
+  4 px apart. Differs from si_fraction (how much Si phase) by measuring what kind of Si particle it is.
+battery_relevance: >-
+  Si-phase grade (O or C content, internal porosity, Si-C composite) changes capacity per area fraction,
+  first-cycle efficiency and swelling; darker/more textured cores point to an O-richer grade or porous
+  Si-C composite, or to an acquisition change, so the action is EDS, never an automatic verdict.
+findings: >-
+  Final run (rank_features/robustness, 31 spots): no acquisition-controlled batch effect. contrast_ratio
+  sep 0.66 (at the 0.65 acquisition bar; 0.34 without the 2316 spots), q 0.100 (not below 0.1), within-session
+  p 0.71, session R2 0.94, perturbation 2.77 SD (gamma 1.25); dim/internal_dark/core_cv sep 0.35/0.48/0.32,
+  q 0.61/0.31/0.62, within p 0.20/0.42/0.60, perturbation 1.16/1.23/1.59 -> diagnostic only. B1 lead =
+  the two session-2316 spots only (n_eff 1 session, outside the within-session test): cores 1.65/1.67
+  vs B3 2.13+-0.15, internal dark +7.5/+4.1 SD, core CV +5.0/+2.7 SD (robust to threshold/rim/lag variants).
+  The other 5 B1 spots match baseline on the means (spread still 1.6x/2.2x on internal dark/CV, session-shared
+  in 2148); B2 matches baseline (its within-session dim coefficient +1.25 SD is n.s., perm p 0.20). Battery
+  reading: darker, more porous/textured Si cores mean the Si product or the acquisition changed. Candidates:
+  O-richer SiOx (lower capacity and ICE, less swelling: trade-off), porous Si-C composite (built for low
+  swelling; ICE/capacity design-dependent) or pre-lithiated SiOx (darker yet higher ICE, Yan 2020) ->
+  no ICE direction from BSE alone; si_fraction wt% proxy fails; EDS, never a verdict on its own. [final
+  pipeline run, 2026-10-03; verifier pass]
+refs:
+- doi: 10.1002/adma.202103095
+  title: >-
+    A Micrometer-Sized Silicon/Carbon Composite Anode Synthesized by Impregnation of Petroleum Pitch in
+    Nanoporous Silicon
+  authors: Chae, Xu, Yi et al.
+  year: 2021
+  venue: Advanced Materials
+  verified: true
+  note: >-
+    example of a porous Si-C composite (internal porosity + carbon, the alternative tested by internal_dark/core_cv)
+- doi: 10.1002/adma.202405751
+  title: >-
+    Fundamental Understanding of the Low Initial Coulombic Efficiency in SiOx Anode for Lithium-Ion Batteries:
+    Mechanisms and Solutions
+  authors: Wu, Dong, Zhang et al.
+  year: 2024
+  venue: Advanced Materials
+  verified: true
+  note: SiOx grade -> first-cycle efficiency
+- doi: 10.1002/smll.202300759
+  title: Carbon Microstructure Dependent Li-Ion Storage Behaviors in SiOx/C Anodes
+  authors: Sun, Li, Yang et al.
+  year: 2023
+  venue: Small
+  verified: true
+  note: carbon in SiOx/C composites changes Li transport and capacity
+- doi: 10.1007/978-1-4939-6676-9
+  title: Scanning Electron Microscopy and X-Ray Microanalysis
+  authors: Goldstein, Newbury, Michael et al.
+  year: 2018
+  venue: Springer
+  verified: true
+  note: BSE atomic-number contrast; kV and detector dependence; interaction volume
+- doi: 10.1017/s1431927612013566
+  title: Mean Atomic Number Quantitative Assessment in Backscattered Electron Imaging
+  authors: Sánchez, Deluigi, Castellano
+  year: 2012
+  venue: Microscopy and Microanalysis
+  verified: true
+  note: BSE grey level -> mean Z only under controlled conditions
+- doi: 10.1021/acsami.0c05153
+  title: >-
+    Enabling SiOx/C Anode with High Initial Coulombic Efficiency through a Chemical Pre-Lithiation Strategy
+    for High-Energy-Density Lithium-Ion Batteries
+  authors: Yan, Li, Zhang et al.
+  year: 2020
+  venue: ACS Applied Materials & Interfaces
+  verified: true
+  note: >-
+    pre-lithiated (Li-silicate) SiOx reads darker in BSE yet has higher ICE, so a darker core has no fixed
+    ICE direction
+- doi: 10.1038/s41598-025-89362-w
+  title: >-
+    A comprehensive and quantitative SEM-EDS analytical process applied to lithium-ion battery electrodes
+  authors: Kato, Goto, Niwa et al.
+  year: 2025
+  venue: Scientific Reports
+  verified: true
+  note: the recommended follow-up (sampled SEM-EDS of the bright particles)
+- doi: 10.1039/c8cs00441b
+  title: 'Silicon oxides: a promising family of anode materials for lithium-ion batteries'
+  authors: Liu, Yu, Zhao et al.
+  year: 2019
+  venue: Chemical Society Reviews
+  verified: true
+  note: SiOx stoichiometry vs capacity and ICE
+- doi: 10.1088/0022-3727/5/1/308
+  title: Penetration and energy-loss theory of electrons in solid targets
+  authors: Kanaya, Okayama
+  year: 1972
+  venue: 'Journal of Physics D: Applied Physics'
+  verified: true
+  note: >-
+    electron range / interaction volume -> edge and partial-volume darkening of small particles
+- doi: 10.1111/jmi.13148
+  title: Quantitative analysis of backscattered-electron contrast in scanning electron microscopy
+  authors: Čalkovský, Müller, Gerthsen
+  year: 2022
+  venue: Journal of Microscopy
+  verified: true
+  note: quantitative BSE contrast needs detector/kV calibration

@@ -1,0 +1,18 @@
+id: morphology_distributions
+name: Object-level morphology distributions vs baseline (Si particles, pores, chords)
+aliases:
+- distribution shift
+- particle size distribution comparison
+family: morphology
+detectors:
+- BSE
+status: in_progress
+owner: luca
+description: >-
+  Per-object tables (every Si particle, pore and solid chord in every spot) compared batch vs baseline
+  as whole distributions: quantile shift functions with site-bootstrap intervals and session-aware permutation
+  tests, plus per-spot distribution-shape columns (span, skew, tail share).
+battery_relevance: >-
+  The organisers say batches differ in morphology distributions, not only in means: a coarse Si tail (fracture,
+  contact loss), a pore-size spread (wetting, local resistance) or a chord-length tail (graphite size)
+  can change while the spot means stay put.

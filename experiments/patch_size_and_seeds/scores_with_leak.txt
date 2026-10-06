@@ -1,0 +1,10 @@
+run                      session held out      p  mixed strips  leak: same-session neighbour      p  session guessable
+(chance)                             0.33                 0.33                          0.06                      0.09
+exp_big_conly_s0                    0.71  0.010          0.62                          0.26  0.010               0.17
+exp_big_default_s0                  0.64  0.010          0.76                          0.10  0.512               0.20
+exp_conly_s0                        0.69  0.010          0.44                          0.45  0.003               0.55
+exp_conly_s1                        0.74  0.010          0.62                          0.45  0.003               0.47
+exp_conly_s2                        0.58  0.010          0.49                          0.42  0.003               0.31
+exp_default_s0                      0.50  0.050          0.44                          0.42  0.003               0.38
+exp_default_s1                      0.38  0.228          0.38                          0.42  0.003               0.35
+exp_default_s2                      0.71  0.010          0.62                          0.39  0.003               0.42

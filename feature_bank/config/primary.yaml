@@ -1,0 +1,75 @@
+# The primary analysis, fixed before the full bank is scored. bank/harness.py reads every number from here.
+# Unit = crop. Groups = the 13 source images. Nothing below is fitted outside a training fold.
+
+seed: 20261003
+
+splits:
+  loso13: leave one source image out (LeaveOneGroupOut over source_image); the headline split
+  loco_nbr: leave one crop out and drop its touching neighbours (meta/analysis_only.csv right_neighbour) from training
+
+# A space is one (family, detector, view, tag). Tags come from each family's catalog.
+kernels:
+  scale: robust              # per column, fitted on the training rows: (x - median) / (IQR / 1.349); IQR 0 -> SD; SD 0 -> column dropped
+  scale_clip: 10.0           # scaled values are clipped to +-10 (a fixed rule, not fitted)
+  pca_max_components: 16     # PCA fitted on the training rows, not whitened
+  kinds: [linear, rbf, mmd]  # mmd only where a space has per-tile arrays
+  rbf_bandwidth: median      # sigma = median pairwise distance between training rows (training tiles for mmd)
+  normalise: cosine          # K(x, y) / sqrt(K(x, x) K(y, y))
+  centre: train              # centred in feature space on the training mean, then scaled to mean training diagonal 1
+  mmd:
+    max_tiles_per_crop: 64   # a seeded subset of tile slots, the same slots for every crop
+    sketch_dim: 256          # tile arrays wider than this get one fixed seeded Gaussian projection (data-independent, not fitted)
+    bandwidth_tiles: 512     # training tiles used for the median heuristic
+  weights: alignf            # non-negative least squares on centred alignment
+  target: class_balanced     # target kernel Y Y^T with Y[i, c] = 1[y_i = c] / n_c, so every class counts equally
+
+classifier:
+  kind: kernel_nearest_class_mean      # squared distance to each class mean in the combined kernel; no class prior
+  temperature:
+    chosen_by: inner_loso              # leave one source image out inside the training fold, weights refitted each time
+    criterion: log_loss
+    grid: {log10_min: -2.5, log10_max: 1.0, n: 29}
+    default: 1.0                       # only if no inner fold is possible
+  prob_floor: 1.0e-6
+
+models:
+  A: {exclude_tags: [leakrisk], exclude_spaces: [], weights: alignf}                 # every space that is not leakrisk
+  B: {exclude_tags: [leakrisk, imaging], exclude_spaces: [], weights: alignf}        # material + mixed
+  # exclude_spaces takes space keys or patterns ("scat|Inlens|*"): where the Phase 2 imgsens >= 1 spaces of B will be listed
+
+sensitivity:
+  alignf_cross_image: false  # true adds rows cross_A / cross_B: ALIGNF fitted only on pairs of crops from different
+                             # (training) source images. Not a pre-specified model and never the blind-test model.
+
+acquisition:
+  family: imgqc              # the acquisition-only baseline; ΔBA is paired against it
+  fallback: legacy_acq       # Crop anchors, used until imgqc is complete
+
+legacy:                      # legacy spaces leave models A and B, and the candidates of best_single_family, once a complete
+                             # family with one of these prefixes exists. They keep their own single-family rows.
+  legacy_acq: {replaced_by: [imgqc]}
+  legacy_dinov2s: {replaced_by: [emb]}
+
+baselines:
+  majority: training class frequencies
+  acquisition: the kernel classifier on the acquisition family only
+  single_family: {classifier: l2_logistic, C: 1.0, class_weight: balanced, on: in-fold robust scale + PCA <= 16 of the family's non-leakrisk columns}
+  best_single_family: {chosen_by: inner_loso, criterion: balanced_accuracy, tie_break: log_loss}
+  uniform_sum: the same kernels as A (and B) with equal weights
+  dinov2s_legacy: the kernel classifier on the old DINOv2-S tile embeddings
+  provenance_oracle: {split: loco_nbr, rule: labels of the training crops from the same source image, pseudo_count: 1.0}
+
+statistics:
+  metrics: [balanced_accuracy, macro_auc_ovr, log_loss, confusion]
+  bootstrap: {resamples: 2000, unit: source_image, interval: percentile_95, paired_against: acquisition}
+  null_a: {permutations: 1000, rule: a random permutation of the batch names inside each source image, refit: [alignf, temperature], split: loso13}
+  null_b: {permutations: 1000, rule: labels shuffled inside the mixed source images only (all arrangements when there are no more than `permutations`), refit: [alignf, temperature], split: loso13}
+  null_models: [A, B, acquisition]
+  quick: {bootstrap: 200, null_a: 100, null_b: 100}
+
+blind_model:
+  rule: the model (A or B) with the higher balanced accuracy; B if they are within tie_margin_crops correctly classified crops
+  split: loso13
+  tie_margin_crops: 2
+  tie_winner: B
+  blind_crops_share_source_images: false       # set true only if Polaron confirm it; the rule then reads loco_nbr instead

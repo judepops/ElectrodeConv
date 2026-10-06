@@ -1,0 +1,3 @@
+# Retrain after changing:  python features/run_features.py --train
+bins: 32             # histogram bins over 0-255
+std_floor: 0.001     # minimum per-bin std, stops a nearly constant bin blowing up the z-score

@@ -1,0 +1,130 @@
+id: open_porosity
+name: Open porosity (harmonised void area fraction) with single-image CI
+aliases:
+- open void fraction
+- porosity open frac
+family: morphology
+detectors:
+- BSE
+status: implemented
+owner: luca
+implemented_in: cnn/tile_features.py
+columns:
+- porosity_frac
+v1_implemented_in: features/open_porosity
+v1_columns:
+- porosity_open_frac
+- porosity_open_ci95_frac
+- porosity_fixed060_frac
+- porosity_void_threshold
+description: >-
+  Void area / crop area from the shared harmonised void mask (features/_common: same central crop of every
+  spot, graphite-anchored, noise-matched BSE, per-image Otsu between pore and graphite, 16-px cleanup),
+  plus its 95% single-image CI from the two-point correlation (ImageRep idea), a fixed 0.6-graphite-unit
+  sensitivity recipe and the Otsu threshold used. A RELATIVE index (2D open void 7-15% vs plausibly 25-35%
+  real porosity, because of pore-back and sub-resolution CBD pores). Replaces the multi-Otsu porosity_frac
+  as the Tier-1 porosity KPI; differs from it by the shared harmonised mask, the fixed crop and the error
+  bar.
+battery_relevance: >-
+  Electrolyte volume and ionic transport: D_eff ~ porosity^alpha (Bruggeman; alpha 1.5 for spheres, higher
+  through-plane for aligned flake graphite). Trade-off, best value = match baseline. Lower = more tortuous,
+  longer ion paths, poorer rate and a somewhat higher fast-charge Li-plating risk (Colclasure 2019 found
+  raising porosity at fixed loading an ineffective fast-charge lever, lowering tortuosity an effective
+  one), less room for Si-phase swelling (general knowledge), but higher volumetric energy density. Higher
+  = the reverse, plus possibly poorer particle contact (general knowledge). Wetting is non-monotonic in
+  calendering (Sheng 2014). Moved by calendering, coat weight, slurry solids, graphite PSD.
+findings: >-
+  Final run (rank_features.py + robustness.py, 31 spots): porosity_open_frac B1 0.089 / B2 0.102 / B3
+  0.108 (B3 SD 0.018); sep 0.55, q 0.17; within-session b1 -1.64, b2 -0.85 B3-SD, joint exact p 0.17 (192
+  relabellings); session R2 0.67; perturbation 0.43 (gamma only). Not established: only one B1-B3 pair
+  shares a session (2080, -1.81 SD), the rest is chained through B2, and the test has ~30% power at this
+  size; the raw B1 gap is -0.013 without the B3-only session 2088. B1 gap not from 2316 (one session,
+  n_eff 1; without it 0.091). Battery: if real, the B1 hint is a denser electrode (slower ion transport,
+  mildly more plating risk, more energy density: a trade-off); its estimate is inside the Tier-1 margin
+  but the CI reaches past it (INCONCL, P 0.24, monitor); B2 EQUIV (P 0.06). void_threshold q 0.03 is session
+  (within p 0.86, perturbation 1.66), not material.
+refs:
+- doi: 10.1002/advs.202414149
+  title: Prediction of Microstructural Representativity From A Single Image
+  authors: Dahari, Docherty, Kench et al.
+  year: 2025
+  venue: Advanced Science
+  verified: true
+  note: ImageRep single-image representativity error bar behind porosity_open_ci95_frac
+- doi: 10.1002/aenm.201301278
+  title: Tortuosity Anisotropy in Lithium-Ion Battery Electrodes
+  authors: Ebner, Chung, García et al.
+  year: 2014
+  venue: Advanced Energy Materials
+  verified: true
+  note: >-
+    Bruggeman exponents through-plane for flake-graphite electrodes (porosity -> ionic transport)
+- doi: 10.1016/j.coche.2016.02.006
+  title: >-
+    On the origin and application of the Bruggeman correlation for analysing transport phenomena in electrochemical
+    systems
+  authors: Tjaden, Cooper, Brett et al.
+  year: 2016
+  venue: Current Opinion in Chemical Engineering
+  verified: true
+  note: Bruggeman D_eff ~ porosity^alpha and its limits (Crossref-resolved 2026-10-03)
+- doi: 10.1021/acsami.0c15144
+  title: Mechanistic Analysis of Microstructural Attributes to Lithium Plating in Fast Charging
+  authors: Kabra, Parmananda, Fear et al.
+  year: 2020
+  venue: ACS Applied Materials & Interfaces
+  verified: true
+  note: microstructure at several length scales sets Li-plating propensity (Amass literature)
+- doi: 10.1111/j.1365-2818.1991.tb03099.x
+  title: Ergodicity and integral range
+  authors: Lantuéjoul
+  year: 1991
+  venue: Journal of Microscopy
+  verified: true
+  note: integral range -> variance of an area fraction from one image
+- doi: 10.1111/jmi.12021
+  title: Morphological segmentation of FIB-SEM data of highly porous media
+  authors: Prill, Schladitz, Jeulin et al.
+  year: 2013
+  venue: Journal of Microscopy
+  verified: true
+  note: >-
+    shine-through (pore-back) biases 2D porosity low; motivates the v2 bracket (Amass literature)
+- doi: 10.1149/1945-7111/ac7a68
+  title: >-
+    Methods-Kintsugi Imaging of Battery Electrodes: Distinguishing Pores from the Carbon Binder Domain
+    using Pt Deposition
+  authors: Cooper, Roberts, Liu et al.
+  year: 2022
+  venue: Journal of The Electrochemical Society
+  verified: true
+  note: >-
+    Polaron/Imperial method separating pores from CBD; the pore-back problem (Crossref-resolved 2026-10-03)
+- doi: 10.1149/2.0451908jes
+  title: >-
+    Requirements for Enabling Extreme Fast Charging of High Energy Density Li-Ion Cells while Avoiding
+    Lithium Plating
+  authors: Colclasure, Dunlop, Trask et al.
+  year: 2019
+  venue: Journal of The Electrochemical Society
+  verified: true
+  note: >-
+    fast charge is limited by electrolyte transport (salt depletion, Li plating at the graphite/separator
+    interface); reducing tortuosity helps, increasing porosity at fixed loading does not (abstract checked
+    2026-10-03; Crossref-resolved)
+- doi: 10.1149/2.1141607jes
+  title: Tortuosity Determination of Battery Electrodes and Separators by Impedance Spectroscopy
+  authors: Landesfeind, Hattendorff, Ehrl et al.
+  year: 2016
+  venue: Journal of The Electrochemical Society
+  verified: true
+  note: measured tortuosity vs porosity of graphite electrodes (Crossref-resolved 2026-10-03)
+- doi: 10.3389/fenrg.2014.00056
+  title: Effect of Calendering on Electrode Wettability in Lithium-Ion Batteries
+  authors: Sheng, Fell, Son et al.
+  year: 2014
+  venue: Frontiers in Energy Research
+  verified: true
+  note: >-
+    graphite anode: light calendering (59 -> 53 um) speeds wetting, heavier (to 41 um) slows it (abstract
+    checked 2026-10-03; Crossref-resolved)

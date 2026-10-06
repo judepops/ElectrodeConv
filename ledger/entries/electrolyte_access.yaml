@@ -1,0 +1,63 @@
+id: electrolyte_access
+name: Solid-to-pore distance (spherical contact distribution)
+aliases:
+- diffusion length
+- spherical contact distribution
+family: spatial_statistics
+detectors:
+- BSE
+status: rejected
+owner: luca
+description: >-
+  Distribution of the distance from each solid (graphite, Si) pixel to the nearest pore: mean, p90, and
+  Si-to-pore median; 2D proxy for the solid-state diffusion length to electrolyte. Built as scipy EDT
+  of ~h.void on the shared harmonised crop, minus-sampled (pore distance < crop-edge distance) with Hanisch
+  weights; plus the Torquato pore-size function (void pixel to nearest solid) and a Si/solid median ratio.
+battery_relevance: >-
+  Material far from electrolyte lithiates last at high rate; a coarser/denser solid raises the distance
+  (rate capability, plating risk).
+findings: >-
+  Rejected 2026-10-03 (Modal screen, 31 spots, split halves, 3 noise seeds, 8 perturbations; overlay check
+  on cfe5vt7s/ffwubibz showed the distance map is correct). Every column is either unreliable or redundant.
+  solid_pore_dist_mean_um (B1 1.13, B2 1.11, B3 1.05 um; within-session p 0.016, incoming p 0.042, LOSO
+  AUC B1 0.71 / B2 0.52) and solid_pore_dist_p90_um (within p 0.005) have split-half r 0.21/0.12 and 0.17/-0.01:
+  the site value is set by a few thick flake stacks in the window, so the within-session shift cannot
+  be told apart from the strip-position effect. si_pore_dist_median_um and si_pore_dist_ratio (ratio B1
+  0.96, B2 1.02, B3 1.09; within p 0.005, LOSO AUC B1 0.82) have split-half r -0.21/0.14 and -0.09/0.12
+  (30-80 Si particles per spot). pore_size_fn_mean_um is reliable (split 0.45/0.60, perturbation 0.31)
+  but redundant with pore_lt_d50_um/pore_lt_d90_um and the s2 correlation lengths. Robust alternatives
+  tested locally (median distance split 0.44/0.41; share of solid > 0.5 um from a pore 0.54/0.58; > 1
+  um 0.47/0.36; log-mean 0.43/0.36) are redundant at |Spearman| 0.91-0.94 with solid_lt_d50_um or interface_density_per_um.
+  Session R2 0.42-0.54, perturbation 0.25-0.46 B3-SD, seed SD <= 0.04 B3-SD, 3.9 s per spot. Use solid_lt_d50_um
+  / interface_density_per_um for the same mechanism. [own validation, 2026-10-03]
+refs:
+- doi: 10.1063/1.461519
+  verified: false
+  note: >-
+    Torquato & Avellaneda 1991, J Chem Phys: pore-size function P(delta) and its link to diffusion and
+    mean survival time; the pore-side distance distribution tested here
+- doi: 10.1080/02331888408801788
+  verified: false
+  note: >-
+    Hanisch 1984: ratio-unbiased minus-sampling estimator of nearest-distance distributions, used for
+    the edge correction
+- doi: 10.1111/jmi.12749
+  verified: false
+  note: >-
+    Kuchler et al. 2018, J Microsc: 3D electrode microstructure under increasing compaction, incl. spherical
+    contact distribution as a descriptor
+- doi: 10.1111/sjos.12375
+  verified: false
+  note: >-
+    Neumann et al. 2019, Scand J Stat: estimators for geodesic tortuosity and constrictivity in stationary
+    random closed sets (minus-sampling edge correction)
+- doi: 10.1021/acsami.0c15144
+  verified: false
+  note: >-
+    Kabra et al. 2020, ACS AMI: graphite electrode microstructure (particle size, porosity) controls Li
+    plating under fast charge through transport/kinetic limits
+- doi: 10.1038/s41467-023-40574-6
+  verified: false
+  note: >-
+    Lu et al. 2023, Nat Commun: operando microscopy + phase-field of inter/intra-particle Li transport
+    and plating in graphite electrodes

@@ -1,0 +1,3025 @@
+{
+ "tool": "GXL Paperclip CLI",
+ "source_flag": "-s abstracts --all",
+ "searches": {
+  "binder migration electrode drying": {
+   "returned": 100,
+   "top20": [
+    {
+     "rank": 1,
+     "title": "Binder migration during drying of lithium-ion battery electrodes:   modelling and comparison to experiment",
+     "id": "arx_1801.01580",
+     "source": "arXiv",
+     "date": "2018-01-04",
+     "doi": null,
+     "journal": "arXiv preprint",
+     "abstract": "The drying process is a crucial step in electrode manufacture as it can\naffect the component distribution within the electrode. Phenomena such as\nbinder migration can have negative effects in the form of poor cell performance\n(e.g. capacity fade) or mechanical failure (e.g. electrode delamination from\nthe current collector). We present a mathematical model that tracks the\nevolution of the binder concentration in the electrode during drying. Solutions\nto the model predict that low drying rates lead to a favourable homogeneous\nbinder profile across the electrode film, whereas high drying rates result in\nan unfavourable accumulation of binder near the evaporation surface. These\nresults show strong qualitative agreement with experimental observations and\nprovide a cogent explanation for why fast drying conditions result in poorly\nperforming electrodes. Finally, we provide some guidelines on how the drying\nprocess could be optimised to offer relatively short drying times whilst\nsimultaneously maintaining a roughly homogeneous binder distribution.",
+     "battery_terms": true
+    },
+    {
+     "rank": 2,
+     "title": "Numerical Modeling and Analysis of the Binder Migration Behavior during the Dual-Layer Electrode Drying Process",
+     "id": "oa_W4392561493",
+     "source": "abstracts",
+     "date": "2024-03-07",
+     "doi": "10.1021/acs.iecr.3c04131",
+     "journal": "Industrial & Engineering Chemistry Research",
+     "abstract": "The electrode structure is of great importance to lithium-ion battery performance. Nevertheless, the electrode binder migration along the thickness direction during the drying process deteriorates the electrode performance. This study introduces a dual-layer electrode structure to enhance binder distribution uniformity. A numerical model is developed to investigate binder migration in the dual-layer electrode structure. The numerical results indicate that the binder distribution uniformity in the dual-layer electrode structure is superior to that in the traditional single-layer electrode structure. Moreover, the effects of the dual-layer electrode structure parameters, such as layer thickness, etc., are analyzed in detail. The initial binder distribution is the most important dual-layer electrode structure parameter that affects binder distribution uniformity. Finally, an optimal design of the dual-layer electrode structure parameters is conducted. The binder distribution uniformity of the optimal results increases by 84.5% compared to that of the traditional single-layer electrode structure.",
+     "battery_terms": true
+    },
+    {
+     "rank": 3,
+     "title": "Pore-scale modeling of capillary-driven binder migration during battery electrode drying",
+     "id": "arx_2603.18860",
+     "source": "arXiv",
+     "date": "2026-03-20",
+     "doi": null,
+     "journal": "arXiv preprint",
+     "abstract": "Sodium-ion batteries employing hard carbon electrodes are considered a drop-in technology for lithium-ion batteries. Electrode drying is a critical manufacturing step, as binder migration during pore emptying impacts the mechanical integrity and electrical performance of the electrode. Existing modeling approaches predominantly rely on the film shrinkage phase in a one dimensional way or neglect the capillary transport, resulting in a lack of physically consistent microstructure resolved predictions of binder migration. In this work, a spatially resolved pore scale continuum model is extended to explicitly describe capillary driven binder transport during pore emptying. The model is applied to hard carbon microstructures with varying mean particle diameters. The simulations reveal that smaller particle sizes lead to a more homogeneous binder distribution, whereas higher evaporation rates and increased surface tension promote stronger binder gradients. Variations in solvent viscosity show only a minor influence on binder migration, as long as no hydrophilic or hydrophobic behavior is present. Finally, the simulations demonstrate that an explicit description of capillary transport and microstructural effects is essential for accurately predicting binder migration and provides a basis for the targeted optimization of electrode drying processes.",
+     "battery_terms": true
+    },
+    {
+     "rank": 4,
+     "title": "Chemical staining for fundamental studies and optimization of binders in Li-ion battery negative electrodes",
+     "id": "PMC12913984",
+     "source": "PMC",
+     "date": "2026-02-17",
+     "doi": "10.1038/s41467-026-69002-1",
+     "journal": "Nature Communications",
+     "abstract": "The spatial distribution of binders in Li-ion battery electrodes is critical to electrode performance, yet remains challenging to visualise, limiting binder optimisation efforts to chemical modifications rather than spatial control. Here, we show an accessible approach to staining carboxymethyl cellulose and styrene butadiene rubber binders in graphitic and Si-based Li-ion electrodes with silver and bromine, enabling detailed electron imaging and precise spectroscopic quantification of the binder domain. Leveraging these methods, we perform binder-informed optimisation of electrode manufacturing, achieving a 14% reduction in electronic resistivity, suppression of binder migration during high-temperature electrode drying, and a 40% decrease in electrode ionic resistance. Furthermore, staining enables electrode-scale, high-resolution backscattered electron imaging of complex binder hierarchies, revealing multiple types of agglomerates and elusive nanoscale binder films. These films completely coat graphitic surfaces in pristine electrodes but shatter into highly inhomogeneous fragments after calendering in both research-grade and commercial electrodes, presenting new perspectives on interpreting common cycling stability and electrode performance issues. We show how binder staining can advance fundamental understanding, quality control and manufacturing optimisation of Li-ion electrodes, particularly those based on widely used water-processable binders.",
+     "battery_terms": true
+    },
+    {
+     "rank": 5,
+     "title": "Self‐Catalyzed Exothermic Binder Enables Ultrafast Processing and Migration‐Resistant Binder Networks for High‐Performance Lithium Battery Cathodes",
+     "id": "PMC12811651",
+     "source": "PMC",
+     "date": "2025-11-24",
+     "doi": "10.1002/anie.202520301",
+     "journal": "Angewandte Chemie (International Ed. in English)",
+     "abstract": "Scalable manufacturing of high‐performance cathodes is crucial for next‐generation lithium‐ion batteries (LIBs). However, conventional binders such as polyvinylidene fluoride (PVDF) require prolonged drying, which slows electrode production and induces binder migration. Herein, we report a self‐catalyzed exothermic resin (ExoR) binder that undergoes rapid, thermally triggered polymerization, completing network cross‐linking within 3 min while consuming 70% less drying energy than PVDF. Thermal and microstructural analyses confirm rapid ExoR polymerization and complete solvent removal, while revealing a uniform binder distribution and a continuous carbon‐binder domain. This architecture lowers interfacial resistance and restrains polarization, producing an enhanced electrochemical response. The ExoR‐LiFePO4 (LFP) cathode achieves a near‐theoretical specific capacity at 0.1 C and excellent cycling stability, maintaining 155 mAh g−1 with 95.5% retention after 500 cycles. Furthermore, high‐mass‐loading (20 mg cm−2) ExoR‐LFP cathodes deliver 2.4 mAh cm−2 areal capacity while preserving structural integrity. The ExoR binder also performs well with LiNi1/3Co1/3Mn1/3O2 (NMC111) and Li1.2Mn0.54Ni0.13Co0.13O2 (LMRO) cathodes, demonstrating broad compatibility across diverse chemistries. By concurrently improving manufacturing efficiency and electrochemical performance, this nearly fluorine‐free (0.05 wt.%) ExoR system provides a scalable and sustainable strategy for the high‐throughput production of advanced lithium‐ion cathodes.",
+     "battery_terms": true
+    },
+    {
+     "rank": 6,
+     "title": "Drying of NCM Cathode Electrodes with Porous, Nanostructured Particles Versus Compact Solid Particles: Comparative Study of Binder Migration as a Function of Drying Conditions",
+     "id": "oa_W4205282627",
+     "source": "abstracts",
+     "date": "2022-01-20",
+     "doi": "10.1002/ente.202100985",
+     "journal": "Energy Technology",
+     "abstract": "Porous, nanostructured Li(Ni x Co y Mn)O 2 (NCM) achieves an improvement in the fast‐charging capability and the durability of lithium‐ion batteries. This improvement is attributed to an extended electrolyte—active material interface, where the electrochemical reactions take place and thus shorter diffusion paths inside the active material particles are necessary for charge transfer. Due to the porous particle morphology, new processing challenges arise compared to compact solid NCM. Herein, the properties of the slurries and the electrodes made of the two active materials and, in particular, the influence of the drying process on the binder distribution, are comparatively investigated. For the same composition of the slurries, a significantly lower dependence of adhesion force and discharge capacity at higher C‐rates on the drying rate is shown when using porous, nanostructured particles instead of solid particles. Binder migration and thus an inhomogeneous concentration distribution of the polyvinylidene fluoride binder is less pronounced for these electrodes during faster drying. Cell tests with half cells show that after increasing the drying rate by more than 350%, the discharge capacity of the electrodes consisting of solid NCM is reduced by about 63% at 5C while for the electrodes made of porous material no reduction is measured.",
+     "battery_terms": true
+    },
+    {
+     "rank": 7,
+     "title": "Carbon-Binder Migration: A Three-Dimensional Drying Model for Lithium-ion Battery Electrodes",
+     "id": "oa_W3201245296",
+     "source": "abstracts",
+     "date": "2021-09-12",
+     "doi": "10.1016/j.ensm.2021.09.015",
+     "journal": "Energy Storage Materials",
+     "abstract": "Li-ion battery electrode manufacturing is raising broad interest from both experimental and computational perspectives, due to its impact on the electrode and cell cost, mechanical and electrochemical properties. Among the different manufacturing processes, drying can trigger heterogeneities within the electrode mesostructure because of additive migration. Despite acknowledging that these heterogeneities significantly affect electrode properties, the drying step is often under evaluated at the experimental level and modeled through homogenized approaches. In this work, we present the first physics-based three-dimensional model able to mimic additive migration during drying, unlocking the generation of three-dimensional heterogeneous electrode mesostructures. We analyzed the effect of drying rate on the final electrode mesostructure, the dynamics of additive migration and how the developed heterogeneities affect the following manufacturing step, i.e., calendering. The results are in agreement with previous experimental findings and indicate trends not previously disclosed. Lastly, the implementation of complex drying protocols (three-stage drying) was tested and compared to its experimental counterpart.",
+     "battery_terms": true
+    },
+    {
+     "rank": 8,
+     "title": "Sustainable and cost-effective electrode manufacturing for advanced lithium batteries: the roll-to-roll dry coating process",
+     "id": "PMC11950987",
+     "source": "PMC",
+     "date": "2025-03-28",
+     "doi": "10.1039/d5sc00059a",
+     "journal": "Chemical Science",
+     "abstract": "The transition to electric vehicles motivated by global carbon neutrality targets has intensified the demand for lithium-ion batteries (LIBs) with high energy density. While the innovation of cathode/anode active materials has reached a plateau, development of thick electrodes has emerged as a critical breakthrough to achieving high-energy-density LIBs. However, the conventional wet coating process has intrinsic limitations, such as binder migration during the solvent drying process, which becomes increasingly problematic with thick electrodes. To address these challenges, dry coating processes have been actively explored in three main forms: electrostatic spraying, hot pressing with thermoplastic polymers, and roll-to-roll dry coating utilizing the polytetrafluoroethylene binder. This review highlights the roll-to-roll dry coating process, a scalable and industrially viable approach, by introducing its underlying mechanisms, latest developments, and applications in all-solid-state batteries and lithium–sulfur batteries. By combining technical advancements with manufacturing scalability, the roll-to-roll dry coating process demonstrates significant potential to enable next-generation battery systems.",
+     "battery_terms": true
+    },
+    {
+     "rank": 9,
+     "title": "Improvement of Lithium‐Ion Battery Performance by Two‐Layered Slot–Die Coating Operation",
+     "id": "oa_W2530904093",
+     "source": "abstracts",
+     "date": "2016-10-13",
+     "doi": "10.1002/ente.201600536",
+     "journal": "Energy Technology",
+     "abstract": "Abstract The cathode and anode electrodes in lithium‐ion batteries typically contain a significant proportion of particles and binders. During the electrode drying process, high temperature will lead to the binder migration phenomenon. Uneven particle/binder distribution can cause poor adhesion between coating and substrate, disruption of conductive paths, and decrease in electrode performance. In this study, a two‐layered cathode was designed by using separate compositions of slurry ingredients in each layer, as produced by means of a simultaneous multilayer coating method. The two‐layered cathode with the top layer containing less binder than the bottom layer yielded a better particle/binder distribution in the final structure under high‐temperature drying. A battery made with the two‐layered cathode appeared to give a better overall performance.",
+     "battery_terms": true
+    },
+    {
+     "rank": 10,
+     "title": "Binder Distributions in Water-Based and Organic-Based LiCoO2 Electrode Sheets and Their Effects on Cell Performance",
+     "id": "oa_W2028940854",
+     "source": "abstracts",
+     "date": "2011-01-01",
+     "doi": "10.1149/2.107112jes",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "The concentration distributions of binders in dried water-based and organic-based LiCoO2 electrode sheets are studied, and the effects of binder distributions on the physical, electrical and electrochemical properties of electrodes are also discussed. When the LiCoO2 slurry is prepared with an organic-based process, the non-uniform distributions of the binder, poly(vinylidene fluoride), and a conductive agent, graphite, are markedly observed in the dried electrode sheet. Nevertheless, these non-uniform distributions of constituents are less significant for the electrode sheet prepared by a water-based process that uses a blend of styrene butadiene rubber and sodium carboxymethyl cellulose as the binder. Beside the experimental results, the binder distributions in the dried electrodes can be accurately predicted via a theoretical calculation based on a migration-controlled drying kinetics. The calculated results show that the organic-based electrode sheet has much higher non-uniformity of binder distribution than the water-based one. Because of the higher non-uniform distributions of binder, the organic-based electrode sheet displays properties of weaker adhesion and higher electrical resistance. Moreover, the electrochemical performance shows that the IR-drop of the organic-based electrode is larger than the water-based one, which has to be reduced by the compression process of electrode sheets.",
+     "battery_terms": true
+    },
+    {
+     "rank": 11,
+     "title": "Distribution Uniformity of Water-Based Binders in Si Anodes and the Distribution Effects on Cell Performance",
+     "id": "oa_W3016559551",
+     "source": "abstracts",
+     "date": "2020-04-13",
+     "doi": "10.1021/acssuschemeng.0c02028",
+     "journal": null,
+     "abstract": "The concentration distributions of binders, carboxymethyl cellulose (CMC) and a composite of styrene–butadiene rubber (SBR) and CMC, in dried silicon anodes are studied, and the effects of their distributions on the electrochemical properties of the constructed cells are discussed. When a silicon electrode is prepared with a single binder of CMC, the binder is uniformly distributed in the drying/thickness direction of the electrode sheet. However, the binder distribution becomes less uniform when CMC is composited with SBR; this is because the contained SBR tends to migrate with the solvent during the drying process and finally accumulates on the top surface of the electrode. The nonuniform distribution of SBR weakens the adhesion strength of the electrode sheet on the current collector, thereby increasing the impedance of the fabricated anode and decreasing the capacity, rate capability, and cycle life of the constructed lithium-ion cell.",
+     "battery_terms": true
+    },
+    {
+     "rank": 12,
+     "title": "Nonenzymatic Glucose Sensors Based on Copper Sulfides: Effect of Binder-Particles Interactions in Drop-Casted Suspensions on Electrodes Electrochemical Performance",
+     "id": "PMC7865286",
+     "source": "PMC",
+     "date": "2021-01-26",
+     "doi": "10.3390/s21030802",
+     "journal": "Sensors (Basel, Switzerland)",
+     "abstract": "The constant progress in novel nanomaterials synthesis has contributed to the rapid development of nonenzymatic glucose sensors. For working electrodes preparation, drop casting proved to be the most convenient and thus most widely applied method. However, appropriate interpretation of obtained electrochemical signal requires in-depth knowledge of limitations related to this technique. In this study, we prepared solutions based on commonly reported polymers for nanostructures immobilization and investigated their influence on copper sulfides distribution on the electrode. Characterization of suspensions properties and behavior of particles during droplet drying revealed that nonionic polyvinylpyrrolidone (PVP) was favorable for electrodes modification with copper sulfides in comparison with Nafion and chitosan. It ensured homogeneity of the suspension as well as the uniform coverage of the electrode surface with particles, what resulted in increased active surface area and, therefore, higher signal from glucose addition. On the other hand, when cationic chitosan was used as a binder, suspensions were agglomerated and, within dry deposits, a coffee-ring effect was observed. Appropriate adjustment of material and polymer interactions led to enhanced electrode electrochemical performance.",
+     "battery_terms": true
+    },
+    {
+     "rank": 13,
+     "title": "Effect of drying temperature on binder/current collector interfacial adhesion in electrode manufacturing of Li-ion batteries",
+     "id": "oa_W4403441490",
+     "source": "abstracts",
+     "date": "2024-10-01",
+     "doi": "10.1016/j.mfglet.2024.09.036",
+     "journal": null,
+     "abstract": "Li-ion battery manufacturing process parameters are critical to the electrode properties and the final cell electrochemical performance. During the electrode drying process, the drying temperature plays a critical role on the binder migration, which affects the interfacial adhesion between the electrode and the current collector. However, the influence of the temperature on the properties of the binder material and the binder/current collector interface is yet unknown. In this work, we studied the effect of drying temperature on the interfacial adhesion between the binder and the current collector by direct coating of polyvinylidene fluoride (PVDF) solution on Al foil and then drying at various temperatures. The interfacial adhesion strength between the PVDF and the Al foil was significantly increased, from 9.72 N/m (dried at room temperature) to > 665.80 N/m (dried at 200 ℃) with increased temperature. DSC and XRD analyses showed the changes in the crystalline forms of PVDF under different drying temperature. This work revealed that the drying temperature during electrode manufacturing should be considered from the aspects of both binder migration in mid-stage and PVDF crystalline properties in late-stage solvent drying.",
+     "battery_terms": true
+    },
+    {
+     "rank": 14,
+     "title": "Ionically Conductive Elastic Polymer Binder for Ultrahigh Loading Electrode in High‐Energy‐Density Lithium Batteries",
+     "id": "PMC12548496",
+     "source": "PMC",
+     "date": "2025-07-07",
+     "doi": "10.1002/adma.202506266",
+     "journal": "Advanced Materials (Deerfield Beach, Fla.)",
+     "abstract": "Despite the increasing demand for high‐energy‐density lithium batteries, the development of high‐mass‐loading electrodes remains challenged by structural instability and poor charge transfer. Herein, an ionically conductive elastic polymer (ICEP) binder, designed to enable the fabrication of ultrahigh mass‐loading Ni‐rich layered cathodes (LiNi0.8Co0.1Mn0.1O2, NCM811), is introduced. The ICEP binder integrates mechanical elasticity, strong adhesion, and ionic conductivity through diverse functional groups, addressing challenges in high‐mass‐loading electrode fabrication. Hydrogen bonding between the ICEP binder and NCM811 particles ensures uniform electrode morphology, forming a stable cathode–electrolyte interphase (CEI). This stable interface mitigates surface side reactions, suppresses phase transitions in NCM811, and improves long‐term electrochemical stability. Additionally, the ICEP binder enhances Li‐ion diffusivity, reduces interphase resistance, and promotes faster electrochemical kinetics, while preventing solvent‐drying‐induced cracking. As a result, high‐mass‐loading electrodes (62.4 mg cm⁻2, 12.5 mAh cm⁻2) are successfully fabricated with the ICEP binder and demonstrate 94.6% capacity retention. Furthermore, a double‐stacked pouch‐type lithium metal full cell incorporating ICEP‐based cathodes achieves energy densities of 377.6 Wh kgcell⁻1 and 1016.8 Wh Lcell⁻1 (including package materials), setting new benchmarks for lithium metal batteries. These findings establish ICEP as a highly effective binder for next‐generation high‐energy‐density batteries, offering a scalable and commercially viable solution for ultrahigh‐loading cathodes.",
+     "battery_terms": true
+    },
+    {
+     "rank": 15,
+     "title": "Natural Polymers as Green Binders for High‐Loading Supercapacitor Electrodes",
+     "id": "PMC7065209",
+     "source": "PMC",
+     "date": "2020-01-21",
+     "doi": "10.1002/cssc.201902863",
+     "journal": "Chemsuschem",
+     "abstract": "The state‐of‐the‐art aqueous binder for supercapacitors is carboxymethyl cellulose (CMC). However, it limits the mass loading of the coatings owing to shrinkage upon drying. In this work, natural polymers, that is, guar gum (GG), wheat starch (WS), and potato starch (PS), were studied as alternatives. The flexibility and adhesion of the resulting coatings and electrochemical performance was tested. The combination of 75:25 (w/w) ratio PS/GG showed a promising performance. Electrodes were characterized by SEM, thermal, adhesion, and bending tests. Their electrochemical properties were determined by cyclic voltammetry, electrochemical impedance spectroscopy, and cycling experiments. The PS/GG mixture conformed well to criteria for industrial production, enabling mass loadings higher than CMC (7.0 mg cm−2) while granting the same specific capacitance (26 F g−1) and power performance (20 F g−1 at 10 A g−1). Including the mass of the current collector, this represents a +45 % increase in specific energy at the electrode level.",
+     "battery_terms": true
+    },
+    {
+     "rank": 16,
+     "title": "Effect of drying condition of poly (vinylidene fluoride) binder solution on film adhesion of graphite electrode for lithium batteries",
+     "id": "oa_W2379871148",
+     "source": "abstracts",
+     "date": "2008-01-01",
+     "doi": null,
+     "journal": null,
+     "abstract": null,
+     "battery_terms": true
+    },
+    {
+     "rank": 17,
+     "title": "Experimental Investigation of the Temperature, Pressure, and Binder System Influence on Vacuum Postdrying Processes and Moisture Management of Li‐Ion Battery Electrodes",
+     "id": "oa_W4296596739",
+     "source": "abstracts",
+     "date": "2022-09-13",
+     "doi": "10.1002/ente.202200859",
+     "journal": "Energy Technology",
+     "abstract": "Moisture management and postdrying are crucial for Li‐ion battery lifetime and performance as well as overall energy efficiency of electrode production. An optimization of these processes by a fundamental comprehension of sorption and mass transport mechanisms in the electrode holds potential to increase sustainability of this technology. The composition of electrodes determines which of these mechanisms govern the interaction of electrodes with water from atmosphere. In this study, the influence of the binder system, temperature, and pressure of Li‐ion battery anodes on postdrying is focused on. Anodes with the binder system carboxymethylcellulose (CMC)/styrene–butadiene–rubber (SBR) and polyvinylidene fluoride represent a mostly absorbing and mostly adsorbing material system, respectively. Variation of the process parameters temperature and pressure reveals that both material systems show a similar impact of pressure on water mass transport in the electrode during water removal, although a reduced pressure impact for the CMC/SBR system is expected, since in this case most water is absorbed into the polymers and should diffuse independently of the system pressure. Temperature affects water mass transport in the absorbing material system stronger than in the adsorbing material system, due to the strong temperature dependency of the water diffusion inside the absorbing polymers.",
+     "battery_terms": true
+    },
+    {
+     "rank": 18,
+     "title": "Pore-intrusion of polymeric binder in supercapacitor electrodes decreases capacitance",
+     "id": "PMC13150818",
+     "source": "PMC",
+     "date": "2026-04-30",
+     "doi": "10.1039/d5nr05282c",
+     "journal": "Nanoscale",
+     "abstract": "A combined study of electrochemical characterization, scanning electron microscopy, gas sorption, and solid-state nuclear magnetic resonance spectroscopy was conducted to understand the effect of polymeric binder on the performance of supercapacitor electrodes. We show that increasing the quantity of PTFE binder in the carbon electrode decreases the gravimetric capacitance. The decrease in capacitance is caused by the decrease in porosity of the carbon electrode, as determined by gas sorption and NMR spectroscopy. Importantly, 19F NMR reveals the significant intrusion of the PTFE binder into the carbon micropores, evidenced through the observation of a nucleus-independent chemical shift. 23Na NMR of aqueous electrolyte adsorption further shows that increasing the quantity of the PTFE binder hinders the amount of Na+ ions adsorbed within the pores, affecting the charge storage mechanism. To mitigate this effect, an alternative dry electrode processing method was investigated, which revealed a substantial reduction in PTFE pore intrusion. The reduced pore intrusion leads to excess PTFE accumulating in the intergranular gaps, which diminishes electrochemical performance in aqueous electrolytes. Summarizing, our study reveals the significant intrusion of polymeric binder into the pores of carbon electrodes, which decreases porosity and the corresponding charge storage performance. These findings may guide the design of new electrode formulations, such as a dry process, with improved energy storage capacities.",
+     "battery_terms": true
+    },
+    {
+     "rank": 19,
+     "title": "Regulating electrostatic phenomena by cationic polymer binder for scalable high-areal-capacity Li battery electrodes",
+     "id": "PMC10504278",
+     "source": "PMC",
+     "date": "2023-09-15",
+     "doi": "10.1038/s41467-023-41513-1",
+     "journal": "Nature Communications",
+     "abstract": "Despite the enormous interest in high-areal-capacity Li battery electrodes, their structural instability and nonuniform charge transfer have plagued practical application. Herein, we present a cationic semi-interpenetrating polymer network (c-IPN) binder strategy, with a focus on the regulation of electrostatic phenomena in electrodes. Compared to conventional neutral linear binders, the c-IPN suppresses solvent-drying-induced crack evolution of electrodes and improves the dispersion state of electrode components owing to its surface charge-driven electrostatic repulsion and mechanical toughness. The c-IPN immobilizes anions of liquid electrolytes inside the electrodes via electrostatic attraction, thereby facilitating Li+ conduction and forming stable cathode–electrolyte interphases. Consequently, the c-IPN enables high-areal-capacity (up to 20 mAh cm–2) cathodes with decent cyclability (capacity retention after 100 cycles = 82%) using commercial slurry-cast electrode fabrication, while fully utilizing the theoretical specific capacity of LiNi0.8Co0.1Mn0.1O2. Further, coupling of the c-IPN cathodes with Li-metal anodes yields double-stacked pouch-type cells with high energy content at 25 °C (376 Wh kgcell−1/1043 Wh Lcell–1, estimated including packaging substances), demonstrating practical viability of the c-IPN binder for scalable high-areal-capacity electrodes.",
+     "battery_terms": true
+    },
+    {
+     "rank": 20,
+     "title": "Fluorine-free binder-based dry thick electrodes with Parafilm® M toward sustainable and efficient battery manufacturing",
+     "id": "PMC12708863",
+     "source": "PMC",
+     "date": "2025-12-16",
+     "doi": "10.1038/s41467-025-66082-3",
+     "journal": "Nature Communications",
+     "abstract": "Dry electrodes are being actively developed for sustainable and efficient battery manufacturing. Currently, polytetrafluoroethylene binders dominate dry processes, raising concerns about high fluorine content regarding restrictions on per- and polyfluoroalkyl substances. Moreover, the poor adhesion necessitates a wet coating-based primer layer, which dilutes its main objectives. Here, we show dry processing approach using a thermoplastic, fluorine-free binder with low environmental impact and high productivity. Parafilm® M, a laboratory sealing film formulated with low-cost paraffin and polyethylene, consists of saturated linear hydrocarbons, offering high chemical stability from strong C-H covalent bonds and a large highest occupied molecular orbital - lowest unoccupied molecular orbital energy gap. It also has a low glass transition temperature, enabling mild-pressure activation to interconnect active materials while achieving true solvent-free adhesion without the wet-coating of primers on the current collector. This dry electrode binder provides substantial electrochemical properties based on LiNi0.8Co0.1Mn0.1O2 positive electrode over 5 mAh cm−2 for 600 cycles. This integrated approach bridges the gap between materials and processes, paving the way for sustainable advancements in battery electrode manufacturing.",
+     "battery_terms": true
+    }
+   ],
+   "rest": [
+    {
+     "rank": 21,
+     "title": "Effect of Polymeric Binders on Dispersion of Active",
+     "id": "PMC7254514",
+     "source": "biomedrxiv",
+     "date": "2020-05-14",
+     "doi": "10.1021/acsomega.0c00477",
+     "journal": null
+    },
+    {
+     "rank": 22,
+     "title": "Importance of Electrode Preparation Methodologies in Supercapacitor Applications",
+     "id": "PMC6645427",
+     "source": "PMC",
+     "date": "2017-11-16",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 23,
+     "title": "Charge-engineered cellulose nanofibril binders for PFAS-free, high-loading lithium battery positive electrodes",
+     "id": "PMC13328320",
+     "source": "PMC",
+     "date": "2026-06-02",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 24,
+     "title": "A mathematical model for mechanically-induced deterioration of the   binder in lithium-ion electrodes",
+     "id": "arx_1608.04847",
+     "source": "arXiv",
+     "date": "2016-08-17",
+     "doi": "10.1137/16m1086595",
+     "journal": null
+    },
+    {
+     "rank": 25,
+     "title": "Evaporation induced nanoparticle – binder interaction in electrode film formation",
+     "id": "oa_W2597724394",
+     "source": "abstracts",
+     "date": "2017-01-01",
+     "doi": "10.1039/c6cp08897j",
+     "journal": "RSC journal"
+    },
+    {
+     "rank": 26,
+     "title": "Solvent-Free Manufacturing of Electrodes for Lithium-ion Batteries",
+     "id": "PMC4794730",
+     "source": "PMC",
+     "date": "2016-03-17",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 27,
+     "title": "Water management in anion-exchange membrane water electrolyzers under dry cathode operation†",
+     "id": "PMC9297697",
+     "source": "PMC",
+     "date": "2022-07-20",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 28,
+     "title": "Sustainable Protein‐Based Binder for Lithium‐Sulfur Cathodes Processed by a Solvent‐Free Dry‐Coating Method",
+     "id": "PMC9828167",
+     "source": "PMC",
+     "date": "2022-10-20",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 29,
+     "title": "Delamination behavior of lithium-ion battery anodes: Influence of drying temperature during electrode processing",
+     "id": "oa_W2177064123",
+     "source": "abstracts",
+     "date": "2015-07-09",
+     "doi": "10.1080/07373937.2015.1060497",
+     "journal": "Drying Technology"
+    },
+    {
+     "rank": 30,
+     "title": "Drying of Lithium‐Ion Battery Anodes for Use in High‐Energy Cells: Influence of Electrode Thickness on Drying Time, Adhesion, and Crack Formation",
+     "id": "oa_W2972127671",
+     "source": "abstracts",
+     "date": "2019-09-04",
+     "doi": "10.1002/ente.201900722",
+     "journal": "Energy Technology"
+    },
+    {
+     "rank": 31,
+     "title": "Evolution of Internal Stress in Heterogeneous Electrode Composite during the Drying Process",
+     "id": "oa_W3136164553",
+     "source": "abstracts",
+     "date": "2021-03-18",
+     "doi": "10.3390/en14061683",
+     "journal": null
+    },
+    {
+     "rank": 32,
+     "title": "Effect of PVdF Binder Content on Dry-Sprayed Graphite Electrodes for Lithium-Ion Batteries for Electric Vehicle Applications",
+     "id": "oa_W4407209486",
+     "source": "abstracts",
+     "date": "2025-02-01",
+     "doi": "10.1149/1945-7111/adb33d",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 33,
+     "title": "Solvent‐free Electrode Fabrication for Next‐generation Batteries: Inception or an Endgame?",
+     "id": "PMC12258687",
+     "source": "PMC",
+     "date": "2025-06-18",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 34,
+     "title": "Electrohydrodynamic Drying of Chinese Wolfberry in a Multiple Needle-to-Plate Electrode System",
+     "id": "PMC6560449",
+     "source": "PMC",
+     "date": "2019-05-05",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 35,
+     "title": "Development of a three-stage drying profile based on characteristic drying stages for lithium-ion battery anodes",
+     "id": "oa_W2585173248",
+     "source": "abstracts",
+     "date": "2017-02-02",
+     "doi": "10.1080/07373937.2016.1248975",
+     "journal": "Drying Technology"
+    },
+    {
+     "rank": 36,
+     "title": "Fabrication of glucose biosensors by inkjet printing",
+     "id": "arx_1207.1190",
+     "source": "arXiv",
+     "date": "2012-07-05",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 37,
+     "title": "Mechanical effects of carboxymethylcellulose binder in hard carbon   electrodes",
+     "id": "arx_2403.11668",
+     "source": "arXiv",
+     "date": "2024-03-18",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 38,
+     "title": "Influence of Different Powder Conditioning Strategies on Metal Binder Jetting with Ti-6Al-4V",
+     "id": "PMC10856123",
+     "source": "PMC",
+     "date": "2024-02-04",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 39,
+     "title": "Water‐Soluble Binders for Lithium‐Ion Battery Graphite Electrodes: Slurry Rheology, Coating Adhesion, and Electrochemical Performance",
+     "id": "oa_W2736814260",
+     "source": "abstracts",
+     "date": "2017-07-20",
+     "doi": "10.1002/ente.201700200",
+     "journal": "Energy Technology"
+    },
+    {
+     "rank": 40,
+     "title": "Impact of Maturation on Si-Based Negative Electrodes for LIBs: Contributions of Binder Migration and Cu Corrosion",
+     "id": "oa_W4408140396",
+     "source": "abstracts",
+     "date": "2025-03-01",
+     "doi": "10.1149/1945-7111/adbc74",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 41,
+     "title": "Measuring Dynamic Gradients in Drying Battery Electrode Coatings via Microscale Resistivity",
+     "id": "PMC12613802",
+     "source": "PMC",
+     "date": "2025-10-28",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 42,
+     "title": "Synergizing Polysulfide Trapping and Fast Ion Kinetics Enabled by Poly(Acrylamide‐co‐Lithium Acrylate) Aqueous Binder for High‐Sulfur‐Loading Lithium–Sulfur Batteries",
+     "id": "PMC13360691",
+     "source": "PMC",
+     "date": "2026-05-25",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 43,
+     "title": "Binder Jet 3D Printing of Compound LEV-PN Dispersible Tablets: An Innovative Approach for Fabricating Drug Systems with Multicompartmental Structures",
+     "id": "PMC8623818",
+     "source": "PMC",
+     "date": "2021-10-25",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 44,
+     "title": "Effects of drying rate and slurry microstructure on the formation process of LiB cathode and electrochemical properties",
+     "id": "oa_W4361288557",
+     "source": "abstracts",
+     "date": "2023-03-28",
+     "doi": "10.1016/j.jpowsour.2023.232983",
+     "journal": "Journal of Power Sources"
+    },
+    {
+     "rank": 45,
+     "title": "Influence of the mass percentage of binders on the properties of LHC",
+     "id": "PMC11544039",
+     "source": "PMC",
+     "date": "2024-11-07",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 46,
+     "title": "Evaluation of Polyvinyl Alcohol as Binder during Continuous Twin Screw Wet Granulation",
+     "id": "PMC11280237",
+     "source": "PMC",
+     "date": "2024-06-25",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 47,
+     "title": "A Multifunctional Protein Coating for Self-Assembled Porous Nanostructured Electrodes",
+     "id": "PMC6641125",
+     "source": "PMC",
+     "date": "2017-04-27",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 48,
+     "title": "Lithium Ion Battery Electrode Manufacturing Model Accounting for 3D   Realistic Shapes of Active Material Particles",
+     "id": "arx_2206.03969",
+     "source": "arXiv",
+     "date": "2022-06-08",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 49,
+     "title": "Regulating cathode surface hydroxyl chemistry enables superior potassium storage",
+     "id": "PMC10372561",
+     "source": "PMC",
+     "date": "2023-07-17",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 50,
+     "title": "A Dispersant‐Driven Carbon‐Binder Domains Homogeneity in High‐Energy‐Density Electrodes for Lithium‐Ion Batteries",
+     "id": "PMC13483137",
+     "source": "PMC",
+     "date": "2026-08-18",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 51,
+     "title": "The Influence of Polyvinylidene Fluoride (PVDF) Binder Properties on LiNi<sub>0.33</sub>Co<sub>0.33</sub>Mn<sub>0.33</sub>O<sub>2</sub> (NMC) Electrodes Made by a Dry-Powder-Coating Process",
+     "id": "oa_W2950784125",
+     "source": "abstracts",
+     "date": "2019-01-01",
+     "doi": "10.1149/2.1171910jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 52,
+     "title": "Influence of Water‐Compatible Binder Systems on Physical and Electrochemical Performance of LiFePO <sub>4</sub> ‐Based Positive Electrodes: A Comparative Study",
+     "id": "oa_W7134169327",
+     "source": "abstracts",
+     "date": "2026-03-01",
+     "doi": "10.1002/aesr.202500471",
+     "journal": null
+    },
+    {
+     "rank": 53,
+     "title": "Polymer Binders: Characterization and Development toward Aqueous Electrode Fabrication for Sustainability",
+     "id": "PMC7923802",
+     "source": "PMC",
+     "date": "2021-02-20",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 54,
+     "title": "Nanofibrous Conductive Binders Based on DNA-Wrapped Carbon Nanotubes for Lithium Battery Electrodes",
+     "id": "PMC7670196",
+     "source": "PMC",
+     "date": "2020-10-28",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 55,
+     "title": "Development of standard operating procedures of Habbe Shifa: A polyherbal Unani formulation",
+     "id": "PMC3821188",
+     "source": "PMC",
+     "date": "2013",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 56,
+     "title": "Advantage of Dimethyl Sulfoxide in the Fabrication of Binder-Free Layered Double Hydroxides Electrodes: Impacts of Physical Parameters on the Crystalline Domain and Electrochemical Performance",
+     "id": "PMC9456269",
+     "source": "PMC",
+     "date": "2022-09-05",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 57,
+     "title": "PTFE as a Multifunctional Binder for High‐Current‐Density Oxygen Evolution",
+     "id": "PMC11538630",
+     "source": "PMC",
+     "date": "2024-09-04",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 58,
+     "title": "Mechanical and Electrochemical Implications of Drying Temperature on Lithium‐Ion Battery Electrodes",
+     "id": "oa_W4396226278",
+     "source": "abstracts",
+     "date": "2024-04-28",
+     "doi": "10.1002/batt.202400113",
+     "journal": "Batteries & Supercaps"
+    },
+    {
+     "rank": 59,
+     "title": "Mechanistic Understanding of the Role of Evaporation in Electrode Processing",
+     "id": "oa_W2620860707",
+     "source": "abstracts",
+     "date": "2017-01-01",
+     "doi": "10.1149/2.1271707jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 60,
+     "title": "Effect of the Physicochemical Properties of PVdF on Dry-Sprayed Graphite Electrodes for Lithium-Ion Batteries for Electric Vehicle Applications",
+     "id": "oa_W4404945144",
+     "source": "abstracts",
+     "date": "2024-12-03",
+     "doi": "10.1149/1945-7111/ad9a08",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 61,
+     "title": "Hydroxyl chemistry regulation of cellulose biopolymers for aqueous zinc battery binders",
+     "id": "PMC13454342",
+     "source": "PMC",
+     "date": "2026-06-20",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 62,
+     "title": "Nanochitin as Binder in Li-Ion Battery Anodes Enabling Aqueous Processing and Superior Solid Electrolyte Interphase",
+     "id": "PMC13133777",
+     "source": "PMC",
+     "date": "2026-04-18",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 63,
+     "title": "Zn2+–Imidazole Coordination Crosslinks for Elastic Polymeric Binders in High‐Capacity Silicon Electrodes",
+     "id": "PMC8097348",
+     "source": "PMC",
+     "date": "2021-03-02",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 64,
+     "title": "An Energy Dissipative Binder for Self‐Tuning Silicon Anodes in Lithium‐Ion Batteries",
+     "id": "PMC9839849",
+     "source": "PMC",
+     "date": "2022-11-17",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 65,
+     "title": "An environment-friendly crosslinked binder endowing LiFePO4 electrode with structural integrity and long cycle life performance†",
+     "id": "PMC9055956",
+     "source": "PMC",
+     "date": "2020-08-11",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 66,
+     "title": "Fabrication of 3D binder-free graphene NiO electrode for highly stable supercapattery",
+     "id": "PMC7343816",
+     "source": "PMC",
+     "date": "2020-07-08",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 67,
+     "title": "Binder-Free Electrode based on Electrospun-Fiber for Li Ion Batteries via a Simple Rolling Formation",
+     "id": "PMC7356392",
+     "source": "PMC",
+     "date": "2020-07-13",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 68,
+     "title": "Electrochemical Properties of Powdery LiNi1/3Mn1/3Co1/3O2 Electrodes with Styrene-Acrylic-Rubber-Based Latex Binders at High Voltage",
+     "id": "PMC11647888",
+     "source": "PMC",
+     "date": "2024-11-25",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 69,
+     "title": "Visualisation and differentiation of binder components in hard carbon composite anodes by osmium tetroxide and uranyl acetate staining",
+     "id": "PMC12352016",
+     "source": "PMC",
+     "date": "2025-07-21",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 70,
+     "title": "The Role of Surface Free Energy in Binder Distribution and Adhesion Strength of Aqueously Processed LiNi<sub>0.5</sub>Mn<sub>1.5</sub>O<sub>4</sub> Cathodes",
+     "id": "oa_W4393859136",
+     "source": "abstracts",
+     "date": "2024-04-01",
+     "doi": "10.1149/1945-7111/ad3a24",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 71,
+     "title": "Effect of Ion Migration Induced Electrode Degradation on the Operational   Stability of Perovskite Solar Cells",
+     "id": "arx_1904.11731",
+     "source": "arXiv",
+     "date": "2019-04-26",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 72,
+     "title": "Improving the Properties of Magnetite Green Pellets with a Novel Organic Composite Binder",
+     "id": "PMC9571648",
+     "source": "PMC",
+     "date": "2022-10-09",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 73,
+     "title": "Synthesis and Characterization of an Alkali-Activated Binder from Blast Furnace Slag and Marble Waste",
+     "id": "PMC11547865",
+     "source": "PMC",
+     "date": "2024-10-28",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 74,
+     "title": "Infrared Drying-Induced PVDF Crystallinity Control for Enhanced Lithium Cobalt Oxide Cathodes",
+     "id": "oa_W7116982019",
+     "source": "abstracts",
+     "date": "2025-12-22",
+     "doi": "10.1021/acsaem.5c03488",
+     "journal": "ACS Applied Energy Materials"
+    },
+    {
+     "rank": 75,
+     "title": "Towards Understanding of Cracking during Drying of Thick Aqueous-Processed LiNi<sub>0.8</sub>Mn<sub>0.1</sub>Co<sub>0.1</sub>O<sub>2</sub> Cathodes",
+     "id": "oa_W3008653137",
+     "source": "abstracts",
+     "date": "2020-02-19",
+     "doi": "10.1021/acssuschemeng.9b06363",
+     "journal": null
+    },
+    {
+     "rank": 76,
+     "title": "Influence of the Polymer Binder Composition on the Charge Transfer Resistance, Morphology, and Crystallinity of LiFePO4 Electrodes Revealed by Electrochemical Impedance Spectroscopy and Grazing Incidence Small‐ and Wide‐Angle X‐ray Scattering",
+     "id": "PMC11935098",
+     "source": "PMC",
+     "date": "2024-08-10",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 77,
+     "title": "Diffusion kinetics of water in graphite anodes for Li-ion batteries",
+     "id": "oa_W3111237539",
+     "source": "abstracts",
+     "date": "2020-12-07",
+     "doi": "10.1080/07373937.2020.1852568",
+     "journal": "Drying Technology"
+    },
+    {
+     "rank": 78,
+     "title": "Eco-Friendly Water-Processable Polyimide Binders with High Adhesion to Silicon Anodes for Lithium-Ion Batteries",
+     "id": "PMC8705944",
+     "source": "PMC",
+     "date": "2021-11-23",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 79,
+     "title": "Cross-linked multifunctional binder in situ tuning solid electrolyte interface for silicon anodes in lithium ion batteries",
+     "id": "PMC10613629",
+     "source": "PMC",
+     "date": "2023-10-29",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 80,
+     "title": "Reduced Graphene Oxide as a Monolithic Multifunctional Conductive Binder for Activated Carbon Supercapacitors",
+     "id": "PMC6120737",
+     "source": "PMC",
+     "date": "2018-08-16",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 81,
+     "title": "Polyethylene Oxide as a Multifunctional Binder for High-Performance Ternary Layered Cathodes",
+     "id": "PMC8618470",
+     "source": "PMC",
+     "date": "2021-11-19",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 82,
+     "title": "Three-Dimensional-Printed Composite Structures: The Effect of LSCF Slurry Solid Loading, Binder, and Direct-Write Process Parameters",
+     "id": "PMC11204860",
+     "source": "PMC",
+     "date": "2024-06-10",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 83,
+     "title": "A robust inorganic binder against corrosion and peel-off stress in electrocatalysis†",
+     "id": "PMC11423651",
+     "source": "PMC",
+     "date": "2024-09-18",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 84,
+     "title": "Synergistic Role of Electrolyte and Binder for Enhanced Electrochemical Storage for Sodium-Ion Battery",
+     "id": "PMC6645709",
+     "source": "PMC",
+     "date": "2018-08-27",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 85,
+     "title": "In situ Growth of Cu2O/CuO Nanosheets on Cu Coating Carbon Cloths as a Binder-Free Electrode for Asymmetric Supercapacitors",
+     "id": "PMC6562678",
+     "source": "PMC",
+     "date": "2019-06-06",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 86,
+     "title": "Sulfated Alginate as an Effective Polymer Binder for High-Voltage LiNi0.5Mn1.5O4 Electrodes in Lithium-Ion Batteries",
+     "id": "PMC9706501",
+     "source": "PMC",
+     "date": "2022-11-09",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 87,
+     "title": "Drying of Compact and Porous NCM Cathode Electrodes in Different Multilayer Architectures: Influence of Layer Configuration and Drying Rate on Electrode Properties",
+     "id": "oa_W4379141876",
+     "source": "abstracts",
+     "date": "2023-06-02",
+     "doi": "10.1002/ente.202300267",
+     "journal": "Energy Technology"
+    },
+    {
+     "rank": 88,
+     "title": "Performance of Different Water-Based Binder Formulations for Ni-Rich Cathodes Evaluated in LiNi <sub>0.8</sub> Mn <sub>0.1</sub> Co <sub>0.1</sub> O <sub>2</sub> //Graphite Pouch Cells",
+     "id": "oa_W4224250869",
+     "source": "abstracts",
+     "date": "2022-04-01",
+     "doi": "10.1149/1945-7111/ac682d",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 89,
+     "title": "Aqueous Supramolecular Binder for High-Performance Lithium–Sulfur Batteries",
+     "id": "PMC10300946",
+     "source": "PMC",
+     "date": "2023-06-07",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 90,
+     "title": "Starch as a Green Binder for the Formulation of Conducting Glue in Supercapacitors",
+     "id": "PMC6836256",
+     "source": "PMC",
+     "date": "2019-10-11",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 91,
+     "title": "Impact of drying conditions and wet film properties on adhesion and film solidification of lithium-ion battery anodes",
+     "id": "oa_W2583283762",
+     "source": "abstracts",
+     "date": "2017-02-02",
+     "doi": "10.1080/07373937.2016.1276584",
+     "journal": "Drying Technology"
+    },
+    {
+     "rank": 92,
+     "title": "Binder-Free V2O5 Cathode for High Energy Density Rechargeable Aluminum-Ion Batteries",
+     "id": "PMC7075190",
+     "source": "PMC",
+     "date": "2020-01-30",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 93,
+     "title": "Method to Produce Durable Pellets at Lower Energy Consumption Using High Moisture Corn Stover and a Corn Starch Binder in a Flat Die Pellet Mill",
+     "id": "PMC4927843",
+     "source": "PMC",
+     "date": "2016-06-15",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 94,
+     "title": "Expanded Nanofibrous Cellulose Electrode Binder: Declustering Lithium Polysulfides for Lean‐Electrolyte Li‒S Batteries",
+     "id": "PMC12138860",
+     "source": "PMC",
+     "date": "2025-04-07",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 95,
+     "title": "Study of the Mineralogical Composition of an Alumina–Silica Binder System Formed by the Sol–Gel Method",
+     "id": "PMC10420114",
+     "source": "PMC",
+     "date": "2023-08-04",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 96,
+     "title": "Facile Synthesis of 3D NC-rGO@Ni-Foam Nanonetwork as a Binder-Free Hybrid Electrode Material for Ultrahigh Capacitance Applications",
+     "id": "PMC12044560",
+     "source": "PMC",
+     "date": "2025-04-16",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 97,
+     "title": "Particles and Polymer Binder Interaction: A Controlling Factor in Lithium-Ion Electrode Performance",
+     "id": "oa_W2144293097",
+     "source": "abstracts",
+     "date": "2011-12-30",
+     "doi": "10.1149/2.024203jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 98,
+     "title": "Suitable binder for Li-ion battery anode produced from rice husk",
+     "id": "PMC8338988",
+     "source": "PMC",
+     "date": "2021-08-04",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 99,
+     "title": "Cooperation between Active Material, Polymeric Binder and Conductive Carbon Additive in Lithium Ion Battery Cathode",
+     "id": "oa_W1992639760",
+     "source": "abstracts",
+     "date": "2012-01-23",
+     "doi": "10.1021/jp208428w",
+     "journal": null
+    },
+    {
+     "rank": 100,
+     "title": "Drying Temperature and Capillarity-Driven Crack Formation in Aqueous Processing of Li-Ion Battery Electrodes",
+     "id": "oa_W2948456676",
+     "source": "abstracts",
+     "date": "2019-06-03",
+     "doi": "10.1021/acsaem.9b00704",
+     "journal": "ACS Applied Energy Materials"
+    }
+   ]
+  },
+  "tortuosity graphite anode lithium-ion": {
+   "returned": 100,
+   "top20": [
+    {
+     "rank": 1,
+     "title": "Investigating the effect of screen-printed structured graphite electrodes with low tortuosity for high-capacity and fast-charging lithium-ion batteries",
+     "id": "PMC12328598",
+     "source": "PMC",
+     "date": "2025-08-06",
+     "doi": "10.1038/s41598-025-12909-4",
+     "journal": "Scientific Reports",
+     "abstract": "A flexible screen-printed graphite electrode was fabricated as an anode for developing fast-charging lithium-ion batteries with low tortuosity. A homogenous anode ink was prepared by mixing graphite as the active material, carbon black (C45) as the conductive additive, and polyvinylidene fluoride (PVDF) as the binder in N-Methyl-2-pyrrolidone (NMP) solvent. The ink was deposited on a flexible copper foil via a stainless-steel screen consisting of an array of pores, that act as secondary pore networks (SPNs), using the screen-printing process. Lithium-ion battery half-cells were assembled using the printed graphite anode, lithium metal foil as the counter electrode, and 1.2 M lithium hexafluorophosphate (LiPF6) in ethyl carbonate: ethyl methyl carbonate (EC: EMC = 3:7) as the electrolyte. The effect of SPNs on the cell performance was investigated by performing formation, rate and cycling tests on the assembled cells, at different C-rates. It was observed that the cells consisting of SPNs with a pore size of 100 μm and edge-to-edge distance of 100 μm between the pores exhibited significantly higher specific capacities of 168 and 129 mAh/g when compared to reference cells without SPNs, which had capacities of 120 and 85 mAh/g, at high C-rates of 4 C and 6 C, respectively. The cells with SPNs also demonstrated excellent cycling performance with ~ 95% capacity retention after 100 cycles at 2 C. The online version contains supplementary material available at 10.1038/s41598-025-12909-4.",
+     "battery_terms": true
+    },
+    {
+     "rank": 2,
+     "title": "Effect of Porosity, Thickness and Tortuosity on Capacity Fade of Anode",
+     "id": "oa_W1515965526",
+     "source": "abstracts",
+     "date": "2015-01-01",
+     "doi": "10.1149/2.0061509jes",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "The graphite anode in lithium-ion batteries is vulnerable to capacity fade due to several mechanisms. Advancement in understanding of such capacity fade mechanisms has paved the way for selecting design parameters that consider these effects. This paper shows the effect of porosity, thickness, and tortuosity of the anode on capacity fade mechanisms. Three main capacity fade mechanisms are analyzed in this paper: (1) solid electrolyte interface (SEI) side reaction, (2) lithium plating side reactions and (3) mechanical degradation due to intercalation induced stresses. Moreover, for a given thickness and porosity of anode, the effect of porosity variation on capacity fade mechanisms is also presented.",
+     "battery_terms": true
+    },
+    {
+     "rank": 3,
+     "title": "Mesoscale Design Principles for Graphite Electrodes Enabled by 3D Heterogeneous Modeling of Ellipsoidal Particles",
+     "id": "oa_W4415827732",
+     "source": "abstracts",
+     "date": "2025-11-01",
+     "doi": "10.1149/1945-7111/ae1ab6",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "Graphite, a widely used anode material in lithium-ion batteries, possesses a layered microstructure that induces anisotropic diffusion properties and non-spherical particle morphologies. These features challenge conventional modeling approaches, which often assume spherical symmetry and homogeneous structure. In this study, we develop a three-dimensional heterogeneous electrochemical model that explicitly reconstructs graphite particles as ellipsoids, incorporating axis-dependent diffusion coefficients to capture anisotropic ion transport. We identify critical mesoscale design principles that govern rate performance by varying tortuosity, porosity profiles, and particle orientation. Our results reveal that (i) ionic transport resistance is highly sensitive to ellipsoid orientation, affecting overall polarization; (ii) electrodes with more uniform particle distributions exhibit lower tortuosity and higher diffusion-limiting currents; and (iii) aligning the basal planes of graphite along the electrode thickness direction significantly enhances rate capability. These insights offer guidance for optimizing electrode architectures, and suggest that advanced fabrication techniques, such as dry pressing with PTFE binders, may be effective for aligning anisotropic particles to enhance high-rate performance.",
+     "battery_terms": true
+    },
+    {
+     "rank": 4,
+     "title": "Investigating the Factors Affecting the In-Plane Tortuosity of Porous Graphite Electrode in Lithium-Ion Batteries",
+     "id": "oa_W4416659288",
+     "source": "abstracts",
+     "date": "2025-11-25",
+     "doi": "10.1149/2754-2734/ae23e5",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "Due to the anisotropic nature of porous graphite electrodes composed of flake-like particles, it is crucial to determine both in-plane and through-plane tortuosity. These parameters are essential for the optimal design of three-dimensional structured electrodes, the validation of tomography-based image-driven numerical simulations, to understand the phenomenon of electrolyte motion-induced salt inhomogeneity (and associated capacity loss) in the case of cylindrical cells, and to accurately predict the edge-driven degradation in the overhang region. While through-plane tortuosity is explored in depth along with its dependence on various parameters like binder content, electrode porosity, particle shape, size distribution, etc, the literature is lean with the studies regarding the dependence of in-plane tortuosity on these parameters. This paper explores the dependence of the in-plane tortuosity of electrodes on the PVDF binder content, shape of particles (active material), and porosity. For PVDF binder content, the in-plane tortuosity follows the same trend as through-plane tortuosity (i.e., an increase in binder content increases tortuosity). Interestingly, for the chosen electrode with PVDF binder, the in-plane tortuosity decreases with calendering, unlike through-plane tortuosity (i.e., increase in through-plane tortuosity with calendering). Additionally, we extend the method to systems that are not strictly blocking (i.e., in the presence of side reactions).",
+     "battery_terms": true
+    },
+    {
+     "rank": 5,
+     "title": "Influence of the Binder on Lithium Ion Battery Electrode Tortuosity and Performance",
+     "id": "oa_W2797321974",
+     "source": "abstracts",
+     "date": "2018-01-01",
+     "doi": "10.1149/2.0971805jes",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "The electrochemical performance of porous graphite anodes in lithium ion battery applications is limited by the lithium ion concentration gradients in the liquid electrolyte, especially at high current densities and for thick coatings during battery charging. Beside the electrolyte transport parameters, the porosity and the tortuosity of the coating are key parameters that determine the electrode's suitability for high power applications. Here, we investigate the tortuosity of graphite anodes using two water as well as three n-methyl-2-pyrrolidone based binder systems by analysis of symmetric cell impedance measurements, demonstrating that tortuosities ranging from 3-10 are obtained for graphite anodes of similar thickness (100 m), porosities (50%) and areal capacity (3.4 mAh/cm 2 ). Furthermore, selected electrodes with tortuosities of 3.1, 4.3, and 10.2 were cycled in cells with reference electrode at charging C-rates from 0.1-20 1/h, illustrating the clear correlation between electrode tortuosity and its rate capability.",
+     "battery_terms": true
+    },
+    {
+     "rank": 6,
+     "title": "An Analytical Method to Determine Tortuosity in Rechargeable Battery Electrodes",
+     "id": "oa_W2053445159",
+     "source": "abstracts",
+     "date": "2012-01-01",
+     "doi": "10.1149/2.jes113224",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "In high energy density, low porosity, lithium-ion battery electrodes, the underlying microstructural tortuosity controls the macroscopic charge capacity, average lithium-ion diffusivity, and macroscopic resistivity of the cell, particularly at high discharge rates and power densities. In this paper, an analytical framework is presented to extend widely used empirical tortuosity relations such as the Bruggemann relation to incorporate the effects of the mesoscale tortuosity through analytical integration along the width of the electrode (in the limit of high porosities), and integration along a statistically representative tortuous path (in the limit of low porosities). The framework presented herein enables to establish analytical tortuosity-porosity relations that combine the constitutive properties of the individual components. As an example application, the macroscopic tortuosity-porosity relation of a mixture of two porous particle systems of widely different length scales and well-known individual tortuosity constitutive equations, one displaying mesoscale porosity (the carbon black-electrolyte mixture) and a second one displaying microporosity (the electrochemically active phase), are combined into a self-consistent macroscopic tortuosity expression that is in agreement with recently reported empirical measures of tortuosity.",
+     "battery_terms": true
+    },
+    {
+     "rank": 7,
+     "title": "Numerical Reconstruction and Characterization Analysis of Microstructure of Lithium-ion Battery Graphite Anode",
+     "id": "oa_W2978528015",
+     "source": "abstracts",
+     "date": "2015-01-01",
+     "doi": "10.15541/jim20150051",
+     "journal": null,
+     "abstract": "The real graphite anode of lithium-ion battery is of evident non-isotropic characteristic due to its cascading graphite flakes. An ellipsoid particle-based simulated annealing method is developed to numerically reconstruct the three-dimensional microstructure of graphite anode. The reconstructed anode is a composite of three clearly distinguished phases: pore (or electrolyte), graphite and solid additive, well representing the non-isotropic characteristic of real graphite anode. Characterization analysis of reconstructed electrodes gives information such as the connectivity, the specific surface area of solid or pore phase, and the pore size distribution. The results show that the size of graphite ellipsoids has important effects on the characteristics of electrode: 1) larger size graphite ellipsoids result in larger mean pore size and smaller specific surface area in the reconstructed electrode; 2) changing the polar radius of graphite ellipsoid particles has more pronounced influence on the characteristics of electrode than has changing its equatorial radius.",
+     "battery_terms": true
+    },
+    {
+     "rank": 8,
+     "title": "Validity of the Bruggeman relation for porous electrodes",
+     "id": "oa_W2080032753",
+     "source": "abstracts",
+     "date": "2013-10-01",
+     "doi": "10.1088/0965-0393/21/7/074009",
+     "journal": null,
+     "abstract": "The ability to engineer electrode microstructures to increase power and energy densities is critical to the development of high-energy density lithium-ion batteries. Because high tortuosities in porous electrodes are linked to lower delivered energy and power densities, in this paper, we experimentally and computationally study tortuosity and consider possible approaches to decrease it. We investigate the effect of electrode processing on the tortuosity of in-house fabricated porous electrodes, using three-dimensionally reconstructed microstructures obtained by synchrotron x-ray tomography. Computer-generated electrodes are used to understand the experimental findings and assess the impact of particle size distribution and particle packing on tortuosity and reactive area density. We highlight the limitations and tradeoffs of reducing tortuosity and develop a practical set of guidelines for active material manufacture and electrode preparation.",
+     "battery_terms": true
+    },
+    {
+     "rank": 9,
+     "title": "Measurement of Tortuosity and Porosity of Porous Battery Electrodes",
+     "id": "oa_W2082522857",
+     "source": "abstracts",
+     "date": "2014-01-01",
+     "doi": "10.1149/2.073404jes",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "This paper reports methods to measure porosity and tortuosity of Li-ion battery electrodes. A gas transport resistance measurement method adapted from [Z. Yu, R. N. Carter, J. Power Sour., 195, 1079 (2010)] is used to characterize an electrode MacMullin number (i.e. the ratio of tortuosity and porosity). Porosity is measured independently, and the tortuosity is obtained from the measured MacMullin number. The measurements were carried out for graphite and Li-metal oxide electrodes taken from an automotive Li-ion battery. Tortuosities of 5.95 ± 0.51 at 28.5% ± 1.3% porosity and 3.74 ± 0.38 at a porosity of 21.5% ± 0.25% were measured for the graphite electrode and the Li metal oxide electrode respectively. Additionally, the tortuosity values for both electrodes were found to be significantly higher than those predicted by the Bruggeman correlation, suggesting that use of the Bruggeman correlation for Li-ion battery electrode modeling is not applicable and tortuosity should be measured for the electrodes of interest.",
+     "battery_terms": true
+    },
+    {
+     "rank": 10,
+     "title": "Determination and Engineering of Li‐Ion Tortuosity in Electrode Toward High Performance of Li‐Ion Batteries",
+     "id": "oa_W4398246631",
+     "source": "abstracts",
+     "date": "2024-05-22",
+     "doi": "10.1002/aenm.202303206",
+     "journal": "Advanced Energy Materials",
+     "abstract": "Abstract With the progressively widespread application of lithium‐ion batteries, their energy density and power density are being pursued to the extremely high. However, both cannot be reached simultaneously at present. Tortuosity depicts the relationship in ionic diffusion between bulk electrolyte and the electrolyte in a porous electrode, provides information about channels within electrodes, and correlates the current dilemma between energy density and power capability of the lithium‐ion batteries. It is crucial to upgrade the fast charging and discharging performance of LIBs electrodes without losing volumetric energy density and using tortuosity as a guide is able to achieve this goal fundamentally. Meanwhile, tortuosity can serve as an evaluation parameter for production quality assessment, but this demands a fast, accurate, and cost‐effective measuring method. After the definition and measurement of tortuosity are provided, this article analyzes the structural influencing factors of tortuosity which have impacts on ion transportation and subsequently on tortuosity to facilitate a more systematic and comprehensive picture. Through the discussion of contradictions and influencing factors, a more refined transmission line model (the refined TLM) is perceived as the very first step to drive both aforementioned goals toward success and is discussed in the perspective part.",
+     "battery_terms": true
+    },
+    {
+     "rank": 11,
+     "title": "Method to Determine the In-Plane Tortuosity of Porous Electrodes",
+     "id": "oa_W2810414076",
+     "source": "abstracts",
+     "date": "2018-01-01",
+     "doi": "10.1149/2.0121810jes",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "The tortuosity of a porous electrode is one of the critical parameters that governs the effective transport properties such as effective conductivity and effective diffusivity of ions in the electrolyte phase. While there exist several methods to determine the through-plane tortuosity for lithium-ion battery electrodes, methods to determine in-plane tortuosity are scarcely explored. In this paper, we present a method that restricts ion transport to only the in-plane direction, which facilitates the determination of transport properties in the in-plane direction. The here proposed cell design is analyzed using a blocking condition transmission line model to measure the in-plane tortuosity, followed by validation experiments to establish its validity and robustness. The measurement of the in-plane tortuosity may act as an indispensable tool for the design, characterization, and modeling of 3-dimensional battery architectures (e.g., laser structured electrodes) and help to estimate the distribution of various properties in the through-plane direction such as porosity, tortuosity, binder content, etc.",
+     "battery_terms": true
+    },
+    {
+     "rank": 12,
+     "title": "Tortuosity Anisotropy in Lithium‐Ion Battery Electrodes",
+     "id": "oa_W2158531968",
+     "source": "abstracts",
+     "date": "2013-10-29",
+     "doi": "10.1002/aenm.201301278",
+     "journal": "Advanced Energy Materials",
+     "abstract": "A systematic experimental study of lithium-ion battery porous electrode microstructures using synchrotron X-ray tomographic microscopy finds particle shape and fabrication-induced alignment to cause tortuosity anisotropy, which can impact battery performance. Tortuosity anisotropy is demonstrated to be easily predicted based on simple electron microscopy assessment of particle shapes and the differential effective medium approximation. As a service to our authors and readers, this journal provides supporting information supplied by the authors. Such materials are peer reviewed and may be re-organized for online delivery, but are not copy-edited or typeset. Technical support issues arising from supporting information (other than missing files) should be addressed to the authors. Please note: The publisher is not responsible for the content or functionality of any supporting information supplied by the authors. Any queries (other than missing content) should be directed to the corresponding author for the article.",
+     "battery_terms": true
+    },
+    {
+     "rank": 13,
+     "title": "The electrode tortuosity factor: why the conventional tortuosity factor is not well suited for quantifying transport in porous Li-ion battery electrodes and what to use instead",
+     "id": "oa_W3049251130",
+     "source": "abstracts",
+     "date": "2020-08-14",
+     "doi": "10.1038/s41524-020-00386-4",
+     "journal": null,
+     "abstract": "Abstract The tortuosity factor of porous battery electrodes is an important parameter used to correlate electrode microstructure with performance through numerical modeling. Therefore, having an appropriate method for the accurate determination of tortuosity factors is critical. This paper presents a numerical approach, based on simulations performed on numerically-generated microstructural images, which enables a comparison between two common experimental methods. Several key issues with the conventional “flow through” type tortuosity factor are highlighted, when used to characterise electrodes. As a result, a new concept called the “electrode tortuosity factor” is introduced, which captures the transport processes relevant to porous electrodes better than the “flow through” type tortuosity factor. The simulation results from this work demonstrate the importance of non-percolating (“dead-end”) pores in the performance of real electrodes. This is an important result for optimizing electrode design that should be considered by electrochemical modelers. This simulation tool is provided as an open-source MATLAB application and is freely available online as part of the TauFactor platform.",
+     "battery_terms": true
+    },
+    {
+     "rank": 14,
+     "title": "Preparation and Characterization of Li-Ion Graphite Anodes Using Synchrotron Tomography",
+     "id": "PMC5455902",
+     "source": "PMC",
+     "date": "2014-06-12",
+     "doi": "10.3390/ma7064455",
+     "journal": "Materials",
+     "abstract": "We present an approach for multi-layer preparation to perform microstructure analysis of a Li-ion cell anode active material using synchrotron tomography. All necessary steps, from the disassembly of differently-housed cells (pouch and cylindrical), via selection of interesting layer regions, to the separation of the graphite-compound and current collector, are described in detail. The proposed stacking method improves the efficiency of synchrotron tomography by measuring up to ten layers in parallel, without the loss of image resolution nor quality, resulting in a maximization of acquired data. Additionally, we perform an analysis of the obtained 3D volumes by calculating microstructural characteristics, like porosity, tortuosity and specific surface area. Due to a large amount of measurable layers within one stacked sample, differences between aged and pristine material (e.g., significant differences in tortuosity and specific surface area, while porosity remains constant), as well as the homogeneity of the material within one cell could be recognized.",
+     "battery_terms": true
+    },
+    {
+     "rank": 15,
+     "title": "Bio-inspired low-tortuosity carbon host for high-performance lithium-metal anode",
+     "id": "PMC8291544",
+     "source": "PMC",
+     "date": "2018-11-26",
+     "doi": "10.1093/nsr/nwy148",
+     "journal": "National Science Review",
+     "abstract": "Lithium metal is one of the most promising anode materials for high-energy-density Li batteries. However, low stability caused by dendrite growth and volume change during cycling hinders its practical application. Herein, we report an ingenious design of bio-inspired low-tortuosity carbon with tunable vertical micro-channels to be used as a host to incorporate nanosized Sn/Ni alloy nucleation sites, which can guide Li metal's plating/stripping and meanwhile accommodate the volume change. The pore sizes of the vertical channels of the carbon host can be regulated to investigate the structure–performance correlation. After compositing Li, the bio-inspired carbon host with the smallest pore size (∼14 μm) of vertical channels exhibits the lowest overpotential (∼18 mV at 1 mA cm−2), most stable tripping/plating voltage profiles, and best cycling stability (up to 500 cycles) in symmetrical cells. Notably, the carbon/Li composite anode is more rewarding than Li foil when coupled with LiFePO4 in full cells, exhibiting a much lower polarization effect, better rate capability and higher capacity retention (90.6% after 120 cycles). This novel bio-inspired design of a low-tortuosity carbon host with nanoalloy coatings may open a new avenue for fabricating advanced Li-metal batteries with high performance.",
+     "battery_terms": true
+    },
+    {
+     "rank": 16,
+     "title": "Practical Approaches to Apply Ultra-Thick Graphite Anode to High-Energy Lithium-Ion Battery: Carbonization and 3-Dimensionalization",
+     "id": "PMC9370293",
+     "source": "PMC",
+     "date": "2022-07-29",
+     "doi": "10.3390/nano12152625",
+     "journal": "Nanomaterials",
+     "abstract": "Lithium-ion batteries with ultra-thick electrodes have high energy density and low manufacturing costs because of the reduction of the inactive materials in the same battery volume. However, the partial usage of the full capacity and the low rate capability are caused by poor ionic and electronic conduction. In this work, the effects of two approaches, such as electrode binder carbonization by heat treatment and 3-dimensionalization by the laser structuring of ultra-thick graphite anodes to lithium-ion batteries for high energy density, are investigated. During the heat treatment, the polyvinylidene fluoride (PVDF) binder is carbonized to form fluorinated graphitic carbons, thereby increasing the number of lithium-ion storage sites and the improvement of the electrode capacity by 14% (420 mAh g−1 and 20 mAh cm−2). Further, the carbonization improves the rate capability by 31% at 0.1 C by simultaneously reducing the ionic and electronic resistances. Furthermore, after the laser structuring of the carbonized electrode, the areal discharge capacity increases to 50% at the increasing current rates, resulting from drastically improved ionic conduction. In addition to the electrochemical characteristics, these two approaches contribute considerably to the fast wetting of the electrolyte into the ultra-thick electrode. The carbonization and laser structuring of the ultra-thick graphite anodes are practical approaches for high-energy batteries to overcome the thickness limitation.",
+     "battery_terms": true
+    },
+    {
+     "rank": 17,
+     "title": "Intrinsic structural design of graphite anodes for fast-charging lithium-ion batteries: strategies, trade-offs, and perspectives",
+     "id": "PMC13454251",
+     "source": "PMC",
+     "date": "2026-07-27",
+     "doi": "10.3389/fchem.2026.1869263",
+     "journal": "Frontiers in Chemistry",
+     "abstract": "With the increasing demand for rapid energy replenishment in electric vehicles and portable electronics, fast-charging lithium-ion batteries require graphite anodes with improved Li+ transport kinetics while maintaining high energy density and long-term stability. Graphite remains the dominant commercial anode material, but its layered structure leads to anisotropic Li+ diffusion, limited edge-plane intercalation sites, concentration polarization, and lithium plating risk under high-rate charging. This mini-review focuses specifically on intrinsic structural design of graphite anodes, rather than electrolyte, artificial SEI, or charging-protocol optimization. Interlayer spacing regulation, porous structure construction, particle size/morphology optimization, and defect/edge-site engineering are summarized within a structure–kinetics–trade-off framework. These strategies can shorten Li+ diffusion pathways, increase effective Li+ entry sites, reduce polarization, and improve high-rate capacity utilization. However, they may also increase specific surface area, reduce initial Coulombic efficiency, decrease compaction density, and impair structural stability. Finally, practical evaluation criteria, including full-cell validation, high areal loading, high compaction density, limited lithium inventory, and lithium plating diagnosis, are discussed to guide future intrinsic graphite design for practical fast-charging batteries.",
+     "battery_terms": true
+    },
+    {
+     "rank": 18,
+     "title": "High mechanical strength Si anode synthesis with interlayer bonded expanded graphite structure for lithium-ion batteries",
+     "id": "arx_2506.20189",
+     "source": "arXiv",
+     "date": "2025-06-25",
+     "doi": "10.1016/j.jechem.2024.02.021.",
+     "journal": "arXiv preprint",
+     "abstract": "Despite advancements in silicon-based anodes for high-capacity lithium-ion batteries, their widespread commercial adoption is still hindered by significant volume expansion during cycling, especially at high active mass loadings crucial for practical use. The root of these challenges lies in the mechanical instability of the material, which subsequently leads to the structural failure of the electrode. Here, we present a novel synthesis of a composite combining expanded graphite and silicon nanoparticles. This composite features a unique interlayer-bonded graphite structure, achieved through the application of a modified spark plasma sintering method. Notably, this innovative structure not only facilitates efficient ion and electron transport but also provides exceptional mechanical strength (Vickers hardness: up to 658 MPa, Young's modulus: 11.6 GPa). This strength effectively accommodates silicon expansion, resulting in an impressive areal capacity of 2.9 mA h cm-2 (736 mA h g-1) and a steady cycle life (93% after 100 cycles). Such outstanding performance is paired with features appropriate for large-scale industrial production of silicon batteries, such as active mass loading of at least 3.9 mg cm-2, a high-tap density electrode material of 1.68 g cm-3 (secondary clusters: 1.12 g cm-3), and a production yield of up to 1 kg per day.",
+     "battery_terms": true
+    },
+    {
+     "rank": 19,
+     "title": "Reconstruction–Simulation Approach Verifies Impedance-Derived Ion Transport Tortuosity of a Graphite Battery Electrode",
+     "id": "oa_W2895715671",
+     "source": "abstracts",
+     "date": "2018-01-01",
+     "doi": "10.1149/2.0711813jes",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "The performance of a composite battery electrode depends strongly on the morphology of its liquid electrolyte-filled pore space, where ion transport takes place. Ion transport limitations within the pore space are quantified by the tortuosity, which can be determined from diffusion simulations in the reconstructed pore space or through electrochemical impedance spectroscopy (EIS) using, for example, the transmission line model. Although rarely directly compared, the tortuosities determined by the two approaches have so far been lacking in agreement, raising doubts about the validity of each method. In this study, we use a graphite composite electrode to demonstrate that the two methods deliver comparable tortuosity values under two conditions: (i) The pore space is reconstructed by focused ion-beam scanning electron microscopy using an osmium-based contrast agent for positive staining. (ii) The dimensions of the reconstructed volume are sufficient to represent the electrode microstructure and to prevent finite-size effects in the diffusion simulations. Fulfillment of these conditions is proven by a comprehensive morphological analysis, comprising porosity profiles, chord length distributions of solid phase and pore space, and the geometrical tortuosity. Our results confirm EIS as a reliable method for assessing the ion transport tortuosity of battery electrodes.",
+     "battery_terms": true
+    },
+    {
+     "rank": 20,
+     "title": "Design of Bi-Tortuous, Anisotropic Graphite Anodes for Fast Ion-Transport in Li-Ion Batteries",
+     "id": "oa_W1834723003",
+     "source": "abstracts",
+     "date": "2015-01-01",
+     "doi": "10.1149/2.0151508jes",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "Thick Li-ion battery electrodes with high ion transport rates could enable batteries that cost less and that have higher gravimetric and volumetric energy density, because they require fewer inactive cell-components. Finding ways to increase ion transport rates in thick electrodes would be especially valuable for electrodes made with graphite platelets, which have been shown to have tortuosities in the thru-plane direction about 3 times higher than in the in-plane direction. Here, we predict that bi-tortuous electrode structures (containing electrolyte-filled macro-pores embedded in micro-porous graphite) can enhance ion transport and can achieve double the discharge capacity compared to an unstructured electrode at the same average porosity. We introduce a new two-dimensional version of porous-electrode theory with anisotropic ion transport to investigate these effects and to interpret the mechanisms by which performance enhancements arise. From this analysis we determine criteria for the design of bi-tortuous graphite anodes, including the particular volume fraction of macro-pores that maximizes discharge capacity (approximately 20 vol.%) and a threshold spacing interval (half the electrode's thickness) below which only marginal enhancement in discharge capacity is obtained. We also report the sensitivity of performance with respect to cycling rate, electrode thickness, and average porosity/electroactive-material loading.",
+     "battery_terms": true
+    }
+   ],
+   "rest": [
+    {
+     "rank": 21,
+     "title": "Stable cycling and low-temperature operation utilizing amorphous carbon-coated graphite anodes for lithium-ion batteries†",
+     "id": "PMC11040431",
+     "source": "PMC",
+     "date": "2024-04-24",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 22,
+     "title": "Tortuosity in electrochemical devices: a review of calculation approaches",
+     "id": "oa_W2550164609",
+     "source": "abstracts",
+     "date": "2016-11-09",
+     "doi": "10.1080/09506608.2016.1249995",
+     "journal": null
+    },
+    {
+     "rank": 23,
+     "title": "Evaluation of tortuosity: A radical tessellation-based method in porous   spherical particle packing systems",
+     "id": "arx_2503.05299",
+     "source": "arXiv",
+     "date": "2025-03-07",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 24,
+     "title": "Tortuosity of Battery Electrodes: Validation of Impedance-Derived Values and Critical Comparison with 3D Tomography",
+     "id": "oa_W2794184935",
+     "source": "abstracts",
+     "date": "2018-01-01",
+     "doi": "10.1149/2.0231803jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 25,
+     "title": "Quantifying Tortuosity of Porous Li-Ion Battery Electrodes: Comparing Polarization-Interrupt and Blocking-Electrolyte Methods",
+     "id": "oa_W2888628512",
+     "source": "abstracts",
+     "date": "2018-01-01",
+     "doi": "10.1149/2.0611811jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 26,
+     "title": "Inhomogeneous Carbon Binder Distribution: Implications for Tortuosity Determination from Electrochemical Impedance Spectroscopy",
+     "id": "oa_W4410800322",
+     "source": "abstracts",
+     "date": "2025-05-28",
+     "doi": "10.1149/1945-7111/adde17",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 27,
+     "title": "Correction: Expanded graphite incorporated with Li4Ti5O12 nanoparticles as a high-rate lithium-ion battery anode",
+     "id": "PMC11094698",
+     "source": "PMC",
+     "date": "2024-05-15",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 28,
+     "title": "Dynamic In‐Plane Heterogeneous and Inverted Response of Graphite to Fast Charging and Discharging Conditions in Lithium‐Ion Pouch Cells",
+     "id": "PMC11935889",
+     "source": "PMC",
+     "date": "2023-04-19",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 29,
+     "title": "A Study on High-Rate Performance of Graphite Nanostructures Produced by Ball Milling as Anode for Lithium-Ion Batteries",
+     "id": "PMC9862907",
+     "source": "PMC",
+     "date": "2023-01-12",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 30,
+     "title": "Enabling the electrochemical simulation of Li-ion battery electrodes with anisotropic tortuosity in COMSOL Multiphysics Ⓡ",
+     "id": "PMC8374499",
+     "source": "biomedrxiv",
+     "date": "2021-06-23",
+     "doi": "10.1016/j.mex.2021.101425",
+     "journal": null
+    },
+    {
+     "rank": 31,
+     "title": "Direct Observation of the Anisotropic Transport Behavior of Li+ in Graphite Anodes and Thermal Runaway Induced by the Interlayer Polarization",
+     "id": "PMC10198158",
+     "source": "PMC",
+     "date": "2023-05-03",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 32,
+     "title": "Nano-Graphite Prepared by Rapid Pulverization as Anode for Lithium-Ion Batteries",
+     "id": "PMC9331417",
+     "source": "PMC",
+     "date": "2022-07-25",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 33,
+     "title": "Revisiting the storage capacity limit of graphite battery anodes:   spontaneous lithium overintercalation at ambient pressure",
+     "id": "arx_2107.11137",
+     "source": "arXiv",
+     "date": "2021-07-23",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 34,
+     "title": "LiC<sub>6</sub> Phase Mobility in Highly Oriented Pyrolytic Graphite",
+     "id": "oa_W4409497262",
+     "source": "abstracts",
+     "date": "2025-04-16",
+     "doi": "10.1149/1945-7111/adcda6",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 35,
+     "title": "New Insights on Tortuosity Determination by EIS for Battery Electrodes: Effect of Electrolyte Concentration and Temperature",
+     "id": "oa_W3209260253",
+     "source": "abstracts",
+     "date": "2021-10-27",
+     "doi": "10.1149/1945-7111/ac33df",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 36,
+     "title": "Investigation of Lithium Ion Diffusion of Graphite Anode by the Galvanostatic Intermittent Titration Technique",
+     "id": "PMC8397968",
+     "source": "PMC",
+     "date": "2021-08-19",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 37,
+     "title": "Resolving the Discrepancy in Tortuosity Factor Estimation for Li-Ion Battery Electrodes through Micro-Macro Modeling and Experiment",
+     "id": "oa_W2898767632",
+     "source": "abstracts",
+     "date": "2018-01-01",
+     "doi": "10.1149/2.0731814jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 38,
+     "title": "Extremely fast-charging lithium ion battery enabled by dual-gradient structure design",
+     "id": "PMC9054020",
+     "source": "PMC",
+     "date": "2022",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 39,
+     "title": "Novel hard carbon/graphite composites synthesized by a facile in situ anchoring method as high-performance anodes for lithium-ion batteries†",
+     "id": "PMC9086998",
+     "source": "PMC",
+     "date": "2018-10-08",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 40,
+     "title": "Microstructure Characterization of Battery Materials Based on Voxelated Image Data: Computation of Active Surface Area and Tortuosity",
+     "id": "oa_W4404944988",
+     "source": "abstracts",
+     "date": "2024-12-03",
+     "doi": "10.1149/1945-7111/ad9a07",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 41,
+     "title": "Germagraphene as promising anode material for Lithium-ion batteries   predicted from first-principles calculations",
+     "id": "arx_1810.02498",
+     "source": "arXiv",
+     "date": "2018-10-05",
+     "doi": "10.1039/c8nh00333e",
+     "journal": "RSC journal"
+    },
+    {
+     "rank": 42,
+     "title": "Avalanche-like lithium intercalation and intraparticle correlations in graphite",
+     "id": "arx_2509.21047",
+     "source": "arXiv",
+     "date": "2025-09-25",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 43,
+     "title": "Quantitative Relationships Between Pore Tortuosity, Pore Topology, and Solid Particle Morphology Using a Novel Discrete Particle Size Algorithm",
+     "id": "oa_W3023738071",
+     "source": "abstracts",
+     "date": "2020-05-07",
+     "doi": "10.1149/1945-7111/ab913b",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 44,
+     "title": "Using Lithium-ion Differential Thermal Analysis to Probe Tortuosity of Negative Electrodes in Lithium-Ion Cells",
+     "id": "oa_W3125396164",
+     "source": "abstracts",
+     "date": "2021-01-20",
+     "doi": "10.1149/1945-7111/abdde4",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 45,
+     "title": "Spherical hard carbon/graphite anode for high performance lithium ion batteries",
+     "id": "PMC11658506",
+     "source": "PMC",
+     "date": "2024-12-19",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 46,
+     "title": "Direct Measurements of Effective Ionic Transport in Porous Li-Ion Electrodes",
+     "id": "oa_W2151397472",
+     "source": "abstracts",
+     "date": "2012-12-07",
+     "doi": "10.1149/2.062302jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 47,
+     "title": "Three-Dimensional Flower-like MoS2 Nanosheets Grown on Graphite as High-Performance Anode Materials for Fast-Charging Lithium-Ion Batteries",
+     "id": "PMC10254478",
+     "source": "PMC",
+     "date": "2023-05-27",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 48,
+     "title": "Fast-charging high-energy lithium-ion batteries via implantation of amorphous silicon nanolayer in edge-plane activated graphite anodes",
+     "id": "PMC5634447",
+     "source": "PMC",
+     "date": "2017-10-09",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 49,
+     "title": "Effects of crystal structure and electronic properties on lithium storage performance of artificial graphite",
+     "id": "PMC10571507",
+     "source": "PMC",
+     "date": "2023-10-13",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 50,
+     "title": "Surface Structural Disordering in Graphite upon Lithium   Intercalation/Deintercalation",
+     "id": "arx_1108.0846",
+     "source": "arXiv",
+     "date": "2011-08-03",
+     "doi": "10.1016/j.jpowsour.2009.12.034",
+     "journal": "Journal of Power Sources"
+    },
+    {
+     "rank": 51,
+     "title": "Impact of Microstructure on the Electrochemical Performance of Round-Shaped Pitch-Based Graphite Fibers",
+     "id": "PMC7215539",
+     "source": "PMC",
+     "date": "2020-04-20",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 52,
+     "title": "Lithium Storage Behavior of Expanded Microcrystalline Graphite/Fe2O3 Anode for Lithium-Ion Batteries",
+     "id": "PMC12060055",
+     "source": "PMC",
+     "date": "2025-04-23",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 53,
+     "title": "Optimization of Pore Characteristics of Graphite-Based Anode for Li-Ion Batteries by Control of the Particle Size Distribution",
+     "id": "PMC10650451",
+     "source": "PMC",
+     "date": "2023-10-27",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 54,
+     "title": "Expanded graphite incorporated with Li4Ti5O12 nanoparticles as a high-rate lithium-ion battery anode†",
+     "id": "PMC11002838",
+     "source": "PMC",
+     "date": "2024-04-09",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 55,
+     "title": "Resolution of Lithium Deposition versus Intercalation of Graphite Anodes in Lithium Ion Batteries: An In Situ Electron Paramagnetic Resonance Study",
+     "id": "PMC8518894",
+     "source": "PMC",
+     "date": "2021-08-13",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 56,
+     "title": "Homogeneity of lithium distribution in cylinder-type Li-ion batteries",
+     "id": "PMC4683395",
+     "source": "PMC",
+     "date": "2015-12-18",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 57,
+     "title": "Tool for Tortuosity Estimation in Lithium Ion Battery Porous Electrodes",
+     "id": "oa_W2129159835",
+     "source": "abstracts",
+     "date": "2014-12-30",
+     "doi": "10.1149/2.0111502jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 58,
+     "title": "Effect and Mechanism of Pitch Coating on the Rate Performance Improvement of Lithium-Ion Batteries",
+     "id": "PMC9268190",
+     "source": "PMC",
+     "date": "2022-07-05",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 59,
+     "title": "Scalable synthesis of spherical graphite/ZnO composite anodes for high-performance lithium-ion batteries",
+     "id": "PMC12797207",
+     "source": "PMC",
+     "date": "2026-01-13",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 60,
+     "title": "Kinetic Limits of Graphite Anode for Fast-Charging Lithium-Ion Batteries",
+     "id": "PMC10516836",
+     "source": "PMC",
+     "date": "2023-09-22",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 61,
+     "title": "Concurrent operando neutron imaging and diffraction analysis revealing   spatial lithiation phase evolution in an ultra-thick graphite electrode",
+     "id": "arx_2411.08476",
+     "source": "arXiv",
+     "date": "2024-11-13",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 62,
+     "title": "Silicon/Graphite/Amorphous Carbon as Anode Materials for Lithium Secondary Batteries",
+     "id": "PMC9865035",
+     "source": "PMC",
+     "date": "2023-01-04",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 63,
+     "title": "Evaluation of methods for the determination of tortuosity of Li-ion   battery separators",
+     "id": "arx_2212.04988",
+     "source": "arXiv",
+     "date": "2022-12-09",
+     "doi": "10.1016/j.est.2024.112940",
+     "journal": "Journal of Energy Storage"
+    },
+    {
+     "rank": 64,
+     "title": "A cooperative biphasic MoOx–MoPx promoter enables a fast-charging lithium-ion battery",
+     "id": "PMC7782533",
+     "source": "PMC",
+     "date": "2021-01-04",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 65,
+     "title": "Graphene-Like-Graphite as Fast-Chargeable and High-Capacity Anode Materials for Lithium Ion Batteries",
+     "id": "PMC5665891",
+     "source": "PMC",
+     "date": "2017-11-01",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 66,
+     "title": "Long‐Life Lithium‐Ion Sulfur Pouch Battery Enabled by Regulating Solvent Molecules and Using Lithiated Graphite Anode",
+     "id": "PMC10602568",
+     "source": "PMC",
+     "date": "2023-09-15",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 67,
+     "title": "Preparation of Advanced Carbon Anode Materials from Mesocarbon Microbeads for Use in High C-Rate Lithium Ion Batteries",
+     "id": "PMC5455718",
+     "source": "PMC",
+     "date": "2015-06-17",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 68,
+     "title": "Analysis of Tortuosity in Compacts of Ternary Mixtures of Spherical Particles",
+     "id": "PMC7599817",
+     "source": "biomedrxiv",
+     "date": "2020-10-10",
+     "doi": "10.3390/ma13204487",
+     "journal": null
+    },
+    {
+     "rank": 69,
+     "title": "Local Tortuosity Inhomogeneities in a Lithium Battery Composite Electrode",
+     "id": "oa_W2076282900",
+     "source": "abstracts",
+     "date": "2011-01-01",
+     "doi": "10.1149/2.079112jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 70,
+     "title": "Topological and network analysis of lithium ion battery components: the importance of pore space connectivity for cell operation",
+     "id": "oa_W2805266296",
+     "source": "abstracts",
+     "date": "2018-01-01",
+     "doi": "10.1039/c8ee00875b",
+     "journal": "RSC journal"
+    },
+    {
+     "rank": 71,
+     "title": "High-Strength Nanotwinned Copper Combined with Silicon/Silicon Nitride/Graphite Anode for High-Performance Lithium-Ion Battery",
+     "id": "PMC13302814",
+     "source": "PMC",
+     "date": "2026-06-10",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 72,
+     "title": "Graphite/Graphene Composites from the Recovered Spent Zn/Carbon Primary Cell for the High-Performance Anode of Lithium-Ion Batteries",
+     "id": "PMC7331064",
+     "source": "PMC",
+     "date": "2020-06-17",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 73,
+     "title": "Computer Test of a Modified Silicene/Graphite Anode for Lithium-Ion Batteries",
+     "id": "PMC7288579",
+     "source": "PMC",
+     "date": "2020-05-28",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 74,
+     "title": "Ab initio Molecular Dynamics Simulations of the Initial Stages of   Solid-electrolyte Interphase Formation on Lithium Ion Battery Graphitic   Anodes",
+     "id": "arx_1009.4154",
+     "source": "arXiv",
+     "date": "2010-09-21",
+     "doi": "10.1039/b925853a",
+     "journal": "RSC journal"
+    },
+    {
+     "rank": 75,
+     "title": "Gravure Printing of Graphite-Based Anodes for Lithium-Ion Printed Batteries",
+     "id": "PMC9609427",
+     "source": "PMC",
+     "date": "2022-10-14",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 76,
+     "title": "Robust high-fidelity DFT study of the lithium-graphite phase diagram",
+     "id": "arx_1607.05658",
+     "source": "arXiv",
+     "date": "2016-07-19",
+     "doi": "10.1103/physrevmaterials.2.125401",
+     "journal": null
+    },
+    {
+     "rank": 77,
+     "title": "Interplay of Inhomogeneous Electrochemical Reactions with Mechanical   Responses in Silicon-Graphite Anode and its Impacts on Degradation",
+     "id": "arx_1901.01491",
+     "source": "arXiv",
+     "date": "2019-01-06",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 78,
+     "title": "Deconstructing electrode pore network to learn transport distortion",
+     "id": "oa_W2995823297",
+     "source": "abstracts",
+     "date": "2019-12-01",
+     "doi": "10.1063/1.5124099",
+     "journal": null
+    },
+    {
+     "rank": 79,
+     "title": "In situ observation of thermal-driven degradation and safety concerns of lithiated graphite anode",
+     "id": "PMC8270978",
+     "source": "PMC",
+     "date": "2021-07-09",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 80,
+     "title": "Geometric Characteristics of Three Dimensional Reconstructed Anode Electrodes of Lithium Ion Batteries",
+     "id": "oa_W2075749152",
+     "source": "abstracts",
+     "date": "2014-04-22",
+     "doi": "10.3390/en7042558",
+     "journal": null
+    },
+    {
+     "rank": 81,
+     "title": "Si/Graphite@C Composite Fabricated by Electrostatic Self-Assembly and Following Thermal Treatment as an Anode Material for Lithium-Ion Battery",
+     "id": "PMC11397206",
+     "source": "PMC",
+     "date": "2024-08-29",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 82,
+     "title": "Phosphorus‐Based Anodes for Fast Charging Lithium‐Ion Batteries: Challenges and Opportunities",
+     "id": "PMC11936043",
+     "source": "PMC",
+     "date": "2022-04-21",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 83,
+     "title": "Atypical Analysis of a Graphite-Based Anode Prepared Using Aqueous Processes",
+     "id": "PMC12526116",
+     "source": "PMC",
+     "date": "2025-10-01",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 84,
+     "title": "Sustainable conversion of biomass to rationally designed lithium-ion battery graphite",
+     "id": "PMC9110727",
+     "source": "PMC",
+     "date": "2022-05-16",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 85,
+     "title": "Artificial Graphite-Based Silicon Composite Anodes for Lithium-Ion Batteries",
+     "id": "PMC11643770",
+     "source": "PMC",
+     "date": "2024-12-05",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 86,
+     "title": "Towards a High-Power Si@graphite Anode for Lithium Ion Batteries through a Wet Ball Milling Process",
+     "id": "PMC7321121",
+     "source": "PMC",
+     "date": "2020-05-27",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 87,
+     "title": "Micron-Sized SiOx-Graphite Compound as Anode Materials for Commercializable Lithium-Ion Batteries",
+     "id": "PMC9230857",
+     "source": "PMC",
+     "date": "2022-06-07",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 88,
+     "title": "Toward the Integration of a Silicon/Graphite Anode-Based Lithium-Ion Battery in Photovoltaic Charging Battery Systems",
+     "id": "PMC9366980",
+     "source": "PMC",
+     "date": "2022-07-26",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 89,
+     "title": "A High Performance Lithium-Ion Capacitor with Both Electrodes Prepared from Sri Lanka Graphite Ore",
+     "id": "PMC5506946",
+     "source": "PMC",
+     "date": "2017-04-14",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 90,
+     "title": "Tortuosity Effects in Garnet-Type Li<sub>7</sub>La<sub>3</sub>Zr<sub>2</sub>O<sub>12</sub> Solid Electrolytes",
+     "id": "oa_W2903711611",
+     "source": "abstracts",
+     "date": "2018-12-18",
+     "doi": "10.1021/acsami.8b16536",
+     "journal": "ACS Applied Materials & Interfaces"
+    },
+    {
+     "rank": 91,
+     "title": "Operando monitoring of strain field distribution in lithium battery   anode via ultra-high spatial resolution optical frequency domain   reflectometer",
+     "id": "arx_2407.02817",
+     "source": "arXiv",
+     "date": "2024-07-03",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 92,
+     "title": "Recent Advances in Lithium Ion/Lithium Metal Hybrid Anodes: from Design Principles to Practical Applications",
+     "id": "PMC12752637",
+     "source": "PMC",
+     "date": "2025-11-08",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 93,
+     "title": "Silicon quantum dots inlaid micron graphite anode for fast chargeable and high energy density Li-ion batteries",
+     "id": "PMC9763575",
+     "source": "PMC",
+     "date": "2022-12-06",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 94,
+     "title": "A Low-Cost and High-Capacity SiOx/C@graphite Hybrid as an Advanced Anode for High-Power Lithium-Ion Batteries",
+     "id": "PMC7364548",
+     "source": "PMC",
+     "date": "2020-07-03",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 95,
+     "title": "Predicting the Voltage Dependence of Interfacial Electrochemical   Processes at Lithium-Intercalated Graphite Edge Planes",
+     "id": "arx_1502.00187",
+     "source": "arXiv",
+     "date": "2015-02-01",
+     "doi": "10.1039/c4cp04494k",
+     "journal": "RSC journal"
+    },
+    {
+     "rank": 96,
+     "title": "Tannin-Derived Hard Carbon for Stable Lithium-Ion Anode",
+     "id": "PMC9611679",
+     "source": "PMC",
+     "date": "2022-10-18",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 97,
+     "title": "Functionalization of Fast-Charging Hard Carbon Anode for Ah-Level Li-Ion Pouch Batteries",
+     "id": "PMC13053927",
+     "source": "PMC",
+     "date": "2026-04-07",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 98,
+     "title": "Wood outlasts graphite: revolutionary birch biomass-based carbon anodes for long-life lithium-ion batteries",
+     "id": "PMC13237644",
+     "source": "PMC",
+     "date": "2026-06-04",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 99,
+     "title": "Recycling Waste Soot from Merchant Ships to Produce Anode Materials for Rechargeable Lithium-Ion Batteries",
+     "id": "PMC5884819",
+     "source": "PMC",
+     "date": "2018-04-04",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 100,
+     "title": "In situ observation of thermally activated and localized Li leaching   from lithiated graphite",
+     "id": "arx_2407.04902",
+     "source": "arXiv",
+     "date": "2024-07-06",
+     "doi": null,
+     "journal": null
+    }
+   ]
+  },
+  "calendering electrode porosity lithium-ion battery": {
+   "returned": 100,
+   "top20": [
+    {
+     "rank": 1,
+     "title": "Heated Calendering of Cathodes for Lithium‐Ion Batteries with Varied Carbon Black and Binder Contents",
+     "id": "oa_W2934219918",
+     "source": "abstracts",
+     "date": "2019-04-02",
+     "doi": "10.1002/ente.201900175",
+     "journal": "Energy Technology",
+     "abstract": "Electrodes are usually calendered to enhance the energy density and improve the electrochemical cell performance. However, low porosities can compromise these two important features. To achieve the optimum porosity, a comprehensive process control is of major interest. This study further develops a Heckel‐based compaction model considering the impact of the roll temperature and discusses the effect of the composition. Increasing the temperature of the roll linearly decreases the achievable coating porosity and the line load effort due to the rise of the elastic deformability of the thermoplastic binder PVDF. Reduced contents of simultaneously less‐distributed additives increase the achievable coating porosity. Furthermore, the poor distribution is the main factor for lower line load efforts with lower additive contents. Moreover, the adhesion strength of the coating improves with increasing the temperature of the rolls due to the thermal rising of the elasticity of the binder.",
+     "battery_terms": true
+    },
+    {
+     "rank": 2,
+     "title": "Theoretical Impact of Manufacturing Tolerance on Lithium-Ion Electrode and Cell Physical Properties",
+     "id": "oa_W3016808999",
+     "source": "abstracts",
+     "date": "2020-04-15",
+     "doi": "10.3390/batteries6020023",
+     "journal": "Batteries",
+     "abstract": "The range of electrode porosity, electrode internal void volume, cell capacity, and capacity ratio that result from electrode coating and calendering tolerance can play a considerable role in cell-to-cell and lot-to-lot performance variation. Based on a coating loading tolerance of ±0.4 mg/cm2 and calender tolerance of ±3.0 μm, the resulting theoretical range of physical properties was investigated. For a target positive electrode porosity of 30%, the resulting porosity can range from 19.6% to 38.6%. To account for this variation during the manufacturing process, as much as 41% excess or as little as 59% of the target electrolyte quantity should be added to cells to match the positive electrode void volume. Similar results are reported for a negative electrode of 40% target porosity, where a range from 30.8% to 48.0% porosity is possible. For the negative electrode as little as 72% up to 28% excess electrolyte should be added to fill the internal void space. Although the results are specific to each electrode composition, density, chemistry, and loading the presented process highlight the possible variability of the produced parts. These results are further magnified as cell design moves toward higher power applications with thinner electrode coatings.",
+     "battery_terms": true
+    },
+    {
+     "rank": 3,
+     "title": "Pore-scale prediction of transport properties in lithium-ion battery cathodes during calendering using DEM and CFD simulations",
+     "id": "oa_W4406060071",
+     "source": "abstracts",
+     "date": "2025-01-04",
+     "doi": "10.1016/j.powtec.2024.120601",
+     "journal": "Powder Technology",
+     "abstract": "Calendering is a crucial step in the production of lithium-ion batteries (LIBs), due to its significant effect on key parameters of porous electrode structure and resultant performance. This study investigates the influence of calendering degree (compression) on porosity, tortuosity and permeability for different particle configurations. With this motivation, the mechanical behaviour of electrode structures was conducted with Discrete Element Method (DEM), and the electrolyte flow as a continuous phase was described using pore-scale computational fluid dynamics (CFD) simulations. Three different electrode microstructures were generated comprising mono-disperse and polydisperse spherical particles, as well as mono-disperse ellipsoidal particles. The predicted pore-scale properties are used in validated electrochemical-thermal models to correlate calendering process to the overall LIB performance. The results revealed that using the ellipsoidal particles, an anisotropy in tortuosity and permeability appeared with the beginning of the compression process. As the compression degree increased to 30%, the level of anisotropy decreased, and as a consequence, the discrepancy of diagonal components of tortuosity and permeability decreased. The electrochemical-thermal models show that it is best to keep the calendering rate around 20% with smaller particle sizes (for both spherical and ellipsoidal cases). • Modelling different battery cathode particle morphology. • Simulating different calendering compression level. • Predicting porous cathode properties for different calendering rates. • Predicting electrochemical-thermal performance of related to calendering.",
+     "battery_terms": true
+    },
+    {
+     "rank": 4,
+     "title": "Uncovering Ionic Transport Paths within Hierarchically Structured Battery Electrodes",
+     "id": "oa_W4399163060",
+     "source": "abstracts",
+     "date": "2024-05-30",
+     "doi": "10.1021/acsaem.4c00505",
+     "journal": "ACS Applied Energy Materials",
+     "abstract": "High Resolution Image Download MS PowerPoint Slide Calendering battery electrodes improves electronic transport and energy density while increasing the ionic resistance in the pore space. In hierarchically structured electrodes, the open porosity of the active material particles offers additional ionic transport paths. However, there is a lack of knowledge about the interaction between these pores and the porosity surrounding the particles. Considering both inter- and intragranular pore space, we combine a Doyle–Fuller–Newman cell model with experimental discharge curves to show that ionic transport paths in hierarchically structured electrodes change with compaction and the discharge rate. If the intergranular porosity is high, it carries most of the ionic current from the separator to the current collector. The intragranular porosity ensures ionic transport into the porous particles. High compaction of a hierarchically structured electrode leads to an increasing contribution of the intragranular pores to ionic transport across the electrode with a rising discharge rate. This study offers a modeling approach to explore the optimum calendering process for different types of hierarchically structured electrode materials.",
+     "battery_terms": true
+    },
+    {
+     "rank": 5,
+     "title": "Discrete modeling of the calendering process for positive electrodes of Li-ion batteries",
+     "id": "oa_W4398146797",
+     "source": "abstracts",
+     "date": "2024-05-20",
+     "doi": "10.1016/j.powtec.2024.119891",
+     "journal": "Powder Technology",
+     "abstract": "The electronic properties of Li-ion batteries crucially depend on the microstructure of their electrodes. One step of the manufacturing process, called ‘calendering’, consists in compressing the electrodes between two counterrotating cylinders to increase their density. Through a new simulation model, we investigate the effect of calendering on microstructural and electronic properties of the electrodes. Our model takes into account the real geometry of the rotating cylinder and a new contact law involving the elastic behavior of the active material and the cohesive-plastic behavior of the binder layer. Our results align well with experimental data for porosity, final thickness, and elongation. We show that the bonding structure induced by calendering involves mostly vertical tensile contacts and horizontal compressive contacts. This unexpected observation highlights the importance of shear deformation induced by rolling and thickness reduction. Using the FFT method, we also investigate the ionic and electronic conductivities of the numerically calendered electrodes.",
+     "battery_terms": true
+    },
+    {
+     "rank": 6,
+     "title": "Understanding the calendering processability of Li(Ni0.33Mn0.33Co0.33)O2-based cathodes",
+     "id": "oa_W3125934115",
+     "source": "abstracts",
+     "date": "2021-01-18",
+     "doi": "10.1016/j.jpowsour.2020.229361",
+     "journal": "Journal of Power Sources",
+     "abstract": "The calendering process aims at enhancing the electrode energy density, and improving the electronic conductivity, and determines the final porous electrode micro/mesostructure. In this sense, one of the main parameters of interest is its impact in the electrode porosity (ε) and the electrochemical performance. Here, we present a systematic study of the calendering conditions (applied calender pressure and roll temperature) effect on the final NMC-based electrodes ε in terms of the active material/carbon additive/binder composition and the amount of solvent used during the preparation of the slurries. The calendering processability was assessed through the cathodes compressibility resistance and minimal attainable ε, the electrode mechanical properties (hardness and elastic deformability), the pore size distribution, the electrode film mesostructure and the C-rate cathode electrochemical performance. Based on our results, it was found that the distribution and organization of the inactive carbon black (CB)/PVdF phase and the electrode mesostructure are the key parameters that control the cathode processability through calendering. Electrodes with high CB/PVdF content and prepared with higher amounts of solvent in the slurry ensure a good electronic conductivity and a film-like structure of the electronic conducting phase around the NMC particles which upon calendering outputs a better electrochemical performance.",
+     "battery_terms": true
+    },
+    {
+     "rank": 7,
+     "title": "Data of physical and electrochemical characteristics of calendered NMC622 electrodes and lithium-ion cells at pilot-plant battery manufacturing",
+     "id": "PMC10708988",
+     "source": "PMC",
+     "date": "2023-11-10",
+     "doi": "10.1016/j.dib.2023.109798",
+     "journal": "Data in Brief",
+     "abstract": "The data reported here was prepared to study the effects of calendering process on NMC622 cathodes using a 3-3-2 full factorial design of experiments. The data set consists of 18 unique combinations of calender roll temperature (85 °C, 120 °C, or 145 °C), electrode porosity (30%, 35%, or 40%), and electrode mass loading (120 g/m² or 180 g/m²). The reported physical characteristics of the electrodes include thickness, coating weight, maximum tensile strength, and density. The electrochemical performances of the electrodes were obtained by testing coin cells. In this context, 54 half-cells were produced, 3 per each calendering experiment to ensure repeatability and reliability of the results. The responses of interest included, charge energy capacity at C/2, C/5, discharge energy capacity at C/20, C/5, C/2, C, 2C, 5C, 10C, gravimetric capacity (charge at C/2, C/5, discharge at C/20, C/5, C/2, C, 2C, 5C, 10C), volumetric capacity (charge at C/2, C/5, discharge at C/20, C/5, C/2, C, 2C, 5C, 10C), rate performance (5C:0.2C), area specific impedance (at 10% to 90% state of charge (SoC) in 10 breakpoints), long-term cycling capacity (charge at C/5 for 50 cycles, discharge at C/2 for 50 cycles), long-term cycling degradation (at C/2 during 50 cycles of charge and discharge), and cycling columbic efficiency (50 cycles of C/2 charge and discharge). The details of the experimental design that has led to this data as well as comprehensive statistical analysis, and machine learning-based models can be found in the recently published manuscripts by Hidalgo et al. and Faraji-Niri et al. [1,2].",
+     "battery_terms": true
+    },
+    {
+     "rank": 8,
+     "title": "Engineering and Optimization of Silicon–Iron–Manganese Nanoalloy Electrode for Enhanced Lithium-Ion Battery",
+     "id": "PMC6199034",
+     "source": "PMC",
+     "date": "2017-03-17",
+     "doi": "10.1007/s40820-017-0142-8",
+     "journal": "Nano-Micro Letters",
+     "abstract": "The electrochemical performance of a battery is considered to be primarily dependent on the electrode material. However, engineering and optimization of electrodes also play a crucial role, and the same electrode material can be designed to offer significantly improved batteries. In this work, Si–Fe–Mn nanomaterial alloy (Si/alloy) and graphite composite electrodes were densified at different calendering conditions of 3, 5, and 8 tons, and its influence on electrode porosity, electrolyte wettability, and long-term cycling was investigated. The active material loading was maintained very high (~2 mg cm−2) to implement electrode engineering close to commercial loading scales. The densification was optimized to balance between the electrode thickness and wettability to enable the best electrochemical properties of the Si/alloy anodes. In this case, engineering and optimizing the Si/alloy composite electrodes to 3 ton calendering (electrode densification from 0.39 to 0.48 g cm−3) showed enhanced cycling stability with a high capacity retention of ~100% over 100 cycles.",
+     "battery_terms": true
+    },
+    {
+     "rank": 9,
+     "title": "Enhancing power density and cycle life of NMC811 battery cathodes via combined dense calendering and laser patterning",
+     "id": "PMC12875191",
+     "source": "PMC",
+     "date": "2026-02-04",
+     "doi": "10.1039/d5ee06773a",
+     "journal": "Energy & Environmental Science",
+     "abstract": "The charging time of Li-ion batteries is an important bottleneck in the wider adoption of electric vehicles (EVs). A common strategy to improve the rate performance is improving ion transport by patterning the electrode. However, these patterning methods usually increase the electrode porosity, thereby decreasing the volumetric energy density. In this work, we leverage the ability of Single Crystal LiNi0.8Mn0.1Co0.1O2 (SC-NMC811) electrodes to be calendered to higher packing densities than traditional cathodes, which then allows to offset additional porosity introduced by electrode patterning. We calendar SC-NMC811 electrodes to a 25% porosity and then introduce hole patterns spaced 100 to 600 µm apart using laser processing with a goal to maintain average porosities below 30%. As expected, we found systematic improvements in the rate performance with increasing hole density and used operando charge photometry to explore the limits of mass transport in the regions surrounding the holes but interestingly, we also observe improved capacity retention when using patterned electrodes. We found that there is less cathode lattice oxygen loss when using patterned cathodes, this in turn reduces transition metal shuttling reduces anode solid electrolyte interphase (SEI) impedance growth. We demonstrated a reduction in oxygen loss by both electron energy loss spectroscopy (EELS) mapping, X-ray diffraction (XRD) mapping and X-ray diffraction computed tomography (XRD-CT). Overall, SC-NMC811 electrode's ability to withstand over-calendering offers the opportunity to introduce laser patterned holes while maintaining the average porosity below 30%. This increases both the rate performance and longevity of the electrodes.",
+     "battery_terms": true
+    },
+    {
+     "rank": 10,
+     "title": "Effect of Calendering LiFePO<sub>4</sub>Electrodes",
+     "id": "oa_W2021526920",
+     "source": "abstracts",
+     "date": "2012-01-01",
+     "doi": "10.1149/2.029211jes",
+     "journal": "Journal of The Electrochemical Society / ECS",
+     "abstract": "LiFePO4 electrodes, composed of 5% PVDF and 5% carbon, were coated on aluminum foil. The LiFePO4 electrodes were calendered to 2.5 g cm−3. A comparison of the electrochemical performance of uncalendered and calendered LiFePO4 electrodes was made. Electrochemical impedance spectroscopy analysis of LiFePO4 symmetric cells and analysis of four-point probe resistance measurements showed that calendering of the electrodes resulted in a large decrease in contact resistance at the current collector – electrode interface. Rate capability data of Li/LiFePO4 coin cells showed that calendered electrodes maintained their capacity better than uncalendered electrodes at high rates. The contact resistance, made up of constriction resistance and film resistance, was analyzed with contact theory for plastic deformation.",
+     "battery_terms": true
+    },
+    {
+     "rank": 11,
+     "title": "Discrete element method (DEM) analysis of lithium ion battery electrode structures from X-ray tomography-the effect of calendering conditions",
+     "id": "oa_W4224090879",
+     "source": "abstracts",
+     "date": "2022-04-14",
+     "doi": "10.1016/j.powtec.2022.117366",
+     "journal": "Powder Technology",
+     "abstract": "Calendering is an essential process step to manufacture electrodes for lithium-ion batteries. The relationship between the various component material properties and calendering conditions has a large impact on the battery performance. In this work, Discrete Element Method (DEM) was used to investigate the electrode structure evolution under different calendering conditions. The initial positions of active material (AM) particles were obtained from an uncalendered electrode microstructure characterised experimentally by X-ray tomography and then imported to DEM simulations. Simulated structures under different processing conditions were obtained by compression tests in DEM. The Edinburgh elasto-plastic adhesive (EEPA) model and bond model were used to describe the mechanical response of AM particles and binder phase during compression. Detailed stress and structural evolutions at microscopic scale were further analysed. For the first time, the results demonstrate a promising way to predict and design battery electrode structures by combining X-ray tomography and DEM analysis.",
+     "battery_terms": true
+    },
+    {
+     "rank": 12,
+     "title": "Optimization of Electrode and Cell Design for Ultrafast-Charging Lithium-Ion Batteries Based on Molybdenum Niobium Oxide Anodes",
+     "id": "PMC9516618",
+     "source": "PMC",
+     "date": "2022-08-12",
+     "doi": "10.1021/acsaem.2c01814",
+     "journal": "ACS Applied Energy Materials",
+     "abstract": "Niobium oxides are an emerging class of anode materials for use in high-power lithium-ion batteries. Galvanostatic cycling and electrochemical impedance spectroscopy (EIS) were used in this study to investigate the influence of electrode porosity, electrode mass ratio, and cycling rate on the capacity, cycle life, and ionic conductivity of Li-ion battery cells based on a modified micron-sized MoNb12O33 (MNO) anode powder. Both electrode and cell designs were found to have a significant impact on the rate performance and cycle life of Li-ion half- and full cells. A higher specific capacity, improved rate performance, and a longer cycle life were obtained in both anode and cathode half-cells by lowering the electrode porosity through calendaring. MNO/Li half-coin cells displayed excellent cyclability, reaching 80% state of health (SOH) after 600 cycles at C/2 charge and 1C discharge. MNO/NMC622 full-coin cells displayed a high capacity of 179 mAh g–1 at 100 mA g–1 (0.5 mA cm–2) and excellent cyclability at 25 °C, reaching 70% SOH after over 1000 cycles at 1 mA cm–2 after optimizing their N/P ratio. Excellent cyclability was obtained at both 1C/1C and fast 2C/2C cycling, reaching 80% SOH after 700 and 470 cycles, respectively. Full-coin and small pouch cells had outstanding rate performance as they could be charged from 0 to 84% capacity in less than 5 min at 10 mA cm–2 and to 70% SOC in 120 s at 20 mA cm–2.",
+     "battery_terms": true
+    },
+    {
+     "rank": 13,
+     "title": "A Paradigm of Calendaring‐Driven Electrode Microstructure for Balanced Battery Energy Density and Power Density",
+     "id": "oa_W4309859465",
+     "source": "abstracts",
+     "date": "2022-11-23",
+     "doi": "10.1002/aenm.202202544",
+     "journal": "Advanced Energy Materials",
+     "abstract": "Abstract The microstructure of an electrode plays a critical role in the electrochemical performance of lithium‐ion batteries, including the energy and power density. Using a micrometer‐scale Wadsley–Roth phase TiNb 2 O 7 active material with Li intercalation chemistry as a model system, the relationship between electrochemical performance and microstructure of calendared electrodes with same mass loading but different electrode parameters is studied by both experimental investigation and theoretical modeling, providing a paradigm of calendaring‐driven electrode microstructure for balanced battery energy density and power density. Along with the reduction in porosity, ion and electron diffusion distance decreases, which is beneficial for charge transfer and rate capability. Nevertheless, the narrowed ion diffusion pathway increases the resistance for ion diffusion. The rate capability, volumetric capacity, and materials utilization are thus predominantly restricted by the microstructures of the electrode, providing fundamental insights into electrode microstructure design for different applications. As an example, an optimized TiNb 2 O 7 electrode with compaction density of ≈2.5 g cm ‐3 and mass loading of ≈8.5 mg cm ‐2 provides the highest specific charge capacity of 271.3 mAh g ‐1 at 0.2 C in half cell configuration and 70.4% capacity retention at 6 C in full configuration, enabling balanced energy density and power density of batteries.",
+     "battery_terms": true
+    },
+    {
+     "rank": 14,
+     "title": "A methodology for evaluating electrode interface quality through contact area analysis of calendering-induced particle indentations",
+     "id": "oa_W7117326516",
+     "source": "abstracts",
+     "date": "2025-12-26",
+     "doi": "10.1016/j.powtec.2025.122042",
+     "journal": "Powder Technology",
+     "abstract": "The global shift towards electromobility drives the demand for high-energy-density lithium-ion batteries. Gaining an in-depth knowledge of battery production steps is crucial to meet this demand. Electrodes, a key component in lithium-ion batteries, consist of a multi-material system coated on a metallic current collector foil. Calendering affects mechanical and electrochemical properties by compacting the electrodes and defining the volumetric energy density. The strive for higher energy densities and the associated high compaction rates during calendering lead to an increase in electrode deformations. The coated particles are pressed into the current collector foil during compaction, influencing the electrode's electrical and mechanical properties at the interface. A holistic understanding of particle behavior during compaction is essential for producing high-quality electrodes. In this work, an automated, model-based approach is adapted for the process analysis to determine the calendering-induced particle indentations and the resulting contact area for lithium-ion battery cathodes. The methodology presented in this study enables the quantification of the contact area and the associated calendering-induced microstructural deformations of the current collector foil. A strong correlation was identified between the contact area and the characteristic values for the electrical resistance and adhesion strength at the interface between the coating and the current collector foil. The particle indentations are dependent on the mechanical specification of the current collector foil used, as a softer aluminum foil leads to a larger contact area.",
+     "battery_terms": true
+    },
+    {
+     "rank": 15,
+     "title": "Calendering of Silicon-Containing Electrodes and Their Influence on the Mechanical and Electrochemical Properties",
+     "id": "oa_W4280521726",
+     "source": "abstracts",
+     "date": "2022-05-18",
+     "doi": "10.3390/batteries8050046",
+     "journal": "Batteries",
+     "abstract": "The process chain of electrode production includes calendering as a crucial process step to enhance the volumetric energy density as well as to influence the particle-pore-structure and simultaneously the mechanical and electrochemical properties of the electrode coating. A further way to improve the volumetric energy density is the usage of other materials with higher specific capacity, such as silicon instead of graphite as the active material for anodes. In this study, both opportunities, calendering and using silicon-containing composites, are combined to investigate the relations between material, process and performance. The applied line loads for the compaction are correlated with the silicon mass fraction and lead to a silicon-dependent mathematical model to estimate further line loads for silicon-graphite-composite electrodes. On the basis of established analyzing methods for adhesion strength and deformation behavior, it is shown that with increasing silicon content, the elastic deformation of the electrode coating rises. In addition, the overall porosity of the electrodes is less affected by silicon than the pore size distribution compared to graphite electrodes. Furthermore, the electrical conductivity decreases at higher silicon contents independent of coating density. Moreover, the long-term electrochemical stability deteriorates with increasing silicon content and coating density.",
+     "battery_terms": true
+    },
+    {
+     "rank": 16,
+     "title": "Simulation of the Calendering Process of NMC‐622 Cathodes for Lithium‐Ion Batteries",
+     "id": "oa_W4293582266",
+     "source": "abstracts",
+     "date": "2022-08-30",
+     "doi": "10.1002/ente.202200442",
+     "journal": "Energy Technology",
+     "abstract": "Calendering is the final step in electrode production during the manufacturing of lithium‐ion batteries. It is a crucial process that significantly influences the electrodes’ mechanical and electrochemical properties and is decisive in defining their volumetric energy density and performance. Herein, a discrete element method modeling approach is proposed to predict the process parameters of the calendering process. In particular, the roll gap width is required for a given target porosity. For this purpose, a particle bed of 9 mm in length is compacted using a roll section enabling a deeper look into the compaction behavior of the microstructure. Six NMC‐622 electrodes with different thicknesses are produced and compacted to different porosities. In the experimental investigation, the roll gap width is set and measured allowing a simulative replica of the process. With the process simulation, the force propagation within the electrode can be observed on a particle level. Furthermore, nanoindentation measurements with NMC‐622 cathodes provide information on the densification behavior of cathodes and support the parameterization of the particle bed. The particle‐based simulation of the compaction process is experimentally validated using nanoindentation measurements on NMC‐622 cathodes.",
+     "battery_terms": true
+    },
+    {
+     "rank": 17,
+     "title": "Investigations on the Microstructure-Property Relationship of NCM-Based Electrodes for Lithium-Ion Batteries",
+     "id": "oa_W2899852786",
+     "source": "abstracts",
+     "date": "2018-10-30",
+     "doi": "10.3139/147.110528",
+     "journal": null,
+     "abstract": "Abstract The microstructure of a multi-material-electrode and in particular its porosity co-determines, to a significant extent, the energy and power density of a lithium-ion cell. Moderate and high degrees of densification with several intermediate stages were applied reaching porosities of up to 18 % in order to increase the theoretical energy density of NCM-based cathodes. By applying microscopic and material analysis methods, the microstructure development during the densification could be described and a direct relationship to the electrochemical performance of the electrodes could be demonstrated. Major microstructural changes in connection with a significant drop in performance at current rates ≥ 2C arise from applying densification with porosities of &lt; 25 %. Then again, compactions of the NCM cathodes generating 20 – 22 % porosity offer the highest energy densities at moderate loads, i. e. current rates ≤ 1C.",
+     "battery_terms": true
+    },
+    {
+     "rank": 18,
+     "title": "Effect of Porosity on the Thick Electrodes for High Energy Density Lithium Ion Batteries for Stationary Applications",
+     "id": "oa_W2557173088",
+     "source": "abstracts",
+     "date": "2016-11-22",
+     "doi": "10.3390/batteries2040035",
+     "journal": "Batteries",
+     "abstract": "A series of 250–350 μ m-thick single-sided lithium ion cell graphite anodes and lithium nickel manganese cobalt oxide (NMC) cathodes with constant area weight, but varying porosity were prepared. Over this wide thickness range, micron-sized carbon fibers were used to stabilize the electrode structure and to improve electrode kinetics. By choosing the proper porosities for the anode and cathode, kinetic limitations and aging losses during cell cycling could be minimized and energy density improved. The cell (C38%-A48%) exhibits the highest energy density, 441 Wh/L at the C/10 rate, upon cycling at elevated temperature and different C-rates. The cell (C38%-A48%) showed 9% higher gravimetric energy density at C/10 in comparison to the cell with as-coated electrodes.",
+     "battery_terms": true
+    },
+    {
+     "rank": 19,
+     "title": "2D Discrete Element Simulation of Electrode Structural Evolutions in Li‐Ion Battery During Drying and Calendering",
+     "id": "oa_W4401864157",
+     "source": "abstracts",
+     "date": "2024-08-24",
+     "doi": "10.1002/ente.202400583",
+     "journal": "Energy Technology",
+     "abstract": "Drying and calendering are critical steps in the manufacture of electrodes for lithium‐ion battery that affect their mechanical and electrochemical properties. A 2D representative volume element (RVE) model, including active material and carbon binder domain particles of different shapes and sizes, is developed. The evolution of the RVE structure is simulated using the discrete element method, providing insight into changes in velocity, coordination number, porosity, pore size distribution, tortuosity, and stress. Based on this analysis, a three‐step drying scheme is proposed in accordance with the experimental drying results. In addition, the calendering process significantly improves the mechanical integrity and electronic conductivity of the electrode. Through simulations and experimental observations of changes in surface morphology and porosity, an optimal compression ratio of about 20% is determined for the electrode.",
+     "battery_terms": true
+    },
+    {
+     "rank": 20,
+     "title": "Modelling of lithium-ion battery electrode calendering: A critical review",
+     "id": "oa_W4409848776",
+     "source": "abstracts",
+     "date": "2025-04-27",
+     "doi": "10.1016/j.est.2025.116702",
+     "journal": "Journal of Energy Storage",
+     "abstract": "Lithium-ion Batteries (LIBs) are central to modern energy storage, with growing demands for improved performance, safety, and cost efficiency. Electrode calendering, a critical step in LIBs manufacturing, significantly influences the microstructure and electrochemical properties of electrodes. This review explores advances in the modelling of the calendering process over the past few years, focusing on empirical, numerical, and machine learning approaches. Empirical models, though computationally efficient, are limited by oversimplification, while numerical methods, such as Discrete Element Method (DEM) and Finite Element Method (FEM), offer more detailed insights into the structural evolution during calendering but require intensive computational resources. The growing application of machine learning introduces novel data-driven methods for optimising the process by effectively handling multiscale phenomena and high-dimensional data. A comparative analysis of these modelling strategies highlights the need for hybrid approaches that integrate empirical, numerical, and data-driven models to accurately predict electrode behaviour and optimise calendering conditions. Future research should aim to bridge the gap between computational accuracy and practical application to improve the performance and cost-efficiency of LIBs manufacturing. • Critical review on the latest advances in models for electrode calendering. • Panoramic review of DEM and FEM for microstructural insight in materials modelling. • Advances in ML models for optimisation of electrode properties. • Prospects of hybrid models combining empirical, numerical, and data-driven methods.",
+     "battery_terms": true
+    }
+   ],
+   "rest": [
+    {
+     "rank": 21,
+     "title": "Powder Compaction Characteristics and Modeling of Calendering Process for Powder-Based Solvent-Free Manufacturing of Electrodes for Lithium-Ion Batteries",
+     "id": "oa_W4403636543",
+     "source": "abstracts",
+     "date": "2024-10-22",
+     "doi": "10.1115/1.4066975",
+     "journal": null
+    },
+    {
+     "rank": 22,
+     "title": "Influence of Cathode Calendering Density on the Cycling Stability of Li-Ion Batteries Using NMC811 Single or Poly Crystalline Particles",
+     "id": "oa_W4400641010",
+     "source": "abstracts",
+     "date": "2024-07-15",
+     "doi": "10.1149/1945-7111/ad6378",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 23,
+     "title": "Evaluation of Deformation Behavior and Fast Elastic Recovery of Lithium‐Ion Battery Cathodes via Direct Roll‐Gap Detection During Calendering",
+     "id": "oa_W4207016052",
+     "source": "abstracts",
+     "date": "2022-01-22",
+     "doi": "10.1002/ente.202101033",
+     "journal": "Energy Technology"
+    },
+    {
+     "rank": 24,
+     "title": "Influence of Calendering on the Electrochemical Performance of LiNi<sub>0.9</sub>Mn<sub>0.05</sub>Al<sub>0.05</sub>O<sub>2</sub> Cathodes in Lithium-Ion Cells",
+     "id": "oa_W3197588002",
+     "source": "abstracts",
+     "date": "2021-08-30",
+     "doi": "10.1021/acsami.1c12543",
+     "journal": "ACS Applied Materials & Interfaces"
+    },
+    {
+     "rank": 25,
+     "title": "Effect of Calendering on Electrode Wettability in Lithium-Ion Batteries",
+     "id": "oa_W1977068534",
+     "source": "abstracts",
+     "date": "2014-12-05",
+     "doi": "10.3389/fenrg.2014.00056",
+     "journal": null
+    },
+    {
+     "rank": 26,
+     "title": "Toward Calenderability of High‐Energy Cathode based on NMC622 during the Roll‐to‐Roll Process",
+     "id": "oa_W4316042007",
+     "source": "abstracts",
+     "date": "2023-01-14",
+     "doi": "10.1002/ente.202201092",
+     "journal": "Energy Technology"
+    },
+    {
+     "rank": 27,
+     "title": "Computational Model for Predicting Particle Fracture During Electrode   Calendering",
+     "id": "arx_2306.02155",
+     "source": "arXiv",
+     "date": "2023-06-03",
+     "doi": "10.1002/batt.202300371",
+     "journal": "Batteries & Supercaps"
+    },
+    {
+     "rank": 28,
+     "title": "Simulation-Supported Analysis of Calendering Impacts on the Performance of Lithium-Ion-Batteries",
+     "id": "oa_W2606942398",
+     "source": "abstracts",
+     "date": "2017-01-01",
+     "doi": "10.1149/2.1141706jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 29,
+     "title": "3D microstructure design of lithium-ion battery electrodes assisted by X-ray nano-computed tomography and modelling",
+     "id": "PMC7190643",
+     "source": "PMC",
+     "date": "2020-04-29",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 30,
+     "title": "Capturing the calendering U-shape in lithium-ion electrode thermal conductivity",
+     "id": "arx_2607.11521",
+     "source": "arXiv",
+     "date": "2026-07-14",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 31,
+     "title": "Effect of porosity on electrochemical and mechanical properties of composite Li-ion anodes",
+     "id": "oa_W2156926845",
+     "source": "abstracts",
+     "date": "2015-01-28",
+     "doi": "10.1177/0021998314568653",
+     "journal": null
+    },
+    {
+     "rank": 32,
+     "title": "An integrated simulation and experimental study of calendering process in water-based manufacturing of lithium-ion battery graphite electrode",
+     "id": "oa_W4402849860",
+     "source": "abstracts",
+     "date": "2024-09-25",
+     "doi": "10.1016/j.jmapro.2024.09.076",
+     "journal": null
+    },
+    {
+     "rank": 33,
+     "title": "3D Porous Cu-Composites for Stable Li-Metal Battery Anodes",
+     "id": "PMC10416568",
+     "source": "PMC",
+     "date": "2023-07-25",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 34,
+     "title": "Deconvoluting the benefits of porosity distribution in layered electrodes on the electrochemical performance of Li-ion batteries",
+     "id": "oa_W4210256757",
+     "source": "abstracts",
+     "date": "2022-02-01",
+     "doi": "10.1016/j.ensm.2022.01.058",
+     "journal": "Energy Storage Materials"
+    },
+    {
+     "rank": 35,
+     "title": "Drying and calendering of Lithium Ion battery electrodes: A combined simulation approach",
+     "id": "oa_W4399392730",
+     "source": "abstracts",
+     "date": "2024-06-06",
+     "doi": "10.1016/j.powtec.2024.119984",
+     "journal": "Powder Technology"
+    },
+    {
+     "rank": 36,
+     "title": "Dataset of ultrasonic frequency – domain signals and machine – learning outputs for parameterising lithium – ion battery electrodes’ coating and calendering processes",
+     "id": "PMC12819013",
+     "source": "PMC",
+     "date": "2026-01-03",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 37,
+     "title": "Modeling the effect of calendering pressure on the microstructure and properties of Li-ion battery electrodes",
+     "id": "oa_W4396826728",
+     "source": "abstracts",
+     "date": "2024-05-11",
+     "doi": "10.1080/15376494.2024.2350678",
+     "journal": null
+    },
+    {
+     "rank": 38,
+     "title": "Elucidating the effect of electrode calendering on electrochemical performance using 3D image-based modelling",
+     "id": "oa_W4399149922",
+     "source": "abstracts",
+     "date": "2024-05-29",
+     "doi": "10.1016/j.jpowsour.2024.234774",
+     "journal": "Journal of Power Sources"
+    },
+    {
+     "rank": 39,
+     "title": "Intercalation driven porosity effects in coupled continuum models for   the electrical, chemical, thermal and mechanical response of battery   electrode materials",
+     "id": "arx_1609.08944",
+     "source": "arXiv",
+     "date": "2016-09-28",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 40,
+     "title": "Influence of Calendering on the Variation in Material Compositions of the Composite Cathode of Polymer‐Based Solid‐State Batteries",
+     "id": "oa_W7125904092",
+     "source": "abstracts",
+     "date": "2026-01-28",
+     "doi": "10.1002/eng2.70591",
+     "journal": null
+    },
+    {
+     "rank": 41,
+     "title": "A Model for Investigating Sources of Li-Ion Battery Electrode Heterogeneity: Part I. Electrode Drying and Calendering Processes",
+     "id": "oa_W3166019878",
+     "source": "abstracts",
+     "date": "2021-06-01",
+     "doi": "10.1149/1945-7111/ac0bf1",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 42,
+     "title": "Electrode Design for MnO2-Based Aqueous Electrochemical Capacitors: Influence of Porosity and Mass Loading",
+     "id": "PMC8197865",
+     "source": "PMC",
+     "date": "2021-06-01",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 43,
+     "title": "Cathode Performance as a Function of Inactive Material and Void Fractions",
+     "id": "oa_W2025029026",
+     "source": "abstracts",
+     "date": "2010-01-01",
+     "doi": "10.1149/1.3459878",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 44,
+     "title": "Finite Element Simulation of NMC Particle Fracture during Calendering: a Route to Optimize Electrode Microstructures",
+     "id": "arx_2601.02879",
+     "source": "arXiv",
+     "date": "2026-02-19",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 45,
+     "title": "Gradient porosity electrodes for fast charging lithium-ion batteries",
+     "id": "oa_W4281626834",
+     "source": "abstracts",
+     "date": "2022-01-01",
+     "doi": "10.1039/d2ta01707e",
+     "journal": "RSC journal"
+    },
+    {
+     "rank": 46,
+     "title": "Understanding Electrolyte Filling of Lithium-Ion Battery Electrodes on   the Pore Scale Using the Lattice Boltzmann Method",
+     "id": "arx_2203.05218",
+     "source": "arXiv",
+     "date": "2022-03-10",
+     "doi": "10.1002/batt.202200090",
+     "journal": "Batteries & Supercaps"
+    },
+    {
+     "rank": 47,
+     "title": "A pre-calendering process to reduce the corrugations and wrinkles of ultra-thin electrodes",
+     "id": "oa_W4414330754",
+     "source": "abstracts",
+     "date": "2025-09-01",
+     "doi": "10.1088/1742-6596/3104/1/012085",
+     "journal": null
+    },
+    {
+     "rank": 48,
+     "title": "Limitations of Ordered Macroporous Battery Electrode Materials at High   Charge and Discharge Rates",
+     "id": "arx_2008.11029",
+     "source": "arXiv",
+     "date": "2020-08-25",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 49,
+     "title": "An Experimentally-Validated 3D Electrochemical Model Revealing Electrode   Manufacturing Parameters Effects on Battery Performance",
+     "id": "arx_2206.05744",
+     "source": "arXiv",
+     "date": "2022-06-12",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 50,
+     "title": "Building Efficient Ion Pathway in Highly Densified Thick Electrodes with High Gravimetric and Volumetric Energy Densities",
+     "id": "oa_W3207746025",
+     "source": "abstracts",
+     "date": "2021-10-20",
+     "doi": "10.1021/acs.nanolett.1c03724",
+     "journal": null
+    },
+    {
+     "rank": 51,
+     "title": "Mechanical rolling formation of interpenetrated lithium metal/lithium tin alloy foil for ultrahigh-rate battery anode",
+     "id": "PMC7012843",
+     "source": "PMC",
+     "date": "2020-02-11",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 52,
+     "title": "Lithium-ion battery degradation: Introducing the concept of reservoirs to design for lifetime",
+     "id": "arx_2512.15440",
+     "source": "arXiv",
+     "date": "2025-12-17",
+     "doi": "10.1149/1945-7111/ae67b0",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 53,
+     "title": "Lithium Ion Battery Electrode Manufacturing Model Accounting for 3D   Realistic Shapes of Active Material Particles",
+     "id": "arx_2206.03969",
+     "source": "arXiv",
+     "date": "2022-06-08",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 54,
+     "title": "Multiple scales homogenisation of a porous viscoelastic material with   rigid inclusions: application to lithium-ion battery electrodes",
+     "id": "arx_2410.11699",
+     "source": "arXiv",
+     "date": "2024-10-15",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 55,
+     "title": "Analyses of the Calendaring Process for Performance Optimization of Li-Ion Battery Cathode",
+     "id": "oa_W2513917220",
+     "source": "abstracts",
+     "date": "2016-08-25",
+     "doi": "10.1155/2016/7395060",
+     "journal": null
+    },
+    {
+     "rank": 56,
+     "title": "Li-ion Electrode Microstructure Evolution during Drying and Calendering",
+     "id": "oa_W4294132526",
+     "source": "abstracts",
+     "date": "2022-09-01",
+     "doi": "10.3390/batteries8090107",
+     "journal": "Batteries"
+    },
+    {
+     "rank": 57,
+     "title": "Optimization for maximum specific energy density of a lithium-ion battery using progressive quadratic response surface method and design of experiments",
+     "id": "PMC7518271",
+     "source": "PMC",
+     "date": "2020-09-24",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 58,
+     "title": "Topological and Network Analysis of Lithium Ion Battery Components: The   Importance of Pore Space Connectivity for Cell Operation",
+     "id": "arx_1806.00083",
+     "source": "arXiv",
+     "date": "2018-05-23",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 59,
+     "title": "Identification of Cause–Effect Relationships between Process Parameters and the Film Formation in the Semidry Electrode Production for Lithium‐Ion Batteries",
+     "id": "oa_W4404449200",
+     "source": "abstracts",
+     "date": "2024-11-17",
+     "doi": "10.1002/ente.202401759",
+     "journal": "Energy Technology"
+    },
+    {
+     "rank": 60,
+     "title": "Experimental Investigation of the Lithium Calendering Process for Direct Contact Prelithiation of Lithium‐Ion Batteries",
+     "id": "oa_W4389425753",
+     "source": "abstracts",
+     "date": "2023-12-06",
+     "doi": "10.1002/ente.202300674",
+     "journal": "Energy Technology"
+    },
+    {
+     "rank": 61,
+     "title": "Large-Scale Compatible Roll-to-Roll Coating of Paper Electrodes and Their Compatibility as Lithium-Ion Battery Anodes",
+     "id": "PMC11767952",
+     "source": "PMC",
+     "date": "2025-01-14",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 62,
+     "title": "Microstructure evolutions in lithium ion battery electrode manufacturing",
+     "id": "oa_W4214842976",
+     "source": "abstracts",
+     "date": "2021-11-26",
+     "doi": "10.1360/tb-2021-1069",
+     "journal": null
+    },
+    {
+     "rank": 63,
+     "title": "Cathode porosity is a missing key parameter to optimize lithium-sulfur battery energy density",
+     "id": "PMC6787095",
+     "source": "PMC",
+     "date": "2019-10-10",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 64,
+     "title": "Three-dimensional discrete element simulation of electrode structural evolution in lithium-ion batteries during drying and calendering",
+     "id": "oa_W4407279190",
+     "source": "abstracts",
+     "date": "2025-02-09",
+     "doi": "10.1016/j.ijepes.2025.110521",
+     "journal": null
+    },
+    {
+     "rank": 65,
+     "title": "Ionic Conduction in Lithium Ion Battery Composite Electrode Governs Cross-sectional Reaction Distribution",
+     "id": "PMC4872260",
+     "source": "PMC",
+     "date": "2016-05-19",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 66,
+     "title": "Comparison of three‐dimensional analysis and stereological techniques for quantifying lithium‐ion battery electrode microstructures",
+     "id": "PMC4999027",
+     "source": "PMC",
+     "date": "2016-03-21",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 67,
+     "title": "Opportunities for real-time process control of electrode properties in lithium-ion battery manufacturing",
+     "id": "arx_2506.17048",
+     "source": "arXiv",
+     "date": "2025-06-20",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 68,
+     "title": "Phase-field model of ion transport and intercalation in lithium-ion   battery",
+     "id": "arx_2105.03860",
+     "source": "arXiv",
+     "date": "2021-05-09",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 69,
+     "title": "Structural and Electrochemical Properties of Calendered Lithium Manganese Oxide Cathodes",
+     "id": "oa_W2493329436",
+     "source": "abstracts",
+     "date": "2016-08-03",
+     "doi": "10.1002/ente.201600130",
+     "journal": "Energy Technology"
+    },
+    {
+     "rank": 70,
+     "title": "Densification of Alloying Anodes for High Energy Lithium‐Ion Batteries: Critical Perspective on Inter‐ Versus Intra‐Particle Porosity",
+     "id": "PMC11425885",
+     "source": "PMC",
+     "date": "2024-07-08",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 71,
+     "title": "Extremely fast-charging lithium ion battery enabled by dual-gradient structure design",
+     "id": "PMC9054020",
+     "source": "PMC",
+     "date": "2022",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 72,
+     "title": "Effect of carbon black properties on dry electrode processing of cathodes for lithium-ion batteries",
+     "id": "oa_W4410105363",
+     "source": "abstracts",
+     "date": "2025-05-06",
+     "doi": "10.1016/j.jpowsour.2025.237243",
+     "journal": "Journal of Power Sources"
+    },
+    {
+     "rank": 73,
+     "title": "Feature Analyses and Modelling of Lithium-ion Batteries Manufacturing   based on Random Forest Classification",
+     "id": "arx_2102.06029",
+     "source": "arXiv",
+     "date": "2021-02-10",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 74,
+     "title": "Thin Solid Electrolyte Separators for Solid-State Lithium–Sulfur Batteries",
+     "id": "PMC9801416",
+     "source": "PMC",
+     "date": "2022-12-16",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 75,
+     "title": "Design of bi-tortuous, anisotropic graphite anodes for fast   ion-transport in Li-ion batteries",
+     "id": "arx_1504.01803",
+     "source": "arXiv",
+     "date": "2015-04-08",
+     "doi": "10.1149/2.0151508jes",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 76,
+     "title": "Cracking predictions of lithium-ion battery electrodes by X-ray computed   tomography and modelling",
+     "id": "arx_2202.09572",
+     "source": "arXiv",
+     "date": "2022-02-19",
+     "doi": "10.1016/j.jpowsour.2022.231119",
+     "journal": "Journal of Power Sources"
+    },
+    {
+     "rank": 77,
+     "title": "Binder Free Hierarchical Mesoporous Carbon Foam for High Performance Lithium Ion Battery",
+     "id": "PMC5431229",
+     "source": "PMC",
+     "date": "2017-05-03",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 78,
+     "title": "Effect of Nanostructured and Open-Porous Particle Morphology on Electrode Processing and Electrochemical Performance of Li-Ion Batteries",
+     "id": "oa_W3128945254",
+     "source": "abstracts",
+     "date": "2021-02-09",
+     "doi": "10.1021/acsaem.0c03187",
+     "journal": "ACS Applied Energy Materials"
+    },
+    {
+     "rank": 79,
+     "title": "Data on the effect of particle size, porosity and discharging rate on the performance of lithium-ion battery with NMC 622 cathode through numerical analysis",
+     "id": "PMC8255814",
+     "source": "PMC",
+     "date": "2021-06-26",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 80,
+     "title": "Asymptotic reduction, solution, and homogenisation of a   thermo-electrochemical model for a lithium-ion battery",
+     "id": "arx_1907.02775",
+     "source": "arXiv",
+     "date": "2019-07-05",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 81,
+     "title": "Influence of the Specific Surface Area of Graphene Nanoplatelets on the Capacity of Lithium-Ion Batteries",
+     "id": "PMC8855676",
+     "source": "PMC",
+     "date": "2022-02-04",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 82,
+     "title": "Progressive Damage Analysis for Spherical Electrode Particles with Different Protective Structures for a Lithium-Ion Battery",
+     "id": "PMC9979237",
+     "source": "PMC",
+     "date": "2023-02-17",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 83,
+     "title": "Geometric Scaling of Battery Cells and Its Effect on Key Performance Indicators",
+     "id": "arx_2607.11566",
+     "source": "arXiv",
+     "date": "2026-07-14",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 84,
+     "title": "Toward High-Performance Energy and Power Battery Cells with Machine   Learning-based Optimization of Electrode Manufacturing",
+     "id": "arx_2307.05521",
+     "source": "arXiv",
+     "date": "2023-07-07",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 85,
+     "title": "Fabrication and Characterization of Nylon 66/PAN Nanofibrous Film Used as Separator of Lithium-Ion Battery",
+     "id": "PMC8234960",
+     "source": "PMC",
+     "date": "2021-06-17",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 86,
+     "title": "Kinked silicon nanowires-enabled interweaving electrode configuration for lithium-ion batteries",
+     "id": "PMC6023865",
+     "source": "PMC",
+     "date": "2018-06-28",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 87,
+     "title": "Preparation of electrochemically active silicon nanotubes in highly ordered arrays",
+     "id": "PMC3817651",
+     "source": "PMC",
+     "date": "2013-10-16",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 88,
+     "title": "Cobalt Oxide Porous Nanofibers Directly Grown on Conductive Substrate as a Binder/Additive-Free Lithium-Ion Battery Anode with High Capacity",
+     "id": "PMC5406306",
+     "source": "PMC",
+     "date": "2017-04-26",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 89,
+     "title": "Using Hierarchically Structured, Nanoporous Particles as Building Blocks for NCM111 Cathodes",
+     "id": "PMC10821151",
+     "source": "PMC",
+     "date": "2024-01-06",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 90,
+     "title": "Operando Characterization of Volume Changes in Lithium-Ion Battery Electrodes during Cycling using Isotope Multilayers",
+     "id": "arx_2604.19519",
+     "source": "arXiv",
+     "date": "2026-04-22",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 91,
+     "title": "Chemical staining for fundamental studies and optimization of binders in Li-ion battery negative electrodes",
+     "id": "PMC12913984",
+     "source": "PMC",
+     "date": "2026-02-17",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 92,
+     "title": "Lithium-ion battery modelling for nonisothermal conditions",
+     "id": "arx_2411.14506",
+     "source": "arXiv",
+     "date": "2024-11-21",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 93,
+     "title": "Vacuum Dealloyed Brass as Li-Metal Battery Current Collector: Effect of Zinc and Porosity",
+     "id": "arx_2508.06015",
+     "source": "arXiv",
+     "date": "2025-08-08",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 94,
+     "title": "Electrophoretic Deposition for Lithium‐Ion Battery Electrode Manufacture",
+     "id": "PMC6919341",
+     "source": "PMC",
+     "date": "2019-04-02",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 95,
+     "title": "Untitled",
+     "id": null,
+     "source": null,
+     "date": null,
+     "doi": "10.1149/ma2015-01/2/475",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 96,
+     "title": "Iron-Loaded Carbon Spherogels as Sustainable Electrode Materials for High-Performance Lithium-Ion Batteries",
+     "id": "PMC12980705",
+     "source": "PMC",
+     "date": "2026-01-29",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 97,
+     "title": "Untitled",
+     "id": null,
+     "source": null,
+     "date": null,
+     "doi": "10.1149/ma2020-012198mtgabs",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    },
+    {
+     "rank": 98,
+     "title": "Effects of external pressure on cycling performance of silicon-based lithium-ion battery: modelling and experimental validation",
+     "id": "PMC11413622",
+     "source": "PMC",
+     "date": "2024-09-20",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 99,
+     "title": "Practical Approaches to Apply Ultra-Thick Graphite Anode to High-Energy Lithium-Ion Battery: Carbonization and 3-Dimensionalization",
+     "id": "PMC9370293",
+     "source": "PMC",
+     "date": "2022-07-29",
+     "doi": null,
+     "journal": null
+    },
+    {
+     "rank": 100,
+     "title": "Untitled",
+     "id": null,
+     "source": null,
+     "date": null,
+     "doi": "10.1149/ma2016-02/3/360",
+     "journal": "Journal of The Electrochemical Society / ECS"
+    }
+   ]
+  }
+ },
+ "core_journal_check": {
+  "binder migration electrode drying": {
+   "in_top20": {
+    "Energy Storage Materials": 1,
+    "Journal of The Electrochemical Society / ECS": 1
+   },
+   "in_top100": {
+    "Energy Storage Materials": 1,
+    "Journal of The Electrochemical Society / ECS": 9,
+    "Journal of Power Sources": 1
+   }
+  },
+  "tortuosity graphite anode lithium-ion": {
+   "in_top20": {
+    "Journal of The Electrochemical Society / ECS": 9
+   },
+   "in_top100": {
+    "Journal of The Electrochemical Society / ECS": 21,
+    "Journal of Power Sources": 1
+   }
+  },
+  "calendering electrode porosity lithium-ion battery": {
+   "in_top20": {
+    "Journal of Power Sources": 1,
+    "Journal of The Electrochemical Society / ECS": 1
+   },
+   "in_top100": {
+    "Journal of Power Sources": 4,
+    "Journal of The Electrochemical Society / ECS": 10,
+    "Energy Storage Materials": 1
+   }
+  }
+ },
+ "named_papers": {
+  "TauFactor": [],
+  "TauFactor (query)": [
+   {
+    "rank": 1,
+    "title": "TauFactor: An open-source application for calculating tortuosity factors from tomographic data",
+    "id": "oa_W2538920246",
+    "source": "abstracts",
+    "date": "2016-01-01",
+    "doi": "10.1016/j.softx.2016.09.002"
+   },
+   {
+    "rank": 2,
+    "title": "TauFactor 2: A GPU accelerated python tool formicrostructural analysis",
+    "id": "oa_W4385698695",
+    "source": "abstracts",
+    "date": "2023-08-09",
+    "doi": "10.21105/joss.05358"
+   },
+   {
+    "rank": 3,
+    "title": "TomoPy: a framework for the analysis of synchrotron tomographic data",
+    "id": "PMC4181643",
+    "source": "PMC",
+    "date": "2014-08-01",
+    "doi": null
+   },
+   {
+    "rank": 4,
+    "title": "pytrax: A simple and efficient random walk implementation for calculating the directional tortuosity of images",
+    "id": "oa_W2959543929",
+    "source": "abstracts",
+    "date": "2019-07-01",
+    "doi": "10.1016/j.softx.2019.100277"
+   },
+   {
+    "rank": 5,
+    "title": "Characterizing microstructures with representative tortuosities",
+    "id": "oa_W4393332960",
+    "source": "abstracts",
+    "date": "2024-01-01",
+    "doi": "10.2516/stet/2024023"
+   }
+  ],
+  "SliceGAN": [],
+  "SliceGAN (query)": [
+   {
+    "rank": 1,
+    "title": "Generating 3D structures from a 2D slice with GAN-based dimensionality   expansion",
+    "id": "arx_2102.07708",
+    "source": "arXiv",
+    "date": "2021-02-10",
+    "doi": "10.1038/s42256-021-00322-1"
+   },
+   {
+    "rank": 2,
+    "title": "Feature Disentanglement in generating three-dimensional structure from   two-dimensional slice with sliceGAN",
+    "id": "arx_2105.00194",
+    "source": "arXiv",
+    "date": "2021-05-01",
+    "doi": null
+   },
+   {
+    "rank": 3,
+    "title": "3D microstructural generation from 2D images of cement paste using   generative adversarial networks",
+    "id": "arx_2204.01645",
+    "source": "arXiv",
+    "date": "2022-04-04",
+    "doi": "10.1016/j.cemconres.2024.107726"
+   },
+   {
+    "rank": 4,
+    "title": "LiFT: Lifted Inter-slice Feature Trajectories for 3D Image Generation from 2D Generators",
+    "id": "arx_2605.19060",
+    "source": "arXiv",
+    "date": "2026-05-20",
+    "doi": null
+   },
+   {
+    "rank": 5,
+    "title": "Interpolating beyond dimensions: 3D porous materials generation from sparse 2D slices",
+    "id": "oa_W4417279624",
+    "source": "abstracts",
+    "date": "2025-12-12",
+    "doi": "10.1016/j.matchar.2025.115906"
+   }
+  ],
+  "Kintsugi": [
+   {
+    "rank": 1,
+    "title": "Three‐Phase Multiscale Modeling of a LiCoO<sub>2</sub> Cathode: Combining the Advantages of FIB–SEM Imaging and X‐Ray Tomography",
+    "id": "oa_W2041539476",
+    "source": "abstracts",
+    "date": "2014-11-22",
+    "doi": "10.1002/aenm.201401612"
+   },
+   {
+    "rank": 2,
+    "title": "Quantification and modeling of mechanical degradation in lithium-ion batteries based on nanoscale imaging",
+    "id": "PMC6002379",
+    "source": "PMC",
+    "date": "2018-06-14",
+    "doi": null
+   },
+   {
+    "rank": 3,
+    "title": "Multi-Scale Correlative Tomography of a Li-Ion Battery Composite Cathode",
+    "id": "PMC4960488",
+    "source": "PMC",
+    "date": "2016-07-26",
+    "doi": null
+   },
+   {
+    "rank": 4,
+    "title": "Numerical Design of Microporous Carbon Binder Domains Phase in Composite Cathodes for Lithium-Ion Batteries",
+    "id": "PMC10273235",
+    "source": "PMC",
+    "date": "2023-05-31",
+    "doi": null
+   },
+   {
+    "rank": 5,
+    "title": "Correlating the 3D Morphology of Polymer-Based Battery Electrodes with Effective Transport Properties",
+    "id": "PMC11622701",
+    "source": "PMC",
+    "date": "2024-11-21",
+    "doi": null
+   }
+  ]
+ },
+ "amass_comparison_from_cache": {
+  "binder migration drying lithium-ion electrode adhesion delamination": {
+   "core_top20": 0,
+   "core_top100": {}
+  },
+  "tortuosity graphite anode platelet particles through-plane": {
+   "core_top20": 0,
+   "core_top100": {}
+  },
+  "calendering lithium-ion electrode porosity microstructure electrochemical performance": {
+   "core_top20": 0,
+   "core_top100": {}
+  }
+ },
+ "note": "Amass side uses the nearest cached searches (no new Amass calls), not the identical query strings."
+}

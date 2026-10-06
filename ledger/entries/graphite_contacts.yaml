@@ -1,0 +1,63 @@
+id: graphite_contacts
+name: Graphite particle-to-particle contact density (2D coordination proxy)
+aliases:
+- coordination number
+- particle contacts
+family: morphology
+detectors:
+- BSE
+- Inlens
+status: rejected
+owner: luca
+description: >-
+  Length of boundary shared by touching graphite particles per area, and contacts per particle, from the
+  shared graphite-particle label map (features/_particles). Contact = 4-neighbour seam between two different
+  valid labels whose mean boundary strength (max of the two sides per pixel pair) is >= 0.5 and that is
+  at least 4 pixel pairs (0.2 um) long; length with the Cauchy-Crofton factor pi/4. Columns tried: gg_contact_per_um
+  (um/um2), gg_coordination (distinct contacting neighbours per valid non-edge particle), gg_contact_perimeter_frac
+  (contact share of the valid particles' outline).
+battery_relevance: >-
+  Particle contacts carry electrons and hold the electrode together; calendering raises them, too few
+  means poor electronic percolation and delamination risk.
+findings: >-
+  REJECTED on the robustness rule (perturbation ratio > 1.0 for every column) [own validation, 2026-10-03].
+  Visual check (B3 cfe5vt7s, B1 ffwubibz, BSE + Inlens zoom): seams with strength >= 0.5 mostly follow
+  real particle junctions (BSE gaps, Inlens rims invisible in BSE); weaker seams run along internal fissures
+  (over-segmentation) and were dropped. Default recipe, 31 spots: contact 0.099 / 0.084 / 0.078 um/um2
+  (B1/B2/B3, B3 SD 0.0072), coordination 2.63 / 2.63 / 2.38 (B3 SD 0.14), perimeter share 0.137 / 0.114
+  / 0.109; eta2 0.17 / 0.17 / 0.10, session R2 0.54 / 0.82 / 0.59, within-session p 0.073 / 0.115 / 0.104,
+  split-half r x/y 0.60/0.54, 0.47/0.30, 0.73/0.66; LOSO AUC B1 0.70 / 0.70 / 0.58; not redundant with
+  any existing column; but perturbation ratio 3.7 (gamma0.8) / 5.1 (blur1) / 2.5 (gamma1.25). Gamma 0.8/1.25
+  moves contact length +-25-30 % on B3 sites (e.g. cfe5vt7s 0.086 -> 0.094 / 0.063) because the shared
+  label map's graphite grey band and BSE ridge strength move with gamma; blur changes the watershed's
+  over-segmentation. Nine screened variants (no strength filter; labels grown by 1-2 px to bridge thin
+  gaps; threshold 0.35) stayed at 1.9-3.5. The within-session lead is carried by session 2080 (B1 ffwubibz
+  +9.9 B3-SD vs cfe5vt7s, same strip per notes/seam_examples, so possibly position along the electrode).
+  Revisit only if features/_particles becomes gamma/blur robust (e.g. ridge strength on a gamma-invariant
+  BSE).
+refs:
+- doi: 10.1016/j.commatsci.2016.09.006
+  verified: false
+  note: >-
+    Westhoff et al. 2017, Comput. Mater. Sci. 126:453; stochastic 3D anode model whose graphite particles
+    are joined by a random connectivity graph (particle contacts as a model ingredient)
+- doi: 10.1111/jmi.12749
+  verified: false
+  note: >-
+    Kuchler et al. 2018, J. Microsc. 272:96; synchrotron tomography of cathodes compacted 0-1000 MPa (porosity
+    50 -> 18 %): compaction load sets the 3D microstructure
+- doi: 10.1016/j.powtec.2019.03.020
+  verified: false
+  note: >-
+    Sangros Gimenez et al. 2019, Powder Technol. 349:1; DEM of calendering, tracks coordination number
+    and particle contact areas vs calendering degree
+- doi: 10.1016/j.jpowsour.2020.229320
+  verified: false
+  note: >-
+    Ngandjong et al. 2021, J. Power Sources 485:229320; DEM calendering model linked to electrochemical
+    performance (digital twin of electrode manufacturing)
+- doi: 10.1007/978-1-4615-1233-2
+  verified: false
+  note: >-
+    Russ & DeHoff 2000, Practical Stereology; boundary length per area L_A relates to surface per volume
+    S_V = (4/pi) L_A

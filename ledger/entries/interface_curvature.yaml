@@ -1,0 +1,19 @@
+id: interface_curvature
+name: Solid-pore boundary curvature spectrum and flake-end roughness (label-free roundness)
+aliases:
+- boundary curvature
+- flake end roughness
+family: morphology
+detectors:
+- BSE
+status: idea
+description: >-
+  Share of the solid-pore boundary in convex tips vs flat runs, and the roughness of flake ends, from
+  the harmonised void mask; a label-free stand-in for particle roundness. Screened 2026-10-03 in the literature
+  sweep (prototype in the session scratchpad): robust (worst perturbation 0.28-0.58, split-half 0.53-0.61,
+  seed <= 0.09) and the only screened family with information beyond existing columns (residual p 0.016-0.057,
+  B1 only, about -2 SD), but no incoming-vs-baseline signal and no categorisation value; B1 within-session
+  evidence rests on one 2080 site pair. Not built.
+battery_relevance: >-
+  Rounder, smoother particle edges (spheroidised graphite) pack more isotropically and expose fewer edge
+  planes; a change points at the graphite shaping step.

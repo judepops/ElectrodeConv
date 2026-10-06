@@ -1,0 +1,148 @@
+{
+ "name": "v2",
+ "readout_r2_tiles": 0.2960790056393921,
+ "features": [
+  "porosity_frac",
+  "si_solid_frac",
+  "si_n_per_1000um2",
+  "si_d50_um",
+  "si_d90_um",
+  "si_aspect_aw",
+  "si_agglom_d50_um",
+  "interface_density_per_um",
+  "pore_n_per_1000um2",
+  "solid_chord_x_um",
+  "solid_chord_y_um",
+  "porosity_block_cv",
+  "si_block_cv"
+ ],
+ "units": "Batch_3 spot-to-spot SD of the feature",
+ "pairs": [
+  {
+   "label": "Batch_1 minus Batch_3 (means)",
+   "kind": "batch",
+   "features": {
+    "porosity_frac": -0.08299843616115236,
+    "si_solid_frac": 0.019983847620475222,
+    "si_n_per_1000um2": 0.10326815970322233,
+    "si_d50_um": 0.0161832142319838,
+    "si_d90_um": 0.017414880588003424,
+    "si_aspect_aw": 0.012801204980294686,
+    "si_agglom_d50_um": 0.026712963825429755,
+    "interface_density_per_um": -0.09211667508286597,
+    "pore_n_per_1000um2": 0.04995248432889242,
+    "solid_chord_x_um": 0.09112636779797768,
+    "solid_chord_y_um": 0.11181100438169565,
+    "porosity_block_cv": 0.08572874959505872,
+    "si_block_cv": -0.018925508113801528
+   },
+   "share_named": 2.5541562523984677e-05,
+   "distance": 25.291469058135036
+  },
+  {
+   "label": "Batch_2 minus Batch_3 (means)",
+   "kind": "batch",
+   "features": {
+    "porosity_frac": -0.004273413891151256,
+    "si_solid_frac": 0.005722106174297623,
+    "si_n_per_1000um2": 0.030972479601746185,
+    "si_d50_um": 0.00917470145935929,
+    "si_d90_um": 0.009066141632722662,
+    "si_aspect_aw": 0.008647497414668736,
+    "si_agglom_d50_um": 0.013595073791362064,
+    "interface_density_per_um": -0.01380631608000896,
+    "pore_n_per_1000um2": 0.036347358908913024,
+    "solid_chord_x_um": 0.027857377687317997,
+    "solid_chord_y_um": 0.040554317885762796,
+    "porosity_block_cv": 0.036564803416139206,
+    "si_block_cv": -0.01126046916553603
+   },
+   "share_named": 1.528728502319957e-05,
+   "distance": 19.24398683705808
+  },
+  {
+   "label": "Batch_1 minus Batch_2 (means)",
+   "kind": "batch",
+   "features": {
+    "porosity_frac": -0.07872502227000146,
+    "si_solid_frac": 0.014261741446176986,
+    "si_n_per_1000um2": 0.07229568010147594,
+    "si_d50_um": 0.007008512772624663,
+    "si_d90_um": 0.008348738955279874,
+    "si_aspect_aw": 0.004153707565626559,
+    "si_agglom_d50_um": 0.013117890034067561,
+    "interface_density_per_um": -0.0783103590028566,
+    "pore_n_per_1000um2": 0.013605125419979497,
+    "solid_chord_x_um": 0.06326899011065991,
+    "solid_chord_y_um": 0.07125668649593296,
+    "porosity_block_cv": 0.04916394617891946,
+    "si_block_cv": -0.007665038948265288
+   },
+   "share_named": 5.500408545247335e-05,
+   "distance": 9.123890756868548
+  },
+  {
+   "label": "test 3e122cbj minus Batch_3",
+   "kind": "test",
+   "features": {
+    "porosity_frac": -0.11832366733197613,
+    "si_solid_frac": 0.02442550229999765,
+    "si_n_per_1000um2": 0.13326033431824574,
+    "si_d50_um": 0.018832964381653477,
+    "si_d90_um": 0.018796706561114266,
+    "si_aspect_aw": 0.03126548710554455,
+    "si_agglom_d50_um": 0.03069550899998272,
+    "interface_density_per_um": -0.1337572849736488,
+    "pore_n_per_1000um2": 0.043178334643689656,
+    "solid_chord_x_um": 0.12314655525083722,
+    "solid_chord_y_um": 0.13631686330543683,
+    "porosity_block_cv": 0.11305263455914935,
+    "si_block_cv": -0.028278212304879823
+   },
+   "share_named": 3.2253224465419584e-05,
+   "distance": 25.334292454755083
+  },
+  {
+   "label": "test fn0mhxef minus Batch_3",
+   "kind": "test",
+   "features": {
+    "porosity_frac": -0.05435838251163516,
+    "si_solid_frac": 0.008775490770555101,
+    "si_n_per_1000um2": 0.05149700884635995,
+    "si_d50_um": 0.015649562849677362,
+    "si_d90_um": 0.012746121775070555,
+    "si_aspect_aw": 0.0005099431479856651,
+    "si_agglom_d50_um": 0.023074092872256823,
+    "interface_density_per_um": -0.04087787412592611,
+    "pore_n_per_1000um2": 0.048533835386274565,
+    "solid_chord_x_um": 0.06556578479595228,
+    "solid_chord_y_um": 0.06714280757309855,
+    "porosity_block_cv": 0.042858966681803945,
+    "si_block_cv": -0.015172886249972765
+   },
+   "share_named": 1.702572797278304e-05,
+   "distance": 22.92147845971055
+  },
+  {
+   "label": "test xrv9xvzb minus Batch_3",
+   "kind": "test",
+   "features": {
+    "porosity_frac": 0.12932582758792524,
+    "si_solid_frac": -9.434623532333071e-05,
+    "si_n_per_1000um2": -0.03163330521191786,
+    "si_d50_um": 0.014028579289190908,
+    "si_d90_um": 0.00879203561807796,
+    "si_aspect_aw": -0.0006887903001602379,
+    "si_agglom_d50_um": 0.011957151469076083,
+    "interface_density_per_um": 0.10472040261144501,
+    "pore_n_per_1000um2": 0.03451239009695214,
+    "solid_chord_x_um": -0.08683613215506665,
+    "solid_chord_y_um": -0.07276932815531427,
+    "porosity_block_cv": -0.02501095887701681,
+    "si_block_cv": 0.00139743640105404
+   },
+   "share_named": 3.05441450539848e-05,
+   "distance": 14.57292332827475
+  }
+ ]
+}

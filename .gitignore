@@ -1,0 +1,32 @@
+# ---- input images: Polaron's hackathon dataset (1.6 GB). Kept locally, not published; see data/README.md
+data/Batch_*/
+data/test/
+data/eval/
+
+# ---- model checkpoints (50-73 MB each). The embeddings and configs next to them ARE tracked; see models/README.md
+*.pt
+
+# ---- bulk paper indexes pulled from the Amass and GXL Paperclip APIs (titles + abstracts of ~17,000 papers).
+#      Rebuild with ledger/papers/fetch_*.py; see ledger/papers/RESIDUAL_AMASS.md
+ledger/papers/amass_papers.json
+ledger/papers/paperclip_papers.json
+
+# ---- everything the pipeline writes (regenerate with the commands in README.md)
+processed/
+processed_seg3/
+feature_bank/processed/
+
+# ---- Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# ---- local machine, tooling, secrets
+.DS_Store
+.secrets
+.env
+.claude/
+CLAUDE.md
+.hyperresearch/

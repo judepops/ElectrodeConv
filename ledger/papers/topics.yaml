@@ -1,0 +1,358 @@
+# Every search sent to the Amass literature search. Add a query, re-run: python literature/fetch_amass.py
+# (answers are cached in processed/amass_cache/, so only new queries cost credits)
+#
+# id               short name, used as the key in amass_papers.json
+# use              what the harness uses the topic for:
+#                    feature_selection   which features are worth computing (read BEFORE comparing batches)
+#                    structure_function  what a feature means for the battery (read AFTER a feature separates batches)
+#                    method              how to measure, segment, embed or test
+#                    material_identity   what the material and the bright phase could be (Polaron has not said)
+#                    sample_prep         how the cross-sections were made and what that does to the image
+# feature_columns  columns of processed/features.csv the topic explains (empty = no feature built yet)
+# queries          each one is a separate search, 300 papers max
+#
+# The material is NOT confirmed as a graphite anode, so most topics have a chemistry-neutral query
+# ("lithium-ion electrode") next to the graphite one, and cathode / silicon / hard carbon have their own topics.
+
+# Broad searches repeated for each publication-date window, to get past the 300-per-search cap.
+sweeps:
+  windows:
+    - [null, "2014-12-31"]
+    - ["2015-01-01", "2017-12-31"]
+    - ["2018-01-01", "2019-12-31"]
+    - ["2020-01-01", "2020-12-31"]
+    - ["2021-01-01", "2021-12-31"]
+    - ["2022-01-01", "2022-12-31"]
+    - ["2023-01-01", "2023-12-31"]
+    - ["2024-01-01", "2024-12-31"]
+    - ["2025-01-01", "2025-12-31"]
+    - ["2026-01-01", null]
+  topics:
+    - id: sweep_microstructure
+      use: [feature_selection, structure_function]
+      query: lithium-ion battery electrode microstructure and its effect on cell performance
+    - id: sweep_manufacturing
+      use: [feature_selection, structure_function]
+      query: lithium-ion battery electrode manufacturing process slurry coating drying calendering
+    - id: sweep_imaging
+      use: [method, feature_selection]
+      query: battery electrode electron microscopy tomography image analysis quantification
+    - id: sweep_graphite
+      use: [feature_selection, structure_function, material_identity]
+      query: graphite anode lithium-ion battery particle morphology electrode structure
+
+topics:
+  # ---- The problem Polaron set: batches that differ slightly, effects that show up later ----
+  - id: batch_variability
+    use: [feature_selection, structure_function]
+    feature_columns: [histogram_anomaly_z]
+    queries:
+      - batch-to-batch variability lithium-ion electrode manufacturing
+      - manufacturing variability lithium-ion electrode microstructure cell performance
+      - cell-to-cell variation lithium-ion battery manufacturing tolerances capacity
+      - sensitivity of battery cell performance to electrode manufacturing parameter deviations
+      - incoming material inspection battery raw material quality supplier variation
+      - lot-to-lot variation graphite active material powder properties electrode
+
+  - id: process_structure_property
+    use: [feature_selection, structure_function]
+    queries:
+      - process structure property relationship lithium-ion electrode calendering drying
+      - electrode microstructure heterogeneity cell performance lithium-ion
+      - electrode formulation active material binder conductive additive ratio microstructure
+      - microstructure descriptors predict electrode performance lithium-ion machine learning
+
+  - id: manufacturing_qc
+    use: [feature_selection, method]
+    feature_columns: [histogram_anomaly_z]
+    queries:
+      - lithium-ion battery electrode manufacturing quality control defects
+      - inline quality control metrology electrode coating battery production
+      - electrode coating defects pinholes agglomerates streaks effect on cell performance
+      - defect detection battery electrode images deep learning
+      - scrap rate battery cell production quality assurance electrode
+
+  - id: latent_defects
+    use: [structure_function]
+    queries:
+      - electrode defects long-term cycling degradation lithium-ion cell ageing
+      - manufacturing defect lithium-ion cell lifetime prediction early detection
+      - metallic particle contamination electrode internal short circuit lithium-ion
+      - electrode inhomogeneity local lithium plating ageing
+
+  # ---- Process steps that set the microstructure ----
+  - id: slurry_mixing
+    use: [feature_selection, structure_function]
+    queries:
+      - electrode slurry mixing dispersion agglomerates lithium-ion microstructure
+      - slurry rheology electrode coating microstructure battery
+      - conductive additive carbon black dispersion agglomeration electrode
+      - mixing sequence slurry preparation electrode performance lithium-ion
+
+  - id: bubbles_voids
+    use: [feature_selection, structure_function]
+    feature_columns: [pore_size_median_um2, pore_size_p90_um2, pore_size_count_per_1000um2]
+    queries:
+      - air bubbles slurry degassing electrode coating voids defects battery
+      - large voids macropores electrode coating lithium-ion performance
+      - void defects electrode microstructure X-ray tomography battery
+
+  - id: drying_binder_migration
+    use: [feature_selection, structure_function]
+    queries:
+      - binder migration drying lithium-ion electrode adhesion delamination
+      - electrode drying rate binder distribution through thickness
+      - binder gradient electrode cross-section mapping fluorine energy dispersive
+      - drying temperature electrode microstructure carbon black migration
+
+  - id: calendering
+    use: [feature_selection, structure_function]
+    feature_columns: [porosity_frac]
+    queries:
+      - calendering lithium-ion electrode porosity microstructure electrochemical performance
+      - calendering graphite anode compaction density particle deformation
+      - electrode density compression pore structure ionic resistance
+      - calendering particle breakage cracking electrode
+
+  # ---- Features we compute or plan to compute ----
+  - id: porosity
+    use: [feature_selection, structure_function]
+    feature_columns: [porosity_frac]
+    queries:
+      - graphite anode porosity calendering rate capability lithium-ion electrode
+      - electrode porosity energy density power density trade-off lithium-ion
+      - porosity measurement electrode mercury intrusion image analysis comparison
+      - low porosity electrode lithium plating electrolyte transport limitation
+
+  - id: pore_size
+    use: [feature_selection, structure_function]
+    feature_columns: [pore_size_median_um2, pore_size_p90_um2, pore_size_count_per_1000um2]
+    queries:
+      - pore size distribution lithium-ion electrode electrolyte wetting ion transport
+      - pore network connectivity electrode lithium-ion transport
+      - electrolyte wetting electrode pore structure filling time
+      - pore morphology anisotropy electrode microstructure
+
+  - id: tortuosity
+    use: [feature_selection, structure_function, method]
+    queries:
+      - lithium-ion battery electrode microstructure tortuosity fast charging lithium plating
+      - tortuosity factor electrode measurement impedance symmetric cell
+      - tortuosity graphite anode platelet particles through-plane
+      - Bruggeman relation tortuosity porosity electrode validity
+      - effective ionic conductivity porous electrode MacMullin number
+
+  - id: flake_orientation
+    use: [feature_selection, structure_function]
+    queries:
+      - graphite flake alignment orientation electrode tortuosity calendering
+      - particle orientation anisotropy graphite electrode magnetic alignment rate
+      - graphite particle shape platelet spherical tortuosity anisotropy electrode
+      - vertically aligned graphite electrode low tortuosity fast charging
+
+  - id: particle_size
+    use: [feature_selection, structure_function, material_identity]
+    feature_columns: [particle_size_d10_um, particle_size_d50_um, particle_size_d90_um]
+    queries:
+      - graphite particle size distribution anode rate capability irreversible capacity
+      - particle size distribution lithium-ion electrode performance active material
+      - bimodal particle size packing density electrode
+      - particle size effect solid-state diffusion lithium intercalation kinetics
+
+  - id: particle_morphology
+    use: [feature_selection, structure_function, material_identity]
+    queries:
+      - particle morphology surface roughness graphite anode
+      - spheroidized natural graphite versus artificial graphite anode morphology
+      - particle shape sphericity aspect ratio electrode microstructure battery
+      - graphite surface coating amorphous carbon pitch anode
+
+  - id: interface_density
+    use: [feature_selection, structure_function]
+    queries:
+      - graphite specific surface area SEI formation first cycle irreversible capacity loss
+      - active surface area electrode electrolyte interface kinetics lithium-ion
+      - BET surface area graphite anode initial coulombic efficiency
+
+  - id: particle_cracking
+    use: [feature_selection, structure_function]
+    queries:
+      - graphite particle cracking calendering damage capacity fade
+      - graphite anode particle fracture exfoliation cycling degradation microscopy
+      - active material particle cracking electrode cross-section SEM quantification
+      - intragranular cracks secondary particle cathode degradation
+
+  - id: carbon_binder_domain
+    use: [feature_selection, structure_function, method]
+    queries:
+      - carbon binder domain distribution lithium-ion electrode conductivity performance
+      - carbon binder domain morphology nanoporosity transport electrode
+      - conductive network percolation carbon black electrode electronic conductivity
+      - binder distribution imaging electrode contrast SEM
+      - CMC SBR binder graphite anode distribution adhesion
+
+  - id: porosity_gradient
+    use: [feature_selection, structure_function]
+    queries:
+      - porosity gradient through thickness electrode calendering lithium plating
+      - graded electrode structure porosity particle size layered lithium-ion
+      - through-thickness heterogeneity electrode reaction distribution depth
+
+  - id: coating_thickness
+    use: [feature_selection, structure_function]
+    queries:
+      - electrode thickness rate capability lithium plating energy density
+      - thick electrode transport limitation lithium-ion
+      - coating thickness mass loading uniformity electrode battery manufacturing
+
+  - id: adhesion
+    use: [structure_function]
+    queries:
+      - electrode adhesion strength peel test current collector delamination lithium-ion
+      - electrode mechanical integrity cohesion binder content cycling
+
+  - id: homogeneity_descriptors
+    use: [feature_selection, method]
+    queries:
+      - spatial heterogeneity quantification electrode microstructure statistical descriptors
+      - two-point correlation function microstructure characterization reconstruction
+      - representative volume element electrode microstructure size
+      - representativity of microstructure from a single image phase fraction uncertainty
+      - chord length distribution lineal path microstructure descriptor
+
+  # ---- What the bright minority phase could be ----
+  - id: bright_phase_silicon
+    use: [material_identity, structure_function, feature_selection]
+    feature_columns: [bright_phase_frac]
+    queries:
+      - silicon graphite composite anode particle dispersion capacity fade cracking
+      - silicon oxide SiOx graphite blended anode microstructure
+      - silicon graphite anode cross-section SEM backscattered distribution
+      - silicon particle agglomeration composite anode swelling
+
+  - id: bright_phase_contamination
+    use: [material_identity, structure_function]
+    feature_columns: [bright_phase_frac]
+    queries:
+      - metal impurities graphite anode iron contamination battery
+      - foreign particle contamination lithium-ion battery production detection
+      - graphite purity ash content impurities anode performance
+
+  - id: phase_identification
+    use: [material_identity, method]
+    feature_columns: [bright_phase_frac]
+    queries:
+      - backscattered electron contrast atomic number phase identification battery electrode
+      - energy dispersive X-ray spectroscopy elemental mapping battery electrode cross-section
+      - SEM-EDS quantitative phase analysis lithium-ion electrode
+
+  # ---- In case it is not a graphite anode ----
+  - id: cathode_microstructure
+    use: [material_identity, feature_selection, structure_function]
+    queries:
+      - NMC cathode electrode microstructure calendering porosity performance
+      - LiFePO4 cathode electrode microstructure carbon coating particle size
+      - cathode secondary particle cracking microstructure cross-section SEM
+      - cathode electrode cross-section morphology backscattered electron
+
+  - id: other_anodes
+    use: [material_identity]
+    queries:
+      - hard carbon anode sodium-ion electrode microstructure
+      - lithium titanate anode electrode microstructure particle
+      - natural graphite anode flake morphology electrode cross-section
+
+  - id: graphite_supply
+    use: [material_identity, structure_function]
+    queries:
+      - artificial graphite production graphitization anode material properties
+      - graphite anode material quality specification tap density
+      - recycled graphite anode regeneration structure performance
+
+  # ---- Function: what a difference would do to the cell ----
+  - id: rate_and_plating
+    use: [structure_function]
+    queries:
+      - lithium plating graphite anode fast charging microstructure
+      - rate capability electrode microstructure ionic transport limitation
+      - lithium plating detection onset graphite electrode inhomogeneity
+
+  - id: sei_first_cycle
+    use: [structure_function]
+    queries:
+      - solid electrolyte interphase graphite surface first cycle loss formation
+      - initial coulombic efficiency graphite anode surface area edge plane
+
+  - id: capacity_fade
+    use: [structure_function]
+    queries:
+      - capacity fade mechanisms graphite anode ageing microstructure change
+      - electrode microstructure evolution during cycling degradation tomography
+      - electrode swelling thickness change cycling graphite
+
+  - id: resistance
+    use: [structure_function]
+    queries:
+      - electrode electronic conductivity contact resistance microstructure lithium-ion
+      - impedance spectroscopy electrode microstructure ionic resistance pore
+
+  # ---- How the samples were made, and what that does to the picture ----
+  - id: sample_prep
+    use: [sample_prep, method]
+    feature_columns: [porosity_frac]
+    queries:
+      - ion milling cross-section preparation battery electrode SEM
+      - resin embedding epoxy impregnation electrode cross-section pore contrast
+      - broad ion beam argon polishing electrode cross-section artefacts
+      - FIB-SEM tomography lithium-ion electrode pore carbon binder contrast
+      - distinguishing pores from carbon binder in SEM images of battery electrodes
+
+  - id: sem_acquisition
+    use: [method, sample_prep]
+    queries:
+      - SEM imaging conditions accelerating voltage detector contrast battery electrode
+      - in-lens secondary electron detector backscattered comparison surface carbon
+      - electron microscopy image brightness contrast normalization quantitative analysis
+      - correlative multi-detector electron microscopy segmentation
+
+  # ---- Methods ----
+  - id: sem_image_analysis
+    use: [method, feature_selection]
+    queries:
+      - lithium-ion electrode scanning electron microscopy image segmentation machine learning microstructure
+      - deep learning segmentation battery electrode tomography microstructure
+      - automated particle analysis electrode SEM image quantification
+      - stereology two-dimensional sections three-dimensional microstructure quantification electrode
+      - microstructure quantification battery electrode comparison 2D 3D
+
+  - id: generative_3d
+    use: [method]
+    queries:
+      - generative adversarial network three-dimensional microstructure from two-dimensional image
+      - SliceGAN microstructure generation
+      - stochastic reconstruction electrode microstructure generation
+      - diffusion model microstructure generation materials
+
+  - id: representation_learning
+    use: [method]
+    queries:
+      - self-supervised learning microscopy images materials microstructure representation
+      - pretrained vision model features micrograph classification materials
+      - interpretable machine learning microstructure features embedding
+      - few-shot small dataset micrograph classification data augmentation
+      - foundation model electron microscopy images segmentation
+
+  - id: acquisition_shift
+    use: [method]
+    queries:
+      - domain shift microscopy imaging conditions batch effect image analysis robustness
+      - anomaly detection micrographs manufacturing materials unsupervised
+      - uncertainty quantification image-based materials characterization
+      - instrument variation electron microscopy reproducibility quantitative measurement
+
+  - id: microstructure_modelling
+    use: [method, structure_function]
+    queries:
+      - microstructure-resolved simulation lithium-ion electrode performance
+      - digital twin battery electrode manufacturing microstructure model
+      - electrode manufacturing simulation discrete element calendering microstructure

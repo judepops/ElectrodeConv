@@ -1,0 +1,148 @@
+id: si_particles
+name: Si-phase particle size, shape, alignment, agglomeration and pore contact (harmonised BSE)
+aliases:
+- bright particle shape
+- si agglomeration
+- si particle orientation
+- siox particle size distribution
+family: morphology
+detectors:
+- BSE
+status: implemented
+owner: luca
+implemented_in: cnn/tile_features.py
+columns:
+- si_d50_um
+- si_d90_um
+- si_aspect_aw
+- si_agglom_d50_um
+v1_implemented_in: features/si_particles
+v1_columns:
+- bright_d50_um
+- bright_d90_um
+- bright_solidity_aw
+- bright_aspect_aw
+- bright_orient_order
+- bright_agglom_d50_um
+- bright_contact_pore_frac
+description: >-
+  Per Si-like bright particle (8-connected objects of the shared harmonised bright mask, features/_common):
+  area-weighted ECD d50/d90 with Miles-Lantuejoul edge weights (2D section sizes, Wicksell-biased, relative
+  only); area-weighted median solidity (pixel area / convex hull of outline corners) and second-moment
+  aspect ratio on interior particles >= 0.5 um2; nematic order <cos 2theta> of long axes vs horizontal
+  over particles with aspect > 1.3 (number-weighted: area weighting leaves ~14 effective particles); agglomerate
+  d50 after a 0.5 um dilation (no edge correction: networks can span the 33 um window); share of outline
+  with void within 6 px (150 nm); CV of bright fraction over 10 um quadrats. Differs from particle_size
+  (watershed of all solid, graphite-dominated) and flake_orientation (graphite structure tensor).
+battery_relevance: >-
+  Si particle size trades lithiation stress, fracture and contact loss (coarse) against surface area,
+  SEI and ICE (fine); low solidity is ambiguous (dense aggregates fade fast, mesoporosity buffers stress);
+  agglomerates are plausible local swelling hot-spots (inference); outline facing pore instead of carbon
+  means weaker electronic wiring and isolation risk (inference, trade-off with free volume); patchiness
+  means uneven mixing only after correcting for the Si fraction. Moves with Si powder milling/classification,
+  mixing intensity, or a Si grade/composite change.
+findings: >-
+  Session 2316 (B1 4ih2ggld, 5n1q8atc; n_eff 1 session, only B1, the only curtained images, G-C under
+  acquisition gate_status) is the only large signal: solidity -29/-12, agglomerate d50 +9/+10, pore contact
+  +4.7/+5.3, d90 +5.4/+3.4 B3-SD (B1 site means sep 0.71/0.62/0.61/0.42, q 0.072/0.15/0.17/0.48); the
+  within-session test cannot see it, so B1 fails Tier 2 d90 and agglomerate (5/7) on one session. Part
+  of the agglomerate excess is mechanical (2.5-3x Si fraction; fraction-corrected clustering ratio normal
+  there). Other B1 spots at or below B3; within shared sessions B1 reads finer (d50/d90 -2.0/-1.8 SD,
+  within p 0.021/0.026, sep 0.22/0.42, q 0.83/0.48, split-half ~0: thin). B2: no change established within
+  sessions. Orientation +1.7 SD within (all 3 shared sessions, but within p 0.17; sep 0.62, q 0.088) and
+  area-weighted aspect +1.6 SD (within p 0.036, q 0.077; number-weighted p 0.98) are a thin hint; quadrat
+  CV sep 0.88, q 0.071 but within p 0.25 and explained by B2's lower Si fraction (excess-heterogeneity
+  ratio reads B2 more even). Perturbation ratio <= 0.46 except pore contact 0.52; pore contact session
+  R2 0.93. Battery reading: 2316 = a different Si product (granular, low solidity, denser; si_grade best
+  fit porous/agglomerated Si-C), direction unknown from BSE (bad if dense aggregates, possibly benign
+  if engineered porous composite) -> EDS and re-imaging beside a reference; B2 = possibly flatter, flakier
+  shards, neither good nor bad (a process-change sign). [rank_features.py + robustness.py, integrated
+  run, 2026-10-03, 31 spots]
+refs:
+- doi: 10.1002/advs.201801007
+  title: Interfacially Induced Cascading Failure in Graphite‐Silicon Composite Anodes
+  authors: Son, Cao, Yoon et al.
+  year: 2018
+  venue: Advanced Science
+  verified: true
+  note: >-
+    Si volume change causes fracture and loss of electrical contact in graphite-Si (pore-contact link)
+- doi: 10.1007/978-3-642-93089-8_27
+  title: >-
+    Computation of the Histograms of the Number of Edges and Neighbours of Cells in a Tessellation
+  authors: Lantuéjoul
+  year: 1978
+  venue: Lecture notes in biomathematics
+  verified: true
+  note: Lantuejoul edge correction (with Miles) used for particle size/shape weights
+- doi: 10.1021/acs.jpcc.7b08457
+  title: >-
+    Cycling Behavior of Silicon-Containing Graphite Electrodes, Part B: Effect of the Silicon Source
+  authors: Schott, Robert, Benito et al.
+  year: 2017
+  venue: The Journal of Physical Chemistry C
+  verified: true
+  note: >-
+    micrometric Si aggregates fade fast (shell-first lithiation, core disconnection, shell pulverisation)
+    while Si mesoporosity manages stress (stable cycling): low solidity has no fixed sign (agglomerate,
+    solidity)
+- doi: 10.1021/cr500207g
+  title: Alloy Negative Electrodes for Li-Ion Batteries
+  authors: Obrovac, Chevrier
+  year: 2014
+  venue: Chemical Reviews
+  verified: true
+  note: alloy anodes - size vs stress/fracture vs surface/SEI trade-off
+- doi: 10.1021/nn204476h
+  title: Size-Dependent Fracture of Silicon Nanoparticles During Lithiation
+  authors: Liu, Zhong, Huang et al.
+  year: 2012
+  venue: ACS Nano
+  verified: true
+  note: >-
+    size-dependent fracture of Si (critical size ~150 nm for crystalline Si; qualitative for micron SiOx)
+- doi: 10.1039/c8ra00539g
+  title: >-
+    Effect of particle size distribution on the electrochemical performance of micro-sized silicon-based
+    negative materials
+  authors: Wu, Yu, Wu et al.
+  year: 2018
+  venue: RSC Advances
+  verified: true
+  note: >-
+    PSD of a commercial micro-sized SiOx/C changes cycling stability; narrow PSD at ~22.7 um cycled best
+    (an optimum, not monotonic; size columns)
+- doi: 10.1093/biomet/17.1-2.84
+  title: THE CORPUSCLE PROBLEM. A MATHEMATICAL STUDY OF A BIOMETRIC PROBLEM
+  authors: Wicksell
+  year: 1925
+  venue: Biometrika
+  verified: true
+  note: >-
+    Wicksell corpuscle problem - 2D section sizes under-size 3D particles (relative sizes only)
+- doi: 10.1111/j.1365-2818.1978.tb00104.x
+  title: The Sampling, By Quadrats, of Planar Aggregates
+  authors: Miles
+  year: 1978
+  venue: Journal of Microscopy
+  verified: true
+  note: Miles - edge-effect correction for planar aggregates sampled in a window
+- doi: 10.1149/1945-7111/ac4545
+  title: >-
+    The Role of Silicon in Silicon-Graphite Composite Electrodes Regarding Specific Capacity, Cycle Stability,
+    and Expansion
+  authors: Moyassari, Roth, Kücher et al.
+  year: 2021
+  venue: Journal of The Electrochemical Society
+  verified: true
+  note: >-
+    electrode thickness change rises with Si content (agglomerates as local swelling hot-spots, inference);
+    no clear correlation between thickness change and capacity-loss rate
+- doi: 10.2307/1931034
+  title: Distance to Nearest Neighbor as a Measure of Spatial Relationships in Populations
+  authors: Clark, Evans
+  year: 1954
+  venue: Ecology
+  verified: true
+  note: >-
+    Clark-Evans index - tried in the screen, ~1 everywhere, unreliable at 50-100 points (negative result)

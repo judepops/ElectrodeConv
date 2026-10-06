@@ -1,0 +1,33 @@
+id: si_depth
+name: Si share of the solid and Si particle size vs depth from the current collector
+aliases:
+- si depth gradient
+- si sedimentation
+- silicon settling
+family: depth_profile
+detectors:
+- BSE
+status: implemented
+owner: adarsh
+implemented_in: qc/spot_features/si_depth.py
+columns:
+- si_depth_b0_solid_frac
+- si_depth_b1_solid_frac
+- si_depth_rel_slope_per_10um
+- si_depth_b0_d50_um
+- si_depth_b1_d50_um
+- si_depth_d50_slope_per_10um
+v1_implemented_in: null
+v1_columns: null
+description: 'Full-height harmonised BSE (rows CROP_TOP..H-CROP_BOTTOM), 11.2 um bands counted up from the bottom edge (read as the Cu side). Per band: bright (Si) area / solid area, and area-weighted median ECD of Si objects >= 16 px assigned by centroid (nan below 10 particles). Reports bottom band, 11.2-22.4 um band and least-squares slopes towards the bottom (Si share slope divided by the spot''s own Si share).'
+battery_relevance: Sedimentation-dominated drying piles settling particles up near the current collector; Stokes speed goes with density contrast x size^2, and Si/SiOx is barely denser than graphite, so a Si gradient would mostly mean coarse Si or agglomerates or a slow-drying slurry. Si enriched at the collector concentrates swelling at the interface (adhesion / delamination risk) and leaves the top Si-poor (inference).
+findings: 'No Si settling difference (31 spots, 6 columns, 2026-10-04). Si share bottom band B1/B2/B3 0.121/0.074/0.067 (B3 vs rest AUC 0.33 p 0.12, within p 0.37; B1 high from session 2316 spots 4ih2ggld/5n1q8atc 0.19/0.20, as in si_fraction), 11-22 um up 0.094/0.058/0.064 (p 0.63); relative slope towards the bottom +0.021/-0.001/-0.051 per 10 um (AUC 0.39 p 0.33, within p 0.49; B3 is flat to slightly Si-poorer at the bottom, no batch Si-rich at the collector beyond noise). Si d50 bottom band 4.36/4.08/3.58 um (AUC 0.25 p 0.022 uncorrected, ~0.13 after x6; within -++ p 0.64: not confirmed inside sessions), 11-22 um 4.26/3.68/3.65 (p 0.53), d50 slope p 0.58. B1 vs B2 p >= 0.10 everywhere. Verdict: all EQUIV or INCONCL within +-2.1 SD. GXL evidence (concept si_current_collector_enrichment): 1 answer of 6 outcomes (swelling, bilayer paper, direction not specific to Si at the collector), so no impact rule. Band d50 values are larger than si_d50_um because whole particles are kept (no 512 px
+  tile cut). ~25-50 s per spot (full-height preprocessing).'
+refs:
+- doi: 10.1021/acs.langmuir.4c03429
+  title: Microscale Electrical Resistivity Measurements to Investigate Particle Distribution
+  authors: Baburoglu, Tang, Alvarez
+  year: 2025
+  venue: Langmuir
+  verified: true
+  note: 'paperclip (PMC11755783): sedimentation-dominated drying concentrates particles in the bottom layer; drying regimes set by evaporation vs sedimentation vs diffusion'

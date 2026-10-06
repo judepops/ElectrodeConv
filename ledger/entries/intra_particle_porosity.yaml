@@ -1,0 +1,56 @@
+id: intra_particle_porosity
+name: Intra- vs inter-particle porosity
+aliases:
+- closed porosity
+- internal voids
+family: morphology
+detectors:
+- BSE
+- Inlens
+status: rejected
+owner: luca
+description: >-
+  Split of the 2D void into pores enclosed by one graphite particle (internal voids/slits) and pores between
+  particles, using the shared particle label map. Tried recipe (50 nm grid of features/_particles): 8-connected
+  pores >= 0.02 um2, pores closer than 100 nm merged; intra if >= 90 % of a ring 50-150 nm outside the
+  pore lies in ONE valid graphite label, no Si-like bright pixel within 400 nm, and the pore does not
+  touch the crop edge. Planned columns porosity_intra_frac, porosity_intra_share_frac, intra_pore_n_per_1000um2.
+battery_relevance: >-
+  Internal voids do not carry electrolyte the same way, change with the graphite spheroidisation/purification
+  route, and add surface once opened (first-cycle loss).
+findings: >-
+  Rejected 2026-10-03 (KEEP/REJECT rule c: perturbation ratio > 1 for every column). Overlay check on
+  cfe5vt7s (B3) and ffwubibz (B1) after two fixes (Si exclusion out to 400 nm, because the graphite-grey
+  rim of Si particles joined graphite labels and Si/graphite debonding gaps counted as intra; merging
+  specks within 100 nm of an inter-particle gap) showed mostly genuine dark voids and slits inside graphite
+  particles, with a few near-surface pores. But intra pores are rare at this resolution: about 70 per
+  spot, 0.10-0.13 % of the crop area, 1.2 % of the void (B1 0.0010 +- 0.0006, B2 0.0012 +- 0.0003, B3
+  0.0013 +- 0.0004 frac; 10.0 / 11.2 / 12.1 pores per 1000 um2). That makes the columns count-limited
+  and threshold-sensitive. Perturbation ratio 1.46 (noise), 1.33 (blur) and 1.54 (blur); split-half r
+  x/y 0.06/0.20, 0.13/0.25 and 0.22/0.41; seed SD / B3 SD 0.26-0.40; session R2 0.48-0.71. No batch signal:
+  within-mixed-session p 0.77-0.995, incoming-vs-B3 p 0.42-0.96, LOSO AUC 0.08-0.52. Not redundant with
+  any existing column. A 3D (FIB-SEM) closed-pore measure or a soft ring-purity score would be needed.
+  At 25 nm in 2D, enclosed pores are too few to monitor per spot.
+refs:
+- doi: 10.1016/j.micron.2022.103398
+  note: >-
+    Sailer et al. 2023 Micron: FIB/SEM tomography quantification of closed vs open porosity of spheroidised
+    graphite particles; closed/open status needs 3D, which the 2D section cannot give
+  verified: false
+- doi: 10.1016/j.carbon.2016.10.060
+  note: >-
+    Mundszinger et al. 2017 Carbon: internal morphology of spheroidised natural/synthetic graphites by
+    FIB tomography; spheroidised natural graphite holds about 4-5 vol% closed and <= 0.5 vol% open intra-particle
+    pores
+  verified: false
+- doi: 10.3390/batteries9060305
+  note: >-
+    Fischer et al. 2023 Batteries: spheroidisation of natural graphite changes the particle morphology
+    and raises the particle surface area by a factor of 1.8, improving fast-charge capability
+  verified: false
+- doi: 10.3390/ma16216896
+  note: >-
+    Choi et al. 2023 Materials: assembled graphite with lower open intra-block porosity (9.6 -> 0.9 %)
+    has higher initial Coulombic efficiency (86.4 -> 92.3 %); closed porosity proposed as a volume-expansion
+    buffer
+  verified: false

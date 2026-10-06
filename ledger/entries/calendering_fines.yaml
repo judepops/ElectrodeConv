@@ -1,0 +1,43 @@
+id: calendering_fines
+name: 'Fines: share of solid in small detached fragments'
+aliases:
+- debris fraction
+- particle pulverisation
+family: morphology
+detectors:
+- BSE
+- Inlens
+status: idea
+owner: null
+implemented_in: null
+columns: []
+v1_implemented_in: null
+v1_columns: null
+description: >-
+  Solid (graphite) connected components with ECD < 1 um that touch no larger particle (1-px dilation test),
+  as a share of solid area and number per 100 um2; Inlens used to exclude carbon-black/binder blobs (bright
+  fine texture). Differs from particle_size d10 (a percentile of all particles): this counts free debris
+  only.
+battery_relevance: >-
+  Over-calendering pulverises particles (Ni-rich NMA cathodes, ACS AMI 2021; DEM breakage, Powder Technol.
+  2022); fines add surface area (SEI, irreversible capacity) and clog pores.
+findings: null
+refs:
+- doi: 10.1016/j.powtec.2022.117828
+  title: >-
+    Investigation on mechanical and microstructural evolution of lithium-ion battery electrode during
+    the calendering process
+  authors: Zhang, Huang, Sun
+  year: 2022
+  venue: Powder Technology
+  verified: true
+  note: 'crossref: DEM of calendering, microstructure and mechanical evolution'
+- doi: 10.1021/acsami.1c12543
+  title: >-
+    Influence of Calendering on the Electrochemical Performance of LiNi0.9Mn0.05Al0.05O2 Cathodes in Lithium-Ion
+    Cells
+  authors: Sim, Lee, Li et al.
+  year: 2021
+  venue: ACS Applied Materials & Interfaces
+  verified: true
+  note: 'amass: calendering pulverises Ni-rich cathode particles (fines analogue)'

@@ -1,0 +1,3 @@
+# Tuning numbers for this feature. Read in feature.py with CFG = load_config(__file__), then CFG["dark_threshold"].
+dark_threshold: 30    # pixels below this (0-255) count as a dark spot
+min_spot_px: 20       # smaller regions are noise

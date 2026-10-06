@@ -1,0 +1,36 @@
+id: carbon_binder_domain
+name: Carbon-binder domain fraction and distribution (multi-detector)
+aliases:
+- binder network
+- carbon black
+- cbd
+- cbd area fraction
+- conductive additive
+family: composition
+detectors:
+- BSE
+- Inlens
+- SE
+status: rejected
+description: >-
+  Pixels that are graphite-like in BSE but finely textured in Inlens/SE are carbon-binder domain; report
+  its area fraction. This entry also provides the CBD mask that cbd_particle_coverage, cbd_patchiness
+  and cbd_pore_occupancy are computed from.
+battery_relevance: >-
+  The carbon-binder network sets electronic conductivity and adhesion; nearly invisible in BSE alone,
+  so a strong candidate for a hidden batch difference.
+findings: >-
+  CBD family: none survives the within-session test; all session-dominated (session R2 0.73-0.97) or unreliable.
+  cbd_frac: session R2 0.95, within-session OLS batch coef ~-0.002 vs B3 SD 0.011, perm p 0.96. Inlens
+  grey level changes contrast mechanism between sessions, so it can't define CBD. Source: notes/feature_screen.md
+  (Luca's empirical screen, 31 spots, within-mixed-session permutation test, 2026-10-03)
+refs:
+- doi: 10.1002/aenm.201401612
+  title: >-
+    Three‐Phase Multiscale Modeling of a LiCoO2 Cathode: Combining the Advantages of FIB–SEM Imaging and
+    X‐Ray Tomography
+  authors: Zielke, Hutzenlaub, Wheeler et al.
+  year: 2014
+  venue: Advanced Energy Materials
+  verified: true
+  note: three-phase (incl. carbon-binder) reconstruction of an electrode from FIB-SEM

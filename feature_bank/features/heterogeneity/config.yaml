@@ -1,0 +1,12 @@
+# Tuning numbers for heterogeneity. Read in feature.py with CFG = load_config(__file__).
+# The masks (h.void, h.bright) and the integral-range window come from features/_common/config.yaml; nothing here
+# changes a segmentation.
+
+tile_px: 512        # square tiles of 512 px = 12.8 um (164 um2): the repo's tile size, about 2-3x the void and 1-1.5x
+                    # the bright-phase correlation length, so a tile holds several independent pore/particle
+                    # neighbourhoods. The 1336 x 6984 crop holds 2 x 13 = 26 non-overlapping tiles.
+stride_px: 64       # tiles are placed every 64 px (overlapping), i.e. the statistic is averaged over all grid
+                    # offsets. With one fixed non-overlapping grid the within-session batch test swung from p 0.01
+                    # (centred grid) to p 0.84 (grid in the top-left corner) on the same images: the placement of
+                    # 26 tiles is itself a noise source. Same tile area, so the random-medium prediction is unchanged.
+min_tiles: 6        # fewer than this many non-overlapping tiles fit (a much smaller image) -> nan

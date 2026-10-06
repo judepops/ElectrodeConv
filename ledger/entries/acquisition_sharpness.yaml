@@ -1,0 +1,65 @@
+id: acquisition_sharpness
+name: Acquisition descriptors (focus, black level, noise) - leakage control
+aliases:
+- acquisition gate
+- black level
+- curtaining
+- focus measure
+- imaging conditions
+- variance of laplacian
+family: acquisition
+detectors:
+- BSE
+- Inlens
+- SE
+status: rejected
+owner: luca
+description: >-
+  How each spot was imaged, on the shared harmonisation crop. Gate columns: BSE black level, BSE Immerkaer
+  noise (graphite units, before top-up), Inlens saturation, SE curtain index (stripe-line vs flank power
+  in a Welch spectrum of the rank-normalised SE) and focus (Laplacian variance on graphite interiors minus
+  the white-noise term). Diagnostics: graphite level, BSE clip-at-0 fraction, interior CNR, Inlens rank
+  noise. gate_status() compares a new spot with the frozen known-session envelope and perturbation-tested
+  range (G-A / G-B / G-C). Not material features: never classifier inputs.
+battery_relevance: >-
+  None directly; Gate 1 of the verdict and the negative controls. Protects every material KPI from mistaking
+  a microscope change (session black level, noise, focus, curtaining) for a material change, and exposes
+  the image-height / black-level leakage trap in the Polaron notes.
+findings: >-
+  All columns session-locked (session R2 0.80-1.00) with no within-mixed-session batch effect (exact p
+  0.51-0.83; thin hints: Inlens saturation p 0.094, B1 lower in 3/3 sessions; focus p 0.062, B2 2-6 %
+  lower). Curtain index flags only session 2316 (1.64-1.68 vs 0.89-1.16, z +8.8/+9.3); clip0 tracks porosity
+  (r +0.63 within session) so it is diagnostic only. Gate 1 (frozen limits, curtain envelope without 2316):
+  29/31 G-A, the two 2316 spots G-C on curtain index. Acquisition-only LR on these 9 columns: balanced
+  accuracy 0.58 leave-one-site-out, 0.49 leave-one-session-out (chance 0.33, perm p 0.03/0.04) [features/acquisition
+  README, 2026-10-03, 31 spots]. Moved 2026-10-03 out of the features into preprocessing step 5 (preprocessing/acquisition.py):
+  it is not a material feature, so it no longer writes to features.csv; process_data.py prints a WARNING
+  per spot outside the known range and writes processed/acquisition.csv. Gate 1 of the verdict checks
+  only pixel size and detector set.
+refs:
+- doi: 10.1006/cviu.1996.0060
+  note: >-
+    Immerkaer noise estimator used for acq_bse_noise_sigma, acq_cnr and the focus noise term (Crossref-checked)
+- doi: 10.1016/j.patter.2023.100804
+  note: >-
+    leakage in ML-based science, the failure the acquisition-only classifier measures (Crossref-checked)
+- doi: 10.1017/s1431927619014752
+  note: >-
+    Fourier-based curtain filtering before segmentation of a Si/C-graphite anode (Amass literature)
+- doi: 10.1038/s41467-021-24698-1
+  note: >-
+    site-specific acquisition signatures learned by image classifiers in histology (Crossref-checked)
+- doi: 10.1097/ede.0b013e3181d61eeb
+  note: negative controls for detecting confounding (Crossref search)
+- doi: 10.1109/icpr.2000.903548
+  title: 'Diatom autofocusing in brightfield microscopy: a comparative study'
+  authors: Pech-Pacheco, Cristóbal, Chamorro-Martínez et al.
+  year: 2002
+  verified: true
+  note: variance-of-Laplacian focus measure (diatom autofocusing study)
+- doi: 10.1111/jmi.13254
+  note: >-
+    FIB-SEM image-quality indices for noise, contrast, focus, curtaining and charging (Amass literature)
+- doi: 10.1186/s42649-026-00142-w
+  note: >-
+    FIB milling conditions change curtaining and apparent pore-area fraction (Amass literature)

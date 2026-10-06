@@ -1,0 +1,2540 @@
+{
+ "tag": "dinov2l_bottom",
+ "cmd": "--npz ../losslarp/processed/emb/dv2l_s2_bottom_BSE.npz --tag dinov2l_bottom",
+ "masks": "harmonise",
+ "n_spots": 31,
+ "dim": 1024,
+ "features": [
+  "porosity_frac",
+  "si_solid_frac",
+  "si_n_per_1000um2",
+  "si_d50_um",
+  "si_d90_um",
+  "si_aspect_aw",
+  "si_agglom_d50_um",
+  "interface_density_per_um",
+  "pore_n_per_1000um2",
+  "solid_chord_x_um",
+  "solid_chord_y_um",
+  "porosity_block_cv",
+  "si_block_cv",
+  "solid_chord_hv_ratio",
+  "thin_solid_frac",
+  "depth_porosity_b0_frac",
+  "depth_interface_b0_per_um",
+  "depth_interface_b1_per_um",
+  "depth_interface_slope_per_10um",
+  "cc_interface_horiz_share_bottom_frac",
+  "cc_interface_horiz_share_far_frac",
+  "cc_interface_horiz_share_delta_frac",
+  "cc_interface_horiz_len_bottom_um",
+  "cc_interface_horiz_len_far_um",
+  "inlens_depth_dark_b0_frac",
+  "inlens_depth_dark_slope_per_10um",
+  "inlens_depth_pore_slope_per_10um",
+  "local_porosity_q25_frac",
+  "local_porosity_dense_window_frac",
+  "si_depth_b0_solid_frac",
+  "si_depth_b1_solid_frac",
+  "si_depth_rel_slope_per_10um",
+  "si_depth_b0_d50_um",
+  "si_depth_b1_d50_um",
+  "si_depth_d50_slope_per_10um"
+ ],
+ "families": {
+  "tile features": [
+   "porosity_frac",
+   "si_solid_frac",
+   "si_n_per_1000um2",
+   "si_d50_um",
+   "si_d90_um",
+   "si_aspect_aw",
+   "si_agglom_d50_um",
+   "interface_density_per_um",
+   "pore_n_per_1000um2",
+   "solid_chord_x_um",
+   "solid_chord_y_um",
+   "porosity_block_cv",
+   "si_block_cv",
+   "solid_chord_hv_ratio",
+   "inlens_depth_dark_b0_frac",
+   "inlens_depth_dark_slope_per_10um",
+   "inlens_depth_pore_slope_per_10um"
+  ],
+  "depth profile": [
+   "thin_solid_frac",
+   "depth_porosity_b0_frac",
+   "depth_interface_b0_per_um",
+   "depth_interface_b1_per_um",
+   "depth_interface_slope_per_10um"
+  ],
+  "plug-ins": [
+   "cc_interface_horiz_share_bottom_frac",
+   "cc_interface_horiz_share_far_frac",
+   "cc_interface_horiz_share_delta_frac",
+   "cc_interface_horiz_len_bottom_um",
+   "cc_interface_horiz_len_far_um",
+   "local_porosity_q25_frac",
+   "local_porosity_dense_window_frac",
+   "si_depth_b0_solid_frac",
+   "si_depth_b1_solid_frac",
+   "si_depth_rel_slope_per_10um",
+   "si_depth_b0_d50_um",
+   "si_depth_b1_d50_um",
+   "si_depth_d50_slope_per_10um"
+  ]
+ },
+ "ledger": {
+  "porosity_frac": {
+   "entry": "open_porosity",
+   "name": "Open porosity (harmonised void area fraction) with single-image CI",
+   "module": "cnn/tile_features.py",
+   "n_refs": 10,
+   "why": "Electrolyte volume and ionic transport: D_eff ~ porosity^alpha (Bruggeman; alpha 1.5 for spheres, higher through-plane for aligned flake graphite). Trade-off, best value = match baseline. Lower = more tortuous, longer ion paths, poorer rate"
+  },
+  "si_solid_frac": {
+   "entry": "si_fraction",
+   "name": "Si-phase (bright) area fraction of solid, harmonised, with single-image CI",
+   "module": "cnn/tile_features.py",
+   "n_refs": 10,
+   "why": "Si-phase dose sets anode capacity (N/P balance), first-cycle efficiency (SiOx irreversible silicate formation), swelling and Si-specific fade: higher = more capacity now, lower ICE, more expansion, faster fade; lower = capacity shortfall."
+  },
+  "si_n_per_1000um2": {
+   "entry": "si_fraction",
+   "name": "Si-phase (bright) area fraction of solid, harmonised, with single-image CI",
+   "module": "cnn/tile_features.py",
+   "n_refs": 10,
+   "why": "Si-phase dose sets anode capacity (N/P balance), first-cycle efficiency (SiOx irreversible silicate formation), swelling and Si-specific fade: higher = more capacity now, lower ICE, more expansion, faster fade; lower = capacity shortfall."
+  },
+  "si_d50_um": {
+   "entry": "si_particles",
+   "name": "Si-phase particle size, shape, alignment, agglomeration and pore contact (harmonised BSE)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 10,
+   "why": "Si particle size trades lithiation stress, fracture and contact loss (coarse) against surface area, SEI and ICE (fine); low solidity is ambiguous (dense aggregates fade fast, mesoporosity buffers stress); agglomerates are plausible local sw"
+  },
+  "si_d90_um": {
+   "entry": "si_particles",
+   "name": "Si-phase particle size, shape, alignment, agglomeration and pore contact (harmonised BSE)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 10,
+   "why": "Si particle size trades lithiation stress, fracture and contact loss (coarse) against surface area, SEI and ICE (fine); low solidity is ambiguous (dense aggregates fade fast, mesoporosity buffers stress); agglomerates are plausible local sw"
+  },
+  "si_aspect_aw": {
+   "entry": "si_particles",
+   "name": "Si-phase particle size, shape, alignment, agglomeration and pore contact (harmonised BSE)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 10,
+   "why": "Si particle size trades lithiation stress, fracture and contact loss (coarse) against surface area, SEI and ICE (fine); low solidity is ambiguous (dense aggregates fade fast, mesoporosity buffers stress); agglomerates are plausible local sw"
+  },
+  "si_agglom_d50_um": {
+   "entry": "si_particles",
+   "name": "Si-phase particle size, shape, alignment, agglomeration and pore contact (harmonised BSE)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 10,
+   "why": "Si particle size trades lithiation stress, fracture and contact loss (coarse) against surface area, SEI and ICE (fine); low solidity is ambiguous (dense aggregates fade fast, mesoporosity buffers stress); agglomerates are plausible local sw"
+  },
+  "interface_density_per_um": {
+   "entry": "minkowski_functionals",
+   "name": "Minkowski functionals of the pore phase (area, interface length, Euler characteristic)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 10,
+   "why": "Interface length is a 2D proxy for the macro part of the electrode/electrolyte surface where the SEI forms (first-cycle loss / ICE scales with accessible surface; BET also counts nanoscale surface the image cannot see). At equal porosity, m"
+  },
+  "pore_n_per_1000um2": {
+   "entry": "minkowski_functionals",
+   "name": "Minkowski functionals of the pore phase (area, interface length, Euler characteristic)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 10,
+   "why": "Interface length is a 2D proxy for the macro part of the electrode/electrolyte surface where the SEI forms (first-cycle loss / ICE scales with accessible surface; BET also counts nanoscale surface the image cannot see). At equal porosity, m"
+  },
+  "solid_chord_x_um": {
+   "entry": "lineal_path",
+   "name": "Lineal path and chord-length distributions (x and y)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 9,
+   "why": "The through-plane solid chord is the closest image stand-in for graphite flake thickness / PSD (D50 is CoA item #1): longer solid-state diffusion paths if longer, more surface and SEI if shorter. The H/V ratio measures calendering / flake a"
+  },
+  "solid_chord_y_um": {
+   "entry": "lineal_path",
+   "name": "Lineal path and chord-length distributions (x and y)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 9,
+   "why": "The through-plane solid chord is the closest image stand-in for graphite flake thickness / PSD (D50 is CoA item #1): longer solid-state diffusion paths if longer, more surface and SEI if shorter. The H/V ratio measures calendering / flake a"
+  },
+  "porosity_block_cv": {
+   "entry": "heterogeneity",
+   "name": "Spatial heterogeneity of pore and Si-phase fractions (tile CV, excess over ImageRep)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 11,
+   "why": "Si-rich or pore-poor patches are local swelling, current-density and Li-plating hot-spots (model studies on SiO/graphite); uneven tiles point at mixing/dispersion, binder migration or uneven calendering. Counter-evidence: active-material cl"
+  },
+  "si_block_cv": {
+   "entry": "heterogeneity",
+   "name": "Spatial heterogeneity of pore and Si-phase fractions (tile CV, excess over ImageRep)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 11,
+   "why": "Si-rich or pore-poor patches are local swelling, current-density and Li-plating hot-spots (model studies on SiO/graphite); uneven tiles point at mixing/dispersion, binder migration or uneven calendering. Counter-evidence: active-material cl"
+  },
+  "solid_chord_hv_ratio": {
+   "entry": "lineal_path",
+   "name": "Lineal path and chord-length distributions (x and y)",
+   "module": "cnn/tile_features.py",
+   "n_refs": 9,
+   "why": "The through-plane solid chord is the closest image stand-in for graphite flake thickness / PSD (D50 is CoA item #1): longer solid-state diffusion paths if longer, more surface and SEI if shorter. The H/V ratio measures calendering / flake a"
+  },
+  "thin_solid_frac": {
+   "entry": "thin_solid",
+   "name": "Thin-solid fraction (ligaments, flake tips and slivers thinner than 0.3-0.8 um)",
+   "module": "qc/depth_profile.py",
+   "n_refs": 6,
+   "why": "Thin ligaments are fine fragments and exposed graphite edges: more edge-plane surface in contact with electrolyte means more SEI formation and first-cycle (irreversible) capacity loss, and fragmented, weakly connected particles."
+  },
+  "depth_porosity_b0_frac": {
+   "entry": "binder_depth_profile",
+   "name": "Depth profiles (porosity, carbon-binder, bright phase vs coating depth)",
+   "module": "qc/depth_profile.py",
+   "n_refs": 8,
+   "why": "Fast drying makes binder migrate to the top surface, leaving the current-collector interface binder-poor - weak adhesion and delamination during cycling. Exactly the \"fine now, worse later\" defect."
+  },
+  "depth_interface_b0_per_um": {
+   "entry": "binder_depth_profile",
+   "name": "Depth profiles (porosity, carbon-binder, bright phase vs coating depth)",
+   "module": "qc/depth_profile.py",
+   "n_refs": 8,
+   "why": "Fast drying makes binder migrate to the top surface, leaving the current-collector interface binder-poor - weak adhesion and delamination during cycling. Exactly the \"fine now, worse later\" defect."
+  },
+  "depth_interface_b1_per_um": {
+   "entry": "binder_depth_profile",
+   "name": "Depth profiles (porosity, carbon-binder, bright phase vs coating depth)",
+   "module": "qc/depth_profile.py",
+   "n_refs": 8,
+   "why": "Fast drying makes binder migrate to the top surface, leaving the current-collector interface binder-poor - weak adhesion and delamination during cycling. Exactly the \"fine now, worse later\" defect."
+  },
+  "depth_interface_slope_per_10um": {
+   "entry": "binder_depth_profile",
+   "name": "Depth profiles (porosity, carbon-binder, bright phase vs coating depth)",
+   "module": "qc/depth_profile.py",
+   "n_refs": 8,
+   "why": "Fast drying makes binder migrate to the top surface, leaving the current-collector interface binder-poor - weak adhesion and delamination during cycling. Exactly the \"fine now, worse later\" defect."
+  },
+  "cc_interface_horiz_share_bottom_frac": {
+   "entry": "cc_interface",
+   "name": "Horizontal pores at the current-collector interface (delamination / adhesion indicator)",
+   "module": "qc/spot_features/cc_interface.py",
+   "n_refs": 2,
+   "why": "Coating/current-collector debonding shows as long horizontal gaps parallel to the foil in cross-section; poor adhesion raises contact resistance and lets the coating delaminate on cycling or calendering."
+  },
+  "cc_interface_horiz_share_far_frac": {
+   "entry": "cc_interface",
+   "name": "Horizontal pores at the current-collector interface (delamination / adhesion indicator)",
+   "module": "qc/spot_features/cc_interface.py",
+   "n_refs": 2,
+   "why": "Coating/current-collector debonding shows as long horizontal gaps parallel to the foil in cross-section; poor adhesion raises contact resistance and lets the coating delaminate on cycling or calendering."
+  },
+  "cc_interface_horiz_share_delta_frac": {
+   "entry": "cc_interface",
+   "name": "Horizontal pores at the current-collector interface (delamination / adhesion indicator)",
+   "module": "qc/spot_features/cc_interface.py",
+   "n_refs": 2,
+   "why": "Coating/current-collector debonding shows as long horizontal gaps parallel to the foil in cross-section; poor adhesion raises contact resistance and lets the coating delaminate on cycling or calendering."
+  },
+  "cc_interface_horiz_len_bottom_um": {
+   "entry": "cc_interface",
+   "name": "Horizontal pores at the current-collector interface (delamination / adhesion indicator)",
+   "module": "qc/spot_features/cc_interface.py",
+   "n_refs": 2,
+   "why": "Coating/current-collector debonding shows as long horizontal gaps parallel to the foil in cross-section; poor adhesion raises contact resistance and lets the coating delaminate on cycling or calendering."
+  },
+  "cc_interface_horiz_len_far_um": {
+   "entry": "cc_interface",
+   "name": "Horizontal pores at the current-collector interface (delamination / adhesion indicator)",
+   "module": "qc/spot_features/cc_interface.py",
+   "n_refs": 2,
+   "why": "Coating/current-collector debonding shows as long horizontal gaps parallel to the foil in cross-section; poor adhesion raises contact resistance and lets the coating delaminate on cycling or calendering."
+  },
+  "local_porosity_q25_frac": {
+   "entry": "local_porosity",
+   "name": "Local porosity distribution: dense, pore-starved patches",
+   "module": "qc/spot_features/local_porosity.py",
+   "n_refs": 6,
+   "why": "Active material in pore-starved patches is reached only through long solid paths: higher local ionic resistance, lagging lithiation and Li plating at fast charge; uneven calendering or mixing produces such patches."
+  },
+  "local_porosity_dense_window_frac": {
+   "entry": "local_porosity",
+   "name": "Local porosity distribution: dense, pore-starved patches",
+   "module": "qc/spot_features/local_porosity.py",
+   "n_refs": 6,
+   "why": "Active material in pore-starved patches is reached only through long solid paths: higher local ionic resistance, lagging lithiation and Li plating at fast charge; uneven calendering or mixing produces such patches."
+  },
+  "si_depth_b0_solid_frac": {
+   "entry": "si_depth",
+   "name": "Si share of the solid and Si particle size vs depth from the current collector",
+   "module": "qc/spot_features/si_depth.py",
+   "n_refs": 1,
+   "why": "Sedimentation-dominated drying piles settling particles up near the current collector; Stokes speed goes with density contrast x size^2, and Si/SiOx is barely denser than graphite, so a Si gradient would mostly mean coarse Si or agglomerate"
+  },
+  "si_depth_b1_solid_frac": {
+   "entry": "si_depth",
+   "name": "Si share of the solid and Si particle size vs depth from the current collector",
+   "module": "qc/spot_features/si_depth.py",
+   "n_refs": 1,
+   "why": "Sedimentation-dominated drying piles settling particles up near the current collector; Stokes speed goes with density contrast x size^2, and Si/SiOx is barely denser than graphite, so a Si gradient would mostly mean coarse Si or agglomerate"
+  },
+  "si_depth_rel_slope_per_10um": {
+   "entry": "si_depth",
+   "name": "Si share of the solid and Si particle size vs depth from the current collector",
+   "module": "qc/spot_features/si_depth.py",
+   "n_refs": 1,
+   "why": "Sedimentation-dominated drying piles settling particles up near the current collector; Stokes speed goes with density contrast x size^2, and Si/SiOx is barely denser than graphite, so a Si gradient would mostly mean coarse Si or agglomerate"
+  },
+  "si_depth_b0_d50_um": {
+   "entry": "si_depth",
+   "name": "Si share of the solid and Si particle size vs depth from the current collector",
+   "module": "qc/spot_features/si_depth.py",
+   "n_refs": 1,
+   "why": "Sedimentation-dominated drying piles settling particles up near the current collector; Stokes speed goes with density contrast x size^2, and Si/SiOx is barely denser than graphite, so a Si gradient would mostly mean coarse Si or agglomerate"
+  },
+  "si_depth_b1_d50_um": {
+   "entry": "si_depth",
+   "name": "Si share of the solid and Si particle size vs depth from the current collector",
+   "module": "qc/spot_features/si_depth.py",
+   "n_refs": 1,
+   "why": "Sedimentation-dominated drying piles settling particles up near the current collector; Stokes speed goes with density contrast x size^2, and Si/SiOx is barely denser than graphite, so a Si gradient would mostly mean coarse Si or agglomerate"
+  },
+  "si_depth_d50_slope_per_10um": {
+   "entry": "si_depth",
+   "name": "Si share of the solid and Si particle size vs depth from the current collector",
+   "module": "qc/spot_features/si_depth.py",
+   "n_refs": 1,
+   "why": "Sedimentation-dominated drying piles settling particles up near the current collector; Stokes speed goes with density contrast x size^2, and Si/SiOx is barely denser than graphite, so a Si gradient would mostly mean coarse Si or agglomerate"
+  }
+ },
+ "axes": {
+  "B3_score": {
+   "what": "logit P(Batch_3) from the embedding",
+   "check": "leave one session out, AUC 0.92",
+   "auc": 0.9159663865546219
+  },
+  "B2_vs_B1": {
+   "what": "logit P(Batch_2) against Batch_1, 14 spots",
+   "check": "leave one session out, AUC 0.49",
+   "auc": 0.4897959183673469
+  },
+  "PC1": {
+   "what": "principal axis 1 (30 % of variance)",
+   "check": "label-free"
+  },
+  "PC2": {
+   "what": "principal axis 2 (12 % of variance)",
+   "check": "label-free"
+  },
+  "PC3": {
+   "what": "principal axis 3 (9 % of variance)",
+   "check": "label-free"
+  }
+ },
+ "correlations": {
+  "B3_score": [
+   {
+    "feature": "porosity_frac",
+    "rho": 0.029435483870967744,
+    "p": 0.8760619690154923,
+    "rho_session": 0.4901477832512314,
+    "rho_batch": -0.017338709677419357,
+    "n": 31,
+    "q": 0.9291566338043099
+   },
+   {
+    "feature": "si_solid_frac",
+    "rho": 0.08024193548387097,
+    "p": 0.6761619190404797,
+    "rho_session": 0.4793103448275861,
+    "rho_batch": -0.08427419354838711,
+    "n": 31,
+    "q": 0.8726886556721638
+   },
+   {
+    "feature": "si_n_per_1000um2",
+    "rho": 0.06331921887160173,
+    "p": 0.7311344327836082,
+    "rho_session": 0.09950738916256155,
+    "rho_batch": -0.006451612903225807,
+    "n": 31,
+    "q": 0.8824036257733202
+   },
+   {
+    "feature": "si_d50_um",
+    "rho": -0.1713709677419355,
+    "p": 0.3553223388305847,
+    "rho_session": 0.13300492610837436,
+    "rho_batch": -0.27903225806451615,
+    "n": 31,
+    "q": 0.690904547726137
+   },
+   {
+    "feature": "si_d90_um",
+    "rho": -0.13870967741935486,
+    "p": 0.4617691154422789,
+    "rho_session": 0.2374384236453201,
+    "rho_batch": -0.32258064516129037,
+    "n": 31,
+    "q": 0.7696151924037983
+   },
+   {
+    "feature": "si_aspect_aw",
+    "rho": 0.11370967741935485,
+    "p": 0.552223888055972,
+    "rho_session": 0.24876847290640386,
+    "rho_batch": 0.28790322580645167,
+    "n": 31,
+    "q": 0.8403406992156096
+   },
+   {
+    "feature": "si_agglom_d50_um",
+    "rho": -0.28104838709677427,
+    "p": 0.13193403298350825,
+    "rho_session": 0.17438423645320195,
+    "rho_batch": -0.2887096774193549,
+    "n": 31,
+    "q": 0.3767347095682928
+   },
+   {
+    "feature": "interface_density_per_um",
+    "rho": -0.031048387096774197,
+    "p": 0.8675662168915542,
+    "rho_session": 0.6226600985221674,
+    "rho_batch": -0.14395161290322583,
+    "n": 31,
+    "q": 0.9291566338043099
+   },
+   {
+    "feature": "pore_n_per_1000um2",
+    "rho": -0.5668481663951354,
+    "p": 0.0009995002498750624,
+    "rho_session": 0.22167487684729056,
+    "rho_batch": -0.4256906720953862,
+    "n": 31,
+    "q": 0.0069965017491254375
+   },
+   {
+    "feature": "solid_chord_x_um",
+    "rho": 0.0903225806451613,
+    "p": 0.6286856571714143,
+    "rho_session": -0.6364532019704431,
+    "rho_batch": 0.3189516129032258,
+    "n": 31,
+    "q": 0.8726886556721638
+   },
+   {
+    "feature": "solid_chord_y_um",
+    "rho": -0.07903225806451614,
+    "p": 0.6871564217891054,
+    "rho_session": -0.5871921182266009,
+    "rho_batch": 0.22298387096774194,
+    "n": 31,
+    "q": 0.8726886556721638
+   },
+   {
+    "feature": "porosity_block_cv",
+    "rho": -0.18467741935483872,
+    "p": 0.33233383308345826,
+    "rho_session": -0.5975369458128077,
+    "rho_batch": 0.09919354838709678,
+    "n": 31,
+    "q": 0.690904547726137
+   },
+   {
+    "feature": "si_block_cv",
+    "rho": 0.12620967741935485,
+    "p": 0.49975012493753124,
+    "rho_session": 0.004926108374384235,
+    "rho_batch": 0.3762096774193549,
+    "n": 31,
+    "q": 0.7950570169460724
+   },
+   {
+    "feature": "solid_chord_hv_ratio",
+    "rho": 0.2685483870967742,
+    "p": 0.13993003498250875,
+    "rho_session": -0.20443349753694576,
+    "rho_batch": 0.33225806451612905,
+    "n": 31,
+    "q": 0.3767347095682928
+   },
+   {
+    "feature": "thin_solid_frac",
+    "rho": -0.1733870967741936,
+    "p": 0.34832583708145926,
+    "rho_session": 0.5576354679802954,
+    "rho_batch": -0.27862903225806457,
+    "n": 31,
+    "q": 0.690904547726137
+   },
+   {
+    "feature": "depth_porosity_b0_frac",
+    "rho": 0.42137096774193555,
+    "p": 0.01699150424787606,
+    "rho_session": 0.6650246305418718,
+    "rho_batch": 0.03669354838709678,
+    "n": 31,
+    "q": 0.07433783108445777
+   },
+   {
+    "feature": "depth_interface_b0_per_um",
+    "rho": 0.5556451612903226,
+    "p": 0.0009995002498750624,
+    "rho_session": 0.7448275862068964,
+    "rho_batch": 0.17580645161290323,
+    "n": 31,
+    "q": 0.0069965017491254375
+   },
+   {
+    "feature": "depth_interface_b1_per_um",
+    "rho": 0.07298387096774195,
+    "p": 0.6981509245377311,
+    "rho_session": 0.4650246305418719,
+    "rho_batch": -0.2338709677419355,
+    "n": 31,
+    "q": 0.8726886556721638
+   },
+   {
+    "feature": "depth_interface_slope_per_10um",
+    "rho": 0.6935483870967744,
+    "p": 0.0004997501249375312,
+    "rho_session": 0.4891625615763546,
+    "rho_batch": 0.3173387096774194,
+    "n": 31,
+    "q": 0.0069965017491254375
+   },
+   {
+    "feature": "cc_interface_horiz_share_bottom_frac",
+    "rho": 0.22258064516129034,
+    "p": 0.24237881059470265,
+    "rho_session": 0.09162561576354677,
+    "rho_batch": 0.06491935483870968,
+    "n": 31,
+    "q": 0.5655505580543062
+   },
+   {
+    "feature": "cc_interface_horiz_share_far_frac",
+    "rho": 0.25040322580645163,
+    "p": 0.16141929035482258,
+    "rho_session": 0.10541871921182264,
+    "rho_batch": 0.25000000000000006,
+    "n": 31,
+    "q": 0.40354822588705647
+   },
+   {
+    "feature": "cc_interface_horiz_share_delta_frac",
+    "rho": 0.019758064516129034,
+    "p": 0.9120439780109945,
+    "rho_session": 0.034482758620689655,
+    "rho_batch": -0.11895161290322583,
+    "n": 31,
+    "q": 0.9315342328835582
+   },
+   {
+    "feature": "cc_interface_horiz_len_bottom_um",
+    "rho": 0.2794354838709678,
+    "p": 0.13243378310844578,
+    "rho_session": 0.10591133004926105,
+    "rho_batch": 0.11693548387096775,
+    "n": 31,
+    "q": 0.3767347095682928
+   },
+   {
+    "feature": "cc_interface_horiz_len_far_um",
+    "rho": 0.07943548387096776,
+    "p": 0.6616691654172914,
+    "rho_session": 0.07536945812807881,
+    "rho_batch": 0.18750000000000003,
+    "n": 31,
+    "q": 0.8726886556721638
+   },
+   {
+    "feature": "inlens_depth_dark_b0_frac",
+    "rho": -0.6403225806451613,
+    "p": 0.0009995002498750624,
+    "rho_session": -0.0625615763546798,
+    "rho_batch": -0.27983870967741936,
+    "n": 31,
+    "q": 0.0069965017491254375
+   },
+   {
+    "feature": "inlens_depth_dark_slope_per_10um",
+    "rho": -0.44919354838709685,
+    "p": 0.010994502748625687,
+    "rho_session": -0.196551724137931,
+    "rho_batch": -0.1717741935483871,
+    "n": 31,
+    "q": 0.054972513743128434
+   },
+   {
+    "feature": "inlens_depth_pore_slope_per_10um",
+    "rho": -0.6076612903225808,
+    "p": 0.0009995002498750624,
+    "rho_session": 0.0167487684729064,
+    "rho_batch": -0.2967741935483871,
+    "n": 31,
+    "q": 0.0069965017491254375
+   },
+   {
+    "feature": "local_porosity_q25_frac",
+    "rho": 0.1459677419354839,
+    "p": 0.447776111944028,
+    "rho_session": 0.5251231527093595,
+    "rho_batch": -0.1907258064516129,
+    "n": 31,
+    "q": 0.7696151924037983
+   },
+   {
+    "feature": "local_porosity_dense_window_frac",
+    "rho": -0.04718693380877327,
+    "p": 0.7936031984007996,
+    "rho_session": -0.37142857142857133,
+    "rho_batch": 0.20627079447502386,
+    "n": 31,
+    "q": 0.9258703981342663
+   },
+   {
+    "feature": "si_depth_b0_solid_frac",
+    "rho": -0.45282258064516134,
+    "p": 0.008995502248875561,
+    "rho_session": -0.18719211822660095,
+    "rho_batch": -0.4741935483870969,
+    "n": 31,
+    "q": 0.05247376311844077
+   },
+   {
+    "feature": "si_depth_b1_solid_frac",
+    "rho": 0.016532258064516133,
+    "p": 0.9315342328835582,
+    "rho_session": 0.6128078817733988,
+    "rho_batch": -0.12620967741935485,
+    "n": 31,
+    "q": 0.9315342328835582
+   },
+   {
+    "feature": "si_depth_rel_slope_per_10um",
+    "rho": -0.3241935483870968,
+    "p": 0.07746126936531735,
+    "rho_session": -0.22118226600985216,
+    "rho_batch": -0.39637096774193553,
+    "n": 31,
+    "q": 0.2711144427786107
+   },
+   {
+    "feature": "si_depth_b0_d50_um",
+    "rho": -0.39637096774193553,
+    "p": 0.030484757621189407,
+    "rho_session": -0.11133004926108372,
+    "rho_batch": -0.25080645161290327,
+    "n": 31,
+    "q": 0.11855183519351437
+   },
+   {
+    "feature": "si_depth_b1_d50_um",
+    "rho": -0.03266129032258065,
+    "p": 0.862568715642179,
+    "rho_session": 0.37339901477832504,
+    "rho_batch": 0.11250000000000002,
+    "n": 31,
+    "q": 0.9291566338043099
+   },
+   {
+    "feature": "si_depth_d50_slope_per_10um",
+    "rho": -0.15887096774193551,
+    "p": 0.39930034982508744,
+    "rho_session": 0.020197044334975364,
+    "rho_batch": -0.1717741935483871,
+    "n": 31,
+    "q": 0.7355532759935821
+   }
+  ],
+  "B2_vs_B1": [
+   {
+    "feature": "porosity_frac",
+    "rho": 0.0945054945054945,
+    "p": 0.7526236881559221,
+    "rho_session": 0.5113843218869928,
+    "rho_batch": 0.1956043956043956,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "si_solid_frac",
+    "rho": -0.2703296703296703,
+    "p": 0.31984007996002,
+    "rho_session": -0.12959739664259406,
+    "rho_batch": -0.006593406593406593,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "si_n_per_1000um2",
+    "rho": -0.07252747252747253,
+    "p": 0.8000999500249875,
+    "rho_session": 0.14360792600936098,
+    "rho_batch": 0.1032967032967033,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "si_d50_um",
+    "rho": -0.24395604395604395,
+    "p": 0.4097951024487756,
+    "rho_session": -0.1015763379090602,
+    "rho_batch": -0.2835164835164835,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "si_d90_um",
+    "rho": -0.22637362637362637,
+    "p": 0.43778110944527737,
+    "rho_session": -0.29422111670210543,
+    "rho_batch": -0.12967032967032965,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "si_aspect_aw",
+    "rho": 0.1164835164835165,
+    "p": 0.7091454272863568,
+    "rho_session": 0.62697118916282,
+    "rho_batch": 0.032967032967032975,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "si_agglom_d50_um",
+    "rho": -0.1824175824175824,
+    "p": 0.5362318840579711,
+    "rho_session": -0.14360792600936098,
+    "rho_batch": -0.0857142857142857,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "interface_density_per_um",
+    "rho": 0.032967032967032975,
+    "p": 0.9110444777611194,
+    "rho_session": 0.44483430739484986,
+    "rho_batch": 0.0857142857142857,
+    "n": 14,
+    "q": 0.9525237381309345
+   },
+   {
+    "feature": "pore_n_per_1000um2",
+    "rho": -0.17381748691882032,
+    "p": 0.5462268865567217,
+    "rho_session": -0.18213688176797005,
+    "rho_batch": -0.2134214712800705,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "solid_chord_x_um",
+    "rho": 0.07692307692307693,
+    "p": 0.791104447776112,
+    "rho_session": -0.42732114568639123,
+    "rho_batch": 0.03736263736263736,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "solid_chord_y_um",
+    "rho": 0.08131868131868132,
+    "p": 0.7951024487756122,
+    "rho_session": -0.28021058733533855,
+    "rho_batch": 0.054945054945054944,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "porosity_block_cv",
+    "rho": 0.06813186813186813,
+    "p": 0.8025987006496752,
+    "rho_session": -0.5288974835954515,
+    "rho_batch": 0.08131868131868132,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "si_block_cv",
+    "rho": 0.1164835164835165,
+    "p": 0.7041479260369815,
+    "rho_session": 0.11908949961751886,
+    "rho_batch": -0.032967032967032975,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "solid_chord_hv_ratio",
+    "rho": 0.1912087912087912,
+    "p": 0.49975012493753124,
+    "rho_session": -0.4903685278368424,
+    "rho_batch": 0.12087912087912088,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "thin_solid_frac",
+    "rho": -0.2175824175824176,
+    "p": 0.4542728635682159,
+    "rho_session": 0.4728553661283838,
+    "rho_batch": -0.1956043956043956,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "depth_porosity_b0_frac",
+    "rho": 0.5252747252747253,
+    "p": 0.05897051474262868,
+    "rho_session": 0.6725054096048123,
+    "rho_batch": 0.5472527472527472,
+    "n": 14,
+    "q": 0.5159920039980009
+   },
+   {
+    "feature": "depth_interface_b0_per_um",
+    "rho": 0.5824175824175825,
+    "p": 0.03398300849575212,
+    "rho_session": 0.6970238359966545,
+    "rho_batch": 0.5340659340659341,
+    "n": 14,
+    "q": 0.5159920039980009
+   },
+   {
+    "feature": "depth_interface_b1_per_um",
+    "rho": -0.2527472527472528,
+    "p": 0.37881059470264866,
+    "rho_session": -0.014010529366766927,
+    "rho_batch": -0.24835164835164836,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "depth_interface_slope_per_10um",
+    "rho": 0.3538461538461538,
+    "p": 0.21889055472263869,
+    "rho_session": 0.1576184553761279,
+    "rho_batch": 0.3494505494505495,
+    "n": 14,
+    "q": 0.8648453551002276
+   },
+   {
+    "feature": "cc_interface_horiz_share_bottom_frac",
+    "rho": -0.1252747252747253,
+    "p": 0.657671164417791,
+    "rho_session": -0.19264477879304523,
+    "rho_batch": -0.22637362637362637,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "cc_interface_horiz_share_far_frac",
+    "rho": 0.02857142857142857,
+    "p": 0.928535732133933,
+    "rho_session": -0.024518426391842117,
+    "rho_batch": -0.015384615384615385,
+    "n": 14,
+    "q": 0.9525237381309345
+   },
+   {
+    "feature": "cc_interface_horiz_share_delta_frac",
+    "rho": -0.2043956043956044,
+    "p": 0.4962518740629685,
+    "rho_session": -0.028021058733533853,
+    "rho_batch": -0.24395604395604395,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "cc_interface_horiz_len_bottom_um",
+    "rho": -0.2571428571428571,
+    "p": 0.3683158420789605,
+    "rho_session": 0.22416846986827083,
+    "rho_batch": -0.23956043956043957,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "cc_interface_horiz_len_far_um",
+    "rho": -0.04175824175824176,
+    "p": 0.8930534732633684,
+    "rho_session": 0.16112108771781963,
+    "rho_batch": -0.06813186813186813,
+    "n": 14,
+    "q": 0.9525237381309345
+   },
+   {
+    "feature": "inlens_depth_dark_b0_frac",
+    "rho": -0.4813186813186813,
+    "p": 0.08945527236381809,
+    "rho_session": 0.44483430739484986,
+    "rho_batch": -0.5384615384615385,
+    "n": 14,
+    "q": 0.5422288855572214
+   },
+   {
+    "feature": "inlens_depth_dark_slope_per_10um",
+    "rho": -0.178021978021978,
+    "p": 0.5482258870564718,
+    "rho_session": 0.38528955758609046,
+    "rho_batch": -0.3230769230769231,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "inlens_depth_pore_slope_per_10um",
+    "rho": -0.4681318681318682,
+    "p": 0.09295352323838081,
+    "rho_session": -0.3152369107522558,
+    "rho_batch": -0.5560439560439561,
+    "n": 14,
+    "q": 0.5422288855572214
+   },
+   {
+    "feature": "local_porosity_q25_frac",
+    "rho": 0.11208791208791209,
+    "p": 0.7016491754122939,
+    "rho_session": 0.18563951410966176,
+    "rho_batch": 0.01978021978021978,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "local_porosity_dense_window_frac",
+    "rho": 0.178021978021978,
+    "p": 0.5462268865567217,
+    "rho_session": -0.11208423493413541,
+    "rho_batch": 0.1032967032967033,
+    "n": 14,
+    "q": 0.9061598233141493
+   },
+   {
+    "feature": "si_depth_b0_solid_frac",
+    "rho": -0.3538461538461538,
+    "p": 0.2223888055972014,
+    "rho_session": -0.2101579405015039,
+    "rho_batch": -0.21318681318681318,
+    "n": 14,
+    "q": 0.8648453551002276
+   },
+   {
+    "feature": "si_depth_b1_solid_frac",
+    "rho": -0.432967032967033,
+    "p": 0.1374312843578211,
+    "rho_session": 0.25218952860180466,
+    "rho_batch": -0.15164835164835166,
+    "n": 14,
+    "q": 0.6871564217891055
+   },
+   {
+    "feature": "si_depth_rel_slope_per_10um",
+    "rho": -0.5956043956043956,
+    "p": 0.029985007496251874,
+    "rho_session": -0.4798606308117672,
+    "rho_batch": -0.5208791208791209,
+    "n": 14,
+    "q": 0.5159920039980009
+   },
+   {
+    "feature": "si_depth_b0_d50_um",
+    "rho": -0.5296703296703297,
+    "p": 0.050974512743628186,
+    "rho_session": -0.5604211746706771,
+    "rho_batch": -0.3538461538461538,
+    "n": 14,
+    "q": 0.5159920039980009
+   },
+   {
+    "feature": "si_depth_b1_d50_um",
+    "rho": -0.01978021978021978,
+    "p": 0.9525237381309345,
+    "rho_session": 0.17162898474289487,
+    "rho_batch": 0.08131868131868132,
+    "n": 14,
+    "q": 0.9525237381309345
+   },
+   {
+    "feature": "si_depth_d50_slope_per_10um",
+    "rho": -0.1164835164835165,
+    "p": 0.696151924037981,
+    "rho_session": -0.44833693973654165,
+    "rho_batch": -0.1164835164835165,
+    "n": 14,
+    "q": 0.9061598233141493
+   }
+  ],
+  "PC1": [
+   {
+    "feature": "porosity_frac",
+    "rho": -0.11653225806451614,
+    "p": 0.5207396301849075,
+    "rho_session": -0.45566502463054176,
+    "rho_batch": -0.11572580645161293,
+    "n": 31,
+    "q": 0.7924298720205114
+   },
+   {
+    "feature": "si_solid_frac",
+    "rho": -0.2088709677419355,
+    "p": 0.2613693153423288,
+    "rho_session": -0.49064039408866983,
+    "rho_batch": -0.049193548387096775,
+    "n": 31,
+    "q": 0.5638357291942265
+   },
+   {
+    "feature": "si_n_per_1000um2",
+    "rho": -0.019157088512108806,
+    "p": 0.9175412293853074,
+    "rho_session": -0.11970443349753691,
+    "rho_batch": -0.015725806451612905,
+    "n": 31,
+    "q": 0.9640179910044978
+   },
+   {
+    "feature": "si_d50_um",
+    "rho": -0.07298387096774195,
+    "p": 0.688655672163918,
+    "rho_session": -0.2763546798029556,
+    "rho_batch": -0.07459677419354839,
+    "n": 31,
+    "q": 0.8848162125833635
+   },
+   {
+    "feature": "si_d90_um",
+    "rho": -0.08185483870967743,
+    "p": 0.6646676661669165,
+    "rho_session": -0.32118226600985217,
+    "rho_batch": -0.03346774193548387,
+    "n": 31,
+    "q": 0.8848162125833635
+   },
+   {
+    "feature": "si_aspect_aw",
+    "rho": -0.01088709677419355,
+    "p": 0.9545227386306847,
+    "rho_session": -0.2881773399014778,
+    "rho_batch": -0.15120967741935487,
+    "n": 31,
+    "q": 0.9640179910044978
+   },
+   {
+    "feature": "si_agglom_d50_um",
+    "rho": 0.0435483870967742,
+    "p": 0.8070964517741129,
+    "rho_session": -0.36995073891625607,
+    "rho_batch": -0.020967741935483872,
+    "n": 31,
+    "q": 0.9416125270697985
+   },
+   {
+    "feature": "interface_density_per_um",
+    "rho": -0.06290322580645162,
+    "p": 0.7331334332833583,
+    "rho_session": -0.6123152709359604,
+    "rho_batch": -0.04717741935483871,
+    "n": 31,
+    "q": 0.8848162125833635
+   },
+   {
+    "feature": "pore_n_per_1000um2",
+    "rho": 0.5888284047932391,
+    "p": 0.0009995002498750624,
+    "rho_session": -0.30788177339901474,
+    "rho_batch": 0.3159911336681526,
+    "n": 31,
+    "q": 0.008745627186406797
+   },
+   {
+    "feature": "solid_chord_x_um",
+    "rho": 0.016532258064516133,
+    "p": 0.9310344827586207,
+    "rho_session": 0.5753694581280787,
+    "rho_batch": -0.1733870967741936,
+    "n": 31,
+    "q": 0.9640179910044978
+   },
+   {
+    "feature": "solid_chord_y_um",
+    "rho": 0.1903225806451613,
+    "p": 0.3248375812093953,
+    "rho_session": 0.5339901477832512,
+    "rho_batch": -0.05,
+    "n": 31,
+    "q": 0.6316286301293798
+   },
+   {
+    "feature": "porosity_block_cv",
+    "rho": 0.26209677419354843,
+    "p": 0.14292853573213393,
+    "rho_session": 0.5172413793103448,
+    "rho_batch": -0.023387096774193553,
+    "n": 31,
+    "q": 0.3898050974512744
+   },
+   {
+    "feature": "si_block_cv",
+    "rho": 0.09798387096774194,
+    "p": 0.6051974012993503,
+    "rho_session": 0.21083743842364527,
+    "rho_batch": -0.05927419354838711,
+    "n": 31,
+    "q": 0.8825795435615524
+   },
+   {
+    "feature": "solid_chord_hv_ratio",
+    "rho": -0.2556451612903226,
+    "p": 0.15242378810594703,
+    "rho_session": 0.21034482758620687,
+    "rho_batch": -0.3798387096774194,
+    "n": 31,
+    "q": 0.3898050974512744
+   },
+   {
+    "feature": "thin_solid_frac",
+    "rho": 0.06895161290322582,
+    "p": 0.7141429285357321,
+    "rho_session": -0.5842364532019703,
+    "rho_batch": 0.09395161290322582,
+    "n": 31,
+    "q": 0.8848162125833635
+   },
+   {
+    "feature": "depth_porosity_b0_frac",
+    "rho": -0.5290322580645163,
+    "p": 0.0024987506246876563,
+    "rho_session": -0.7197044334975368,
+    "rho_batch": -0.28548387096774197,
+    "n": 31,
+    "q": 0.012493753123438282
+   },
+   {
+    "feature": "depth_interface_b0_per_um",
+    "rho": -0.6076612903225808,
+    "p": 0.0014992503748125937,
+    "rho_session": -0.7467980295566501,
+    "rho_batch": -0.27903225806451615,
+    "n": 31,
+    "q": 0.008745627186406797
+   },
+   {
+    "feature": "depth_interface_b1_per_um",
+    "rho": -0.20766129032258068,
+    "p": 0.27386306846576713,
+    "rho_session": -0.45369458128078805,
+    "rho_batch": 0.06411290322580646,
+    "n": 31,
+    "q": 0.5638357291942265
+   },
+   {
+    "feature": "depth_interface_slope_per_10um",
+    "rho": -0.6173387096774193,
+    "p": 0.0004997501249375312,
+    "rho_session": -0.4270935960591132,
+    "rho_batch": -0.21814516129032258,
+    "n": 31,
+    "q": 0.008745627186406797
+   },
+   {
+    "feature": "cc_interface_horiz_share_bottom_frac",
+    "rho": -0.27822580645161293,
+    "p": 0.1199400299850075,
+    "rho_session": -0.1719211822660098,
+    "rho_batch": -0.09677419354838711,
+    "n": 31,
+    "q": 0.3898050974512744
+   },
+   {
+    "feature": "cc_interface_horiz_share_far_frac",
+    "rho": -0.12258064516129034,
+    "p": 0.49825087456271866,
+    "rho_session": 0.029556650246305414,
+    "rho_batch": -0.08951612903225807,
+    "n": 31,
+    "q": 0.7924298720205114
+   },
+   {
+    "feature": "cc_interface_horiz_share_delta_frac",
+    "rho": -0.13911290322580647,
+    "p": 0.4427786106946527,
+    "rho_session": -0.17733990147783246,
+    "rho_batch": -0.00806451612903226,
+    "n": 31,
+    "q": 0.7379643511577545
+   },
+   {
+    "feature": "cc_interface_horiz_len_bottom_um",
+    "rho": -0.2681451612903226,
+    "p": 0.14592703648175911,
+    "rho_session": -0.1463054187192118,
+    "rho_batch": -0.05604838709677419,
+    "n": 31,
+    "q": 0.3898050974512744
+   },
+   {
+    "feature": "cc_interface_horiz_len_far_um",
+    "rho": -0.00846774193548387,
+    "p": 0.95952023988006,
+    "rho_session": -0.08029556650246304,
+    "rho_batch": -0.13870967741935486,
+    "n": 31,
+    "q": 0.9640179910044978
+   },
+   {
+    "feature": "inlens_depth_dark_b0_frac",
+    "rho": 0.651209677419355,
+    "p": 0.0004997501249375312,
+    "rho_session": 0.08965517241379309,
+    "rho_batch": 0.2923387096774194,
+    "n": 31,
+    "q": 0.008745627186406797
+   },
+   {
+    "feature": "inlens_depth_dark_slope_per_10um",
+    "rho": 0.4326612903225807,
+    "p": 0.01699150424787606,
+    "rho_session": 0.20591133004926104,
+    "rho_batch": 0.20443548387096774,
+    "n": 31,
+    "q": 0.07190849019934477
+   },
+   {
+    "feature": "inlens_depth_pore_slope_per_10um",
+    "rho": 0.5750000000000001,
+    "p": 0.0014992503748125937,
+    "rho_session": 0.06945812807881772,
+    "rho_batch": 0.3455645161290323,
+    "n": 31,
+    "q": 0.008745627186406797
+   },
+   {
+    "feature": "local_porosity_q25_frac",
+    "rho": -0.2556451612903226,
+    "p": 0.15592203898050974,
+    "rho_session": -0.4625615763546797,
+    "rho_batch": -0.005241935483870968,
+    "n": 31,
+    "q": 0.3898050974512744
+   },
+   {
+    "feature": "local_porosity_dense_window_frac",
+    "rho": 0.16273442557128218,
+    "p": 0.3933033483258371,
+    "rho_session": 0.33152709359605903,
+    "rho_batch": -0.0661356994993234,
+    "n": 31,
+    "q": 0.6882808595702149
+   },
+   {
+    "feature": "si_depth_b0_solid_frac",
+    "rho": 0.41935483870967744,
+    "p": 0.018490754622688656,
+    "rho_session": 0.27241379310344827,
+    "rho_batch": 0.4290322580645162,
+    "n": 31,
+    "q": 0.07190849019934477
+   },
+   {
+    "feature": "si_depth_b1_solid_frac",
+    "rho": -0.010080645161290324,
+    "p": 0.9640179910044977,
+    "rho_session": -0.5241379310344827,
+    "rho_batch": 0.14758064516129032,
+    "n": 31,
+    "q": 0.9640179910044978
+   },
+   {
+    "feature": "si_depth_rel_slope_per_10um",
+    "rho": 0.23185483870967746,
+    "p": 0.20089955022488756,
+    "rho_session": 0.21428571428571425,
+    "rho_batch": 0.2625,
+    "n": 31,
+    "q": 0.4687656171914043
+   },
+   {
+    "feature": "si_depth_b0_d50_um",
+    "rho": 0.567741935483871,
+    "p": 0.0014992503748125937,
+    "rho_session": 0.3980295566502462,
+    "rho_batch": 0.4758064516129033,
+    "n": 31,
+    "q": 0.008745627186406797
+   },
+   {
+    "feature": "si_depth_b1_d50_um",
+    "rho": 0.07096774193548387,
+    "p": 0.6851574212893553,
+    "rho_session": -0.3837438423645319,
+    "rho_batch": -0.0903225806451613,
+    "n": 31,
+    "q": 0.8848162125833635
+   },
+   {
+    "feature": "si_depth_d50_slope_per_10um",
+    "rho": 0.1616935483870968,
+    "p": 0.3888055972013993,
+    "rho_session": 0.1842364532019704,
+    "rho_batch": 0.11935483870967743,
+    "n": 31,
+    "q": 0.6882808595702149
+   }
+  ],
+  "PC2": [
+   {
+    "feature": "porosity_frac",
+    "rho": -0.4108870967741936,
+    "p": 0.02498750624687656,
+    "rho_session": 0.2891625615763546,
+    "rho_batch": -0.3713709677419355,
+    "n": 31,
+    "q": 0.1949025487256372
+   },
+   {
+    "feature": "si_solid_frac",
+    "rho": 0.3266129032258065,
+    "p": 0.0734632683658171,
+    "rho_session": 0.2950738916256157,
+    "rho_batch": 0.2935483870967742,
+    "n": 31,
+    "q": 0.26713915769388036
+   },
+   {
+    "feature": "si_n_per_1000um2",
+    "rho": 0.26658601066324045,
+    "p": 0.14392803598200898,
+    "rho_session": -0.22019704433497533,
+    "rho_batch": 0.2512096774193549,
+    "n": 31,
+    "q": 0.3871397634516075
+   },
+   {
+    "feature": "si_d50_um",
+    "rho": 0.10120967741935485,
+    "p": 0.5717141429285357,
+    "rho_session": 0.0566502463054187,
+    "rho_batch": 0.09475806451612903,
+    "n": 31,
+    "q": 0.80039980009995
+   },
+   {
+    "feature": "si_d90_um",
+    "rho": 0.25685483870967746,
+    "p": 0.15642178910544727,
+    "rho_session": 0.225615763546798,
+    "rho_batch": 0.1975806451612903,
+    "n": 31,
+    "q": 0.3871397634516075
+   },
+   {
+    "feature": "si_aspect_aw",
+    "rho": 0.22258064516129034,
+    "p": 0.23388305847076463,
+    "rho_session": 0.11083743842364528,
+    "rho_batch": 0.22258064516129034,
+    "n": 31,
+    "q": 0.45477261369315347
+   },
+   {
+    "feature": "si_agglom_d50_um",
+    "rho": 0.1338709677419355,
+    "p": 0.47176411794102946,
+    "rho_session": -0.0004926108374384235,
+    "rho_batch": 0.18548387096774197,
+    "n": 31,
+    "q": 0.7179019186059143
+   },
+   {
+    "feature": "interface_density_per_um",
+    "rho": -0.3705645161290323,
+    "p": 0.038980509745127435,
+    "rho_session": 0.47438423645320177,
+    "rho_batch": -0.35161290322580646,
+    "n": 31,
+    "q": 0.1949025487256372
+   },
+   {
+    "feature": "pore_n_per_1000um2",
+    "rho": -0.010284331727553149,
+    "p": 0.9590204897551224,
+    "rho_session": 0.043842364532019694,
+    "rho_batch": 0.030852995182659444,
+    "n": 31,
+    "q": 0.9872269747479203
+   },
+   {
+    "feature": "solid_chord_x_um",
+    "rho": 0.32016129032258067,
+    "p": 0.0814592703648176,
+    "rho_session": -0.4576354679802954,
+    "rho_batch": 0.2911290322580646,
+    "n": 31,
+    "q": 0.26713915769388036
+   },
+   {
+    "feature": "solid_chord_y_um",
+    "rho": 0.3395161290322581,
+    "p": 0.06446776611694154,
+    "rho_session": -0.4532019704433496,
+    "rho_batch": 0.35403225806451616,
+    "n": 31,
+    "q": 0.26713915769388036
+   },
+   {
+    "feature": "porosity_block_cv",
+    "rho": 0.22822580645161292,
+    "p": 0.2158920539730135,
+    "rho_session": -0.42955665024630535,
+    "rho_batch": 0.2903225806451613,
+    "n": 31,
+    "q": 0.44448364053267486
+   },
+   {
+    "feature": "si_block_cv",
+    "rho": -0.07540322580645163,
+    "p": 0.6671664167916042,
+    "rho_session": 0.41576354679802946,
+    "rho_batch": -0.08629032258064517,
+    "n": 31,
+    "q": 0.8539480259870065
+   },
+   {
+    "feature": "solid_chord_hv_ratio",
+    "rho": -0.0814516129032258,
+    "p": 0.6746626686656672,
+    "rho_session": 0.04630541871921181,
+    "rho_batch": -0.1366935483870968,
+    "n": 31,
+    "q": 0.8539480259870065
+   },
+   {
+    "feature": "thin_solid_frac",
+    "rho": -0.3181451612903226,
+    "p": 0.08395802098950525,
+    "rho_session": 0.4669950738916255,
+    "rho_batch": -0.3125,
+    "n": 31,
+    "q": 0.26713915769388036
+   },
+   {
+    "feature": "depth_porosity_b0_frac",
+    "rho": -0.24475806451612908,
+    "p": 0.17891054472763618,
+    "rho_session": 0.4236453201970442,
+    "rho_batch": -0.310483870967742,
+    "n": 31,
+    "q": 0.39136681659170414
+   },
+   {
+    "feature": "depth_interface_b0_per_um",
+    "rho": -0.17661290322580647,
+    "p": 0.3288355822088955,
+    "rho_session": 0.49113300492610823,
+    "rho_batch": -0.2995967741935484,
+    "n": 31,
+    "q": 0.5480593036814925
+   },
+   {
+    "feature": "depth_interface_b1_per_um",
+    "rho": -0.37096774193548393,
+    "p": 0.0384807596201899,
+    "rho_session": 0.37586206896551716,
+    "rho_batch": -0.355241935483871,
+    "n": 31,
+    "q": 0.1949025487256372
+   },
+   {
+    "feature": "depth_interface_slope_per_10um",
+    "rho": 0.05,
+    "p": 0.7896051974012993,
+    "rho_session": 0.027093596059113295,
+    "rho_batch": 0.037096774193548385,
+    "n": 31,
+    "q": 0.891489739001467
+   },
+   {
+    "feature": "cc_interface_horiz_share_bottom_frac",
+    "rho": -0.20362903225806453,
+    "p": 0.2653673163418291,
+    "rho_session": 0.12364532019704431,
+    "rho_batch": -0.24717741935483872,
+    "n": 31,
+    "q": 0.48800599700149927
+   },
+   {
+    "feature": "cc_interface_horiz_share_far_frac",
+    "rho": 0.00040322580645161296,
+    "p": 0.9995002498750625,
+    "rho_session": 0.024137931034482755,
+    "rho_batch": 0.0217741935483871,
+    "n": 31,
+    "q": 0.9995002498750625
+   },
+   {
+    "feature": "cc_interface_horiz_share_delta_frac",
+    "rho": -0.15000000000000002,
+    "p": 0.4062968515742129,
+    "rho_session": 0.03201970443349753,
+    "rho_batch": -0.22177419354838712,
+    "n": 31,
+    "q": 0.646381354777157
+   },
+   {
+    "feature": "cc_interface_horiz_len_bottom_um",
+    "rho": 0.02217741935483871,
+    "p": 0.9170414792603698,
+    "rho_session": 0.07980295566502461,
+    "rho_batch": -0.03991935483870968,
+    "n": 31,
+    "q": 0.9726197507306953
+   },
+   {
+    "feature": "cc_interface_horiz_len_far_um",
+    "rho": 0.06088709677419355,
+    "p": 0.7586206896551724,
+    "rho_session": -0.019211822660098517,
+    "rho_batch": 0.0778225806451613,
+    "n": 31,
+    "q": 0.891489739001467
+   },
+   {
+    "feature": "inlens_depth_dark_b0_frac",
+    "rho": -0.25685483870967746,
+    "p": 0.16591704147926037,
+    "rho_session": -0.280295566502463,
+    "rho_batch": -0.2120967741935484,
+    "n": 31,
+    "q": 0.3871397634516075
+   },
+   {
+    "feature": "inlens_depth_dark_slope_per_10um",
+    "rho": -0.19112903225806452,
+    "p": 0.27886056971514245,
+    "rho_session": -0.3226600985221674,
+    "rho_batch": -0.20927419354838714,
+    "n": 31,
+    "q": 0.48800599700149927
+   },
+   {
+    "feature": "inlens_depth_pore_slope_per_10um",
+    "rho": -0.2834677419354839,
+    "p": 0.11144427786106946,
+    "rho_session": -0.23054187192118217,
+    "rho_batch": -0.18467741935483872,
+    "n": 31,
+    "q": 0.32504581042811925
+   },
+   {
+    "feature": "local_porosity_q25_frac",
+    "rho": -0.42862903225806454,
+    "p": 0.018490754622688656,
+    "rho_session": 0.48669950738916246,
+    "rho_batch": -0.38104838709677424,
+    "n": 31,
+    "q": 0.1949025487256372
+   },
+   {
+    "feature": "local_porosity_dense_window_frac",
+    "rho": 0.39080460564701963,
+    "p": 0.03498250874562719,
+    "rho_session": -0.23694581280788174,
+    "rho_batch": 0.37604597428731135,
+    "n": 31,
+    "q": 0.1949025487256372
+   },
+   {
+    "feature": "si_depth_b0_solid_frac",
+    "rho": 0.07862903225806453,
+    "p": 0.6831584207896052,
+    "rho_session": 0.029556650246305414,
+    "rho_batch": 0.21088709677419357,
+    "n": 31,
+    "q": 0.8539480259870065
+   },
+   {
+    "feature": "si_depth_b1_solid_frac",
+    "rho": 0.5024193548387098,
+    "p": 0.004997501249375313,
+    "rho_session": 0.39901477832512305,
+    "rho_batch": 0.48991935483870974,
+    "n": 31,
+    "q": 0.17491254372813594
+   },
+   {
+    "feature": "si_depth_rel_slope_per_10um",
+    "rho": 0.029032258064516134,
+    "p": 0.8650674662668666,
+    "rho_session": -0.0669950738916256,
+    "rho_batch": 0.031854838709677424,
+    "n": 31,
+    "q": 0.9461675412293853
+   },
+   {
+    "feature": "si_depth_b0_d50_um",
+    "rho": 0.11653225806451614,
+    "p": 0.5337331334332833,
+    "rho_session": 0.002955665024630541,
+    "rho_batch": 0.11935483870967743,
+    "n": 31,
+    "q": 0.7783608195902049
+   },
+   {
+    "feature": "si_depth_b1_d50_um",
+    "rho": 0.4625000000000001,
+    "p": 0.012993503248375811,
+    "rho_session": 0.3039408866995073,
+    "rho_batch": 0.4883064516129033,
+    "n": 31,
+    "q": 0.1949025487256372
+   },
+   {
+    "feature": "si_depth_d50_slope_per_10um",
+    "rho": 0.05241935483870968,
+    "p": 0.7816091954022989,
+    "rho_session": 0.15960591133004923,
+    "rho_batch": 0.06572580645161291,
+    "n": 31,
+    "q": 0.891489739001467
+   }
+  ],
+  "PC3": [
+   {
+    "feature": "porosity_frac",
+    "rho": -0.2548387096774194,
+    "p": 0.15692153923038482,
+    "rho_session": 0.20492610837438419,
+    "rho_batch": -0.3048387096774194,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "si_solid_frac",
+    "rho": 0.32862903225806456,
+    "p": 0.08295852073963018,
+    "rho_session": -0.13004926108374382,
+    "rho_batch": 0.2754032258064516,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "si_n_per_1000um2",
+    "rho": 0.6676749480378132,
+    "p": 0.0004997501249375312,
+    "rho_session": 0.5773399014778323,
+    "rho_batch": 0.7020161290322581,
+    "n": 31,
+    "q": 0.017491254372813594
+   },
+   {
+    "feature": "si_d50_um",
+    "rho": 0.07217741935483872,
+    "p": 0.7026486756621689,
+    "rho_session": -0.35960591133004915,
+    "rho_batch": -0.09475806451612903,
+    "n": 31,
+    "q": 0.7685219890054973
+   },
+   {
+    "feature": "si_d90_um",
+    "rho": 0.19959677419354843,
+    "p": 0.263368315842079,
+    "rho_session": -0.2995073891625615,
+    "rho_batch": 0.15685483870967742,
+    "n": 31,
+    "q": 0.5256582235198191
+   },
+   {
+    "feature": "si_aspect_aw",
+    "rho": 0.2717741935483871,
+    "p": 0.1424287856071964,
+    "rho_session": 0.49605911330049257,
+    "rho_batch": 0.16572580645161292,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "si_agglom_d50_um",
+    "rho": 0.1903225806451613,
+    "p": 0.28535732133933034,
+    "rho_session": -0.267487684729064,
+    "rho_batch": 0.15685483870967742,
+    "n": 31,
+    "q": 0.5256582235198191
+   },
+   {
+    "feature": "interface_density_per_um",
+    "rho": -0.15685483870967742,
+    "p": 0.3938030984507746,
+    "rho_session": 0.10738916256157634,
+    "rho_batch": -0.15685483870967742,
+    "n": 31,
+    "q": 0.5513243378310845
+   },
+   {
+    "feature": "pore_n_per_1000um2",
+    "rho": 0.09054244991512478,
+    "p": 0.6241879060469765,
+    "rho_session": 0.13103448275862067,
+    "rho_batch": 0.11958056302821603,
+    "n": 31,
+    "q": 0.7282192237214726
+   },
+   {
+    "feature": "solid_chord_x_um",
+    "rho": 0.16774193548387098,
+    "p": 0.36431784107946025,
+    "rho_session": 0.00985221674876847,
+    "rho_batch": 0.24475806451612908,
+    "n": 31,
+    "q": 0.5513243378310845
+   },
+   {
+    "feature": "solid_chord_y_um",
+    "rho": 0.21975806451612906,
+    "p": 0.2448775612193903,
+    "rho_session": -0.11379310344827585,
+    "rho_batch": 0.26895161290322583,
+    "n": 31,
+    "q": 0.5256582235198191
+   },
+   {
+    "feature": "porosity_block_cv",
+    "rho": 0.37500000000000006,
+    "p": 0.0384807596201899,
+    "rho_session": -0.015763546798029552,
+    "rho_batch": 0.5012096774193548,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "si_block_cv",
+    "rho": -0.13185483870967743,
+    "p": 0.49225387306346824,
+    "rho_session": -0.06354679802955664,
+    "rho_batch": -0.31612903225806455,
+    "n": 31,
+    "q": 0.6381068724896811
+   },
+   {
+    "feature": "solid_chord_hv_ratio",
+    "rho": -0.13306451612903228,
+    "p": 0.48825587206396803,
+    "rho_session": 0.434975369458128,
+    "rho_batch": -0.19112903225806452,
+    "n": 31,
+    "q": 0.6381068724896811
+   },
+   {
+    "feature": "thin_solid_frac",
+    "rho": -0.19879032258064516,
+    "p": 0.272863568215892,
+    "rho_session": 0.21871921182266005,
+    "rho_batch": -0.2701612903225806,
+    "n": 31,
+    "q": 0.5256582235198191
+   },
+   {
+    "feature": "depth_porosity_b0_frac",
+    "rho": -0.26048387096774195,
+    "p": 0.1549225387306347,
+    "rho_session": 0.15566502463054185,
+    "rho_batch": -0.3310483870967742,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "depth_interface_b0_per_um",
+    "rho": -0.2818548387096775,
+    "p": 0.1294352823588206,
+    "rho_session": 0.1763546798029556,
+    "rho_batch": -0.39919354838709686,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "depth_interface_b1_per_um",
+    "rho": -0.2818548387096775,
+    "p": 0.12493753123438281,
+    "rho_session": -0.14532019704433494,
+    "rho_batch": -0.4,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "depth_interface_slope_per_10um",
+    "rho": -0.18951612903225806,
+    "p": 0.3278360819590205,
+    "rho_session": -0.08916256157635466,
+    "rho_batch": -0.1709677419354839,
+    "n": 31,
+    "q": 0.5414338285402753
+   },
+   {
+    "feature": "cc_interface_horiz_share_bottom_frac",
+    "rho": -0.4120967741935484,
+    "p": 0.02448775612193903,
+    "rho_session": -0.27192118226600975,
+    "rho_batch": -0.4879032258064517,
+    "n": 31,
+    "q": 0.42853573213393303
+   },
+   {
+    "feature": "cc_interface_horiz_share_far_frac",
+    "rho": -0.1629032258064516,
+    "p": 0.391304347826087,
+    "rho_session": -0.018719211822660092,
+    "rho_batch": -0.21653225806451612,
+    "n": 31,
+    "q": 0.5513243378310845
+   },
+   {
+    "feature": "cc_interface_horiz_share_delta_frac",
+    "rho": -0.18548387096774197,
+    "p": 0.32533733133433285,
+    "rho_session": -0.17389162561576352,
+    "rho_batch": -0.20645161290322583,
+    "n": 31,
+    "q": 0.5414338285402753
+   },
+   {
+    "feature": "cc_interface_horiz_len_bottom_um",
+    "rho": -0.26532258064516134,
+    "p": 0.1504247876061969,
+    "rho_session": 0.08768472906403939,
+    "rho_batch": -0.29475806451612907,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "cc_interface_horiz_len_far_um",
+    "rho": -0.055645161290322584,
+    "p": 0.7786106946526736,
+    "rho_session": 0.0566502463054187,
+    "rho_batch": -0.04637096774193549,
+    "n": 31,
+    "q": 0.8257992216013205
+   },
+   {
+    "feature": "inlens_depth_dark_b0_frac",
+    "rho": -0.048387096774193554,
+    "p": 0.8035982008995503,
+    "rho_session": 0.07487684729064037,
+    "rho_batch": -0.006451612903225807,
+    "n": 31,
+    "q": 0.8272334421024782
+   },
+   {
+    "feature": "inlens_depth_dark_slope_per_10um",
+    "rho": 0.16935483870967744,
+    "p": 0.3403298350824588,
+    "rho_session": -0.026108374384236445,
+    "rho_batch": 0.09919354838709678,
+    "n": 31,
+    "q": 0.5414338285402753
+   },
+   {
+    "feature": "inlens_depth_pore_slope_per_10um",
+    "rho": -0.08266129032258066,
+    "p": 0.6616691654172914,
+    "rho_session": -0.19211822660098518,
+    "rho_batch": -0.12217741935483874,
+    "n": 31,
+    "q": 0.7470458319227483
+   },
+   {
+    "feature": "local_porosity_q25_frac",
+    "rho": -0.2838709677419355,
+    "p": 0.12593703148425786,
+    "rho_session": -0.02068965517241379,
+    "rho_batch": -0.360483870967742,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "local_porosity_dense_window_frac",
+    "rho": 0.26416616790381614,
+    "p": 0.1629185407296352,
+    "rho_session": -0.15862068965517237,
+    "rho_batch": 0.3732231090647792,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "si_depth_b0_solid_frac",
+    "rho": 0.2967741935483871,
+    "p": 0.09945027486256872,
+    "rho_session": -0.07881773399014776,
+    "rho_batch": 0.29596774193548386,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "si_depth_b1_solid_frac",
+    "rho": 0.20362903225806453,
+    "p": 0.27636181909045476,
+    "rho_session": -0.19753694581280784,
+    "rho_batch": 0.25524193548387103,
+    "n": 31,
+    "q": 0.5256582235198191
+   },
+   {
+    "feature": "si_depth_rel_slope_per_10um",
+    "rho": 0.09838709677419355,
+    "p": 0.5952023988005997,
+    "rho_session": 0.15566502463054185,
+    "rho_batch": 0.04556451612903226,
+    "n": 31,
+    "q": 0.7183477226903789
+   },
+   {
+    "feature": "si_depth_b0_d50_um",
+    "rho": -0.03427419354838711,
+    "p": 0.8470764617691154,
+    "rho_session": -0.026108374384236445,
+    "rho_batch": 0.058467741935483875,
+    "n": 31,
+    "q": 0.8470764617691154
+   },
+   {
+    "feature": "si_depth_b1_d50_um",
+    "rho": 0.24717741935483872,
+    "p": 0.1744127936031984,
+    "rho_session": -0.1334975369458128,
+    "rho_batch": 0.26612903225806456,
+    "n": 31,
+    "q": 0.436031984007996
+   },
+   {
+    "feature": "si_depth_d50_slope_per_10um",
+    "rho": 0.11129032258064517,
+    "p": 0.5392303848075962,
+    "rho_session": -0.196551724137931,
+    "rho_batch": 0.10040322580645164,
+    "n": 31,
+    "q": 0.6740379810094953
+   }
+  ]
+ },
+ "explained": {
+  "B3_score": {
+   "top3": {
+    "r2": -0.1989284866839156,
+    "p": 0.3137254901960784,
+    "n_features": 3,
+    "null95": -0.04372958228444608
+   },
+   "all": {
+    "r2": -0.6561284758676575,
+    "p": 0.8235294117647058,
+    "n_features": 35,
+    "null95": -0.03387930901148384
+   },
+   "tile features": {
+    "r2": -0.4950040802989337,
+    "p": 0.8235294117647058,
+    "n_features": 17,
+    "null95": -0.0446303420596769
+   },
+   "depth profile": {
+    "r2": 0.16653088561515406,
+    "p": 0.0196078431372549,
+    "n_features": 5,
+    "null95": 0.08912209993393563
+   },
+   "plug-ins": {
+    "r2": -0.24430181846980625,
+    "p": 0.803921568627451,
+    "n_features": 13,
+    "null95": -0.01268264225156611
+   }
+  },
+  "B2_vs_B1": {
+   "top3": {
+    "r2": -0.80874220484605,
+    "p": 0.6470588235294118,
+    "n_features": 3,
+    "null95": -0.0176906771629409
+   },
+   "all": {
+    "r2": -0.5624789051580861,
+    "p": 0.7254901960784313,
+    "n_features": 35,
+    "null95": -0.10661642946103075
+   },
+   "tile features": {
+    "r2": -0.9179629108514404,
+    "p": 0.7450980392156863,
+    "n_features": 17,
+    "null95": -0.059835495690173636
+   },
+   "depth profile": {
+    "r2": 0.02563524047520005,
+    "p": 0.13725490196078433,
+    "n_features": 5,
+    "null95": 0.3006561562885203
+   },
+   "plug-ins": {
+    "r2": -0.48426755717014514,
+    "p": 0.6470588235294118,
+    "n_features": 13,
+    "null95": -0.13219487361162938
+   }
+  },
+  "PC1": {
+   "top3": {
+    "r2": 0.027253134129734402,
+    "p": 0.1568627450980392,
+    "n_features": 3,
+    "null95": 0.1294309275433077
+   },
+   "all": {
+    "r2": -1.0619352020762438,
+    "p": 0.9803921568627451,
+    "n_features": 35,
+    "null95": -0.03467770604384663
+   },
+   "tile features": {
+    "r2": -1.144734471630378,
+    "p": 0.9411764705882353,
+    "n_features": 17,
+    "null95": 0.0014268838469431318
+   },
+   "depth profile": {
+    "r2": 0.2731884995072563,
+    "p": 0.0392156862745098,
+    "n_features": 5,
+    "null95": 0.0849323539426603
+   },
+   "plug-ins": {
+    "r2": -0.16070632835361875,
+    "p": 0.7058823529411765,
+    "n_features": 13,
+    "null95": -0.03625001810699379
+   }
+  },
+  "PC2": {
+   "top3": {
+    "r2": -0.27322150976113924,
+    "p": 0.6862745098039216,
+    "n_features": 3,
+    "null95": 0.06058561179607453
+   },
+   "all": {
+    "r2": -0.22311140635033588,
+    "p": 0.7058823529411765,
+    "n_features": 35,
+    "null95": -0.035586174121728126
+   },
+   "tile features": {
+    "r2": -0.27235928665420395,
+    "p": 0.7843137254901961,
+    "n_features": 17,
+    "null95": -0.03824908372498148
+   },
+   "depth profile": {
+    "r2": -0.17906079904707384,
+    "p": 0.8235294117647058,
+    "n_features": 5,
+    "null95": -0.02597632650457663
+   },
+   "plug-ins": {
+    "r2": -0.24575666211448177,
+    "p": 0.8431372549019608,
+    "n_features": 13,
+    "null95": 0.004397480375929297
+   }
+  },
+  "PC3": {
+   "top3": {
+    "r2": -1.14844029902957,
+    "p": 0.9803921568627451,
+    "n_features": 3,
+    "null95": 0.023158520920276857
+   },
+   "all": {
+    "r2": -0.44875213190906527,
+    "p": 0.7647058823529411,
+    "n_features": 35,
+    "null95": -0.03299345065728188
+   },
+   "tile features": {
+    "r2": -0.9328485583971733,
+    "p": 0.9607843137254902,
+    "n_features": 17,
+    "null95": -0.03921710688692375
+   },
+   "depth profile": {
+    "r2": -0.29424714669941365,
+    "p": 0.9607843137254902,
+    "n_features": 5,
+    "null95": -0.03511065631516975
+   },
+   "plug-ins": {
+    "r2": -0.34158691379717854,
+    "p": 0.9607843137254902,
+    "n_features": 13,
+    "null95": -0.04804796208315375
+   }
+  }
+ },
+ "spots": [
+  {
+   "sample_id": "4ih2ggld",
+   "batch": 1,
+   "session": 2316,
+   "B3_score": -7.3821224197686925,
+   "B2_vs_B1": 1.2112322159376205,
+   "PC1": 0.8219555502798164,
+   "PC2": 0.2678697506826806,
+   "PC3": 0.7355653497068955
+  },
+  {
+   "sample_id": "5n1q8atc",
+   "batch": 1,
+   "session": 2316,
+   "B3_score": -5.534663160320506,
+   "B2_vs_B1": -0.7553703207266357,
+   "PC1": 0.7273595203011411,
+   "PC2": 0.22244851446883915,
+   "PC3": 0.6168951665850091
+  },
+  {
+   "sample_id": "f1vzngrs",
+   "batch": 1,
+   "session": 2148,
+   "B3_score": -7.504451456456747,
+   "B2_vs_B1": -2.197699201093612,
+   "PC1": 0.972462322289064,
+   "PC2": 0.2667030555770047,
+   "PC3": -0.3406369198950437
+  },
+  {
+   "sample_id": "ffwubibz",
+   "batch": 1,
+   "session": 2080,
+   "B3_score": -2.1004163968783947,
+   "B2_vs_B1": 1.6987656789367462,
+   "PC1": 0.41966392121372986,
+   "PC2": -0.22453418135355724,
+   "PC3": -0.33327442486648273
+  },
+  {
+   "sample_id": "fzrt2k6r",
+   "batch": 1,
+   "session": 2156,
+   "B3_score": -5.2471153713773715,
+   "B2_vs_B1": -2.0280404684612265,
+   "PC1": 0.6416898225680272,
+   "PC2": -0.16260592784072436,
+   "PC3": 0.10571024256370606
+  },
+  {
+   "sample_id": "iv6g2oq0",
+   "batch": 1,
+   "session": 1780,
+   "B3_score": -2.812992014425537,
+   "B2_vs_B1": 1.0900478555347308,
+   "PC1": 0.4542623566466567,
+   "PC2": -0.6107204122034722,
+   "PC3": 0.045865844355551924
+  },
+  {
+   "sample_id": "uhdslk0o",
+   "batch": 1,
+   "session": 1880,
+   "B3_score": -2.6631540845809356,
+   "B2_vs_B1": 1.091190582484432,
+   "PC1": 0.31312253033104653,
+   "PC2": 0.10745638046635927,
+   "PC3": 0.2208438363391641
+  },
+  {
+   "sample_id": "3806gxp0",
+   "batch": 2,
+   "session": 2048,
+   "B3_score": -5.452763791621243,
+   "B2_vs_B1": 0.5879814166007039,
+   "PC1": 0.5427549597563077,
+   "PC2": 0.20471222655830165,
+   "PC3": -0.2938142793755616
+  },
+  {
+   "sample_id": "avn74qx1",
+   "batch": 2,
+   "session": 2048,
+   "B3_score": -8.990580895110046,
+   "B2_vs_B1": -5.940515682061359,
+   "PC1": 1.1447136126837099,
+   "PC2": 0.004458150445405541,
+   "PC3": -0.2657683771555146
+  },
+  {
+   "sample_id": "b3esycq1",
+   "batch": 2,
+   "session": 2156,
+   "B3_score": -3.2721625600261817,
+   "B2_vs_B1": -1.523810339974022,
+   "PC1": 0.37661285307081793,
+   "PC2": -0.19290983226095304,
+   "PC3": 0.13806002060753386
+  },
+  {
+   "sample_id": "epqdaau9",
+   "batch": 2,
+   "session": 2148,
+   "B3_score": -1.873672900211881,
+   "B2_vs_B1": -0.652487100490012,
+   "PC1": 0.5273062231348999,
+   "PC2": 0.733979687846176,
+   "PC3": -0.5426276926924266
+  },
+  {
+   "sample_id": "i9jiqjwl",
+   "batch": 2,
+   "session": 2272,
+   "B3_score": -3.436646616512717,
+   "B2_vs_B1": -0.32243944628195415,
+   "PC1": 0.226268948718336,
+   "PC2": -0.7987075882629535,
+   "PC3": 0.05319397451444691
+  },
+  {
+   "sample_id": "r17byphk",
+   "batch": 2,
+   "session": 2080,
+   "B3_score": 4.314439011199909,
+   "B2_vs_B1": 2.7721423734636126,
+   "PC1": -0.3433938601885724,
+   "PC2": -0.2884681538140198,
+   "PC3": 0.02756831163264698
+  },
+  {
+   "sample_id": "rxax5ozo",
+   "batch": 2,
+   "session": 2068,
+   "B3_score": -1.0788853727900054,
+   "B2_vs_B1": 1.3667510113952355,
+   "PC1": 0.18003947927163855,
+   "PC2": 0.029126332616780243,
+   "PC3": -0.0883371076062748
+  },
+  {
+   "sample_id": "0grcilhi",
+   "batch": 3,
+   "session": 1904,
+   "B3_score": 6.58868324331496,
+   "B2_vs_B1": null,
+   "PC1": -0.855754825805762,
+   "PC2": 0.17286671415095775,
+   "PC3": -0.2547472943035413
+  },
+  {
+   "sample_id": "71vgq3fw",
+   "batch": 3,
+   "session": 2060,
+   "B3_score": 3.6755343500492192,
+   "B2_vs_B1": null,
+   "PC1": -0.6514412992537608,
+   "PC2": 0.024668384743919317,
+   "PC3": 0.31728313692617816
+  },
+  {
+   "sample_id": "9luzk4jm",
+   "batch": 3,
+   "session": 2088,
+   "B3_score": 3.3677715798248697,
+   "B2_vs_B1": null,
+   "PC1": -0.5485992605385146,
+   "PC2": -0.004956466518551011,
+   "PC3": -0.20204008798027817
+  },
+  {
+   "sample_id": "cfe5vt7s",
+   "batch": 3,
+   "session": 2080,
+   "B3_score": 4.19502310835064,
+   "B2_vs_B1": null,
+   "PC1": -0.23960709517915305,
+   "PC2": 0.012600962531715844,
+   "PC3": -0.2448452814734841
+  },
+  {
+   "sample_id": "hawkfj64",
+   "batch": 3,
+   "session": 1904,
+   "B3_score": 3.504179249349179,
+   "B2_vs_B1": null,
+   "PC1": -0.49032310123910416,
+   "PC2": 0.05834722298779657,
+   "PC3": -0.03532588468085161
+  },
+  {
+   "sample_id": "hzumfsms",
+   "batch": 3,
+   "session": 2088,
+   "B3_score": 2.767575254144275,
+   "B2_vs_B1": null,
+   "PC1": -0.6555816696535596,
+   "PC2": -0.146616705800891,
+   "PC3": -0.03361222926182546
+  },
+  {
+   "sample_id": "kbdh4tri",
+   "batch": 3,
+   "session": 2060,
+   "B3_score": 2.4439602151997457,
+   "B2_vs_B1": null,
+   "PC1": -0.5541659818328584,
+   "PC2": -0.014996764355013566,
+   "PC3": 0.39261983207039963
+  },
+  {
+   "sample_id": "mgxahqnk",
+   "batch": 3,
+   "session": 1904,
+   "B3_score": 5.739260083004007,
+   "B2_vs_B1": null,
+   "PC1": -0.5541663896326167,
+   "PC2": 0.2190512673576732,
+   "PC3": -0.10113713624134599
+  },
+  {
+   "sample_id": "pl8uabbv",
+   "batch": 3,
+   "session": 2272,
+   "B3_score": -1.2452546899013799,
+   "B2_vs_B1": null,
+   "PC1": 0.09853893586609808,
+   "PC2": -0.15930956650095715,
+   "PC3": 0.17240214185258218
+  },
+  {
+   "sample_id": "ptg8lmto",
+   "batch": 3,
+   "session": 1612,
+   "B3_score": 5.53114638813904,
+   "B2_vs_B1": null,
+   "PC1": -0.17868255230988916,
+   "PC2": 0.3188719224183954,
+   "PC3": 0.0030042856967476537
+  },
+  {
+   "sample_id": "tuy3zymq",
+   "batch": 3,
+   "session": 2060,
+   "B3_score": 2.5155201438138364,
+   "B2_vs_B1": null,
+   "PC1": -0.47194214314143096,
+   "PC2": -0.07530322942504988,
+   "PC3": 0.4917660998188426
+  },
+  {
+   "sample_id": "ufdvpb81",
+   "batch": 3,
+   "session": 2088,
+   "B3_score": -3.411464422651907,
+   "B2_vs_B1": null,
+   "PC1": -0.08136794157112871,
+   "PC2": -1.0187717175473465,
+   "PC3": -0.3535595557335344
+  },
+  {
+   "sample_id": "utfgcjfa",
+   "batch": 3,
+   "session": 2068,
+   "B3_score": 3.0043441846912433,
+   "B2_vs_B1": null,
+   "PC1": -0.1102053195127567,
+   "PC2": -0.09651889976978996,
+   "PC3": -0.0173573904474707
+  },
+  {
+   "sample_id": "vc2whyaq",
+   "batch": 3,
+   "session": 2068,
+   "B3_score": 2.040126354753001,
+   "B2_vs_B1": null,
+   "PC1": -0.4120910827683515,
+   "PC2": 0.3341405924457549,
+   "PC3": -0.19058022474879627
+  },
+  {
+   "sample_id": "x77cy643",
+   "batch": 3,
+   "session": 2068,
+   "B3_score": 3.9313893280818792,
+   "B2_vs_B1": null,
+   "PC1": -0.5811155752246945,
+   "PC2": 0.010690481667464634,
+   "PC3": -0.25007962599318617
+  },
+  {
+   "sample_id": "x7u69zsw",
+   "batch": 3,
+   "session": 2060,
+   "B3_score": 2.750152258271477,
+   "B2_vs_B1": null,
+   "PC1": -0.1510659179854904,
+   "PC2": 0.4845803720060307,
+   "PC3": 0.005660522884891618
+  },
+  {
+   "sample_id": "xgj4xftb",
+   "batch": 3,
+   "session": 1612,
+   "B3_score": 8.151951966852387,
+   "B2_vs_B1": null,
+   "PC1": -0.5672470202936466,
+   "PC2": 0.32184742668202393,
+   "PC3": 0.221304746901022
+  }
+ ],
+ "encodes": {
+  "porosity_frac": {
+   "r2": -0.14985005113400662,
+   "p": 0.6666666666666666
+  },
+  "si_solid_frac": {
+   "r2": -0.34945518839620227,
+   "p": 0.9215686274509803
+  },
+  "si_n_per_1000um2": {
+   "r2": -0.1282037203924693,
+   "p": 0.6274509803921569
+  },
+  "si_d50_um": {
+   "r2": -0.10672069186145539,
+   "p": 0.5098039215686274
+  },
+  "si_d90_um": {
+   "r2": -0.5342420618617234,
+   "p": 1.0
+  },
+  "si_aspect_aw": {
+   "r2": -0.3282008897706419,
+   "p": 0.9411764705882353
+  },
+  "si_agglom_d50_um": {
+   "r2": -0.6827876246129556,
+   "p": 1.0
+  },
+  "interface_density_per_um": {
+   "r2": -0.2934340425878603,
+   "p": 0.8627450980392157
+  },
+  "pore_n_per_1000um2": {
+   "r2": 0.265083716291711,
+   "p": 0.0196078431372549
+  },
+  "solid_chord_x_um": {
+   "r2": -0.3439416310002277,
+   "p": 0.9607843137254902
+  },
+  "solid_chord_y_um": {
+   "r2": -0.2960021560576358,
+   "p": 0.8823529411764706
+  },
+  "porosity_block_cv": {
+   "r2": -0.595996882639771,
+   "p": 0.9607843137254902
+  },
+  "si_block_cv": {
+   "r2": -0.5866760688024173,
+   "p": 1.0
+  },
+  "solid_chord_hv_ratio": {
+   "r2": -0.2252267740343008,
+   "p": 0.7450980392156863
+  },
+  "thin_solid_frac": {
+   "r2": -0.30371234522972435,
+   "p": 0.9019607843137255
+  },
+  "depth_porosity_b0_frac": {
+   "r2": 0.375056474104418,
+   "p": 0.0196078431372549
+  },
+  "depth_interface_b0_per_um": {
+   "r2": 0.42040301104294076,
+   "p": 0.0196078431372549
+  },
+  "depth_interface_b1_per_um": {
+   "r2": -0.35177794075819513,
+   "p": 0.9019607843137255
+  },
+  "depth_interface_slope_per_10um": {
+   "r2": 0.1426479108390799,
+   "p": 0.0196078431372549
+  },
+  "cc_interface_horiz_share_bottom_frac": {
+   "r2": -0.06754833460437171,
+   "p": 0.35294117647058826
+  },
+  "cc_interface_horiz_share_far_frac": {
+   "r2": -0.030922289763342548,
+   "p": 0.13725490196078433
+  },
+  "cc_interface_horiz_share_delta_frac": {
+   "r2": -0.02275443840870306,
+   "p": 0.09803921568627451
+  },
+  "cc_interface_horiz_len_bottom_um": {
+   "r2": -0.10271506668957797,
+   "p": 0.43137254901960786
+  },
+  "cc_interface_horiz_len_far_um": {
+   "r2": -0.048149713155182905,
+   "p": 0.23529411764705882
+  },
+  "inlens_depth_dark_b0_frac": {
+   "r2": 0.06898678923654511,
+   "p": 0.09803921568627451
+  },
+  "inlens_depth_dark_slope_per_10um": {
+   "r2": -0.09249321051898618,
+   "p": 0.4117647058823529
+  },
+  "inlens_depth_pore_slope_per_10um": {
+   "r2": 0.24779252981265076,
+   "p": 0.0196078431372549
+  },
+  "local_porosity_q25_frac": {
+   "r2": -0.7683391823954508,
+   "p": 0.9803921568627451
+  },
+  "local_porosity_dense_window_frac": {
+   "r2": -0.4769471638533702,
+   "p": 0.9607843137254902
+  },
+  "si_depth_b0_solid_frac": {
+   "r2": -0.08126837984356872,
+   "p": 0.43137254901960786
+  },
+  "si_depth_b1_solid_frac": {
+   "r2": -0.28994617644142595,
+   "p": 0.9215686274509803
+  },
+  "si_depth_rel_slope_per_10um": {
+   "r2": -0.07741586205852569,
+   "p": 0.37254901960784315
+  },
+  "si_depth_b0_d50_um": {
+   "r2": 0.005562906970614456,
+   "p": 0.09803921568627451
+  },
+  "si_depth_b1_d50_um": {
+   "r2": 0.002250464390706086,
+   "p": 0.0392156862745098
+  },
+  "si_depth_d50_slope_per_10um": {
+   "r2": -0.10106346463944438,
+   "p": 0.6470588235294118
+  }
+ }
+}
